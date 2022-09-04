@@ -31,6 +31,9 @@
 
     <!-- Template Main CSS File -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login-style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 
 
     <!-- =======================================================
@@ -44,7 +47,14 @@
 
 <body>
 
+
+    {% if 'login' not in request.path %}
+    {% if 'signup' not in request.path %}
     {% include 'include/navbar.html' %}
+    {% endif %}
+    {% endif %}
+
+
 
 
     {% block main %}
@@ -52,7 +62,14 @@
 
     {% endblock main %}
 
+
+    {% if 'login' not in request.path %}
+    {% if 'signup' not in request.path %}
     {% include 'include/footer.html' %}
+    {% endif %}
+    {% endif %}
+
+
 
 
 

@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<section class="w3l-hotair-form">
+	<!-- <h1>Report Login Form</h1> -->
+	<div class="container">
+		<!-- /form -->
+		<div class="workinghny-form-grid">
+			<div class="main-hotair">
+				<div class="content-wthree">
+					<h2>Log In</h2>
+					<form action="#" method="post">
+						<input type="text" class="text" name="text" placeholder="User Name" required="" autofocus>
+						<input type="password" class="password" name="password" placeholder="User Password" required=""
+							autofocus>
+						<button class="btn" type="submit">Log In</button>
+					</form>
+
+					<p class="account">Don't have an account? <a href="#signup">Register</a></p>
+				</div>
+				<div class="w3l_form align-self">
+					<div class="left_grid_info">
+						<img src="{% static 'img/1.png' %}" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //form -->
+	</div>
+</section>
+<!-- //form section start -->
+
+{% endblock main %}
