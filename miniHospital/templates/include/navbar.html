@@ -1,0 +1,37 @@
+{% load static %}
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <a href="#" class="logo me-auto"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+                <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+                <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
+                <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+                <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#">demo</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span>
+            Appointment</a>
+        <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</span></a>
+        <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Login</span></a>
+        <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Logout</span></a>
+
+
+    </div>
+</header><!-- End Header -->
