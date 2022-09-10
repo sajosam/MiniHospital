@@ -1,10 +1,11 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block main %}
-
+{% include 'include/navbar.html' %}
 
 
 <!-- ======= Hero Section ======= -->
+
 <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
@@ -13,7 +14,7 @@
         <div class="carousel-inner" role="listbox">
 
             <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url(static/img/slide/slide-1.jpg)">
+            <div class="carousel-item active" style="background-image: url(static/img/slide/wall1.jpg)">
                 <div class="container">
                     <h2>Welcome to <span>Medicio</span></h2>
                     <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut
@@ -26,7 +27,7 @@
             </div>
 
             <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url(static/img/slide/slide-2.jpg)">
+            <div class="carousel-item" style="background-image: url(static/img/slide/wall2.jpg)">
                 <div class="container">
                     <h2>Lorem Ipsum Dolor</h2>
                     <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut
@@ -39,7 +40,7 @@
             </div>
 
             <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url(static/img/slide/slide-3.jpg)">
+            <div class="carousel-item" style="background-image: url(static/img/slide/wall4.jpg)">
                 <div class="container">
                     <h2>Sequi ea ut et est quaerat</h2>
                     <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut
@@ -50,6 +51,35 @@
                     <a href="#about" class="btn-get-started scrollto">Read More</a>
                 </div>
             </div>
+
+            <!-- slide 4 -->
+
+            <div class="carousel-item" style="background-image: url(static/img/slide/wall5.jpg)">
+                <div class="container">
+                    <h2>Sequi ea ut et est quaerat</h2>
+                    <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut
+                        aliquam.
+                        Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus
+                        repellendus deleniti
+                        vel.</p>
+                    <a href="#about" class="btn-get-started scrollto">Read More</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image: url(static/img/slide/wall8.jpg)">
+                <div class="container">
+                    <h2>Sequi ea ut et est quaerat</h2>
+                    <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut
+                        aliquam.
+                        Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus
+                        repellendus deleniti
+                        vel.</p>
+                    <a href="#about" class="btn-get-started scrollto">Read More</a>
+                </div>
+            </div>
+
+
+
 
         </div>
 
@@ -74,36 +104,35 @@
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                            excepturi</p>
+                        <h4 class="title"><a href="">Cardio-Care</a></h4>
+                        <p class="description">specific branch of medicine dealing with health of the
+                            heart</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon"><i class="fas fa-pills"></i></div>
-                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore</p>
+                        <div class="icon"><i class="fas fa-clock-o"></i></div>
+                        <h4 class="title"><a href="">24*7</a></h4>
+                        <p class="description">We available at anytime</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon"><i class="fas fa-thermometer"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        </p>
+                        <div class="icon"><i class="fas fa-ambulance"></i></div>
+                        <h4 class="title"><a href="">Ambulance</a></h4>
+                        <p class="description">We provide ambulance service</p>
+
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
                         <div class="icon"><i class="fas fa-dna"></i></div>
-                        <h4 class="title"><a href="">Nemo Enim</a></h4>
-                        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        </p>
+                        <h4 class="title"><a href="">Research Center</a></h4>
+                        <p class="description">We have a Research Center for your betterment</p>
+
                     </div>
                 </div>
 
@@ -118,10 +147,8 @@
 
             <div class="text-center">
                 <h3>In an emergency? Need help now?</h3>
-                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est laborum.
+                <p> Emergency medicine is the medical speciality concerned with the care of illnesses or injuries
+                    requiring immediate medical attention
                 </p>
                 <a class="cta-btn scrollto" href="#appointment">Make an Make an Appointment</a>
             </div>
@@ -135,10 +162,13 @@
 
             <div class="section-title">
                 <h2>About Us</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
+                <p>MEDICARE-HEALTH is a quaternary care hospital network offering end-to-end healthcare services, right
+                    from
+                    primary to quaternary care in India and Middle-east. MEDICARE-HEALTH has pioneered the quality
+                    revolution
+                    in the field of healthcare delivery in the country, making quality healthcare affordable and
+                    accessible to everyone. Due to our relentless and keen focus on quality healthcare delivery,
+                </p>
             </div>
 
             <div class="row">
@@ -146,30 +176,23 @@
                     <img src="{% static 'img/about.jpg' %}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                    <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et
-                        dolore
-                        magna aliqua.
-                    </p>
+                    <h3>Why Choose
+                        Apollo Healthcare?</h3><br>
+
                     <ul>
-                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <li><i class="bi bi-check-circle"></i> 11000+ Healing Hands.
                         </li>
-                        <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate
+                        <li><i class="bi bi-check-circle"></i> 4,500+ Pharmacies.
                             velit.</li>
-                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute
-                            irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat
-                            nulla pariatur.
+                        <li><i class="bi bi-check-circle"></i> Best Clinical Outcomes.
+                            Most Advanced Healthcare Technology
                         </li>
                     </ul>
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
+                        Established by Dr James Hons in 2000, Medicare Healthcare has a robust presence across the
+                        healthcare ecosystem. From routine wellness & preventive health care to innovative life-saving
+                        treatments and diagnostic services, Apollo Hospitals has touched more than 120 million lives
+                        from over 120 countries, offering the best clinical outcomes.
                     </p>
                 </div>
             </div>
@@ -189,7 +212,7 @@
                         <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1"
                             class="purecounter"></span>
 
-                        <p><strong>Doctors</strong> consequuntur quae qui deca rode</p>
+                        <p><strong>Doctors</strong> High Qualified Doctors</p>
                         <a href="#">Find out more &raquo;</a>
                     </div>
                 </div>
@@ -199,7 +222,7 @@
                         <i class="far fa-hospital"></i>
                         <span data-purecounter-start="0" data-purecounter-end="26" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p><strong>Departments</strong> adipisci atque cum quia aut numquam delectus</p>
+                        <p><strong>Departments</strong> Specialized Department</p>
                         <a href="#">Find out more &raquo;</a>
                     </div>
                 </div>
@@ -209,7 +232,7 @@
                         <i class="fas fa-flask"></i>
                         <span data-purecounter-start="0" data-purecounter-end="14" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p><strong>Research Lab</strong> aut commodi quaerat. Aliquam ratione</p>
+                        <p><strong>Research Lab</strong> Advanced Research Lab</p>
                         <a href="#">Find out more &raquo;</a>
                     </div>
                 </div>
@@ -219,7 +242,7 @@
                         <i class="fas fa-award"></i>
                         <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p><strong>Awards</strong> rerum asperiores dolor molestiae doloribu</p>
+                        <p><strong>Awards</strong> Awarded for the Best MultiSpeciality Award </p>
                         <a href="#">Find out more &raquo;</a>
                     </div>
                 </div>
@@ -270,70 +293,61 @@
 
             <div class="section-title">
                 <h2>Services</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
+                <p>Largest network of the world’s finest and brightest medical experts who provide compassionate care
+                    using outstanding expertise and advanced technology..</p>
             </div>
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi
-                        sint
-                        occaecati cupiditate non provident</p>
+                    <h4 class="title"><a href="">11000+ Healing Hands</a></h4>
+                    <p class="description">Largest network of the world’s finest and brightest medical experts who
+                        provide compassionate care using outstanding expertise and advanced technology.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon"><i class="fas fa-pills"></i></div>
-                    <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo
-                        consequat tarad limino ata</p>
+                    <h4 class="title"><a href="">4,500+ Pharmacies</a></h4>
+                    <p class="description">Largest and most trusted branded pharmacy network, with over 4500 plus
+                        outlets covering the entire nation</p>
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
                     <div class="icon"><i class="fas fa-hospital-user"></i></div>
-                    <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat
-                        nulla pariatur</p>
+                    <h4 class="title"><a href="">Specialization</a></h4>
+                    <p class="description">Combining the best specialists and equipment to provide you nothing short of
+                        the best in healthcare</p>
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon"><i class="fas fa-dna"></i></div>
-                    <h4 class="title"><a href="">Magni Dolores</a></h4>
-                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt
-                        mollit anim id est laborum</p>
+                    <h4 class="title"><a href="">Research Center</a></h4>
+                    <p class="description">Medical research involves research in a wide range of fields, such as
+                        biology, chemistry, pharmacology and toxicology with the goal of developing new medicines or
+                        medical procedures or improving the application of those already available.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon"><i class="fas fa-wheelchair"></i></div>
-                    <h4 class="title"><a href="">Nemo Enim</a></h4>
-                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        praesentium
-                        voluptatum deleniti atque</p>
+                    <div class="icon"><i class="fas fa-clock-o"></i></div>
+                    <h4 class="title"><a href="">24*7</a></h4>
+                    <p class="description">24/7 customer support means customers can get help and find answers to
+                        questions as soon as they come up—24/7 and in real-time</p>
                 </div>
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon"><i class="fas fa-notes-medical"></i></div>
+                    <div class="icon"><i class="fas fa-notes-ambulance"></i></div>
                     <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                    <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
-                        cum
-                        soluta nobis est eligendi</p>
+                    <p class="description">An ambulance is a medically equipped vehicle which transports patients to
+                        treatment facilities, such as hospitals.[1] Typically, out-of-hospital medical care is provided
+                        to the patient during the transport.</p>
                 </div>
             </div>
 
         </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= Appointment Section ======= -->
+    <!-- ======= Appointment Section =======
     <section id="appointment" class="appointment section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
                 <h2>Make an Appointment</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
+                <p>Book</p>
             </div>
 
             <form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
@@ -385,8 +399,8 @@
                 <div class="text-center"><button type="submit">Make an Appointment</button></div>
             </form>
 
-        </div>
-    </section><!-- End Appointment Section -->
+        </div> -->
+    <!-- </section>End Appointment Section -->
 
     <!-- ======= Departments Section ======= -->
     <section id="departments" class="departments">
@@ -394,10 +408,8 @@
 
             <div class="section-title">
                 <h2>Departments</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
+                <p>Largest network of the world’s finest and brightest medical experts who provide compassionate care
+                    using outstanding expertise and advanced technology.</p>
             </div>
 
             <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -406,25 +418,25 @@
                         <li class="nav-item">
                             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
                                 <h4>Cardiology</h4>
-                                <p>Quis excepturi porro totam sint earum quo nulla perspiciatis eius.</p>
+                                <p>Deals With Heart and Blood Vessels</p>
                             </a>
                         </li>
                         <li class="nav-item mt-2">
                             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
                                 <h4>Neurology</h4>
-                                <p>Voluptas vel esse repudiandae quo excepturi.</p>
+                                <p>Treatment of disorders of the nervous system.</p>
                             </a>
                         </li>
                         <li class="nav-item mt-2">
                             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-                                <h4>Hepatology</h4>
-                                <p>Velit veniam ipsa sit nihil blanditiis mollitia natus.</p>
+                                <h4>Orthopedic</h4>
+                                <p>specialize in the musculoskeletal system.</p>
                             </a>
                         </li>
                         <li class="nav-item mt-2">
                             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
                                 <h4>Pediatrics</h4>
-                                <p>Ratione hic sapiente nostrum doloremque illum nulla praesentium id</p>
+                                <p>Medical care of infants, children, adolescents, and young adults.</p>
                             </a>
                         </li>
                     </ul>
@@ -433,51 +445,39 @@
                     <div class="tab-content">
                         <div class="tab-pane active show" id="tab-1">
                             <h3>Cardiology</h3>
-                            <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde
-                                sonata raqer a
-                                videna mareta paulona marka</p>
-                            <img src="{% static 'img/departments-1.jpg' %}" alt="" class="img-fluid">
-                            <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                ipsum ipsa odit
-                                magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
-                                nihil.
-                                Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                            <p class="fst-italic">specializes in diagnosing and treating diseases of the heart, blood
+                                vessels, and circulatory system.</p>
+                            <img src="{% static 'img/dept/card1.jpg' %}" alt="" class="img-fluid">
+                            <p>Cardiology is a branch of medicine that deals with disorders of the heart and the
+                                cardiovascular system. The field includes medical diagnosis and treatment of congenital
+                                heart defects, coronary artery disease, heart failure, valvular heart disease and
+                                electrophysiology. </p>
                         </div>
                         <div class="tab-pane" id="tab-2">
                             <h3>Neurology</h3>
-                            <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde
-                                sonata raqer a
-                                videna mareta paulona marka</p>
-                            <img src="{% static 'img/departments-2.jpg' %}" alt="" class="img-fluid">
-                            <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                ipsum ipsa odit
-                                magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
-                                nihil.
-                                Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                            <p class="fst-italic">treatment of disorders of the nervous system.</p>
+                            <img src="{% static 'img/dept/neuro.jpg' %}" alt="" class="img-fluid">
+                            <p>Neurology is the branch of medicine concerned with the study and treatment of disorders
+                                of the nervous system. The nervous system is a complex, sophisticated system that
+                                regulates and coordinates body activities.</p>
                         </div>
                         <div class="tab-pane" id="tab-3">
-                            <h3>Hepatology</h3>
-                            <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde
-                                sonata raqer a
-                                videna mareta paulona marka</p>
-                            <img src="{% static 'img/departments-3.jpg' %}" alt="" class="img-fluid">
-                            <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                ipsum ipsa odit
-                                magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
-                                nihil.
-                                Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                            <h3>Orthopedic</h3>
+                            <p class="fst-italic">bones, joints, ligaments, tendons, and muscles that are so essential
+                                to movement and everyday life.</p>
+                            <img src="{% static 'img/dept/ortho.jpg' %}" alt="" class="img-fluid">
+                            <p>A person who specializes in orthopedics is known as an orthopedist. Orthopedists use
+                                surgical and nonsurgical approaches to treat musculoskeletal issues, such as sports
+                                injuries, joint pain, and back problems.</p>
                         </div>
                         <div class="tab-pane" id="tab-4">
                             <h3>Pediatrics</h3>
-                            <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde
-                                sonata raqer a
-                                videna mareta paulona marka</p>
-                            <img src="{% static 'img/departments-4.jpg' %}" alt="" class="img-fluid">
-                            <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                ipsum ipsa odit
-                                magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
-                                nihil.
-                                Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                            <p class="fst-italic">Pediatricians have specialized training in the physical, emotional,
+                                and behavioral needs of children.</p>
+                            <img src="{% static 'img/dept/pedi.jpg' %}" alt="" class="img-fluid">
+                            <p>A pediatrician is a medical doctor who manages the physical, behavioral, and mental care
+                                for children from birth until age 18. A pediatrician is trained to diagnose and treat a
+                                broad range of childhood illnesses, from minor health problems to serious diseases.</p>
                         </div>
                     </div>
                 </div>
@@ -493,11 +493,9 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Doctors</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit
-                    in iste officiis commodi quidem hic quas.</p>
+                <h2>Featured Doctors</h2>
+                <p>Hospital doctors treat those who have been admitted or referred to hospital. Specific
+                    responsibilities vary greatly depending on the area of specialism,</p>
             </div>
 
             <div class="row">
@@ -780,5 +778,6 @@
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
+{% include 'include/footer.html' %}
 
 {% endblock main %}

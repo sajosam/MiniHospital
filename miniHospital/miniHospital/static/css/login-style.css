@@ -268,7 +268,7 @@ textarea {
   outline: none;
   margin-bottom: 15px;
   font-size: 16px;
-  color: hsla(261, 89%, 7%, 0.34);
+  color: hsla(240, 92%, 5%, 0.675);
   text-align: left;
   padding: 14px 20px;
   width: 100%;
@@ -277,7 +277,7 @@ textarea {
   border: none;
   outline: none;
   background: #f7fafc;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #dbd6d6;
   transition: 0.3s ease;
   -webkit-transition: 0.3s ease;
   -moz-transition: 0.3s ease;
@@ -327,7 +327,7 @@ textarea {
 }
 
 .w3l-hotair-form .social-icons ul span.fa {
-  color: #696687;
+  color: #07060d;
   font-size: 18px;
   opacity: 0.8;
 }

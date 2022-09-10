@@ -37,9 +37,10 @@
 			<div class="main-hotair">
 				<div class="content-wthree">
 					<h2>Log In</h2>
-					<form action="{% url 'login' %}" method="post" name="logform" onsubmit="returnvalidate()">
+					<form action="{% url 'login' %}" method="post" name="logform">
+						{{error}}
 						{% csrf_token %}
-						<input type="email" class="text" name="text" placeholder="Email" required autofocus>
+						<input type="email" class="text" name="email" placeholder="Email" required>
 						<input type="password" class="password" name="password" placeholder="User Password" required=""
 							autofocus>
 						<button class="btn" type="submit">Log In</button>

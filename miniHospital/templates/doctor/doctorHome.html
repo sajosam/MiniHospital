@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="userpro">
+        <img src="{% static 'img/doctors/doctors-1.jpg' %}" alt="">
+        <!-- <p>{{user.first_name}} {{user.last_name}}</p> -->
+    </div>
+    <h3>Dr. name</h3>
+    <a href="#">Profile</a>
+    <a href="#">Update Profile</a>
+    <a href="#">View Appointments</a>
+    <a href="#">View Schedule</a>
+    <a href="#">Apply Leave</a>
+    <a href="#">Leave Status</a>
+    <a href="#">Logout</a>
+
+
+</div>
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+{% endblock main %}

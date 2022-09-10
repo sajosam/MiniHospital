@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'doctor',
+    'lab',
+    'multiselectfield',
     
 ]
 
@@ -90,7 +94,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'miniHospital',
+        'NAME': 'Mini-Hospital',
 
         'USER': 'postgres',
 
@@ -103,6 +107,9 @@ DATABASES = {
     }
 
 }
+
+AUTH_USER_MODEL = 'accounts.Account'
+
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
@@ -159,3 +166,14 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'miniHospital/static/'),]
+
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config( 
+  cloud_name = "mini-hospital", 
+  api_key = "187234116793571", 
+  api_secret = "g6WHXy2HuZImrg7e3Nz2fpZfqFY" 
+)

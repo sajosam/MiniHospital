@@ -4,6 +4,32 @@
 
 {% block main %}
 
+
+<!-- <script>
+    // validate form
+    function validate() {
+        if (document.logform.email.value != null && document.logform.email.value != "") {
+            // check if email is valid
+            var email = document.logform.email.value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!filter.test(email)) {
+                alert('Please provide a valid email address');
+                document.logform.email.focus;
+                return false;
+            }
+        } else {
+            alert('Please provide your email address');
+            document.logform.email.focus;
+            return false;
+        }
+        if (document.logform.password.value == "") {
+            alert("Please enter your password");
+            document.logform.password.focus();
+            return false;
+        }
+    }
+</script> -->
+
 <section class="w3l-hotair-form">
     <!-- <h1>Report Login Form</h1> -->
     <div class="container">
@@ -12,30 +38,58 @@
             <div class="main-hotair">
                 <div class="content-wthree">
                     <h2>Sign Up</h2>
-                    <form action="{% url 'signup' %}" method="post">
+                    <form action="{% url 'signup' %}" method="post" id="signup">
                         {% csrf_token %}
-                        <input type="text" class="text" name="first_name" placeholder="First Name" required autofocus>
-                        <input type="text" class="text" name="last_name" placeholder="Last Name" required autofocus>
-                        <input type="email" class="text" name="email" placeholder="Mail" required autofocus>
-                        <input type="password" class="password" name="password" placeholder="User Password" required
-                            autofocus>
-                        <input type="password" class="password" name="confirm_password" placeholder="Confirm Password"
-                            required autofocus>
-                        <input type="tel" class="tel" name="contact" placeholder="Enter Contact Number" required
-                            autofocus>
-                        <input type="date" class="date" name="dob" placeholder="Date of Birth" required autofocus>
+                        <div id="f-name">
+                            <input type="text" class="text" name="first_name" id="first_name" placeholder="First Name"
+                                required autofocus>
+                        </div>
+                        <div id="l-name"><input type="text" class="text" name="last_name" id="last_name"
+                                placeholder="Last Name" required autofocus></div>
+                        <div id="e"><input type="email" class="text" name="email" id="email" placeholder="Email"
+                                required autofocus></div>
+                        <div id="p"><input type="password" class="password" name="password" id="password"
+                                placeholder="User Password" required autofocus></div>
+                        <div id="cp"><input type="password" class="password" name="confirm_password"
+                                id="confirm_password" placeholder="Confirm Password" required autofocus></div>
+                        <div id="ph"><input type="tel" class="tel" name="contact" id="contact"
+                                placeholder="Enter Contact Number" required autofocus></div>
+                        <div id="d"><input type="text" class="date" name="dob" id="dob" placeholder="Date of Birth"
+                                required onfocus="(this.type='date')" autofocus></div>
                         <!-- dropdown gender -->
-                        <select name="gender" id="" class="text">
-                            <option value="" disable>Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                        <div id="g"><select name="gender" id="gender" class="text">
+                                <option value="" disable>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
 
+                            </select></div>
+                        <select name="state" class="text" required>
+                            <option value="" selected disabled>Select your current state</option>
+                            <option value="Kerala">Kerala</option>
                         </select>
-                        <button class="btn" type="submit" name="signup">Log In</button>
+                        <select name="district" required class="text">
+                            <option value="" selected disabled>Select your current district</option>
+                            <option value="Trivandrum">Trivandrum</option>
+                            <option value="Kollam">Kollam</option>
+                            <option value="Pathanamthitta">Pathanamthitta</option>
+                            <option value="Alappuzha">Alappuzha</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Idukki">Idukki</option>
+                            <option value="Ernakulam">Ernakulam</option>
+                            <option value="Thrissur">Thrissur</option>
+                            <option value="Palakkad">Palakkad</option>
+                            <option value="Malappuram">Malappuram</option>
+                            <option value="Kozhikode">Kozhikode</option>
+                            <option value="Wayanad">Wayanad</option>
+                            <option value="Kannur">Kannur</option>
+                            <option value="Kasaragod">Kasaragod</option>
+                        </select>
+                        <button class="btn" type="submit" name="signup">Sign
+                            Up</button>
                     </form>
 
-                    <p class="account">Already Registered <a href="{% url 'login' %}">Login</a></p>
+                    <p class=" account">Already Registered <a href="{% url 'login' %}">Login</a></p>
                 </div>
                 <div class="w3l_form align-self">
                     <div class="left_grid_info">

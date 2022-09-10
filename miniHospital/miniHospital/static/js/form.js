@@ -6,6 +6,8 @@ const confirmPasswordEl = document.querySelector("#confirm_password");
 const contactEl = document.querySelector("#contact");
 const genderEl = document.querySelector("#gender");
 const dobEl = document.querySelector("#dob");
+const stateE1 = document.querySelector("#state");
+const districtEl = document.querySelector("#district");
 
 const form = document.querySelector("#signup");
 
@@ -13,9 +15,15 @@ const Checkfirst_nameE1 = () => {
   let valid = false;
   const first_name = first_nameE1.value.trim();
   if (!isRequired(first_name)) {
-    setErrorFor(first_nameE1, "First name is required");
+    // setErrorFor(first_nameE1, "First name is required");
+    // document.getElementById("f-name").style.borderColor = "red";
+    // document.getElementById("f-name").innerHTML = "Enter first_name";
+    alert("First name is required");
   } else if (!isLength(first_name, 3)) {
-    setErrorFor(first_nameE1, "First name must be at least 3 characters");
+    // document.getElementById("f-name").style.borderColor = "red";
+    // document.getElementById("f-name").innerHTML =
+    //   "First name must be at least 3 characters";
+    alert("First name must be at least 3 characters");
   } else {
     setSuccessFor(first_nameE1);
     valid = true;
@@ -27,7 +35,10 @@ const Checklast_nameE1 = () => {
   let valid = false;
   const last_name = last_nameE1.value.trim();
   if (!isRequired(last_name)) {
-    setErrorFor(last_nameE1, "Last name is required");
+    // setErrorFor(last_nameE1, "Last name is required");
+    // document.getElementById("l-name").style.borderColor = "red";
+    // document.getElementById("l-name").innerHTML = "Enter last_name";
+    alert("Last name is required");
   } else {
     setSuccessFor(last_nameE1);
     valid = true;
@@ -39,9 +50,15 @@ const checkEmail = () => {
   let valid = false;
   const email = emailEl.value.trim();
   if (!isRequired(email)) {
-    showError(emailEl, "Email cannot be blank.");
+    // showError(emailEl, "Email cannot be blank.");
+    // document.getElementById("e").style.borderColor = "red";
+    // document.getElementById("e").innerHTML = "Enter email";
+    alert("Email cannot be blank.");
   } else if (!isEmailValid(email)) {
-    showError(emailEl, "Email is not valid.");
+    // showError(emailEl, "Email is not valid.");
+    // document.getElementById("e").style.borderColor = "red";
+    // document.getElementById("e").innerHTML = "Enter valid email";
+    alert("Email is not valid.");
   } else {
     showSuccess(emailEl);
     valid = true;
@@ -55,10 +72,19 @@ const checkPassword = () => {
   const password = passwordEl.value.trim();
 
   if (!isRequired(password)) {
-    showError(passwordEl, "Password cannot be blank.");
+    // showError(passwordEl, "Password cannot be blank.");
+    // document.getElementById("p").style.borderColor = "red";
+    // document.getElementById("p").innerHTML = "Enter password";
+    alert("Password cannot be blank.");
   } else if (!isPasswordSecure(password)) {
-    showError(
-      passwordEl,
+    // showError(
+    //   passwordEl,
+    //   "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)"
+    // );
+    // document.getElementById("p").style.borderColor = "red";
+    // document.getElementById("p").innerHTML =
+    //   "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)";
+    alert(
       "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)"
     );
   } else {
@@ -76,9 +102,15 @@ const checkConfirmPassword = () => {
   const password = passwordEl.value.trim();
 
   if (!isRequired(confirmPassword)) {
-    showError(confirmPasswordEl, "Please enter the password again");
+    // showError(confirmPasswordEl, "Please enter the password again");
+    // document.getElementById("cf").style.borderColor = "red";
+    // document.getElementById("cf").innerHTML = "Enter confirm_password";
+    alert("Please enter the password again");
   } else if (password !== confirmPassword) {
-    showError(confirmPasswordEl, "The password does not match");
+    // showError(confirmPasswordEl, "The password does not match");
+    // document.getElementById("cf").style.borderColor = "red";
+    // document.getElementById("cf").innerHTML = "The password does not match";
+    alert("The password does not match");
   } else {
     showSuccess(confirmPasswordEl);
     valid = true;
@@ -91,9 +123,15 @@ const CheckContact = () => {
   let valid = false;
   const contact = contactEl.value.trim();
   if (!isRequired(contact)) {
-    showError(contactEl, "Contact cannot be blank");
+    // showError(contactEl, "Contact cannot be blank");
+    // document.getElementById("ph").style.borderColor = "red";
+    // document.getElementById("ph").innerHTML = "Enter contact";
+    alert("Contact cannot be blank");
   } else if (!isContactValid(contact)) {
-    showError(contactEl, "Contact is not valid");
+    // showError(contactEl, "Contact is not valid");
+    // document.getElementById("ph").style.borderColor = "red";
+    // document.getElementById("ph").innerHTML = "Enter valid contact";
+    alert("Contact is not valid");
   } else {
     showSuccess(contactEl);
     valid = true;
@@ -105,7 +143,10 @@ const Checkgender = () => {
   let valid = false;
   const gender = genderEl.value.trim();
   if (!isRequired(gender)) {
-    showError(genderEl, "Gender cannot be blank");
+    // showError(genderEl, "Gender cannot be blank");
+    // document.getElementById("g").style.borderColor = "red";
+    // document.getElementById("g").innerHTML = "Enter gender";
+    alert("gender cannot be blank.");
   } else {
     showSuccess(genderEl);
     valid = true;
@@ -117,9 +158,42 @@ const Checkdob = () => {
   let valid = false;
   const dob = dobEl.value.trim();
   if (!isRequired(dob)) {
-    showError(dobEl, "DOB cannot be blank");
+    // showError(dobEl, "DOB cannot be blank");
+    // document.getElementById("d").style.borderColor = "red";
+    // document.getElementById("d").innerHTML = "Enter dob";
+    alert("DOB cannot be blank.");
   } else {
     showSuccess(dobEl);
+    valid = true;
+  }
+  return valid;
+};
+
+const CheckState = () => {
+  let valid = false;
+  const state = stateEl.value.trim();
+  if (!isRequired(state)) {
+    // showError(stateEl, "State cannot be blank");
+    // document.getElementById("s").style.borderColor = "red";
+    // document.getElementById("s").innerHTML = "Enter state";
+    alert("State cannot be blank.");
+  } else {
+    showSuccess(stateEl);
+    valid = true;
+  }
+  return valid;
+};
+
+const CheckDistrict = () => {
+  let valid = false;
+  const district = districtEl.value.trim();
+  if (!isRequired(district)) {
+    // showError(districtEl, "District cannot be blank");
+    // document.getElementById("d").style.borderColor = "red";
+    // document.getElementById("d").innerHTML = "Enter district";
+    alert("District cannot be blank.");
+  } else {
+    showSuccess(districtEl);
     valid = true;
   }
   return valid;
@@ -185,7 +259,9 @@ form.addEventListener("submit", function (e) {
     isGenderValid = Checkgender(),
     isDobValid = Checkdob(),
     isFirstNameValid = Checkfirst_nameE1(),
-    isLastNameValid = Checklast_nameE1();
+    isLastNameValid = Checklast_nameE1(),
+    isStateValid = CheckState(),
+    isDistrictValid = CheckDistrict();
 
   let isFormValid =
     isEmailValid &&
@@ -195,7 +271,9 @@ form.addEventListener("submit", function (e) {
     isGenderValid &&
     isDobValid &&
     isFirstNameValid &&
-    isLastNameValid;
+    isLastNameValid &&
+    isStateValid &&
+    isDistrictValid;
 
   // submit to the server if the form is valid
   if (isFormValid) {
