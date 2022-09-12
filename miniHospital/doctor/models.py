@@ -1,6 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-import datetime
+from datetime import date
 from accounts.models import Account
 from django import forms
 from multiselectfield import MultiSelectField
@@ -183,8 +183,8 @@ class Doctor(models.Model):
         # ('MLT','MLT'), #Medical Laboratory Technology
 
     id = models.AutoField(primary_key=True)
-    email = models.OneToOneField(Account, on_delete=models.CASCADE)
-    year_of_service = models.DateField(default=datetime.date.today())
+    email = models.ForeignKey(Account, on_delete=models.CASCADE)
+    year_of_service = models.IntegerField(blank=False, null=False)
     # qual_name = models.ForeignKey(Qualification, on_delete=models.CASCADE,related_name='q-realated')
     qual_name = MultiSelectField(choices=qualification_names, max_choices=5, max_length=100)
     spec_name = models.ForeignKey(Specialization, on_delete=models.CASCADE,related_name='spec_name_related')

@@ -16,8 +16,10 @@ def login(request):
         user = authenticate(request, email=email, password=pswd)
         if user is not None:
             auth.login(request, user)
-            # if user.is_admin:
-            #     return redirect('admin')
+            # save email in session
+            request.session['email'] = email
+            if user.is_admin:
+                return redirect('admin/')
             if user.is_doctor:
                 return redirect('doctorHome')
             elif user.is_lab:
@@ -49,3 +51,7 @@ def signup(request):
         messages.success(request, 'Thank you for registering with us. Please Login')
         return redirect('login')
     return render(request, 'accounts/signup.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')

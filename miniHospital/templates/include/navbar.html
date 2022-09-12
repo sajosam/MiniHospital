@@ -27,10 +27,16 @@
                 </li>
                 <li class="dropdown"><a href="#"><span>Accounts</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
+
+                        {% if not user.is_authenticated %}
+
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'signup' %}">Register</a></li>
+                        {% else %}
                         <li><a href="#">Update Profile</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        {% endif %}
+
 
                     </ul>
                 </li>

@@ -856,7 +856,7 @@ section {
 .counts .count-box i {
   display: block;
   font-size: 30px;
-  color: #3fbbc0;
+  color: #0d0222;
   float: left;
 }
 
@@ -948,6 +948,7 @@ section {
 
 .services .icon-box:hover .icon {
   box-shadow: 0px 0 25px rgba(63, 187, 192, 0.3);
+  background: #0d0222;
 }
 
 .services .title {

@@ -20,7 +20,10 @@ from django.urls import path, include
 # )
 
 
+
 urlpatterns = [
+    # path('/accounts/login/admin', RedirectView.as_view(url='/admin/')),
+    # url(r'accounts/login/admin/', RedirectView.as_view(url=reverse('admin:index'))),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('doctor/', include('doctor.urls')),

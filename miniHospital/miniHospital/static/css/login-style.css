@@ -455,3 +455,13 @@ p.copy-footer-29 a:hover {
 
 /*-- //responsive design --*/
 /*-- //form styling --*/
+
+.d-header {
+  background: #0d0222;
+  padding: 1em;
+  border-bottom: 1px solid #e6e6e6;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  border-radius: 10px;
+}

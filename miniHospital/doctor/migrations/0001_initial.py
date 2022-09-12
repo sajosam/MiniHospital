@@ -33,7 +33,6 @@ class Migration(migrations.Migration):
             name='Doctor',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('year_of_service', models.DateField(default=datetime.date(2022, 9, 7))),
                 ('license_no', models.CharField(blank=True, max_length=100)),
                 ('is_doctor', models.BooleanField(default=True)),
                 ('is_active', models.BooleanField(default=True)),
