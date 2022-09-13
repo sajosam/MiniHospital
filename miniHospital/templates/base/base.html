@@ -61,14 +61,18 @@
 
     {% endblock main %}
 
+    <!-- <script>
+        function logvalidate() {
+            var email = document.getElementById('email1').value;
+            var password = document.getElementById('password').value;
 
-
-
-
-
-
-
-
+            if (email == "") {
+                document.getElementById('email1').placeholder = "please provide email";
+                return false;
+            }
+            return true;
+        }
+    </script> -->
 
 
 
@@ -87,6 +91,7 @@
     <!-- Template Main JS File -->
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
+
 
 </body>
 

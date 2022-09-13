@@ -4,72 +4,130 @@
 {% block dr %}
 
 <!-- display doctor details -->
-<div class="container">
-    <div class="row">
+<div class="container dr-pro">
+    <div class="row ">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card dr-inner">
                 <div class="card-header">
-                    <h3>Doctor Profile</h3>
+                    <h4 align="center">Doctor Profile</h4>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
                                 <input type="text" class="form-control" id="first_name" value="{{usr.first_name}}"
                                     disabled>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="last_name">Last Name</label>
                                 <input type="text" class="form-control" id="last_name" value="{{usr.last_name}}"
                                     disabled>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" id="email" value="{{usr.email}}" disabled>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" value="{{usr.contact}}" disabled>
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" value="{{usr.username}}" disabled>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" id="email" value="{{usr.state}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="district">District</label>
+                                <input type="text" class="form-control" id="username" value="{{usr.district}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <input type="text" class="form-control" id="email" value="{{usr.gender}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dob">DOB</label>
+                                <input type="text" class="form-control" id="username" value="{{usr.dob}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Year of service">Year of service</label>
+                                <input type="text" class="form-control" id="email" value="{{doctor.year_of_service}}"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exp">Experience</label>
+                                <input type="text" class="form-control" id="exp" value="{{exp}}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="speciality">Speciality</label>
                                 <input type="text" class="form-control" id="speciality" value="{{doctor.spec_name}}"
                                     disabled>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
+
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="qualification">Qualification</label>
                                 <input type="text" class="form-control" id="qualification" value="{{doctor.qual_name}}"
                                     disabled>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+
+                    <div class="row dr-inner-margin">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="experience">Experience</label>
-                                <input type="text" class="form-control" id="experience" value="{{exp}}" disabled>
+                                <label for="designation">Designation</label>
+                                <input type="text" class="form-control" id="designation" value="{{doctor.des_name}}"
+                                    disabled>
                             </div>
                         </div>
 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Lisence No">Lisence No</label>
+                                <input type="text" class="form-control" id="Lisence" value="{{doctor.license_no}}"
+                                    disabled>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="card-header" align="center">
+                    <a href="#"><button class="btn btn-primary">Update Profile</button></a>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

@@ -1,5 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
+  background-color: #3fbbc0;
 }
 
 .sidenav {
@@ -9,7 +10,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #0d0222;
+  background-color: #f1f1f1;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -19,13 +20,13 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 18px;
-  color: #f1f1f1;
+  color: #049a9f;
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #3fbbc0;
+  color: #0d0222;
 }
 
 .sidenav .closebtn {
@@ -48,4 +49,33 @@ body {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.dr-pro {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  margin: 2%;
+}
+
+.card-header h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 9px;
+}
+
+.dr-inner {
+  background-color: #f1f1f1;
+  color: #0d0222;
+  padding: 10px;
+}
+
+.dr-inner-margin {
+  margin: 20px;
+}
+
+.dr-img {
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
 }

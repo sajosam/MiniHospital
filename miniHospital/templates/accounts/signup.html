@@ -14,38 +14,47 @@
             <div class="main-hotair">
                 <div class="content-wthree">
                     <h2>Sign Up</h2>
-                    <form action="{% url 'signup' %}" method="post" id="signup">
+                    {% include 'include/alerts.html' %}
+                    <form onsubmit="return regvalidate()" action="{% url 'signup' %}" method="post" id="signup">
                         {% csrf_token %}
+                        <!-- {{error}} -->
                         <div id="f-name">
-                            <input type="text" class="text" name="first_name" id="first_name" placeholder="First Name"
-                                required autofocus>
+                            <input type="text" class="text" name="first_name" id="first_name" placeholder="First Name">
                         </div>
+                        <span id="error_f_name"> </span>
                         <div id="l-name"><input type="text" class="text" name="last_name" id="last_name"
-                                placeholder="Last Name" required autofocus></div>
+                                placeholder="Last Name" autocomplete="off"></div>
+                        <span id="error_last_name"></span>
                         <div id="e"><input type="email" class="text" name="email" id="email" placeholder="Email"
-                                required autofocus></div>
+                                autocomplete="off"></div>
+                        <span id="error_email"> </span>
                         <div id="p"><input type="password" class="password" name="password" id="password"
-                                placeholder="User Password" required autofocus></div>
+                                placeholder="User Password" autocomplete="off"></div>
+                        <span id="error_password"></span>
                         <div id="cp"><input type="password" class="password" name="confirm_password"
-                                id="confirm_password" placeholder="Confirm Password" required autofocus></div>
+                                id="confirm_password" placeholder="Confirm Password"></div>
+                        <span id="error_c_password"></span>
                         <div id="ph"><input type="tel" class="tel" name="contact" id="contact"
-                                placeholder="Enter Contact Number" required autofocus></div>
+                                placeholder="Enter Contact Number"></div>
+                        <span id="error_contact"></span>
                         <div id="d"><input type="text" class="date" name="dob" id="dob" placeholder="Date of Birth"
-                                required onfocus="(this.type='date')" autofocus></div>
+                                onfocus="(this.type='date')"></div>
+                        <span id="error_dob"></span>
                         <!-- dropdown gender -->
                         <div id="g"><select name="gender" id="gender" class="text">
-                                <option value="" disable>Select Gender</option>
+                                <option id="error_gender" value="" disable>Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
 
                             </select></div>
-                        <select name="state" class="text" required>
-                            <option value="" selected disabled>Select your current state</option>
+                        <span id="error_gender"></span>
+                        <select name="state" class="text">
+                            <option id="error_state" value="" selected disabled>Select your current state</option>
                             <option value="Kerala">Kerala</option>
                         </select>
-                        <select name="district" required class="text">
-                            <option value="" selected disabled>Select your current district</option>
+                        <select name="district" class="text">
+                            <option id="error_district" value="" selected disabled>Select your current district</option>
                             <option value="Trivandrum">Trivandrum</option>
                             <option value="Kollam">Kollam</option>
                             <option value="Pathanamthitta">Pathanamthitta</option>
@@ -61,6 +70,7 @@
                             <option value="Kannur">Kannur</option>
                             <option value="Kasaragod">Kasaragod</option>
                         </select>
+                        <span id="error_district"></span>
                         <button class="btn" type="submit" name="signup">Sign
                             Up</button>
                     </form>
@@ -76,7 +86,92 @@
         </div>
         <!-- //form -->
     </div>
+
 </section>
-<!-- //form section start -->
+
+<script type="text/javascript">
+    function regvalidate() {
+        var first_name = document.getElementById('first_name').value;
+        var last_name = document.getElementById('last_name').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var confirm_password = document.getElementById('confirm_password').value;
+        var contact = document.getElementById('contact').value;
+        var dob = document.getElementById('dob').value;
+        // var gender = document.getElementById('gender').value;
+        // var state = document.getElementById('state').value;
+        // var district = document.getElementById('district').value;
+
+        console.log(first_name);
+        if (first_name == "") {
+            document.getElementById('first_name').placeholder = "Please enter your first name";
+            document.getElementById('first_name').style.border = "1px solid red";
+
+            return false;
+        } else if (last_name == "") {
+            document.getElementById('last_name').placeholder = "Please enter your last name";
+            document.getElementById('last_name').style.border = "1px solid red";
+
+            return false;
+        } else if (email == "") {
+            document.getElementById('email').placeholder = "Please enter your email";
+            document.getElementById('email').style.border = "1px solid red";
+
+            return false;
+            // } else if (email) {
+            //     var regex = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})(.[a-z]{2,8})?$/;
+            //     if (!regex.test(email)) {
+            //         document.getElementById('error_email').innerHTML = "Please enter valid email";
+            //         document.getElementById('error_email').style.color = "red";
+            //         return false;
+            //     }
+        } else if (password == "") {
+            document.getElementById('password').placeholder = "Please enter your password";
+            document.getElementById('password').style.border = "1px solid red";
+
+            return false;
+            // } else if (password) {
+            //     var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+            //     if (!regex.test(password)) {
+            //         document.getElementById('error_password').innerHTML =
+            //             "Password must contain atleast 8 characters, 1 uppercase, 1 lowercase, 1 number";
+            //         document.getElementById('error_password').style.color = "red";
+            //         return false;
+            //     }
+        } else if (confirm_password == "") {
+            document.getElementById('confirm_password').placeholder = "Please enter your confirm password";
+            document.getElementById('confirm_password').style.border = "1px solid red";
+
+            return false;
+        } else if (password != confirm_password) {
+            document.getElementById('confirm_password').placeholder = "Password does not match";
+            document.getElementById('confirm_password').style.border = "1px solid red";
+            return false;
+        } else if (contact == "") {
+            document.getElementById('contact').placeholder = "Please enter your contact number";
+            document.getElementById('contact').style.border = "1px solid red";
+            return false;
+        } else if (contact.length != 10) {
+            document.getElementById('contact').placeholder = "Please enter valid contact number";
+            document.getElementById('contact').style.border = "1px solid red";
+            return false;
+        } else if (dob == "") {
+            document.getElementById('dob').placeholder = "Please enter your date of birth";
+            document.getElementById('dob').style.border = "1px solid red";
+            return false;
+            // } else if (gender == "") {
+            //     document.getElementById('error_gender').innerHTML = "enter gender";
+            //     return false;
+            // } else if (state == "") {
+            //     document.getElementById('error_state').innerHTML = "enter state";
+            //     return false;
+            // } else if (district == "") {
+            //     document.getElementById('error_district').innerHTML = "enter district";
+            //     return false;
+        }
+        return true;
+
+    }
+</script>
 
 {% endblock main %}

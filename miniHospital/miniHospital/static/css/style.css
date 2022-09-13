@@ -183,7 +183,8 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 50px;
+  display: block;
 }
 
 /**
@@ -222,6 +223,7 @@ h6 {
 */
 .navbar {
   padding: 0;
+  /* overflow: hidden; */
 }
 
 .navbar ul {
@@ -1099,7 +1101,7 @@ section {
 }
 
 .departments .nav-link:hover {
-  background: #0d0222;
+  background: #3fbbc0;
   color: #ffffff;
 }
 .departments .nav-link h4 {
@@ -1119,10 +1121,13 @@ section {
 
 .departments .nav-link.active {
   color: #f7fcfc;
-  background: #0d0222;
+  background: #3fbbc0;
 }
 
 .departments .nav-link.active h4 {
+  color: #ffffff;
+}
+.nav-item:hover {
   color: #ffffff;
 }
 

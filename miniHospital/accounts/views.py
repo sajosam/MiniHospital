@@ -45,6 +45,10 @@ def signup(request):
         contact = request.POST.get('contact')
         password = request.POST.get('password')
         gender = request.POST.get('gender')
+        # check if user already exists
+        if Account.objects.filter(email=email).exists():
+            messages.error(request, 'Email already exists')
+            return redirect('signup')
         user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, state=state, district=district, dob=dob, contact=contact, password=password, gender=gender)
         user.is_patient = True
         user.save()
