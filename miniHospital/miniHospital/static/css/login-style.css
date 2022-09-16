@@ -11,6 +11,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Noto Sans JP", sans-serif;
+  background: #f7fafc;
 }
 
 * {
@@ -21,10 +22,10 @@ html {
   display: grid;
 }
 
-/* .d-flex {
+.d-flex {
   display: flex;
   display: -webkit-flex;
-} */
+}
 
 .text-center {
   text-align: center;
@@ -169,16 +170,18 @@ button:hover {
   position: relative;
   min-height: 100vh;
   z-index: 0;
-  background: #3fbbc0;
+  background: #65b0bd;
   padding: 40px 40px;
   justify-content: center;
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: 1fr;
+  /* grid-template-rows: 1fr auto 1fr; */
   align-items: center;
 }
 .container {
   max-width: 890px;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .w3l_form {
@@ -195,6 +198,7 @@ button:hover {
   border-bottom-right-radius: 8px;
   align-items: center;
   display: grid;
+  object-fit: contain;
 }
 
 .content-wthree {
@@ -267,7 +271,7 @@ select,
 textarea {
   outline: none;
   margin-bottom: 15px;
-  font-size: 16px;
+  font-size: 12px;
   color: hsla(240, 92%, 5%, 0.675);
   text-align: left;
   padding: 14px 20px;
@@ -283,6 +287,7 @@ textarea {
   -moz-transition: 0.3s ease;
   -ms-transition: 0.3s ease;
   -o-transition: 0.3s ease;
+  margin-top: 8px;
 }
 .w3l-hotair-form input:focus {
   background: transparent;
@@ -292,7 +297,7 @@ textarea {
   font-size: 18px;
   color: #0d0222;
   width: 100%;
-  background: #3fbbc0;
+  background: #65b0bd;
   border: none;
   padding: 14px 15px;
   font-weight: 700;
@@ -301,6 +306,7 @@ textarea {
   -moz-transition: 0.3s ease;
   -ms-transition: 0.3s ease;
   -o-transition: 0.3s ease;
+  margin-top: 15px;
 }
 
 .w3l-hotair-form button:hover {
@@ -471,3 +477,10 @@ p.copy-footer-29 a:hover {
   margin-left: 5px;
   margin-bottom: 5px;
 } */
+
+.error-msg {
+  /* border: 2px solid red; */
+  border-radius: 10px;
+  margin: 15px;
+  padding: 5px;
+}

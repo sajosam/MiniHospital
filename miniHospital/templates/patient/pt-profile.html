@@ -1,7 +1,7 @@
-{% extends 'doctor/doctorbase.html' %}
+{% extends 'patient/patientbase.html' %}
 
 
-{% block dr %}
+{% block pt %}
 
 <!-- display doctor details -->
 <div class="container dr-pro">
@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card dr-inner">
                 <div class="card-header">
-                    <h4 align="center">Doctor Profile</h4>
+                    <h4 align="center">Patient Profile</h4>
                 </div>
                 <div class="card-body">
                     <div class="row dr-inner-margin">
@@ -70,59 +70,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row dr-inner-margin">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="Year of service">Year of service</label>
-                                <input type="text" class="form-control" id="email" value="{{doctor.year_of_service}}"
-                                    disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exp">Experience</label>
-                                <input type="text" class="form-control" id="exp" value="{{exp}}" disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row dr-inner-margin">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="speciality">Speciality</label>
-                                <input type="text" class="form-control" id="speciality" value="{{doctor.spec_name}}"
-                                    disabled>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="qualification">Qualification</label>
-                                <input type="text" class="form-control" id="qualification" value="{{doctor.qual_name}}"
-                                    disabled>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row dr-inner-margin">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="designation">Designation</label>
-                                <input type="text" class="form-control" id="designation" value="{{doctor.des_name}}"
-                                    disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="Lisence No">Lisence No</label>
-                                <input type="text" class="form-control" id="Lisence" value="{{doctor.license_no}}"
-                                    disabled>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="card-header" align="center">
-                    <a href="{% url 'doctorUpdate' %}"><button class="btn btn-primary">Update Profile</button></a>
+                    <a href="{% url 'patientUpdate' %}"><button class="btn btn-primary">Update Profile</button></a>
                 </div>
 
             </div>
@@ -133,4 +84,4 @@
 
 
 
-{% endblock dr %}
+{% endblock pt %}

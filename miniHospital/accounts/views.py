@@ -9,6 +9,7 @@ from django.contrib import messages, auth
 # Create your views here.
 
 
+
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -25,7 +26,7 @@ def login(request):
             elif user.is_lab:
                 return redirect('labHome')
             else:
-                return redirect('patient-home')
+                return redirect('patientHome')
         else:
             messages.error(request, 'Invalid Credentials')
             return redirect('login')

@@ -20,11 +20,11 @@
 						{% csrf_token %}
 						<div class="form-group">
 							<input type="email" id="email1" name="email" placeholder="Email" autocomplete="off">
-							<!-- <span id="email2"> </span> -->
+							<span class="error-msg" id="log-email"> </span><br>
 						</div>
 						<input type="password" class="password" id="password" name="password"
 							placeholder="User Password">
-						<!-- <span id="pwd"> </span> -->
+						<span class="error-msg" id="log-passwd"> </span><br>
 
 						<button class="btn" type="submit">Log In</button>
 					</form>
@@ -59,21 +59,27 @@
 
 		if (email == "") {
 			// document.getElementById('email2').innerHTML = "please provide email";
-			document.getElementById("email1").placeholder = "***please provide email";
-			document.getElementById("email1").style.border = "1px solid red";
+			document.getElementById("log-email").textContent = "***please provide email";
+			document.getElementById("log-email").style.border = "1px solid red";
+			document.getElementById("log-email").style.color = "red";
 			return false;
 		} else if (password == "") {
-			document.getElementById("password").placeholder = "***Please provide password";
-			document.getElementById("password").style.border = "1px solid red";
+			document.getElementById("log-passwd").textContent = "***Please provide password";
+			document.getElementById("log-passwd").style.border = "1px solid red";
+			document.getElementById("log-passwd").style.color = "red";
+
 
 			return false;
 		} else if (isEmailValid(email) == false) {
-			document.getElementById("email1").placeholder = "***Please provide valid email";
-			document.getElementById("email1").style.border = "1px solid red";
+			document.getElementById("log-email").textContent = "***Please provide valid email";
+			document.getElementById("log-email").style.border = "1px solid red";
+			document.getElementById("log-email").style.color = "red";
 			return false;
 		} else if (isPasswordSecure(password) == false) {
-			document.getElementById("password").placeholder = "***Please provide valid password";
-			document.getElementById("password").style.border = "1px solid red";
+			document.getElementById("log-passwd").textContent = "***Please provide valid password";
+			document.getElementById("log-passwd").style.border = "1px solid red";
+			document.getElementById("log-passwd").style.color = "red";
+
 			return false;
 		} else {
 			// submit forms
