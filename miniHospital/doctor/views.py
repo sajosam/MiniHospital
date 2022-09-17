@@ -1,14 +1,16 @@
 import email
+from operator import ge
 from pydoc import doc
 from django.shortcuts import render, redirect
 from accounts.models import Account
 from .models import Doctor
 from datetime import date
 from .forms import DoctorForm, UserForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
+@login_required(login_url='login')
 def doctorHome(request):
     if request.user.is_authenticated:
         if request.user.is_doctor:
@@ -34,6 +36,9 @@ def doctorHome(request):
             return redirect('login')
     return redirect('login')
             
+import cloudinary
+
+@login_required(login_url='login')
 def doctorUpdate(request):
     usr=Account.objects.get(email=request.session.get('email'))
     doctor=Doctor.objects.get(email__id=Account.objects.get(email=request.session.get('email')).id)
@@ -47,8 +52,7 @@ def doctorUpdate(request):
     else:
         form = UserForm(request.POST, request.FILES)
         doctor = DoctorForm(request.POST)
-        print(form.is_valid())
-        print(doctor.is_valid())
+        # 
         if form.is_valid() and doctor.is_valid():
             # email = request.session.get('email')
             usr=Account.objects.get(email=request.session.get('email'))
@@ -58,6 +62,10 @@ def doctorUpdate(request):
             usr.district = form.cleaned_data['district']
             usr.contact = form.cleaned_data['contact']
             usr.usr_img = form.cleaned_data['usr_img']
+            # usr.usr_img=cloudinary.uploader.upload(request.FILES[ form.cleaned_data['usr_img']])
+
+
+            # print(usr_img)
             # usr.email = form.cleaned_data['email']
             # usr.password = form.cleaned_data['password']
             # usr.username = form.cleaned_data['username']

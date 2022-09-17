@@ -4,6 +4,8 @@ from django.shortcuts import render, render, redirect
 from django.template import RequestContext
 from accounts.models import Account
 from .forms import UserForm
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -16,6 +18,7 @@ def home(request):
 def handler404(request,exception):
     return render(request, 'error/404.html')
 
+@login_required(login_url='login')
 def patient(request):
     if request.user.is_authenticated:
         if request.user.is_patient:
@@ -30,6 +33,7 @@ def patient(request):
             return redirect('login')
     return redirect('login')
 
+@login_required(login_url='login')
 def patientUpdate(request):
     usr=Account.objects.get(email=request.session.get('email'))
     if request.method == 'GET':

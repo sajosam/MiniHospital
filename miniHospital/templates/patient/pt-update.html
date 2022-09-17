@@ -14,7 +14,7 @@
                     <h4 align="center">Update Profile</h4>
 
                 </div>
-                <form action="{% url 'patientUpdate' %}" method="POST">
+                <form action="{% url 'patientUpdate' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="card-body">
 

@@ -12,7 +12,7 @@
             <!-- <a href="#" class="logo me-auto"><img src="{% static 'img/logo-new.png' %}" alt="demoooo"></a> -->
 
             <ul>
-                <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+                <li><a class="nav-link scrollto " href="#">Home</a></li>
                 <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
                 <li><a class="nav-link scrollto" href="#services">Services</a></li>
 
@@ -36,6 +36,7 @@
                         {% else %}
                         <li><a href="#">Update Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <li><a href="{% url 'patientProfile' %}">Dashboard</a></li>
                         {% endif %}
 
 

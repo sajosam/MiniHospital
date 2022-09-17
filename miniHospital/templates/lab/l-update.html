@@ -14,7 +14,7 @@
                     <h4 align="center">Update Profile</h4>
 
                 </div>
-                <form action="{% url 'doctorUpdate' %}" method="POST" enctype="multipart/form-data">
+                <form action="{% url 'labUpdate' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="card-body">
 
@@ -77,29 +77,29 @@
                         <div class="row dr-inner-margin">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{dr_form.year_of_service.label}}
-                                    {{dr_form.year_of_service}}
+                                    {{l_form.year_of_service.label}}
+                                    {{l_form.year_of_service}}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{dr_form.des_name.label}}
-                                    {{dr_form.des_name}}
+                                    {{l_form.des_name.label}}
+                                    {{l_form.des_name}}
                                 </div>
                             </div>
                         </div>
                         <div class="row dr-inner-margin">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{dr_form.spec_name.label}}
-                                    {{dr_form.spec_name}}
+                                    {{l_form.spec_name.label}}
+                                    {{l_form.spec_name}}
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{dr_form.qual_name.label}}
-                                    {{dr_form.qual_name}}
+                                    {{l_form.qual_name.label}}
+                                    {{l_form.qual_name}}
                                 </div>
                             </div>
                         </div>
