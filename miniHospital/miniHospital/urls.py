@@ -34,4 +34,4 @@ urlpatterns = [
 ]
 
 handler404 = 'patient.views.handler404'
-# handler500 = 'patient.views.handler500'
+handler500 = 'patient.views.handler500'

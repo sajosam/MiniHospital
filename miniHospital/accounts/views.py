@@ -24,7 +24,7 @@ def login(request):
             if user.is_doctor:
                 return redirect('doctorHome')
             elif user.is_lab:
-                return redirect('labHome')
+                return redirect('lab-Home')
             else:
                 return redirect('patientHome')
         else:

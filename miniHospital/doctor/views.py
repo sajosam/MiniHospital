@@ -62,13 +62,7 @@ def doctorUpdate(request):
             usr.district = form.cleaned_data['district']
             usr.contact = form.cleaned_data['contact']
             usr.usr_img = form.cleaned_data['usr_img']
-            # usr.usr_img=cloudinary.uploader.upload(request.FILES[ form.cleaned_data['usr_img']])
-
-
-            # print(usr_img)
-            # usr.email = form.cleaned_data['email']
-            # usr.password = form.cleaned_data['password']
-            # usr.username = form.cleaned_data['username']
+           
             usr.dob = form.cleaned_data['dob']
             print('inside')
             usr.save()
@@ -81,6 +75,7 @@ def doctorUpdate(request):
             print('inside2')
             dr.save()
             return redirect('doctorHome')
+
         else:
             context={}
             context['form']= form

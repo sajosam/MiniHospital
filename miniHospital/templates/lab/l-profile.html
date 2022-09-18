@@ -89,7 +89,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="speciality">Speciality</label>
-                                <input type="text" class="form-control" id="speciality" value="{{doctor.spec_name}}"
+                                <input type="text" class="form-control" id="speciality" value="{{lab.spec_name}}"
                                     disabled>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="qualification">Qualification</label>
-                                <input type="text" class="form-control" id="qualification" value="{{doctor.qual_name}}"
+                                <input type="text" class="form-control" id="qualification" value="{{lab.qual_name}}"
                                     disabled>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="designation">Designation</label>
-                                <input type="text" class="form-control" id="designation" value="{{doctor.des_name}}"
+                                <input type="text" class="form-control" id="designation" value="{{lab.des_name}}"
                                     disabled>
                             </div>
                         </div>
@@ -115,14 +115,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="Lisence No">Lisence No</label>
-                                <input type="text" class="form-control" id="Lisence" value="{{doctor.license_no}}"
+                                <input type="text" class="form-control" id="Lisence" value="{{lab.license_no}}"
                                     disabled>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-header" align="center">
-                    <a href="{% url 'doctorUpdate' %}"><button class="btn btn-primary">Update Profile</button></a>
+                    <a href="{% url 'labUpdate' %}"><button class="btn btn-primary">Update Profile</button></a>
                 </div>
 
             </div>

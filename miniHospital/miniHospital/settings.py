@@ -94,7 +94,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'Mini-Hospital',
+        'NAME': 'projectHospital',
 
         'USER': 'postgres',
 

@@ -18,6 +18,9 @@ def home(request):
 def handler404(request,exception):
     return render(request, 'error/404.html')
 
+def handler500(request):
+    return render(request, 'error/500.html')
+
 @login_required(login_url='login')
 def patient(request):
     if request.user.is_authenticated:

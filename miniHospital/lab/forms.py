@@ -1,7 +1,7 @@
 from dataclasses import fields
 from pyexpat import model
 from django import forms
-from .models import Lab
+from .models import Lab 
 from accounts.models import Account
 
 class UserForm(forms.ModelForm):
@@ -21,7 +21,7 @@ class UserForm(forms.ModelForm):
             'gender':forms.Select(attrs={'class':'form-control','placeholder':'Enter Gender'}),
         }
 
-class DoctorForm(forms.ModelForm):
+class LabForm(forms.ModelForm):
     class Meta:
         model=Lab
         fields=['spec_name','year_of_service','qual_name','license_no','des_name']
