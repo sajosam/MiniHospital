@@ -59,7 +59,7 @@ class MyAccountManager(BaseUserManager):
             # last_name = last_name,
         )
         user.is_admin = True
-        user.is_active = True
+        user.is_active = False
         user.is_staff = True
         user.is_superadmin = True
         user.save(using=self._db)
@@ -109,7 +109,7 @@ class Account(AbstractBaseUser):
     last_login      = models.DateTimeField(auto_now_add=True)
     is_admin        = models.BooleanField(default=False)
     is_lab          = models.BooleanField(default=False)
-    is_active       = models.BooleanField(default=True)
+    is_active       = models.BooleanField(default=False)
     is_superadmin   = models.BooleanField(default=False)
     is_doctor       = models.BooleanField(default=False)
     is_patient      = models.BooleanField(default=False)

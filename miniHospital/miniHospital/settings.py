@@ -177,3 +177,14 @@ cloudinary.config(
   api_key = "187234116793571", 
   api_secret = "g6WHXy2HuZImrg7e3Nz2fpZfqFY" 
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ajceminihospital@gmail.com'
+DEFAULT_FROM_EMAIL = 'ajceminihospital@gmail.com'
+SERVER_EMAIL = 'ajceminihospital@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Ajce@2023'
+EMAIL_HOST_PASSWORD = 'simvcumyxdoqfqlu'
+
+EMAIL_USE_TLS = True
