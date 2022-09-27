@@ -30,8 +30,8 @@ class DoctorAdmin(admin.ModelAdmin):
     list_display_links = ('email',)
     # readonly_fields = ('last_login', 'date_joined')
     # ordering = ('-date_joined',)
-    filter_horizontal = ()
-    list_filter = ()
+    # filter_horizontal = 'qual_name']
+    list_filter = ['email','year_of_service','qual_name','spec_name']
     fieldsets = ()
 
     
@@ -43,7 +43,7 @@ class DesignationAdmin(admin.ModelAdmin):
     list_display_links = ('des_name',)
     readonly_fields = ()
     filter_horizontal = ()
-    list_filter = ()
+    list_filter = ['des_name']
     fieldsets = ()
 
 admin.site.register(Designation, DesignationAdmin)
@@ -53,8 +53,10 @@ class SpecializationAdmin(admin.ModelAdmin):
     list_display = ('spec_name',)
     list_display_links = ('spec_name',)
     readonly_fields = ()
+    # filter_horizontal = ()
     filter_horizontal = ()
-    list_filter = ()
+
+    list_filter = ['spec_name']
     fieldsets = ()
 
 admin.site.register(Specialization, SpecializationAdmin)

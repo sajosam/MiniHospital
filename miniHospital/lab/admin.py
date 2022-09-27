@@ -30,7 +30,7 @@ class LabAdmin(admin.ModelAdmin):
     # readonly_fields = ('last_login', 'date_joined')
     # ordering = ('-date_joined',)
     filter_horizontal = ()
-    list_filter = ()
+    list_filter = ['email','year_of_service','qual_name','spec_name','is_active']
     fieldsets = ()
 
     

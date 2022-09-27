@@ -185,6 +185,6 @@ EMAIL_HOST_USER = 'ajceminihospital@gmail.com'
 DEFAULT_FROM_EMAIL = 'ajceminihospital@gmail.com'
 SERVER_EMAIL = 'ajceminihospital@gmail.com'
 # EMAIL_HOST_PASSWORD = 'Ajce@2023'
-EMAIL_HOST_PASSWORD = 'simvcumyxdoqfqlu'
+EMAIL_HOST_PASSWORD = 'dhnuyvikvwgzkhbc'
 
 EMAIL_USE_TLS = True
