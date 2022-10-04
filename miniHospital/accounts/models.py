@@ -1,3 +1,4 @@
+from fileinput import filename
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 import datetime
@@ -136,3 +137,9 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, add_label):
         return True
+
+
+class demo(models.Model):
+    id = models.AutoField(primary_key=True)
+    file_field = models.FileField(upload_to='documents/')
+    

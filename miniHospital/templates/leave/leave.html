@@ -1,0 +1,41 @@
+{% extends ext %}
+
+{% load static %}
+
+{% block dr %}
+
+<div id="table-container">
+
+
+    {% if leave %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Sl.No</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date</th>
+                <th scope="col">FN/AN/FD</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>demo@gmail</td>
+                <td>23-03-2022</td>
+                <td>FD</td>
+                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5" disabled>demo</textarea></td>
+                <td>Approved</td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <h4>Currently You have no Leave Application</h4>
+    {% endif %}
+
+</div>
+
+
+
+{% endblock dr %}

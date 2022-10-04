@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'doctor',
     'lab',
     'multiselectfield',
+    'leave',
     
 ]
 

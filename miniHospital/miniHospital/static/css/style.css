@@ -1842,3 +1842,22 @@ section {
   text-align: center;
   font-size: 13px;
 }
+
+#table-container {
+  width: 80%;
+  margin: 0 0 10% 10%;
+  overflow-x: auto;
+}
+
+#table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border-radius: 30px;
+}
+
+#table-container table tr {
+  background-color: #3fbbc0;
+  color: #0d0222;
+  /* font-weight: bold; */
+}

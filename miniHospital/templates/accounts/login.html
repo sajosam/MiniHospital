@@ -29,12 +29,14 @@
 						<button class="btn" type="submit">Log In</button>
 					</form>
 
-					<p class="account">Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
-					<p class="account">Forgot password <a href="{% url 'forgotPassword' %}">&nbsp;Reset Password</a></p>
+					<p class="account">Don't have an account? <a href="{% url 'signup' %}"><u>Register</u></a></p>
+					<p class="account">Forgot password <a href="{% url 'forgotPassword' %}">&nbsp;<u>Reset
+								Password</u></a></p>
 				</div>
 				<div class="w3l_form align-self">
 					<div class="left_grid_info">
-						<img src="{% static 'img/log2.jpg' %}" alt="" class="img-fluid">
+						<!-- <img src="{% static 'img/log2.jpg' %}" alt="" class="img-fluid"> -->
+						<img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
 					</div>
 				</div>
 			</div>
@@ -46,6 +48,14 @@
 		var email = document.getElementById('email1').value;
 		var password = document.getElementById('password').value;
 		var form = document.getElementById('logform');
+
+		// function resetForm() {
+		// 	var elems = document.querySelectorAll(".text-danger");
+		// 	elems.forEach(itm => {
+		// 		document.getElementById(itm.id).innerHTML = ''
+		// 	})
+		// }
+
 		const isEmailValid = (email) => {
 			const re =
 				/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -15,21 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from django.conf.urls import (
-# handler400, handler403, handler404, handler500
-# )
+from django.conf.urls import (
+handler400, handler403, handler404, handler500
+)
 
 
 
 urlpatterns = [
-    # path('/accounts/login/admin', RedirectView.as_view(url='/admin/')),
-    # url(r'accounts/login/admin/', RedirectView.as_view(url=reverse('admin:index'))),
+    
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('doctor/', include('doctor.urls')),
     # path('patient/', include('patient.urls')),
     path('', include('patient.urls')),
     path('lab/', include('lab.urls')),
+    path('leave/', include('leave.urls')),
     
 ]
 
