@@ -2,6 +2,7 @@
 from django import forms
 from accounts.models import Account
 
+
 class UserForm(forms.ModelForm):
     class Meta:
         model=Account
@@ -21,3 +22,4 @@ class UserForm(forms.ModelForm):
             'dob':forms.DateInput(attrs={'class':'form-control','placeholder':'Date of Birth'}),
             'gender':forms.Select(attrs={'class':'form-control','placeholder':'Enter Gender'}),
         }
+

@@ -1,0 +1,90 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<section class="w3l-hotair-form">
+    <!-- <h1>Report Login Form</h1> -->
+    <div class="container">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <div align="center">
+                        <h4>Please fill below details</h4>
+                    </div>
+                    <form action="{% url 'patientData' %}" method="post">
+                        <!-- {{error}} -->
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="is_diabetic">is_diabetic</label>
+                            <select name="is_diabetic" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_asthma">is_asthma</label>
+                            <select name="is_asthma" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_hypertension">is_hypertension</label>
+                            <select name="is_hypertension" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_stroke">is_stroke</label>
+                            <select name="is_stroke" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight">weight</label>
+                            <input type="number" name="weight" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="height">height</label>
+                            <input type="number" name="height" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="is_alcoholic">is_alcoholic</label>
+                            <select name="is_alcoholic" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptoms">symptoms</label>
+                            <textarea name="symptoms" id="" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="alergetic_drugs">alergetic_drugs</label>
+                            <textarea name="alergetic_drugs" id="" cols="30" rows="5"></textarea>
+                        </div>
+                        <button class="btn" type="submit">Take Appointment</button>
+                    </form>
+
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/4.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock main %}

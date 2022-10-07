@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<section class="w3l-hotair-form">
+    <!-- <h1>Report Login Form</h1> -->
+    <div class="container">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <div align="center">
+                        <h4>Please fill below details</h4>
+                    </div>
+                    <form action="{% url 'appointment' %}" method="post">
+                        <!-- {{error}} -->
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="Doctor Name">Doctor Name</label>
+                            <input type="text" class="form-control" name="doctor_name" id="doctor_name"
+                                placeholder="Doctor Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Doctor Specialization">Doctor Specialization</label>
+                            <input type="text" class="form-control" name="doctor_specialization"
+                                id="doctor_specialization" placeholder="Doctor Specialization" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" name="date" id="date" placeholder="Date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptoms">Symptoms</label>
+                            <textarea class="form-control" name="symptoms" id="symptoms" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="time" class="form-control" name="time" id="time" placeholder="Time" required>
+                        </div>
+
+
+
+                        <button class="btn" type="submit">Take Appointment</button>
+                    </form>
+
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/4.png' %}" alt="" class="img-fluid">
+                        <!-- <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock main %}

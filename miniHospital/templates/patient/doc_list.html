@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+{% include 'include/navbar.html' %}
+
+<div class="container mt-5" style="margin-top:15%;">
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-md-7 doc_list">
+
+            <div class="card p-3 py-4" id="doc">
+
+                <div class="text-center">
+                    <img src="https://i.imgur.com/bDLhJiP.jpg" width="180" class="rounded-circle">
+                </div>
+
+                <div class="text-center mt-3">
+                    <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
+                    <h5 class="mt-2 mb-0">Dr. Alexender Schidmt</h5>
+                    <span>Designation</span>
+
+
+                    <div class="buttons">
+
+                        <a href="#" class="appointment-btn">More Details</a>
+                        <a href="{% url 'patientData' %}" class="appointment-btn">Take Appointment</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-7 doc_list-1">
+            <div class="card p-3 py-4" id="doc">
+                <div class="text-center">
+                    <img src="https://i.imgur.com/bDLhJiP.jpg" width="180" class="rounded-circle">
+                </div>
+                <div class="text-center mt-3">
+                    <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
+                    <h5 class="mt-2 mb-0"> Dr. Alexender Schidmt</h5>
+                    <span>Designation</span>
+
+                    <div class="buttons">
+                        <a href="#" class="appointment-btn">More Details</a>
+                        <a href="{% url 'patientData' %}" class="appointment-btn">Take Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'include/footer.html' %}
+{% endblock main %}

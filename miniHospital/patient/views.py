@@ -1,3 +1,4 @@
+from email import message
 import re
 from django.shortcuts import render, render, redirect
 # from django.shortcuts import render_to_response
@@ -5,6 +6,8 @@ from django.template import RequestContext
 from accounts.models import Account
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
+from .models import PatientData, appointment
+from django.contrib import messages, auth
 
 
 # Create your views here.
@@ -74,3 +77,55 @@ def patientUpdate(request):
 
 
 
+def Appointment(request):
+    if request.method == 'POST':
+        email = request.session.get('email')
+        acc=Account.objects.get(email=email)
+        usr=appointment()
+        symptoms = request.POST.get('symptoms')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        usr.date = date
+        usr.time = time
+        usr.symptoms = symptoms
+        usr.p_email = acc.email
+        usr.email = acc
+        usr.save()
+        # message
+        messages.success(request, 'Appointment Booked Successfully, check your email for more details')
+        return redirect('patientProfile')
+    return render(request, 'patient/appointment.html')
+
+def patientData(request):
+    if request.method == 'POST':
+        email = request.session.get('email')
+        acc=Account.objects.get(email=email)
+        usr=PatientData()
+        is_diabetic = request.POST.get('is_diabetic')
+        is_asthma = request.POST.get('is_asthma')
+        is_hypertension = request.POST.get('is_hypertension')
+        is_stroke = request.POST.get('is_stroke')
+        alergetic_drugs = request.POST.get('alergetic_drugs')
+        weight = request.POST.get('weight')
+        height = request.POST.get('height')
+        is_alcoholic = request.POST.get('is_alcoholic')
+        symptoms = request.POST.get('symptoms')
+        
+        usr.is_diabetic = is_diabetic
+        usr.is_asthma = is_asthma
+        usr.is_hypertension = is_hypertension
+        usr.is_stroke = is_stroke
+        usr.alergetic_drugs = alergetic_drugs
+        usr.weight = weight
+        usr.height = height
+        usr.is_alcoholic = is_alcoholic
+        usr.symptoms = symptoms
+        usr.email = acc
+        usr.save()
+        return redirect('appointment')
+
+    return render(request, 'patient/patient_data.html')
+
+
+def doc_list(request):
+    return render(request, 'patient/doc_list.html')

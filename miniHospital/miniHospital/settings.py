@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'lab',
     'multiselectfield',
     'leave',
+    'patient',
+    'ckeditor',
     
 ]
 

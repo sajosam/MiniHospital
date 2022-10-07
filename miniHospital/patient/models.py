@@ -2,7 +2,7 @@ import email
 from django.db import models
 from ckeditor.fields import RichTextField
 
-from miniHospital.accounts.models import Account
+from accounts.models import Account
 
 # Create your models here.
 
@@ -33,13 +33,19 @@ class PatientData(models.Model):
     is_asthma = models.BooleanField(default=False)
     is_hypertension = models.BooleanField(default=False)
     is_stroke= models.BooleanField(default=False)
-    alergetic_drugs=models.CharField(max_length=50,choices=drug)
+    alergetic_drugs=RichTextField(max_length=50, blank=True)
     weight= models.FloatField(default=None, blank=True)
     height= models.FloatField(default=None, blank=True)
     is_alcoholic= models.BooleanField(default=False)
     symptoms=RichTextField()
 
 
-# class appointment(models.Model):
-#     id= models.AutoField(primary_key=True)
-#     email= models.ForeignKey(Account, on_delete=models.CASCADE)
+class appointment(models.Model):
+    id= models.AutoField(primary_key=True)
+    p_email= models.EmailField(max_length=50)
+    email=models.ForeignKey(Account, on_delete=models.CASCADE)
+    date=models.DateField()
+    time=models.TimeField()
+    symptoms=RichTextField()
+    status=models.BooleanField(default=False)
+

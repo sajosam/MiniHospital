@@ -1795,7 +1795,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #3fbbc0;
+  color: #65b0bd;
 }
 
 #footer .footer-top .footer-newsletter form {
@@ -1860,4 +1860,22 @@ section {
   background-color: #3fbbc0;
   color: #0d0222;
   /* font-weight: bold; */
+}
+
+.doc_list {
+  margin-top: 10rem !important;
+  box-shadow: 5px #0d0222 !important;
+}
+
+.doc_list-1 {
+  margin-top: 4rem !important;
+}
+
+#doc {
+  background-color: #3fbbc0 !important;
+  color: #0d0222 !important;
+}
+
+.doc-verified img {
+  width: 10%;
 }
