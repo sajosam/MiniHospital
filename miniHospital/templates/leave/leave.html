@@ -7,11 +7,10 @@
 <div id="table-container">
 
 
-    {% if leave %}
+    {% if data %}
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">Sl.No</th>
                 <th scope="col">Email</th>
                 <th scope="col">Date</th>
                 <th scope="col">FN/AN/FD</th>
@@ -20,14 +19,18 @@
             </tr>
         </thead>
         <tbody>
+            {% for d in data %}
             <tr>
-                <th scope="row">1</th>
-                <td>demo@gmail</td>
-                <td>23-03-2022</td>
-                <td>FD</td>
-                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5" disabled>demo</textarea></td>
-                <td>Approved</td>
+                <td>{{d.email}}</td>
+                <td>{{d.leaveDate}}</td>
+                <td>{{d.leaveDiv}}</td>
+                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
+                        disabled>{{d.leaveReason}}</textarea></td>
+                <td>{{d.leaveStatus}}</td>
             </tr>
+
+            {% endfor %}
+
         </tbody>
     </table>
     {% else %}

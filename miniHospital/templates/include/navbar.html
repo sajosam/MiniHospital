@@ -19,11 +19,12 @@
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 <li class="dropdown"><a href="#"><span>General</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">View Appointment</a></li>
+                        <!-- <li><a href="#">View Appointment</a></li>
                         <li><a href="#">View Lab Reports</a></li>
-                        <li><a href="#">View Prescription</a></li>
+                        <li><a href="#">View Prescription</a></li> -->
                         <li><a class="#" href="#departments">Departments</a></li>
-                        <li><a class="#" href="#doctors">Doctors</a></li>
+                        <li><a class="#" href="#doctors">Featured Doctors</a></li>
+                        <li><a class="#" href="{% url 'doc_list' %}">View Doctors</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#"><span>Accounts</span> <i class="bi bi-chevron-down"></i></a>
@@ -35,6 +36,9 @@
                         <li><a href="{% url 'signup' %}">Register</a></li>
                         {% else %}
                         <li><a href="#">Update Profile</a></li>
+                        <li><a href="#">View Appointment</a></li>
+                        <li><a href="#">View Lab Reports</a></li>
+                        <li><a href="#">View Prescription</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                         <li><a href="{% url 'patientProfile' %}">Dashboard</a></li>
                         {% endif %}
@@ -49,7 +53,7 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        <a href="{% url 'patientData' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make
+        <a href="{% url 'checkavailability' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make
                 an</span>
             Appointment</a>
 

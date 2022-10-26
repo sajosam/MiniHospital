@@ -6,7 +6,12 @@ urlpatterns = [
     path('', views.home, name='patientHome'),
     path('profile/', views.patient, name='patientProfile'),
     path('patientUpdate/',views.patientUpdate, name='patientUpdate'),
-    path('appointment/',views.Appointment, name='appointment'),
+    path('checkavailability/',views.checkavailability, name='checkavailability'),
     path('patientData/',views.patientData, name='patientData'),
     path('doc_list/',views.doc_list, name='doc_list'),
+    path('singleDoc/<int:id>', views.singleDoc, name='singleDoc'),
+    path('availability/', views.availability, name='availability'),
+    path('appointment/<int:id>', views.appointment, name='appointment'),
+    path('viewappointments/',views.viewappointments, name='viewappointments'),
+    path('confirmappointment', views.confirmappointment, name='confirmappointment')
 ]

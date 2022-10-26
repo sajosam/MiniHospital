@@ -1879,3 +1879,8 @@ section {
 .doc-verified img {
   width: 10%;
 }
+
+.table-doctor {
+  width: 50%;
+  margin-left: 25%;
+}

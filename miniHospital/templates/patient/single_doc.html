@@ -1,0 +1,77 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+{% include 'include/navbar.html' %}
+
+<div class="container mt-5" style="margin-top:15%;">
+
+    <div class="row d-flex justify-content-center">
+
+
+        {% for doc in lst %}
+
+        <div class="col-md-7 doc_list">
+
+            <div class="card p-3 py-4" id="doc">
+
+                <div class="text-center">
+                    <img src="{{doc.email.usr_img.url}}" width="180" class="rounded-circle">
+                </div>
+
+                <div class="text-center mt-3">
+                    <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
+                    <h5 class="mt-2 mb-0">Dr.{{ doc.email.first_name}} {{doc.email.last_name}}</h5><br>
+
+                    <table class="table-doctor">
+                        <tr>
+                            <th>Designation</th>
+                            <th>:</th>
+                            <td>{{doc.des_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Speciality</th>
+                            <th>:</th>
+                            <td>{{doc.spec_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Experience</th>
+                            <th>:</th>
+                            <td>{{yos}}</td>
+                        </tr>
+                        <tr>
+                            <th>Qualification</th>
+                            <th>:</th>
+                            <td>{{doc.qual_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <th>:</th>
+                            <td>{{doc.email}}</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="buttons" style="margin-top:20px;">
+
+                        <a href="{% url 'patientData' %}" class="appointment-btn">Take Appointment</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+
+
+{% include 'include/footer.html' %}
+{% endblock main %}

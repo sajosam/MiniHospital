@@ -19,32 +19,37 @@
                         {% csrf_token %}
                         <!-- {{error}} -->
                         <div id="f-name">
-                            <input type="text" class="text" name="first_name" id="first_name" placeholder="First Name">
+                            <input type="text" class="text" name="first_name" id="first_name" placeholder="First Name"
+                                onkeyup="firstValidate()">
                             <span class="error-msg" id="log-first"> </span><br>
                         </div>
 
                         <div id="l-name"><input type="text" class="text" name="last_name" id="last_name"
-                                placeholder="Last Name" autocomplete="off">
+                                placeholder="Last Name" autocomplete="off" onkeyup="lastValidate()">
                             <span class="error-msg" id="log-last"> </span><br></div>
 
                         <div id="e"><input type="email" class="text" name="email" id="email" placeholder="Email"
-                                autocomplete="off"><span class="error-msg" id="log-email"> </span><br></div>
+                                autocomplete="off"><span class="error-msg" id="log-email" onkeyup="emailValidate()">
+                            </span><br></div>
 
                         <div id="p"><input type="password" class="password" name="password" id="password"
-                                placeholder="User Password" autocomplete="off"><span class="error-msg" id="log-passwd">
+                                placeholder="User Password" autocomplete="off" onkeyup="passwordValidate()"><span
+                                class="error-msg" id="log-passwd">
                             </span><br></div>
                         <div id="cp"><input type="password" class="password" name="confirm_password"
-                                id="confirm_password" placeholder="Confirm Password"><span class="error-msg"
-                                id="log-confirm"> </span><br></div>
+                                id="confirm_password" placeholder="Confirm Password" onkeyup="confirmValidate()"><span
+                                class="error-msg" id="log-confirm"> </span><br></div>
                         <div id="ph"><input type="tel" class="tel" name="contact" id="contact"
-                                placeholder="Enter Contact Number"><span class="error-msg" id="log-contact">
+                                placeholder="Enter Contact Number" onkeyup="contactValidate"><span class="error-msg"
+                                id="log-contact">
                             </span><br></div>
                         <div id="d"><input type="text" class="date" name="dob" id="dob" placeholder="Date of Birth"
-                                onfocus="(this.type='date')"><span class="error-msg" id="log-dob"> </span><br>
+                                onfocus="(this.type='date')" onkeyup="dobValidate"><span class="error-msg" id="log-dob">
+                            </span><br>
                         </div>
                         <span id="error_dob"></span>
                         <!-- dropdown gender -->
-                        <div id="g"><select name="gender" id="gender" class="text">
+                        <div id="g"><select name="gender" id="gender" class="text" onkeyup="genderValidate">
                                 <option id="error_gender" value="" disable>Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -52,11 +57,11 @@
 
                             </select><span class="error-msg" id="log-gender"> </span></div>
                         <span id="error_gender"></span>
-                        <div><select name="state" class="text">
+                        <div><select name="state" class="text" id="state" onkeyup="stateValidate">
                                 <option id="error_state" value="" selected disabled>Select your current state</option>
                                 <option value="Kerala">Kerala</option>
                             </select><span class="error-msg" id="log-state"> </span></div>
-                        <div><select name="district" class="text">
+                        <div><select name="district" class="text" id="district" onkeyup="districtValidate">
                                 <option id="error_district" value="" selected disabled>Select your current district
                                 </option>
                                 <option value="Trivandrum">Trivandrum</option>
@@ -75,7 +80,7 @@
                                 <option value="Kasaragod">Kasaragod</option>
                             </select><span class="error-msg" id="log-dist"> </span></div>
                         <span id="error_district"></span>
-                        <button class="btn" type="submit" name="signup">Sign
+                        <button class="btn" type="submit" name="signup" id="submit">Sign
                             Up</button>
                     </form>
 
@@ -99,6 +104,169 @@
 </section>
 
 <script type="text/javascript">
+    function clearBorder(e) {
+        document.getElementById(e).textContent = "";
+        document.getElementById(e).style.border = "1px solid white";
+        document.getElementById(e).style.color = "white";
+
+    }
+
+    function firstValidate() {
+        var first_name = document.getElementById('first_name').value;
+        const isFirstNameValid = (first_name) => {
+            const re = new RegExp(
+                "^[a-zA-Z]+$"
+            );
+            return re.test(first_name);
+        };
+
+        if (first_name == "") {
+            document.getElementById('log-first').textContent = "Please enter your first name";
+            // document.getElementById('log-first').style.border = "1px solid red";
+            document.getElementById("log-first").style.color = "red";
+            return false;
+        } else if (!isFirstNameValid(first_name)) {
+            document.getElementById('log-first').textContent = "Please enter Valid first name";
+            // document.getElementById('log-first').style.border = "1px solid red";
+            document.getElementById("log-first").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-first')
+            return true
+        }
+
+    }
+
+    function lastValidate() {
+        var last_name = document.getElementById('last_name').value;
+        const isLastNameValid = (first_name) => {
+            const re = new RegExp(
+                "^[a-zA-Z]+$"
+            );
+            return re.test(first_name);
+        };
+        if (last_name == "") {
+            document.getElementById('log-last').textContent = "Please enter your first name";
+            // document.getElementById('log-first').style.border = "1px solid red";
+            document.getElementById("log-last").style.color = "red";
+            return false;
+        } else if (!isLastNameValid(last_name)) {
+            document.getElementById('log-last').textContent = "Please enter Valid first name";
+            // document.getElementById('log-first').style.border = "1px solid red";
+            document.getElementById("log-last").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-last')
+            return true
+        }
+
+    }
+
+    function emailvalidate() {
+        var email = document.getElementById('email1').value;
+
+        const isEmailValid = (email) => {
+            const re =
+                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        };
+        if (email == "") {
+            document.getElementById("log-email").textContent = "***please provide email";
+            // document.getElementById("log-email").style.border = "1px solid red";
+            document.getElementById("log-email").style.color = "red";
+            return false;
+        } else if (isEmailValid(email) == false) {
+            document.getElementById("log-email").textContent = "***Email is not valid";
+            // document.getElementById("log-email").style.border = "1px solid red";
+            document.getElementById("log-email").style.color = "red";
+            return false;
+        } else if (isEmailValid(email) == true) {
+            clearBorder('log-email')
+            return true;
+
+        }
+
+    }
+
+    function passwordValidate() {
+        var password = document.getElementById("password").value;
+        const isPasswordSecure = (password) => {
+            const re = new RegExp(
+                "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+            );
+            return re.test(password);
+
+        };
+
+        if (password == "") {
+            document.getElementById("log-passwd").textContent = "***Please provide password";
+            // document.getElementById("log-passwd").style.border = "1px solid red";
+            document.getElementById("log-passwd").style.color = "red";
+
+        } else if (!isPasswordSecure(password)) {
+            document.getElementById('log-passwd').textContent =
+                "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)";
+            document.getElementById('log-passwd').style.border = "1px solid red";
+            document.getElementById("log-passwd").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-passwd');
+        }
+    }
+
+    function confirmValidate() {
+        var confirm_password = document.getElementById('confirm_password').value;
+        if (confirm_password == "") {
+            document.getElementById('log-confirm').textContent = "Please enter your confirm password";
+            // document.getElementById('log-confirm').style.border = "1px solid red";
+            document.getElementById("log-confirm").style.color = "red";
+            return false;
+        } else if (password != confirm_password) {
+            document.getElementById('log-confirm').textContent = "Password does not match";
+            // document.getElementById('log-confirm').style.border = "1px solid red";
+            document.getElementById("log-confirm").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-confirm');
+        }
+
+
+    }
+
+    function contactValidate() {
+        var contact = document.getElementById('contact').value;
+        const isContactValid = (contact) => {
+            const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            return re.test(contact);
+        };
+        if (contact == "") {
+            document.getElementById('log-contact').textContent = "Please enter your contact number";
+            document.getElementById('log-contact').style.border = "1px solid red";
+            document.getElementById("log-contact").style.color = "red";
+            return false;
+        } else if (contact.length != 10) {
+            document.getElementById('log-contact').textContent = "Please enter valid contact number";
+            document.getElementById('log-contact').style.border = "1px solid red";
+            document.getElementById("log-contact").style.color = "red";
+            return false;
+        } else if (!isContactValid(contact)) {
+            document.getElementById('log-contact').textContent = "Please enter valid contact number";
+            document.getElementById('log-contact').style.border = "1px solid red";
+            document.getElementById("log-contact").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-contact');
+        }
+
+
+    }
+
+    function dobValidate() {
+        var dob = document.getElementById('dob').value;
+
+
+    }
+
     function regvalidate() {
         var first_name = document.getElementById('first_name').value;
         var last_name = document.getElementById('last_name').value;
@@ -110,7 +278,6 @@
         var gender = document.getElementById('gender').value;
         var state = document.getElementById('state').value;
         var district = document.getElementById('district').value;
-
         const isPasswordSecure = (password) => {
             const re = new RegExp(
                 "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
@@ -118,7 +285,19 @@
             return re.test(password);
 
         };
-        // phone number validation
+        const isFirstNameValid = (first_name) => {
+            const re = new RegExp(
+                "^[a-zA-Z]+$"
+            );
+            return re.test(first_name);
+        };
+        const isLastNameValid = (first_name) => {
+            const re = new RegExp(
+                "^[a-zA-Z]+$"
+            );
+            return re.test(first_name);
+        };
+
         const isContactValid = (contact) => {
             const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
             return re.test(contact);
@@ -152,24 +331,28 @@
             document.getElementById("log-first").style.color = "red";
 
             return false;
+        } else if (!isFirstNameValid(first_name)) {
+            document.getElementById('log-first').textContent = "Please enter valid first name";
+            document.getElementById('log-first').style.border = "1px solid red";
+            document.getElementById("log-first").style.color = "red";
+            return false;
         } else if (last_name == "") {
             document.getElementById('log-last').textContent = "Please enter your last name";
             document.getElementById('log-last').style.border = "1px solid red";
             document.getElementById("log-last").style.color = "red";
-
-
+            return false;
+        } else if (!isLastNameValid(last_name)) {
+            document.getElementById('log-last').textContent = "please enter valid name";
+            document.getElementById('log-last').style.border = "1px solid red";
+            document.getElementById("log-last").style.color = "red";
             return false;
         } else if (email == "") {
             document.getElementById('log-email').textContent = "Please enter your email";
             document.getElementById('log-email').style.border = "1px solid red";
             document.getElementById("log-email").style.color = "red";
-
-
             return false;
-
         } else if (!isEmailValid(email)) {
-            document.getElementById('log-email').textContent =
-                "enter a valid email";
+            document.getElementById('log-email').textContent = "enter a valid email";
             document.getElementById('log-email').style.color = "red";
             document.getElementById("log-email").style.color = "red";
 
@@ -178,43 +361,32 @@
             document.getElementById('log-passwd').textContent = "Please enter your password";
             document.getElementById('log-passwd').style.border = "1px solid red";
             document.getElementById("log-passwd").style.color = "red";
-
-            return false;
-
             return false;
         } else if (!isPasswordSecure(password)) {
             document.getElementById('log-passwd').textContent =
                 "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)";
             document.getElementById('log-passwd').style.border = "1px solid red";
             document.getElementById("log-passwd").style.color = "red";
-
             return false;
-
-
         } else if (confirm_password == "") {
             document.getElementById('log-confirm').textContent = "Please enter your confirm password";
             document.getElementById('log-confirm').style.border = "1px solid red";
             document.getElementById("log-confirm").style.color = "red";
-
-
             return false;
         } else if (password != confirm_password) {
             document.getElementById('log-confirm').textContent = "Password does not match";
             document.getElementById('log-confirm').style.border = "1px solid red";
             document.getElementById("log-confirm").style.color = "red";
-
             return false;
         } else if (contact == "") {
             document.getElementById('log-contact').textContent = "Please enter your contact number";
             document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
-
             return false;
         } else if (contact.length != 10) {
             document.getElementById('log-contact').textContent = "Please enter valid contact number";
             document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
-
             return false;
         } else if (!isContactValid(contact)) {
             document.getElementById('log-contact').textContent = "Please enter valid contact number";
@@ -226,14 +398,11 @@
             document.getElementById('log-dob').textContent = "Please enter your date of birth";
             document.getElementById('log-dob').style.border = "1px solid red";
             document.getElementById("log-dob").style.color = "red";
-
             return false;
-
         } else if (!isDobValid(dob)) {
             document.getElementById('log-dob').textContent = "You must be 18 years old to register";
             document.getElementById('log-dob').style.border = "1px solid red";
             document.getElementById("log-dob").style.color = "red";
-
             return false;
         } else if (gender == '') {
             document.getElementById('log-gender').textContent = "Please select one of the following";
@@ -253,7 +422,6 @@
         } else {
             return true;
         }
-
         return true;
 
     }

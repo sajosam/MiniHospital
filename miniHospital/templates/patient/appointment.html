@@ -14,34 +14,81 @@
                     <div align="center">
                         <h4>Please fill below details</h4>
                     </div>
-                    <form action="{% url 'appointment' %}" method="post">
+                    <form action="{% url 'confirmappointment' %}" method="post">
                         <!-- {{error}} -->
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="Doctor Name">Doctor Name</label>
-                            <input type="text" class="form-control" name="doctor_name" id="doctor_name"
-                                placeholder="Doctor Name" required>
+                            <label for="name">Doctor Name</label>
+                            <input type="text" name="doc_name" id="" value="{{request.session.doc_name}}" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="Doctor Specialization">Doctor Specialization</label>
-                            <input type="text" class="form-control" name="doctor_specialization"
-                                id="doctor_specialization" placeholder="Doctor Specialization" required>
+                            <label for="name">Doctor Specialization</label>
+                            <input type="text" name="spec" id="" value="{{request.session.spec}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Doctor Designation</label>
+                            <input type="text" name="des" id="" value="{{request.session.designation}}" disabled>
                         </div>
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" name="date" id="date" placeholder="Date" required>
+                            <input type="date" name="date" id="" value="{{request.session.date}}" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="symptoms">Symptoms</label>
-                            <textarea class="form-control" name="symptoms" id="symptoms" cols="30" rows="5"></textarea>
+                            <label for="time">Preferred Time Slot</label>
+                            <input type="text" name="time" id="" value="{{request.session.time_div}}" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="time">Time</label>
-                            <input type="time" class="form-control" name="time" id="time" placeholder="Time" required>
+                            <label for="is_diabetic">is_diabetic</label>
+                            <select name="is_diabetic" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_asthma">is_asthma</label>
+                            <select name="is_asthma" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_hypertension">is_hypertension</label>
+                            <select name="is_hypertension" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_stroke">is_stroke</label>
+                            <select name="is_stroke" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
                         </div>
 
-
-
+                        <div class="form-group">
+                            <label for="weight">weight</label>
+                            <input type="number" name="weight" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="height">height</label>
+                            <input type="number" name="height" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="is_alcoholic">is_alcoholic</label>
+                            <select name="is_alcoholic" id="">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptoms">symptoms</label>
+                            <textarea name="symptoms" id="" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="alergetic_drugs">alergetic_drugs</label>
+                            <textarea name="alergetic_drugs" id="" cols="30" rows="5"></textarea>
+                        </div>
                         <button class="btn" type="submit">Take Appointment</button>
                     </form>
 
@@ -50,8 +97,11 @@
                 <div class="w3l_form align-self">
                     <div class="left_grid_info">
                         <img src="{% static 'img/banner/4.png' %}" alt="" class="img-fluid">
-                        <!-- <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
-                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid"> -->
+                        <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/4.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+
                     </div>
                 </div>
             </div>

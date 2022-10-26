@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+{% include 'include/navbar.html' %}
+
+<div class="container mt-5" style="margin-top:15%;">
+
+    <div class="row d-flex justify-content-center">
+        <div
+            style="border:1px solid #0d020d; background-color:#0d020d;color:#fff;width:90%;margin-top:13%; border-radius: 10px;padding: 10px;">
+            <h2 style="text-align:center; ">
+                Available Doctors</h2>
+        </div>
+
+        {% for d in doc %}
+
+        <div class="col-md-7 doc_list">
+
+            <div class="card p-3 py-4" id="doc">
+
+                <div class="text-center">
+
+                    {% if d.email.usr_img %}
+                    <img src="{{d.email.usr_img.url}}" width="180" class="rounded-circle">
+                    {% else %}
+                    <img class="dr-img" src="{% static 'img/avt/man.png' %}" alt="doctorimg">
+
+                    {% endif %}
+
+                </div>
+
+                <div class="text-center mt-3">
+                    <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
+                    <!-- <h5 class="mt-2 mb-0">Dr.</h5> -->
+                    <span>Dr.{{d.email.first_name}} {{d.email.last_name}}</span>
+
+
+                    <div class="buttons" style="margin-top:20px;">
+
+                        <a href="{% url 'appointment' d.id %}" class="appointment-btn">Take Appointment</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+
+
+{% include 'include/footer.html' %}
+{% endblock main %}

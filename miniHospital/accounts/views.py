@@ -30,7 +30,7 @@ def login(request):
             # save email in session
             request.session['email'] = email
             if user.is_admin:
-                return redirect('admin/')
+                return redirect('http://127.0.0.1:8000/admin/')
             if user.is_doctor:
                 return redirect('doctorHome')
             elif user.is_lab:

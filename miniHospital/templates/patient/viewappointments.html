@@ -1,0 +1,45 @@
+{% extends 'patient/patientbase.html'  %}
+
+{% load static %}
+
+{% block pt %}
+
+<div id="table-container">
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Doctor Email</th>
+                <th scope="col">Date</th>
+                <th scope="col">Height</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Time</th>
+                <th scope="col">Symptoms</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in lst %}
+            <tr>
+                <td>{{d.doc_email}}</td>
+                <td>{{d.date}}</td>
+                <td>{{d.height}}cm</td>
+                <td>{{d.weight}}kg</td>
+                <td>{{d.time}}</td>
+                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
+                        disabled>{{d.symptoms}}</textarea></td>
+                <td>{{d.status}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+{% endblock pt %}

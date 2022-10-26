@@ -1,21 +1,27 @@
+import datetime
 from email import message
+from os import lstat
+from pydoc import doc
 import re
 from django.shortcuts import render, render, redirect
 # from django.shortcuts import render_to_response
 from django.template import RequestContext
 from accounts.models import Account
+from doctor.models import Specialization
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
-from .models import PatientData, appointment
+from .models import patientAppointment
 from django.contrib import messages, auth
+from doctor.models import Doctor
+from leave.models import leaveModel
 
 
 # Create your views here.
 
 
 def home(request):
+    
     return render(request, 'patient/home.html')
-
 
 
 def handler404(request,exception):
@@ -61,9 +67,7 @@ def patientUpdate(request):
             usr.district = form.cleaned_data['district']
             usr.contact = form.cleaned_data['contact']
             usr.usr_img = form.cleaned_data['usr_img']
-            # usr.email = form.cleaned_data['email']
-            # usr.password = form.cleaned_data['password']
-            # usr.username = form.cleaned_data['username']
+            
             usr.dob = form.cleaned_data['dob']
             # print('inside')
             usr.save()
@@ -77,30 +81,24 @@ def patientUpdate(request):
 
 
 
-def Appointment(request):
-    if request.method == 'POST':
-        email = request.session.get('email')
-        acc=Account.objects.get(email=email)
-        usr=appointment()
-        symptoms = request.POST.get('symptoms')
-        date = request.POST.get('date')
-        time = request.POST.get('time')
-        usr.date = date
-        usr.time = time
-        usr.symptoms = symptoms
-        usr.p_email = acc.email
-        usr.email = acc
-        usr.save()
-        # message
-        messages.success(request, 'Appointment Booked Successfully, check your email for more details')
-        return redirect('patientProfile')
-    return render(request, 'patient/appointment.html')
+def checkavailability(request):
 
+    d=Doctor.objects.all().values_list('spec_name').distinct()
+    doc=Specialization.objects.filter(id__in=d).distinct()
+    print(doc)
+    # print(spec)
+    context={
+            'doc': doc,
+    }
+
+    return render(request, 'patient/checkavailability.html', context)
+
+@login_required(login_url='login')
 def patientData(request):
     if request.method == 'POST':
         email = request.session.get('email')
         acc=Account.objects.get(email=email)
-        usr=PatientData()
+        usr=patientAppointment()
         is_diabetic = request.POST.get('is_diabetic')
         is_asthma = request.POST.get('is_asthma')
         is_hypertension = request.POST.get('is_hypertension')
@@ -122,10 +120,131 @@ def patientData(request):
         usr.symptoms = symptoms
         usr.email = acc
         usr.save()
-        return redirect('appointment')
+        return redirect('checkavailability')
 
     return render(request, 'patient/patient_data.html')
 
 
+# @login_required(login_url='login')
 def doc_list(request):
-    return render(request, 'patient/doc_list.html')
+    
+    lst=Doctor.objects.all()
+    for i in lst:
+        print(i.email)
+    context={
+        'doc_list':lst
+    }
+    return render(request, 'patient/doc_list.html', context)
+
+
+def singleDoc(request, id):
+    lst=Doctor.objects.filter(id=id)
+    lst1=Doctor.objects.get(id=id)
+    
+    yos=datetime.datetime.now().year-lst1.year_of_service
+    context={
+        'lst':lst,
+        'yos':yos
+    }
+    return render(request, 'patient/single_doc.html', context)
+
+
+
+@login_required(login_url='login')
+def availability(request):
+    if request.method == 'POST':
+        email = request.session.get('email')
+        date = request.POST.get('date')
+        spec = request.POST.get('specialization')
+        time=request.POST.get('time')
+        request.session['spec'] = spec
+        request.session['date'] = date
+        request.session['time_div'] = time
+        lv=list(leaveModel.objects.filter(email__is_doctor=True, leaveDate=date, leaveStatus=True, leaveDiv__icontains=time).values_list('email'))
+        # print(lv)
+        nlst=[i[0] for i in lv]
+        # print(nlst)
+        lst=list(Doctor.objects.exclude(email__in=nlst).values_list('email'))
+        # print(lst)
+        slst=[i[0] for i in lst]
+        # print(slst)
+        spec_lst=Doctor.objects.filter(email__in=lst, spec_name__spec_name=spec)
+        
+        print(spec_lst)
+
+        
+        if spec_lst:
+            context={
+            'doc':spec_lst
+            }
+            return render(request, 'patient/availability.html', context)
+        else:
+            messages.info(request, 'Currently there is no doctor available for this date search another')
+            return redirect('checkavailability')
+    return render(request, 'patient/availability.html', context)
+
+@login_required(login_url='login')
+def appointment(request, id=None):
+    doc=Doctor.objects.get(id=id)
+    request.session['doc_name']=doc.email.first_name+doc.email.last_name
+    request.session['doc_email']=doc.email.email
+    request.session['spec']=doc.spec_name.spec_name
+    request.session['designation']=doc.des_name.des_name
+    return render(request, 'patient/appointment.html')
+
+@login_required(login_url='login')
+def confirmappointment(request):
+    if request.method == 'POST':
+        # email = request.session.get('email')
+        # acc=Account.objects.get(email=email)
+        usr=patientAppointment()
+        is_diabetic = request.POST.get('is_diabetic')
+        is_asthma = request.POST.get('is_asthma')
+        is_hypertension = request.POST.get('is_hypertension')
+        is_stroke = request.POST.get('is_stroke')
+        alergetic_drugs = request.POST.get('alergetic_drugs')
+        weight = request.POST.get('weight')
+        height = request.POST.get('height')
+        is_alcoholic = request.POST.get('is_alcoholic')
+        symptoms = request.POST.get('symptoms')
+        email= request.session['doc_email']
+        # print(email)
+        # print('session', request.session['doc_email'])
+        # email=Doctor.objects.get(email__email=email)
+        # print(email)
+        doc_email=email
+        # print(doc_email)
+        date= request.session['date']
+        time='09:00'
+        patient_email=request.user.email
+
+
+        usr.is_diabetic = is_diabetic
+        usr.is_asthma = is_asthma
+        usr.is_hypertension = is_hypertension
+        usr.is_stroke = is_stroke
+        usr.alergetic_drugs = alergetic_drugs
+        usr.weight = weight
+        usr.height = height
+        usr.is_alcoholic = is_alcoholic
+        usr.symptoms = symptoms
+        usr.doc_email = doc_email
+        usr.date=date
+        usr.time=time
+        usr.patient_email= patient_email
+        usr.status=True
+        usr.save()
+        return redirect('viewappointments')
+    return render(request, 'patient/appointment.html')
+   
+
+
+
+@login_required(login_url='login')
+def viewappointments(request):
+    lst=patientAppointment.objects.filter(patient_email=request.user.email)
+    print(lst)
+    context={
+        'lst':lst
+    }
+    return render(request, 'patient/viewappointments.html', context)

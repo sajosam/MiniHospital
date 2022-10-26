@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import Account
+from doctor.models import Doctor
 
 # Create your models here.
 
@@ -14,7 +15,7 @@ class leaveModel(models.Model):
     leaveId = models.AutoField(primary_key=True)
     email = models.ForeignKey(Account, on_delete=models.CASCADE)
     leaveDate = models.DateField()
-    leaveDiv= models.CharField(max_length=10, choices=leave_choices)
+    leaveDiv= models.CharField(max_length=10)
     leaveReason = models.CharField(max_length=50)
     leaveStatus = models.BooleanField('Approved',default=False)
     

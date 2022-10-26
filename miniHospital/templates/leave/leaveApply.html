@@ -8,14 +8,15 @@
 
 <div style="width:50%;margin: 0 0 25% 25%;">
 
-    <form action="{% url 'applyLeave' %}" method="post">
+    <form action="{% url 'leaveApply' %}" method="post">
+        {% csrf_token %}
 
         <div class="form-group">
 
             <label for="email">Email address</label>
 
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
-                disabled>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="{{request.user.email}}" required disabled>
 
 
         </div>
