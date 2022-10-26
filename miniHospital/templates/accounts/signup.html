@@ -40,16 +40,17 @@
                                 id="confirm_password" placeholder="Confirm Password" onkeyup="confirmValidate()"><span
                                 class="error-msg" id="log-confirm"> </span><br></div>
                         <div id="ph"><input type="tel" class="tel" name="contact" id="contact"
-                                placeholder="Enter Contact Number" onkeyup="contactValidate"><span class="error-msg"
+                                placeholder="Enter Contact Number" onkeyup="contactValidate()"><span class="error-msg"
                                 id="log-contact">
                             </span><br></div>
                         <div id="d"><input type="text" class="date" name="dob" id="dob" placeholder="Date of Birth"
-                                onfocus="(this.type='date')" onkeyup="dobValidate"><span class="error-msg" id="log-dob">
+                                onfocus="(this.type='date')" onclick="dobValidate()"><span class="error-msg"
+                                id="log-dob">
                             </span><br>
                         </div>
                         <span id="error_dob"></span>
                         <!-- dropdown gender -->
-                        <div id="g"><select name="gender" id="gender" class="text" onkeyup="genderValidate">
+                        <div id="g"><select name="gender" id="gender" class="text" onclick="genderValidate()">
                                 <option id="error_gender" value="" disable>Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -57,11 +58,11 @@
 
                             </select><span class="error-msg" id="log-gender"> </span></div>
                         <span id="error_gender"></span>
-                        <div><select name="state" class="text" id="state" onkeyup="stateValidate">
+                        <div><select name="state" class="text" id="state" onclick="stateValidate()">
                                 <option id="error_state" value="" selected disabled>Select your current state</option>
                                 <option value="Kerala">Kerala</option>
                             </select><span class="error-msg" id="log-state"> </span></div>
-                        <div><select name="district" class="text" id="district" onkeyup="districtValidate">
+                        <div><select name="district" class="text" id="district" onclick="districtValidate()">
                                 <option id="error_district" value="" selected disabled>Select your current district
                                 </option>
                                 <option value="Trivandrum">Trivandrum</option>
@@ -132,7 +133,7 @@
             return false;
         } else {
             clearBorder('log-first')
-            return true
+            // return true
         }
 
     }
@@ -206,7 +207,7 @@
         } else if (!isPasswordSecure(password)) {
             document.getElementById('log-passwd').textContent =
                 "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)";
-            document.getElementById('log-passwd').style.border = "1px solid red";
+            // document.getElementById('log-passwd').style.border = "1px solid red";
             document.getElementById("log-passwd").style.color = "red";
             return false;
         } else {
@@ -216,6 +217,8 @@
 
     function confirmValidate() {
         var confirm_password = document.getElementById('confirm_password').value;
+        var password = document.getElementById("password").value;
+
         if (confirm_password == "") {
             document.getElementById('log-confirm').textContent = "Please enter your confirm password";
             // document.getElementById('log-confirm').style.border = "1px solid red";
@@ -241,17 +244,17 @@
         };
         if (contact == "") {
             document.getElementById('log-contact').textContent = "Please enter your contact number";
-            document.getElementById('log-contact').style.border = "1px solid red";
+            // document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
             return false;
         } else if (contact.length != 10) {
             document.getElementById('log-contact').textContent = "Please enter valid contact number";
-            document.getElementById('log-contact').style.border = "1px solid red";
+            // document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
             return false;
         } else if (!isContactValid(contact)) {
             document.getElementById('log-contact').textContent = "Please enter valid contact number";
-            document.getElementById('log-contact').style.border = "1px solid red";
+            // document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
             return false;
         } else {
@@ -263,7 +266,75 @@
 
     function dobValidate() {
         var dob = document.getElementById('dob').value;
+        const isDobValid = (dob) => {
+            // check age greater than 18
+            var today = new Date();
+            var birthDate = new Date(dob);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            if (age < 18) {
+                return false;
+            } else {
+                return true;
+            }
+        }
 
+        if (dob == "") {
+            document.getElementById('log-dob').textContent = "Please enter your date of birth";
+            // document.getElementById('log-dob').style.border = "1px solid red";
+            document.getElementById("log-dob").style.color = "red";
+            return false;
+        } else if (!isDobValid(dob)) {
+            document.getElementById('log-dob').textContent = "You must be 18 years old to register";
+            // document.getElementById('log-dob').style.border = "1px solid red";
+            document.getElementById("log-dob").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-dob')
+        }
+
+
+    }
+
+    function genderValidate() {
+        var gender = document.getElementById('gender').value;
+        if (gender == '') {
+            document.getElementById('log-gender').textContent = "Please select one of the following";
+            // document.getElementById('log-gender').style.border = "1px solid red";
+            document.getElementById("log-gender").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-gender');
+        }
+
+    }
+
+    function stateValidate() {
+        var state = document.getElementById('state').value;
+        if (gender == '') {
+            document.getElementById('log-gender').textContent = "Please select one of the following";
+            // document.getElementById('log-gender').style.border = "1px solid red";
+            document.getElementById("log-gender").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-gender');
+        }
+
+    }
+
+    function districtValidate() {
+        var district = document.getElementById('district').value;
+        if (district == '') {
+            document.getElementById('log-district').textContent = "Please select one of the following";
+            // document.getElementById('log-district').style.border = "1px solid red";
+            document.getElementById("log-district").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-district');
+        }
 
     }
 
@@ -327,96 +398,96 @@
         console.log(first_name);
         if (first_name == "") {
             document.getElementById('log-first').textContent = "Please enter your first name";
-            document.getElementById('log-first').style.border = "1px solid red";
+            // document.getElementById('log-first').style.border = "1px solid red";
             document.getElementById("log-first").style.color = "red";
 
             return false;
         } else if (!isFirstNameValid(first_name)) {
             document.getElementById('log-first').textContent = "Please enter valid first name";
-            document.getElementById('log-first').style.border = "1px solid red";
+            // document.getElementById('log-first').style.border = "1px solid red";
             document.getElementById("log-first").style.color = "red";
             return false;
         } else if (last_name == "") {
             document.getElementById('log-last').textContent = "Please enter your last name";
-            document.getElementById('log-last').style.border = "1px solid red";
+            // document.getElementById('log-last').style.border = "1px solid red";
             document.getElementById("log-last").style.color = "red";
             return false;
         } else if (!isLastNameValid(last_name)) {
             document.getElementById('log-last').textContent = "please enter valid name";
-            document.getElementById('log-last').style.border = "1px solid red";
+            // document.getElementById('log-last').style.border = "1px solid red";
             document.getElementById("log-last").style.color = "red";
             return false;
         } else if (email == "") {
             document.getElementById('log-email').textContent = "Please enter your email";
-            document.getElementById('log-email').style.border = "1px solid red";
+            // document.getElementById('log-email').style.border = "1px solid red";
             document.getElementById("log-email").style.color = "red";
             return false;
         } else if (!isEmailValid(email)) {
             document.getElementById('log-email').textContent = "enter a valid email";
-            document.getElementById('log-email').style.color = "red";
+            // document.getElementById('log-email').style.color = "red";
             document.getElementById("log-email").style.color = "red";
 
             return false;
         } else if (password == "") {
             document.getElementById('log-passwd').textContent = "Please enter your password";
-            document.getElementById('log-passwd').style.border = "1px solid red";
+            // document.getElementById('log-passwd').style.border = "1px solid red";
             document.getElementById("log-passwd").style.color = "red";
             return false;
         } else if (!isPasswordSecure(password)) {
             document.getElementById('log-passwd').textContent =
                 "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)";
-            document.getElementById('log-passwd').style.border = "1px solid red";
+            // document.getElementById('log-passwd').style.border = "1px solid red";
             document.getElementById("log-passwd").style.color = "red";
             return false;
         } else if (confirm_password == "") {
             document.getElementById('log-confirm').textContent = "Please enter your confirm password";
-            document.getElementById('log-confirm').style.border = "1px solid red";
+            // document.getElementById('log-confirm').style.border = "1px solid red";
             document.getElementById("log-confirm").style.color = "red";
             return false;
         } else if (password != confirm_password) {
             document.getElementById('log-confirm').textContent = "Password does not match";
-            document.getElementById('log-confirm').style.border = "1px solid red";
+            // document.getElementById('log-confirm').style.border = "1px solid red";
             document.getElementById("log-confirm").style.color = "red";
             return false;
         } else if (contact == "") {
             document.getElementById('log-contact').textContent = "Please enter your contact number";
-            document.getElementById('log-contact').style.border = "1px solid red";
+            // document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
             return false;
         } else if (contact.length != 10) {
             document.getElementById('log-contact').textContent = "Please enter valid contact number";
-            document.getElementById('log-contact').style.border = "1px solid red";
+            // document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
             return false;
         } else if (!isContactValid(contact)) {
             document.getElementById('log-contact').textContent = "Please enter valid contact number";
-            document.getElementById('log-contact').style.border = "1px solid red";
+            // document.getElementById('log-contact').style.border = "1px solid red";
             document.getElementById("log-contact").style.color = "red";
 
             return false;
         } else if (dob == "") {
             document.getElementById('log-dob').textContent = "Please enter your date of birth";
-            document.getElementById('log-dob').style.border = "1px solid red";
+            // document.getElementById('log-dob').style.border = "1px solid red";
             document.getElementById("log-dob").style.color = "red";
             return false;
         } else if (!isDobValid(dob)) {
             document.getElementById('log-dob').textContent = "You must be 18 years old to register";
-            document.getElementById('log-dob').style.border = "1px solid red";
+            // document.getElementById('log-dob').style.border = "1px solid red";
             document.getElementById("log-dob").style.color = "red";
             return false;
         } else if (gender == '') {
             document.getElementById('log-gender').textContent = "Please select one of the following";
-            document.getElementById('log-gender').style.border = "1px solid red";
+            // document.getElementById('log-gender').style.border = "1px solid red";
             document.getElementById("log-gender").style.color = "red";
             return false;
         } else if (state == '') {
             document.getElementById('log-state').textContent = "Please select one of the following";
-            document.getElementById('log-state').style.border = "1px solid red";
+            // document.getElementById('log-state').style.border = "1px solid red";
             document.getElementById("log-state").style.color = "red";
             return false;
         } else if (district == '') {
             document.getElementById('log-district').textContent = "Please select one of the following";
-            document.getElementById('log-district').style.border = "1px solid red";
+            // document.getElementById('log-district').style.border = "1px solid red";
             document.getElementById("log-district").style.color = "red";
             return false;
         } else {

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'leave',
     'patient',
     'ckeditor',
+    'captcha',
     
 ]
 
@@ -59,6 +60,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
+
+
+RECAPTCHA_PUBLIC_KEY = '6LfBwbMiAAAAAAbXL0saBDXbcJcKmg673cqVGLiY'
+RECAPTCHA_PRIVATE_KEY = '6LfBwbMiAAAAANmqFckuf67fw1kEnOXo3puytod3'
 
 ROOT_URLCONF = 'miniHospital.urls'
 

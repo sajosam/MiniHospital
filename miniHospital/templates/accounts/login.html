@@ -27,6 +27,15 @@
 							placeholder="User Password" onkeyup="passwordValidate()">
 						<span class="error-msg" id="log-passwd"> </span><br>
 
+						<!-- <div class="form-group">
+							<div class="grecaptche">{{ form.captcha }}</div>
+						</div> -->
+
+						<div class="g-recaptcha" data-sitekey="6LfBwbMiAAAAAAbXL0saBDXbcJcKmg673cqVGLiY"></div>
+						<div id="g-recaptcha-error"></div>
+
+
+
 						<button class="btn" type="submit">Log In</button>
 					</form>
 
@@ -45,6 +54,10 @@
 	</div>
 </section>
 <script type="text/javascript">
+	// function verifyCaptcha() {
+	// 	document.getElementById('g-recaptcha-error').innerHTML = '';
+	// }
+
 	function clearBorder(e) {
 		document.getElementById(e).textContent = "";
 		document.getElementById(e).style.border = "1px solid white";
@@ -91,19 +104,40 @@
 		}
 	}
 
-	// function validatee() {
-	// 	var frm = document.getElementById('logform').value;
-	// 	var email = document.getElementById('email1').value;
-	// 	var password = document.getElementById("password").value;
-	// 	if (!emailvalidate()) {
-	// 		return false
-	// 	} else if (!passwordValidate) {
-	// 		return false
-	// 	} else {
-	// 		frm.submit();
-	// 	}
+	function validatee() {
+		var frm = document.getElementById('logform').value;
+		var email = document.getElementById('email1').value;
+		var password = document.getElementById("password").value;
 
-	// }
+		if (grecaptcha.getResponse() == "") {
+
+			document.getElementById('g-recaptcha-error').textContent = "enter the Captcha";
+			document.getElementById("g-recaptcha-error").style.color = "red";
+			return false;
+		}
+		if (email == "") {
+			document.getElementById('log-email').textContent = "Please enter your email";
+			document.getElementById("log-email").style.color = "red";
+			return false;
+		} else if (!isEmailValid(email)) {
+			document.getElementById('log-email').textContent = "enter a valid email";
+			document.getElementById("log-email").style.color = "red";
+			return false;
+		} else if (password == "") {
+			document.getElementById('log-passwd').textContent = "Please enter your password";
+			document.getElementById("log-passwd").style.color = "red";
+			return false;
+		} else if (grecaptcha.getResponse() == "") {
+			alert(response)
+			document.getElementById('g-recaptcha-error').innerHTML =
+				'<span style="color:red;">This field is required.</span>';
+			return false;
+		} else {
+			return true;
+		}
+
+
+	}
 </script>
 
 

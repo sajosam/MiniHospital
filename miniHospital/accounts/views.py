@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from .models import Account, demo
 from django.contrib import messages, auth
-
+from .forms import ContactForm
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -40,7 +40,8 @@ def login(request):
         else:
             messages.error(request, 'Invalid Credentials')
             return redirect('login')
-    return render(request, 'accounts/login.html')
+    form=ContactForm()
+    return render(request, 'accounts/login.html',{'form':form})
 
 
 
