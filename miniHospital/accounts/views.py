@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from django.http import HttpResponse
-from .models import Account, demo
+from .models import Account
 from django.contrib import messages, auth
 from .forms import ContactForm
 
@@ -30,7 +30,7 @@ def login(request):
             # save email in session
             request.session['email'] = email
             if user.is_admin:
-                return redirect('http://127.0.0.1:8000/admin/')
+                return redirect('http://127.0.0.1:8000/admin/dashboard/')
             if user.is_doctor:
                 return redirect('doctorHome')
             elif user.is_lab:

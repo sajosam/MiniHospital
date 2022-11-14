@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 import datetime
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -137,9 +138,10 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, add_label):
         return True
+    
+    # def clean(self):
+    #     if len(self.first_name)!=10:
+    #         raise ValidationError("enter above 4 charector")
 
 
-class demo(models.Model):
-    id = models.AutoField(primary_key=True)
-    file_field = models.FileField(upload_to='documents/')
     

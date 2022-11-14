@@ -17,6 +17,10 @@
                     {% include 'include/alerts.html' %}
                     <form onsubmit="return regvalidate()" action="{% url 'signup' %}" method="post" id="signup">
                         {% csrf_token %}
+                        <script type="text/javascript">
+                            var today = new Date().toISOString().split('T')[0];
+                            document.getElementsByName("dob")[0].setAttribute('min', today);
+                        </script>
                         <!-- {{error}} -->
                         <div id="f-name">
                             <input type="text" class="text" name="first_name" id="first_name" placeholder="First Name"

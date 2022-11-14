@@ -23,7 +23,7 @@ handler400, handler403, handler404, handler500
 
 urlpatterns = [
     
-    path('admin/', admin.site.urls),
+    path('admin/dashboard/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('doctor/', include('doctor.urls')),
     # path('patient/', include('patient.urls')),

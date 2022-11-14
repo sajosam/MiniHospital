@@ -192,7 +192,7 @@ h6 {
 */
 .appointment-btn {
   margin-left: 25px;
-  background: #118597;
+  background: #13b2cb;
   color: #fff;
   border-radius: 4px;
   padding: 8px 25px;
@@ -204,7 +204,7 @@ h6 {
 }
 
 .appointment-btn:hover {
-  background: #0d0222;
+  background: #1996a9;
   color: #ffffff;
 }
 
@@ -470,11 +470,11 @@ h6 {
 
 #hero .container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: #fff;
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 50px;
-  border-top: 4px solid #0d0222;
+  border-top: 4px solid #fff;
 }
 
 @media (max-width: 1200px) {
@@ -529,10 +529,10 @@ h6 {
   line-height: 0;
   width: auto;
   height: auto;
-  background: rgba(63, 187, 192, 0.8);
+  background: #13b2cb;
   border-radius: 50px;
   transition: 0.3s;
-  color: rgba(255, 255, 255, 0.5);
+  color: #0d0222;
   width: 54px;
   height: 54px;
   display: flex;
@@ -542,8 +542,8 @@ h6 {
 
 #hero .carousel-control-next-icon:hover,
 #hero .carousel-control-prev-icon:hover {
-  background: #0d0222;
-  color: rgba(255, 255, 255, 0.8);
+  background: #1996a9;
+  color: #fff;
 }
 
 #hero .carousel-indicators li {
@@ -740,7 +740,7 @@ section {
 }
 
 .featured-services .icon-box:hover::before {
-  background: #0d0222;
+  background: #13b2cb;
   top: 0;
   border-radius: 0px;
 }
@@ -752,7 +752,7 @@ section {
 .featured-services .icon i {
   font-size: 48px;
   line-height: 1;
-  color: #0d0222;
+  color: #13b2cb;
   transition: all 0.3s ease-in-out;
 }
 
@@ -770,6 +770,7 @@ section {
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
+  color: #000000;
 }
 
 .featured-services .icon-box:hover .title a,
@@ -785,7 +786,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: #3fbbc0;
+  background: #13b2cb;
   color: #0d0222;
   background-size: cover;
   padding: 60px 0;
@@ -811,7 +812,7 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #0d0222;
+  background: #1996a9;
   color: rgb(255, 255, 255);
 }
 
@@ -858,7 +859,7 @@ section {
 .counts .count-box i {
   display: block;
   font-size: 30px;
-  color: #0d0222;
+  color: #13b2cb;
   float: left;
 }
 
@@ -867,7 +868,7 @@ section {
   line-height: 24px;
   display: block;
   font-weight: 700;
-  color: #0d0222;
+  color: #13b2cb;
   margin-left: 50px;
 }
 
@@ -935,7 +936,7 @@ section {
   width: 80px;
   height: 80px;
   margin-bottom: 20px;
-  background: #1996a9;
+  background: #13b2cb;
   border-radius: 50%;
   transition: 0.5s;
   color: #fff;
@@ -950,7 +951,7 @@ section {
 
 .services .icon-box:hover .icon {
   box-shadow: 0px 0 25px rgba(63, 187, 192, 0.3);
-  background: #0d0222;
+  background: #1996a9;
 }
 
 .services .title {
@@ -962,12 +963,12 @@ section {
 }
 
 .services .title a {
-  color: #3fbbc0;
+  color: #13b2cb;
   transition: 0.3s;
 }
 
 .services .title a:hover {
-  color: #0d0222;
+  color: #1996a9;
 }
 
 .services .title::after {
@@ -1292,7 +1293,7 @@ section {
   height: 40px;
   opacity: 0;
   transition: ease-in-out 0.3s;
-  background: #0d0222;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1312,7 +1313,7 @@ section {
 }
 
 .doctors .member .social a:hover {
-  color: #ffffff;
+  color: #13b2cb;
 }
 
 .doctors .member .social i {
@@ -1667,7 +1668,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #3fbbc0;
+  background: #13b2cb;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1676,7 +1677,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #0d0222;
+  background: #1996a9;
 }
 
 @-webkit-keyframes animate-loading {
@@ -1736,7 +1737,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #3fbbc0;
+  background: #13b2cb;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1749,7 +1750,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #0d0222;
+  background: #1996a9;
   text-decoration: none;
 }
 
@@ -1822,14 +1823,14 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #3fbbc0;
+  background: #13b2cb;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
 }
 
 #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
-  background: #0d0222;
+  background: #1996a9;
 }
 
 #footer .copyright {

@@ -50,6 +50,13 @@ from accounts.models import Account
 #     status=models.BooleanField(default=False)
 
 class patientAppointment(models.Model):
+    # timechoice = (
+    #     ('FN', 'FN'),
+    #     ('AN', 'AN'),
+    #     ('FD', 'FD'),
+    #     ('None', 'None'),
+    # )
+    timeDiv= models.CharField(max_length=10, blank=True)
     id = models.AutoField(primary_key=True)
     doc_email=models.EmailField(max_length=100)
     patient_email= models.EmailField(max_length=100)

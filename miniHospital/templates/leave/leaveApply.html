@@ -8,8 +8,12 @@
 
 <div style="width:50%;margin: 0 0 25% 25%;">
 
-    <form action="{% url 'leaveApply' %}" method="post">
+    <form onsubmit="return leavevalidate()" action="{% url 'leaveApply' %}" method="post">
         {% csrf_token %}
+        <script type="text/javascript">
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementsByName("date")[0].setAttribute('min', today);
+        </script>
 
         <div class="form-group">
 
@@ -25,7 +29,9 @@
 
             <label for="date">Date</label>
 
-            <input type="date" class="form-control" id="date" placeholder="Date" name="date">
+            <input type="date" class="form-control" id="date" placeholder="Date" name="date" onkeyup="dateValidate()">
+            <span class="error-msg" id="log-date"> </span><br>
+
 
         </div>
 
@@ -33,7 +39,7 @@
 
             <label for="type">Type</label>
 
-            <select class="form-control" id="type" name="div">
+            <select class="form-control" id="type" name="div" onkeyup="typeValidate()">
 
                 <option>FN</option>
 
@@ -42,6 +48,8 @@
                 <option>FD</option>
 
             </select>
+            <span class="error-msg" id="log-type"> </span><br>
+
 
         </div>
 
@@ -49,7 +57,10 @@
 
             <label for="reason">Reason</label>
 
-            <textarea class="form-control" id="reason" rows="3" name="reason" placeholder="Reason"></textarea>
+            <textarea class="form-control" id="reason" rows="3" name="reason" placeholder="Reason"
+                onkeyup="reasonValidate()"></textarea>
+            <span class="error-msg" id="log-reason"> </span><br>
+
 
         </div>
 
@@ -60,6 +71,134 @@
 
 </div>
 
+<script type="text/javascript">
+    function clearBorder(e) {
+        document.getElementById(e).textContent = "";
+        document.getElementById(e).style.border = "1px solid white";
+        document.getElementById(e).style.color = "white";
+
+    }
+
+    function dateValidate() {
+
+        var date = document.getElementById('date').value;
+        const isDateValid = (date) => {
+            var today = new Date();
+            // check entered date is greater than today
+            if (new Date(date) > today) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        if (date == "") {
+
+            document.getElementById('log-date').textContent = "Please enter Date for leave";
+            document.getElementById("log-date").style.color = "red";
+            return false;
+
+        }
+        if (!isDateValid(date)) {
+            document.getElementById('log-date').textContent = "Please enter valid Date for leave";
+            document.getElementById("log-date").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-date');
+            return true;
+        }
+
+
+    }
+
+    function typeValidate() {
+
+        var type = document.getElementById('type').value;
+
+        if (type == "") {
+
+            document.getElementById('log-type').textContent = "Please enter Type of leave";
+            document.getElementById("log-type").style.color = "red";
+            return false;
+
+        } else {
+            clearBorder('log-type');
+            return true;
+        }
+    }
+
+    function reasonValidate() {
+
+        var reason = document.getElementById('reason').value;
+
+        if (reason == "") {
+
+            document.getElementById('log-reason').textContent = "Please enter Reason for leave";
+            document.getElementById("log-reason").style.color = "red";
+            return false;
+
+        } else {
+            clearBorder('log-reason');
+            return true;
+        }
+    }
+
+    function leavevalidate() {
+
+        var date = document.getElementById('date').value;
+
+        var type = document.getElementById('type').value;
+
+        var reason = document.getElementById('reason').value;
+
+        const isDateValid = (date) => {
+            var today = new Date();
+            // check entered date is greater than today
+            if (new Date(date) > today) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+
+
+        if (date == "") {
+
+            document.getElementById('log-date').textContent = "Please enter Date for leave";
+            document.getElementById("log-date").style.color = "red";
+            return false;
+
+        }
+
+        if (!isDateValid(date)) {
+            document.getElementById('log-date').textContent = "Please enter valid Date for leave";
+            document.getElementById("log-date").style.color = "red";
+            return false;
+        }
+
+        if (type == "") {
+
+            document.getElementById('log-type').textContent = "Required";
+            document.getElementById("log-type").style.color = "red";
+            return false;
+
+        }
+
+        if (reason == "") {
+
+            document.getElementById('log-reason').textContent = "Please enter Reason";
+            document.getElementById("log-reason").style.color = "red";
+            return false;
+
+        }
+
+        return True;
+
+    }
+</script>
 
 
 {% endblock dr %}

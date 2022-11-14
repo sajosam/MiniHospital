@@ -2,7 +2,8 @@
 <header id="header" class="fixed-top">
     <!-- <a href="#" class="logo me-auto"><img src="{% static 'img/logo-new.png' %}" alt="demoooo"></a> -->
     <div class="container d-flex align-items-center justify-content-center">
-        <a href="#" class="logo me-auto primary"><img src="{% static 'img/logo-new.png' %}" alt="demoooo"></a>
+        <a href="{% url 'patientHome' %}" class="logo me-auto primary"><img src="{% static 'img/logo-new.png' %}"
+                alt="demoooo"></a>
 
 
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -12,7 +13,7 @@
             <!-- <a href="#" class="logo me-auto"><img src="{% static 'img/logo-new.png' %}" alt="demoooo"></a> -->
 
             <ul>
-                <li><a class="nav-link scrollto " href="#">Home</a></li>
+                <li><a class="nav-link scrollto " href="{% url 'patientHome' %}">Home</a></li>
                 <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
                 <li><a class="nav-link scrollto" href="#services">Services</a></li>
 

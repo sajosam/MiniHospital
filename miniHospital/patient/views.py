@@ -14,7 +14,8 @@ from .models import patientAppointment
 from django.contrib import messages, auth
 from doctor.models import Doctor
 from leave.models import leaveModel
-
+# from scheduling import SchedulingAlgorithm
+from . import scheduling
 
 # Create your views here.
 
@@ -160,6 +161,7 @@ def availability(request):
         request.session['spec'] = spec
         request.session['date'] = date
         request.session['time_div'] = time
+        print(request.session['time_div'])
         lv=list(leaveModel.objects.filter(email__is_doctor=True, leaveDate=date, leaveStatus=True, leaveDiv__icontains=time).values_list('email'))
         # print(lv)
         nlst=[i[0] for i in lv]
@@ -208,6 +210,7 @@ def confirmappointment(request):
         is_alcoholic = request.POST.get('is_alcoholic')
         symptoms = request.POST.get('symptoms')
         email= request.session['doc_email']
+        print(request.session['time_div'])
         # print(email)
         # print('session', request.session['doc_email'])
         # email=Doctor.objects.get(email__email=email)
@@ -215,26 +218,40 @@ def confirmappointment(request):
         doc_email=email
         # print(doc_email)
         date= request.session['date']
-        time='09:00'
+        # time='09:00'
         patient_email=request.user.email
+        time_div=request.session['time_div']
+        # print(request.session['time_div'])
+        # print(time_div)
+
+        timeschedule=scheduling.SchedulingAlgorithm(d_email=doc_email, date=date, time=time_div)
+        time=timeschedule.schedule()
+        print("exq",time)
+        print(time_div)
+        if time:
+            usr.is_diabetic = is_diabetic
+            usr.is_asthma = is_asthma
+            usr.is_hypertension = is_hypertension
+            usr.is_stroke = is_stroke
+            usr.alergetic_drugs = alergetic_drugs
+            usr.weight = weight
+            usr.height = height
+            usr.is_alcoholic = is_alcoholic
+            usr.symptoms = symptoms
+            usr.doc_email = doc_email
+            usr.date = date
+            usr.patient_email = patient_email
+            usr.time = time
+            usr.timeDiv = time_div
+            usr.save()
+            return redirect('viewappointments')
+        else:
+            messages.info(request, 'Currently there is no doctor available for this date search another')
+            return redirect('checkavailability')
+            
 
 
-        usr.is_diabetic = is_diabetic
-        usr.is_asthma = is_asthma
-        usr.is_hypertension = is_hypertension
-        usr.is_stroke = is_stroke
-        usr.alergetic_drugs = alergetic_drugs
-        usr.weight = weight
-        usr.height = height
-        usr.is_alcoholic = is_alcoholic
-        usr.symptoms = symptoms
-        usr.doc_email = doc_email
-        usr.date=date
-        usr.time=time
-        usr.patient_email= patient_email
-        usr.status=True
-        usr.save()
-        return redirect('viewappointments')
+        
     return render(request, 'patient/appointment.html')
    
 
