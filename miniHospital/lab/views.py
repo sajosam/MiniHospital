@@ -7,6 +7,7 @@ from .models import Lab
 from datetime import date
 from .forms import LabForm, UserForm
 from django.contrib.auth.decorators import login_required
+from patient.models import patientAppointment
 
 # Create your views here.
 
@@ -76,3 +77,9 @@ def labUpdate(request):
             return render(request, 'lab/l-update.html', context)
 
 
+def labViewAppo(request):
+    lst=patientAppointment.objects.filter(status=True)
+    context={
+        'lst':lst
+    }
+    return render(request, 'lab/viewappo.html', context)

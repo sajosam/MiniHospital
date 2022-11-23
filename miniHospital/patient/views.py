@@ -17,6 +17,14 @@ from leave.models import leaveModel
 # from scheduling import SchedulingAlgorithm
 from . import scheduling
 
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import default_token_generator
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+
 # Create your views here.
 
 
@@ -243,15 +251,34 @@ def confirmappointment(request):
             usr.patient_email = patient_email
             usr.time = time
             usr.timeDiv = time_div
+            usr.status=True
             usr.save()
+            dc=Account.objects.get(email=doc_email)
+
+            current_site = get_current_site(request)
+            message = render_to_string('patient/confirmAppointmentEmail.html', {
+                'user': usr.id,
+                'domain': current_site,
+                'doctor_name':dc.first_name+dc.last_name,
+                'doctor_spec':request.session['spec'],
+                'time':time,
+                'date':date,
+                'patient_name':request.user.first_name+request.user.last_name,
+
+            })
+
+            send_mail(
+                'Confirmation of the Appointment',
+                message,
+                'ajceminihospital@gmail.com',
+                [patient_email],
+                fail_silently=False,
+            )
             return redirect('viewappointments')
         else:
             messages.info(request, 'Currently there is no doctor available for this date search another')
             return redirect('checkavailability')
             
-
-
-        
     return render(request, 'patient/appointment.html')
    
 

@@ -13,5 +13,6 @@ urlpatterns = [
     path('availability/', views.availability, name='availability'),
     path('appointment/<int:id>', views.appointment, name='appointment'),
     path('viewappointments/',views.viewappointments, name='viewappointments'),
-    path('confirmappointment', views.confirmappointment, name='confirmappointment')
+    path('confirmappointment', views.confirmappointment, name='confirmappointment'),
+
 ]

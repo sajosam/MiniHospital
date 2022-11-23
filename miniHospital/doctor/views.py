@@ -6,6 +6,7 @@ from accounts.models import Account
 from .models import Doctor
 from datetime import date
 from .forms import DoctorForm, UserForm
+from patient.models import patientAppointment
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -85,3 +86,11 @@ def doctorUpdate(request):
             return render(request, 'doctor/dr-update.html', context)
 
 
+def doctorAppo(request):
+    lst=patientAppointment.objects.filter(doc_email=request.user.email, status=True)
+    print(request.user.email)
+    print("lst",lst)
+    context={
+        'lst':lst
+    }
+    return render(request, 'doctor/viewappo.html', context)
