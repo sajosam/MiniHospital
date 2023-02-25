@@ -11,8 +11,10 @@ urlpatterns = [
     path('doc_list/',views.doc_list, name='doc_list'),
     path('singleDoc/<int:id>', views.singleDoc, name='singleDoc'),
     path('availability/', views.availability, name='availability'),
-    path('appointment/<int:id>', views.appointment, name='appointment'),
+    path('appointment/<int:id>/', views.appointment, name='appointment'),
     path('viewappointments/',views.viewappointments, name='viewappointments'),
-    path('confirmappointment', views.confirmappointment, name='confirmappointment'),
+    path('confirmappointment/', views.confirmappointment, name='confirmappointment'),
+    path('chat/', views.diagnosis_view, name='chat'),
+    # path('chatroom/', views.chatbot_view, name='chatroom'),
 
 ]

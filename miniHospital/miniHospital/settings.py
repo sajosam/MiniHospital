@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'patient',
     'ckeditor',
     'captcha',
+    'channels',
     
 ]
 

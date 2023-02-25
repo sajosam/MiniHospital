@@ -15,11 +15,6 @@ from django.core.mail import EmailMessage
 from django.core.mail import send_mail
 
 
-
-# Create your views here.
-
-
-
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -110,52 +105,12 @@ def activate(request, uidb64, token):
 
 from django.core.mail import EmailMessage
 
-# def forgotPassword(request):
-#     if request.method == 'POST':
-#         email = request.POST['email']
-#         if Account.objects.filter(email=email).exists():
-#             user = Account.objects.get(email__exact=email)
-#             # d = demo.objects.get(id=1)
-#             d=demo.objects.filter(id=1).values_list('file_field', flat=True)
-#             print(d)
-#             # Reset password email
-#             current_site = get_current_site(request)
-#             message = render_to_string('accounts/reset_password_email.html', {
-#                 'user': user,
-#                 'domain': current_site,
-#                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-#                 'token': default_token_generator.make_token(user),
-#             })
-#             mail = EmailMessage('Please activate your account', message, 'ajceminihospital@gmail.com', [email])
-#             mail.attach(d.file_field.name, d.file_field.read())
-#             mail.send()
-
-
-
-            # send_mail(
-                
-            #     message,
-            #     'ajceminihospital@gmail.com',
-            #     [email],
-            #     fail_silently=False,
-            # )
-            
-    #         messages.success(request, 'Password reset email has been sent to your email address.')
-    #         return redirect('login')
-    #     else:
-    #         messages.error(request, 'Account does not exist!')
-    #         return redirect('forgotPassword')
-    # return render(request, 'accounts/forgotPassword.html')
-
 
 def forgotPassword(request):
     if request.method == 'POST':
         email = request.POST['email']
         if Account.objects.filter(email=email).exists():
             user = Account.objects.get(email__exact=email)
-
-            # Reset password email
-
 
             current_site = get_current_site(request)
             message = render_to_string('accounts/reset_password_email.html', {

@@ -292,3 +292,60 @@ def viewappointments(request):
         'lst':lst
     }
     return render(request, 'patient/viewappointments.html', context)
+
+def chat(request):
+    return render(request, 'patient/chat.html')
+
+
+# from django.views.decorators.csrf import csrf_exempt
+# from django.http import JsonResponse
+# # from infermedica.api import InfermedicaApi
+# import infermedica_api
+
+# @csrf_exempt
+# def chatbot_view(request):
+#     if request.method == 'POST':
+#         print(request.POST.get('input_text'))
+#         api = infermedica_api.APIv3Connector(app_id='8e8c4516', app_key='eea0068936cd62c2a0ca5d1d3f5de82e')
+#         input_text = request.POST.get('input_text')
+#         response = api.parse(input_text[0],input_text[1])
+#         chatbot_response = response.get('mentions')[0].get('text')
+#         return JsonResponse({'chatbot_response': chatbot_response})
+#     return JsonResponse({})
+
+# def chatroom(request):
+#     # implement informedica api
+#     if request.method == ''
+
+import requests
+from django.shortcuts import render
+
+def diagnosis_view(request):
+    if request.method == 'POST':
+        # Get the symptom data from the form
+        sex = request.POST.get('sex')
+        age = request.POST.get('age')
+        symptoms = request.POST.getlist('symptoms')
+        # Set up the API request
+        url = 'https://api.infermedica.com/v3/diagnosis'
+        headers = {
+            'App-Id': '8e8c4516',
+            'App-Key': 'eea0068936cd62c2a0ca5d1d3f5de82e',
+            'Content-Type': 'application/json'
+        }
+        data = {
+            'sex': sex,
+            'age': int(age),
+            'evidence': [{'id': symptom_id, 'choice_id': 'present'} for symptom_id in symptoms]
+        }
+        # Make the API request
+        response = requests.post(url, headers=headers, json=data)
+        # Handle the response from the API
+        condition = response.json()['conditions'][0]['name']
+        probability = response.json()['conditions'][0]['probability']
+        response_msg = f"Based on your symptoms, you may have {condition}. The probability is {probability}."
+        # Render the response message in a template
+        return render(request, 'patient/chat.html', {'response_msg': response_msg})
+    else:
+        # Render the diagnosis form
+        return render(request, 'patient/chat.html')

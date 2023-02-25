@@ -17,7 +17,7 @@ class UserForm(forms.ModelForm):
             'district':forms.Select(attrs={'class':'form-control','placeholder':'District'}),
             'contact':forms.NumberInput(attrs={'class':'form-control','placeholder':'Contact'}),
             'usr_img':forms.FileInput(attrs={'class':'form-control','placeholder':'Image'}),
-            # 'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'Email'}),
+            # 'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'Er44mail'}),
             # 'password':forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}),
             # 'username':forms.TextInput(attrs={'class':'form-control','placeholder':'Username'}),
             'dob':forms.DateInput(attrs={'class':'form-control','placeholder':'Date of Birth'}),
