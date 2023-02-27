@@ -2,25 +2,59 @@
 <html>
 
 <head>
-    <title>Diagnosis</title>
+    <title>Infermedica Symptom Checker Chatbot</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px grey;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px grey;
+            cursor: pointer;
+        }
+
+        #chatbot-messages {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chatbot-message {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px grey;
+            max-width: 70%;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Diagnosis</h1>
-    {% if response_msg %}
-    <p>{{ response_msg }}</p>
-    {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        <label for="sex">Sex:</label>
-        <select id="sex" name="sex">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select><br><br>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br><br>
-        <label for="symptoms">Symptoms:</label><br>
-        {% for symptom in symptoms %}
-        <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value="{{ symptom.id }}">
-        <label for="{{ symptom.id }}">{{ symptom.name }}</label><br>
-        {% endfor %}
+    <form>
+        <label for="symptoms">Enter your symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms" placeholder="e.g. headache, fever">
+        <button type="submit">Diagnose</button>
+    </form>
+    <div id="chatbot-messages"></div>
+    <script src="path/to/your/javascript.js"></script>
+</body>
+
+</html>

@@ -14,7 +14,6 @@ urlpatterns = [
     path('appointment/<int:id>/', views.appointment, name='appointment'),
     path('viewappointments/',views.viewappointments, name='viewappointments'),
     path('confirmappointment/', views.confirmappointment, name='confirmappointment'),
-    path('chat/', views.diagnosis_view, name='chat'),
     # path('chatroom/', views.chatbot_view, name='chatroom'),
 
 ]
