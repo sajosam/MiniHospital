@@ -94,13 +94,16 @@ def checkavailability(request):
 
     d=Doctor.objects.all().values_list('spec_name').distinct()
     doc=Specialization.objects.filter(id__in=d).distinct()
-    print(doc)
+    # get 5 doctors
+    doc_list = Doctor.objects.all()[:10]
+    print(doc_list)
     # print(spec)
     context={
             'doc': doc,
+            'doc_list': doc_list,
     }
 
-    return render(request, 'patient/checkavailability.html', context)
+    return render(request, 'patient/demo.html', context)
 
 @login_required(login_url='login')
 def patientData(request):
@@ -270,7 +273,7 @@ def confirmappointment(request):
             send_mail(
                 'Confirmation of the Appointment',
                 message,
-                'ajceminihospital@gmail.com',
+                'minihospitalproject@gmail.com',
                 [patient_email],
                 fail_silently=False,
             )
@@ -294,4 +297,27 @@ def viewappointments(request):
     return render(request, 'patient/viewappointments.html', context)
 
 
+def availspec(request,id):
+    lst=Doctor.objects.filter(spec_name=id)
+    print(lst)
+    context={
+        'doc_list':lst
+    }
+    return render(request, 'patient/doc_list.html', context)
 
+def availdoc(request,id):
+    lst=Doctor.objects.filter(des_name=id)
+    print(lst)
+    context={
+        'doc_list':lst
+    }
+    return render(request, 'patient/doc_list.html', context)
+
+def timeslot(request,id):
+    # get doctors available time slot based on each day
+    lst=Doctor.objects.filter(id=id)
+    print(lst)
+    context={
+        'doc_list':lst
+    }
+    return render(request, 'patient/doc_list.html', context)

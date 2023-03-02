@@ -190,10 +190,10 @@ cloudinary.config(
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ajceminihospital@gmail.com'
-DEFAULT_FROM_EMAIL = 'ajceminihospital@gmail.com'
-SERVER_EMAIL = 'ajceminihospital@gmail.com'
+EMAIL_HOST_USER = 'minihospitalproject@gmail.com'
+DEFAULT_FROM_EMAIL = 'minihospitalproject@gmail.com'
+SERVER_EMAIL = 'minihospitalproject@gmail.com'
 # EMAIL_HOST_PASSWORD = 'Ajce@2023'
-EMAIL_HOST_PASSWORD = 'dhnuyvikvwgzkhbc'
+EMAIL_HOST_PASSWORD = 'yceopyykqvbmfiix'
 
 EMAIL_USE_TLS = True

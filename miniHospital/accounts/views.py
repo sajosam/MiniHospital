@@ -73,7 +73,7 @@ def signup(request):
         send_mail(
                 'Please activate your account',
                 message,
-                'ajceminihospital@gmail.com',
+                'minihospitalproject@gmail.com',
                 [email],
                 fail_silently=False,
             )
@@ -123,7 +123,7 @@ def forgotPassword(request):
             send_mail(
                 'Please activate your account',
                 message,
-                'ajceminihospital@gmail.com',
+                'minihospitalproject@gmail.com',
                 [email],
                 fail_silently=False,
             )
