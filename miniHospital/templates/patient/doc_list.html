@@ -6,60 +6,26 @@
 {% block main %}
 
 {% include 'include/navbar.html' %}
-
 <div class="row"
     style="margin-top:13%;display: flex;flex-direction: row;margin-top: 13%;margin-left: 10%;margin-bottom: 4%;">
-    <!-- <div
-        style="border:1px solid #13b2cb; background-color:#13b2cb;color:#fff;width:90%; border-radius: 10px;padding: 10px;">
-        <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-                <li class="dropdown"><a href="#"><span>Sort on Specialization</span> <i
-                            class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        {% for d in doc %}
-                        <li><a class="#" href="{% url 'availspec' d.id %}">{{d.spec_name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-
-            </ul>
-        </nav>
-    </div> -->
-
-
-
-
     {% for d in doc_list %}
-
-
     <div class="card " style="width: 26%;margin: 1%;">
         <img class="card-img-top" src="{{d.email.usr_img.url}}" alt="Card image cap" style="height: 12rem; width:auto;">
         <div class="card-body">
             <div class="text-center mt-3">
                 <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
                 <h5 class="mt-2 mb-0">{{d.email.first_name}} {{d.email.last_name}}</h5>
-                <!-- <span>{{d.email.first_name}} {{d.email.last_name}}</span> -->
                 <span>{{d.spec_name}}</span>
-
-
             </div>
         </div>
         <div class="card-body" style="margin-top:20px;display: inline-block !important;">
-
-
             <a href="{% url 'singleDoc' d.id %}" class="btn"
                 style="background: #13b2cb;color: #fff;border-radius: 4px;">More Details</a>
             <a href="{% url 'availdoc' d.id %}" class="btn"
                 style="background: #13b2cb;color: #fff;border-radius: 4px;">Take Appointment</a>
-
-
         </div>
     </div>
-
     {% endfor %}
-
-
-
 </div>
 
 {% include 'include/footer.html' %}

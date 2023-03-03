@@ -306,12 +306,12 @@ def availspec(request,id):
     return render(request, 'patient/doc_list.html', context)
 
 def availdoc(request,id):
-    lst=Doctor.objects.filter(des_name=id)
-    print(lst)
+    lst=Doctor.objects.filter(id=id)
+    # print(lst.spec_name)
     context={
         'doc_list':lst
     }
-    return render(request, 'patient/doc_list.html', context)
+    return render(request, 'patient/doc_calender.html', context)
 
 def timeslot(request,id):
     # get doctors available time slot based on each day
