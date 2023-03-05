@@ -201,6 +201,24 @@ button:hover {
   object-fit: contain;
 }
 
+.demform {
+  flex-basis: 50%;
+  -webkit-flex-basis: 50%;
+  background: #fff;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  padding: 40px;
+  
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  align-items: center;
+  display: grid;
+  object-fit: contain;
+}
+
 .content-wthree {
   flex-basis: 50%;
   -webkit-flex-basis: 50%;

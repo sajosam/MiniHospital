@@ -7,8 +7,7 @@
 
 {% include 'include/navbar.html' %}
 
-<div class="row"
-    style="margin-top:13%;display: flex;flex-direction: row;margin-top: 13%;margin-left: 10%;margin-bottom: 4%;">
+<div class="row" style="margin-top:13%;display: flex;flex-direction: row;margin-top: 13%;margin-bottom: 4%;">
     <section class="w3l-hotair-form">
         <div class="container">
             <div class="workinghny-form-grid">
@@ -20,9 +19,6 @@
                         <form action="{% url 'availability' %}" method="post">
                             {% include 'include/alerts.html' %}
                             {% csrf_token %}
-
-                            {% for d in doc_list %}
-
                             <div class="form-group">
                                 <label for="Doctor Name">Doctor Name</label>
                                 <input type="text" value="{{d.email.first_name}}" disabled>
@@ -31,46 +27,69 @@
                                 <label for="Doctor Specialization">Doctor Specialization</label>
                                 <input type="text" value="{{d.spec_name}}" disabled>
                             </div>
-
-                            <!-- <div class="form-group">
-                                <label for="Time">Time</label>
-                                <select name="time" id="">
-                                    <option value="FN">Forenoon</option>
-                                    <option value="AN">After Noon</option>
-                                    <option value="FD">Full Day</option>
-                                </select>
-                            </div> -->
-
-                            {% endfor %}
                             <div class="form-group">
                                 <label for="date">Date</label>
                                 <input type="date" class="form-control" name="date" id="date" placeholder="Date"
-                                    required>
+                                    value="{{request.session.date}}" required>
                             </div>
                             <button class="btn" type="submit">Check Time Slot</button>
                         </form>
-
-
                     </div>
-                    <div class="w3l_form align-self">
-                        <div>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
-                            <a name="" id="" class="btn btn-primary dem1" href="#" role="button">btn1</a>
+                    <div class="demform align-self">
+                        <!-- <div align="center">
+                            <h4>Please choose from below</h4>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    {% if obj %}
+                                    {% for o in obj %}
+                                    <div class="col-3 mt-2">
+                                        <a style="background:#3fbbc0;" name="" id="" class="btn btn-primary"
+                                            href="{% url 'appointment' o %}" role="button">{{o}}</a>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div class="col-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">10:00</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">10:15</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">10:30</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">10:45</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">11:00</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">11:15</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">11:30</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">11:45</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">12:00</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">12:15</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">12:30</a>
+                                            <a name="" id="" class="btn btn-primary dem1" href="#"
+                                                role="button">12:45</a>
+                                        </div>
+
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 

@@ -11,11 +11,14 @@ urlpatterns = [
     path('doc_list/',views.doc_list, name='doc_list'),
     path('singleDoc/<int:id>', views.singleDoc, name='singleDoc'),
     path('availability/', views.availability, name='availability'),
-    path('appointment/<int:id>/', views.appointment, name='appointment'),
+    # path('appointment/<int:id>/', views.appointment, name='appointment'),
+    # path('appointment/', views.appointment, name='appointment'),
+    path('appointment/<str:time>/', views.appointment, name='appointment'),
     path('viewappointments/',views.viewappointments, name='viewappointments'),
     path('confirmappointment/', views.confirmappointment, name='confirmappointment'),
     path('availspec/<int:id>/', views.availspec, name='availspec'),
     path('availdoc/<int:id>/', views.availdoc, name='availdoc'),
+    path('availability/', views.availability, name='availability'),
     
 
 ]

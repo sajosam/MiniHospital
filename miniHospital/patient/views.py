@@ -16,6 +16,7 @@ from doctor.models import Doctor
 from leave.models import leaveModel
 # from scheduling import SchedulingAlgorithm
 from . import scheduling
+from . import availabilitycheck
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -197,12 +198,15 @@ def availability(request):
     return render(request, 'patient/availability.html', context)
 
 @login_required(login_url='login')
-def appointment(request, id=None):
+def appointment(request, id=None,time=None):
+    id=request.session['doc_id']
     doc=Doctor.objects.get(id=id)
     request.session['doc_name']=doc.email.first_name+doc.email.last_name
     request.session['doc_email']=doc.email.email
     request.session['spec']=doc.spec_name.spec_name
     request.session['designation']=doc.des_name.des_name
+    request.session['time']=time
+
     return render(request, 'patient/appointment.html')
 
 @login_required(login_url='login')
@@ -221,7 +225,7 @@ def confirmappointment(request):
         is_alcoholic = request.POST.get('is_alcoholic')
         symptoms = request.POST.get('symptoms')
         email= request.session['doc_email']
-        print(request.session['time_div'])
+        # print(request.session['time_div'])
         # print(email)
         # print('session', request.session['doc_email'])
         # email=Doctor.objects.get(email__email=email)
@@ -231,14 +235,15 @@ def confirmappointment(request):
         date= request.session['date']
         # time='09:00'
         patient_email=request.user.email
-        time_div=request.session['time_div']
+        #  FN if time between 10:00:00 and 01:00:00
+        #  AN if time between 01:00:00 and 04:00:00
+        
         # print(request.session['time_div'])
         # print(time_div)
 
-        timeschedule=scheduling.SchedulingAlgorithm(d_email=doc_email, date=date, time=time_div)
-        time=timeschedule.schedule()
+        # timeschedule=scheduling.SchedulingAlgorithm(d_email=doc_email, date=date, time=time_div)
+        time=request.session['time']
         print("exq",time)
-        print(time_div)
         if time:
             usr.is_diabetic = is_diabetic
             usr.is_asthma = is_asthma
@@ -253,7 +258,6 @@ def confirmappointment(request):
             usr.date = date
             usr.patient_email = patient_email
             usr.time = time
-            usr.timeDiv = time_div
             usr.status=True
             usr.save()
             dc=Account.objects.get(email=doc_email)
@@ -306,10 +310,11 @@ def availspec(request,id):
     return render(request, 'patient/doc_list.html', context)
 
 def availdoc(request,id):
-    lst=Doctor.objects.filter(id=id)
+    lst=Doctor.objects.get(id=id)
+    request.session['doc_id']=id
     # print(lst.spec_name)
     context={
-        'doc_list':lst
+        'd':lst
     }
     return render(request, 'patient/doc_calender.html', context)
 
@@ -321,3 +326,26 @@ def timeslot(request,id):
         'doc_list':lst
     }
     return render(request, 'patient/doc_list.html', context)
+
+
+def availability(request):
+    # get doctors available time slot based on each day
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        request.session['date']=date
+        doc_id=request.session['doc_id']
+        lst=Doctor.objects.filter(id=doc_id)
+        d=Doctor.objects.get(id=doc_id)
+        #
+        av=availabilitycheck.availablility_check(id=doc_id, date=date)
+        lst1=av.check()
+        if lst1 is not None:
+            obj=lst1
+        else:
+            obj=None
+    context={
+        'doc_list':lst,
+        'obj':obj,
+        'd':d
+    }
+    return render(request, 'patient/doc_calender.html', context)
