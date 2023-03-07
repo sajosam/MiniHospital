@@ -19,6 +19,11 @@ urlpatterns = [
     path('availspec/<int:id>/', views.availspec, name='availspec'),
     path('availdoc/<int:id>/', views.availdoc, name='availdoc'),
     path('availability/', views.availability, name='availability'),
+    path('viewpatientappo/', views.viewpatientappo, name='viewpatientappo'),
+    path('cancelappointment/<int:id>/', views.cancelappointment, name='cancelappointment'),
+    path('reschedule/<int:id>/', views.reschedule, name='reschedule'),
+    path('rescheduleappointment/<str:time>/<int:id>', views.rescheduleappointment, name='rescheduleappointment'),
+    path('rescheduletime/', views.rescheduletime, name='rescheduletime'),
     
 
 ]

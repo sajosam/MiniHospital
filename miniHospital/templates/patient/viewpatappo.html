@@ -1,0 +1,63 @@
+{% extends 'patient/patientbase.html' %}
+
+
+{% block pt %}
+
+<div id="customers">
+    {% include 'include/alerts.html' %}
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User Email</th>
+                <th scope="col">Date</th>
+                <th scope="col">Alergetic drugs</th>
+                <th scope="col">Time</th>
+                <th scope="col">Symptoms</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in lst %}
+            <tr>
+                <td>{{d.patient_email}}</td>
+                <td>{{d.date}}</td>
+                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
+                        disabled>{{d.alergetic_drugs}}</textarea></td>
+                <td>{{d.time}}</td>
+                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
+                        disabled>{{d.symptoms}}</textarea></td>
+                <!-- <td>{{d.status}}</td> -->
+
+                {% if d.status %}
+                <!-- if date is less than current date then done else cancel -->
+                {% if d.date <= tdy %}
+                <td> <a name="" id="" class="btn btn-success" href="#" role="button">Completed</a>
+                </td>
+                {% else %}
+                <td><a name="" id="" class="btn btn-warning" href="{% url 'cancelappointment' d.id %}"
+                        onclick="return confirm('Are you sure you want to cancel this appointment?');"
+                        role="button">Cancel</a>
+                    <a name="" id="" class="btn btn-warning" href="{% url 'reschedule' d.id %}"
+                        role="button">Reshedule</a>
+
+                </td>
+
+                {% endif %}
+                {% else %}
+                <td> <a name="" id="" class="btn btn-danger" href="#" role="button">Cancelled</a>
+                    {% endif %}
+
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock pt %}

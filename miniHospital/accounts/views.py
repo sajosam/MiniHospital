@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from django.http import HttpResponse
+
+# from miniHospital.miniHospital.settings import EMAIL_HOST_USER
 from .models import Account
 from django.contrib import messages, auth
 from .forms import ContactForm
@@ -38,7 +40,7 @@ def login(request):
     form=ContactForm()
     return render(request, 'accounts/login.html',{'form':form})
 
-
+from django.core.mail import EmailMultiAlternatives
 
 def signup(request):
     if request.method == 'POST':
@@ -58,7 +60,7 @@ def signup(request):
             return redirect('signup')
         user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, state=state, district=district, dob=dob, contact=contact, password=password, gender=gender)
         user.is_patient = True
-        user.save()
+        # user.save()
         messages.success(request, 'Thank you for registering with us. Please Login')
 
 
@@ -73,10 +75,15 @@ def signup(request):
         send_mail(
                 'Please activate your account',
                 message,
-                'minihospitalproject@gmail.com',
+                'maindemo578@gmail.com',
                 [email],
                 fail_silently=False,
             )
+        # text_content = 'Please activate your account'
+        # # html_content = render_to_string('mail2.html',{'user':user,'name':i_shot,'name1':r_shot})
+        # msg = EmailMultiAlternatives("SHORTLISTED - BHASKARANPILLA TECHOLOGIES - REGULAR DRIVE FEB-14", text_content, 'postmaster@sandbox9b3a338c480149f4a51a70ed90d82c82.mailgun.org', [email])
+        # msg.attach_alternative(message, "text/html")
+        # msg.send()
 
         return redirect('/accounts/login/?command=verification&email='+email)
         # return redirect('login')
@@ -123,7 +130,7 @@ def forgotPassword(request):
             send_mail(
                 'Please activate your account',
                 message,
-                'minihospitalproject@gmail.com',
+                'maindemo578@gmail.com',
                 [email],
                 fail_silently=False,
             )
@@ -186,3 +193,4 @@ def change_password(request):
             messages.error(request, 'Password does not match!')
             return redirect('change_password')
     return render(request, 'accounts/change_password.html')
+

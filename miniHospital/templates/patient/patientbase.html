@@ -22,7 +22,8 @@
     <a href="{% url 'patientHome' %}">Profile</a>
     <a href="{% url 'patientUpdate' %}">Update Profile</a>
     <a href="{% url 'change_password' %}">Change Password</a>
-    <a href="#">View Appointments</a>
+    <a href="{% url 'viewpatientappo' %}">View Appointments</a>
+    <a href="{% url 'checkavailability' %}">Take Appointment</a>
     <a href="#">View Prescription</a>
     <!-- <a href="#">Apply Leave</a> -->
     <a href="#">Leave Reports</a>
@@ -35,7 +36,8 @@
 <div id="doctor_main">
     <div class="j">
         <h4 class="" style="float: left;">Patient Dashboard</h4>
-        <h4 style="float: right;">Welcome Back, &nbsp; <i>{{usr.first_name}} {{usr.last_name}}</i></h4>
+        <h4 style="float: right;">Welcome Back, &nbsp; <i>{{request.user.first_name}} {{request.user.last_name}}</i>
+        </h4>
 
     </div>
 

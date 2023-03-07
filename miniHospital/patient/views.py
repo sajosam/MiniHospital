@@ -1,5 +1,6 @@
 import datetime
 from email import message
+import json
 from os import lstat
 from pydoc import doc
 import re
@@ -133,7 +134,7 @@ def patientData(request):
         usr.symptoms = symptoms
         usr.email = acc
         usr.save()
-        return redirect('checkavailability')
+        return redirect('viewpatientappo')
 
     return render(request, 'patient/patient_data.html')
 
@@ -209,6 +210,8 @@ def appointment(request, id=None,time=None):
 
     return render(request, 'patient/appointment.html')
 
+from twilio.rest import Client
+
 @login_required(login_url='login')
 def confirmappointment(request):
     if request.method == 'POST':
@@ -277,11 +280,24 @@ def confirmappointment(request):
             send_mail(
                 'Confirmation of the Appointment',
                 message,
-                'minihospitalproject@gmail.com',
+                'maindemo578@gmail.com',
                 [patient_email],
                 fail_silently=False,
             )
-            return redirect('viewappointments')
+            
+
+            account_sid = 'AC20895086bbda77a2ae09e4e1ceb8ccec'
+            auth_token = '92bc69fb36ccadbd6e61fcbd236a7272'
+            client = Client(account_sid, auth_token)
+
+            message = client.messages.create(
+                messaging_service_sid='MG13fb9ab6a40aa9c83bfa1ccf0282b644',
+                body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
+                to='+918139835592'
+            )
+
+            print(message.sid)
+            return redirect('viewpatientappo')
         else:
             messages.info(request, 'Currently there is no doctor available for this date search another')
             return redirect('checkavailability')
@@ -311,8 +327,10 @@ def availspec(request,id):
 
 def availdoc(request,id):
     lst=Doctor.objects.get(id=id)
+    print(lst)
     request.session['doc_id']=id
     # print(lst.spec_name)
+    print('2')
     context={
         'd':lst
     }
@@ -349,3 +367,79 @@ def availability(request):
         'd':d
     }
     return render(request, 'patient/doc_calender.html', context)
+
+def viewpatientappo(request):
+    lst=patientAppointment.objects.filter(patient_email=request.user.email).order_by('-date')
+    print(lst)
+    context={
+        'lst':lst,
+        'tdy':datetime.date.today()
+    }
+    return render(request, 'patient/viewpatappo.html', context)
+
+def cancelappointment(request,id):
+    lst=patientAppointment.objects.get(id=id)
+    lst.status=False
+    lst.save()
+    return redirect('viewpatientappo')
+
+
+
+def reschedule(request,id=None):
+    l=list(patientAppointment.objects.filter(id=id).values_list('date'))
+    request.session['date']=str(l[0][0])
+    print(l[0][0])
+    lst=patientAppointment.objects.get(id=id)
+    # print(request.session['doc_email'])
+    d_name=lst.doc_email
+    spec=Doctor.objects.get(email__email=d_name)
+    firstname=Account.objects.get(email=d_name)
+    request.session['id']=id
+    context={
+            'd_name':d_name,
+            'spec':spec.spec_name,
+            'firstname':firstname,
+            'id':id,
+            'lst':lst
+        }
+    return render(request, 'patient/reshedule_calender.html', context)
+
+def rescheduletime(request):
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        request.session['date']=date
+        doc_id=request.session['doc_id']
+        lst=Doctor.objects.filter(id=doc_id)
+        d=Doctor.objects.get(id=doc_id)
+        #
+        av=availabilitycheck.availablility_check(id=doc_id, date=date)
+        lst1=av.check()
+        if lst1 is not None:
+            obj=lst1
+        else:
+            obj=None
+        lst=patientAppointment.objects.get(id=request.session['id'])
+        d_name=lst.doc_email
+        spec=Doctor.objects.get(email__email=d_name)
+        firstname=Account.objects.get(email=d_name)
+        date=lst.date
+        context={
+            'doc_list':lst,
+            'obj':obj,
+            'd':d,
+            'id':request.session['id'],
+            'firstname':firstname,
+            'spec':spec.spec_name,
+            'd_name':d_name,
+            'date':date,
+        }
+        return render(request, 'patient/reshedule_calender.html', context)
+
+
+def rescheduleappointment(request,id,time):
+    lst=patientAppointment.objects.get(id=id)
+    lst.date=request.session['date']
+    print(lst.date)
+    lst.time=time
+    lst.save()
+    return redirect('viewpatientappo')
