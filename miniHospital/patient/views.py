@@ -292,7 +292,7 @@ def confirmappointment(request):
             client = Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
 
             message = client.messages.create(
-                messaging_service_sid=settings.MESSAGING_SERVICE_SID,
+                messaging_service_sid='MG13fb9ab6a40aa9c83bfa1ccf0282b644',
                 body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
                 to='+918139835592'
             )

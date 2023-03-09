@@ -10,6 +10,7 @@ class MessageHandler:
         self.otp=otp
     def send_otp_via_message(self):     
         client= Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
+        print(client)
 
         message = client.messages.create(
                 messaging_service_sid=settings.MESSAGING_SERVICE_SID,
