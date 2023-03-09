@@ -145,3 +145,14 @@ class Account(AbstractBaseUser):
 
 
     
+# table for store otp details
+import uuid
+class Otp(models.Model):
+    user_id=models.ForeignKey(Account,on_delete=models.CASCADE)
+    otp=models.IntegerField(blank=True,null=True)
+    uid=models.CharField(default=f'{uuid.uuid4}',max_length=200)
+    phone=models.BigIntegerField(default=0)
+    last_login = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.id.username

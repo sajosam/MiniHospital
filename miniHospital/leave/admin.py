@@ -14,4 +14,5 @@ class adminLeaveModel(admin.ModelAdmin):
     list_editable  = ('leaveStatus',)
 
 
+
 admin.site.register(leaveModel, adminLeaveModel)

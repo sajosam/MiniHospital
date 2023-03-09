@@ -287,13 +287,18 @@ def confirmappointment(request):
             
 
             account_sid = 'AC20895086bbda77a2ae09e4e1ceb8ccec'
-            auth_token = '92bc69fb36ccadbd6e61fcbd236a7272'
+            auth_token = '87ee036b030b8b35fb48422adee69672'
             client = Client(account_sid, auth_token)
 
             message = client.messages.create(
                 messaging_service_sid='MG13fb9ab6a40aa9c83bfa1ccf0282b644',
                 body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
                 to='+918139835592'
+            )
+            message = client.messages.create(
+            from_='whatsapp:+14155238886',
+            body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
+            to='whatsapp:+918139835592'
             )
 
             print(message.sid)

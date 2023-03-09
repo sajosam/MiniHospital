@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<section class="w3l-hotair-form">
+    <!-- <h1>Report Login Form</h1> -->
+    <div class="container">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <h2>Forgot Password</h2>
+                    <form action="{% url 'otp' id %}" method="post" id="logform" name="logform">
+                        <!-- {{error}} -->
+                        {% include 'include/alerts.html' %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="number" id="otp" name="otp" placeholder="Enter the OTP here"
+                                autocomplete="off">
+                        </div>
+
+
+                        <button class="btn" type="submit">Validate</button>
+                    </form>
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/demo2.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock main %}

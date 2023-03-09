@@ -37,3 +37,10 @@ class LabAdmin(admin.ModelAdmin):
 admin.site.register(Lab, LabAdmin)
 
 
+
+# upload csv to enter data in database
+
+
+
+
+

@@ -1,10 +1,12 @@
+import random
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from .helper import *
 
 # from miniHospital.miniHospital.settings import EMAIL_HOST_USER
-from .models import Account
+from .models import Account,Otp
 from django.contrib import messages, auth
 from .forms import ContactForm
 
@@ -17,30 +19,61 @@ from django.core.mail import EmailMessage
 from django.core.mail import send_mail
 
 
+# def login(request):
+#     if request.method == 'POST':
+#         email = request.POST.get('email')
+#         pswd = request.POST.get('password')
+#         user = authenticate(request, email=email, password=pswd)
+#         if user and user.is_active:
+#             auth.login(request, user)
+#             # save email in session
+#             request.session['email'] = email
+#             if user.is_admin:
+#                 return redirect('http://127.0.0.1:8000/admin/dashboard/')
+#             if user.is_doctor:
+#                 return redirect('doctorHome')
+#             elif user.is_lab:
+#                 return redirect('labhome')
+#             else:
+#                 return redirect('patientHome')
+#         else:
+#             messages.error(request, 'Invalid Credentials')
+#             return redirect('login')
+#     form=ContactForm()
+#     return render(request, 'accounts/login.html',{'form':form})
+
+
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         pswd = request.POST.get('password')
+        request.session['email'] = email
+        request.session['password'] = pswd
+        print(request.session['email'],request.session['password'])
         user = authenticate(request, email=email, password=pswd)
+        # user=Account.objects.filter(email=email,password=pswd)
         if user and user.is_active:
-            auth.login(request, user)
-            # save email in session
-            request.session['email'] = email
-            if user.is_admin:
-                return redirect('http://127.0.0.1:8000/admin/dashboard/')
-            if user.is_doctor:
-                return redirect('doctorHome')
-            elif user.is_lab:
-                return redirect('labhome')
-            else:
-                return redirect('patientHome')
+            id=user.id
+            phone=user.contact
+            email=user.email
+            id=Account.objects.only('id').get(email=email)
+        
+        if user:
+            # auth.logout(request)
+            otp=random.randint(1000,9999)
+            profile=Otp.objects.create(user_id=id,otp=otp,phone=phone)
+            messagehadler=MessageHandler(phone,otp).send_otp_via_message()
+            red=redirect('otp',uid=profile.uid)
+            red.set_cookie("can_otp_enter",True,max_age=600)
+            return red
         else:
             messages.error(request, 'Invalid Credentials')
             return redirect('login')
+        
     form=ContactForm()
     return render(request, 'accounts/login.html',{'form':form})
 
-from django.core.mail import EmailMultiAlternatives
+
 
 def signup(request):
     if request.method == 'POST':
@@ -79,11 +112,7 @@ def signup(request):
                 [email],
                 fail_silently=False,
             )
-        # text_content = 'Please activate your account'
-        # # html_content = render_to_string('mail2.html',{'user':user,'name':i_shot,'name1':r_shot})
-        # msg = EmailMultiAlternatives("SHORTLISTED - BHASKARANPILLA TECHOLOGIES - REGULAR DRIVE FEB-14", text_content, 'postmaster@sandbox9b3a338c480149f4a51a70ed90d82c82.mailgun.org', [email])
-        # msg.attach_alternative(message, "text/html")
-        # msg.send()
+        
 
         return redirect('/accounts/login/?command=verification&email='+email)
         # return redirect('login')
@@ -193,4 +222,33 @@ def change_password(request):
             messages.error(request, 'Password does not match!')
             return redirect('change_password')
     return render(request, 'accounts/change_password.html')
+
+def otpVerify(request,uid):
+    if request.method=="POST":
+        profile=Otp.objects.get(uid=uid)   
+        o=int(request.POST['otp'])
+        if request.COOKIES.get('can_otp_enter')!=None:
+            if(profile.otp==o):
+                email=request.session['email']
+                password=request.session['password']
+
+                user = auth.authenticate(email=email, password=password)
+                auth.login(request, user)
+#             # save email in session
+                if user.is_admin:
+                    return redirect('http://127.0.0.1:8000/admin/dashboard/')
+                if user.is_doctor:
+                    return redirect('doctorHome')
+                elif user.is_lab:
+                    return redirect('labhome')
+                else:
+                    return redirect('patientHome')
+                
+
+            messages.error(request,"Invalid OTP")
+            return redirect("otp",uid=uid)
+        messages.error(request,"Please enter OTP")
+        return redirect("otp",uid=uid)
+
+    return render(request,"accounts/otp.html",{'id':uid})
 

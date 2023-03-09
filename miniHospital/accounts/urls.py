@@ -13,6 +13,7 @@ urlpatterns = [
     path('forgotPassword/', views.forgotPassword, name='forgotPassword'),
     path('resetPassword/', views.resetPassword, name='resetPassword'),
     path('change_password/', views.change_password, name='change_password'),
+    path('otp/<str:uid>/', views.otpVerify, name='otp')
 
 
 
