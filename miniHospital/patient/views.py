@@ -19,6 +19,8 @@ from leave.models import leaveModel
 from . import scheduling
 from . import availabilitycheck
 
+from django.conf import settings
+
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -286,17 +288,16 @@ def confirmappointment(request):
             )
             
 
-            account_sid = 'AC20895086bbda77a2ae09e4e1ceb8ccec'
-            auth_token = '87ee036b030b8b35fb48422adee69672'
-            client = Client(account_sid, auth_token)
+            
+            client = Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
 
             message = client.messages.create(
-                messaging_service_sid='MG13fb9ab6a40aa9c83bfa1ccf0282b644',
+                messaging_service_sid=settings.MESSAGING_SERVICE_SID,
                 body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
                 to='+918139835592'
             )
             message = client.messages.create(
-            from_='whatsapp:+14155238886',
+            from_=settings.TWILIO_WHATSAPP_NUMBER,
             body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
             to='whatsapp:+918139835592'
             )

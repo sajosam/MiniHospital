@@ -9,10 +9,10 @@ class MessageHandler:
         self.phone_number=phone_number
         self.otp=otp
     def send_otp_via_message(self):     
-        client= Client('AC20895086bbda77a2ae09e4e1ceb8ccec','87ee036b030b8b35fb48422adee69672')
+        client= Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
 
         message = client.messages.create(
-                messaging_service_sid='MG13fb9ab6a40aa9c83bfa1ccf0282b644',
+                messaging_service_sid=settings.MESSAGING_SERVICE_SID,
                 body=f'your otp for the login is :{self.otp}',
                 to='+918139835592'
             )

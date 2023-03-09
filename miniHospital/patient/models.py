@@ -72,3 +72,8 @@ class patientAppointment(models.Model):
     time=models.TimeField()
     symptoms=RichTextField()
     status=models.BooleanField(default=False)
+
+
+class patientData(models.Model):
+    user_id=models.ForeignKey(Account, on_delete=models.CASCADE)
+    is_diabetic = models.BooleanField(default=False)
