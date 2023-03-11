@@ -4,14 +4,14 @@ import json
 from os import lstat
 from pydoc import doc
 import re
-from django.shortcuts import render, render, redirect
+from django.shortcuts import render, render, redirect,HttpResponse
 # from django.shortcuts import render_to_response
 from django.template import RequestContext
 from accounts.models import Account
 from doctor.models import Specialization
-from .forms import UserForm
+from .forms import UserForm, patientDataForm
 from django.contrib.auth.decorators import login_required
-from .models import patientAppointment
+from .models import patientAppointment, appointmentconfirmation
 from django.contrib import messages, auth
 from doctor.models import Doctor
 from leave.models import leaveModel
@@ -210,113 +210,73 @@ def appointment(request, id=None,time=None):
     request.session['designation']=doc.des_name.des_name
     request.session['time']=time
 
-    return render(request, 'patient/appointment.html')
+    return render(request, 'patient/appointment_confirmation.html')
 
 from twilio.rest import Client
 
 @login_required(login_url='login')
 def confirmappointment(request):
-    if request.method == 'POST':
-        # email = request.session.get('email')
-        # acc=Account.objects.get(email=email)
-        usr=patientAppointment()
-        is_diabetic = request.POST.get('is_diabetic')
-        is_asthma = request.POST.get('is_asthma')
-        is_hypertension = request.POST.get('is_hypertension')
-        is_stroke = request.POST.get('is_stroke')
-        alergetic_drugs = request.POST.get('alergetic_drugs')
-        weight = request.POST.get('weight')
-        height = request.POST.get('height')
-        is_alcoholic = request.POST.get('is_alcoholic')
-        symptoms = request.POST.get('symptoms')
-        email= request.session['doc_email']
-        # print(request.session['time_div'])
-        # print(email)
-        # print('session', request.session['doc_email'])
-        # email=Doctor.objects.get(email__email=email)
-        # print(email)
-        doc_email=email
-        # print(doc_email)
-        date= request.session['date']
-        # time='09:00'
-        patient_email=request.user.email
-        #  FN if time between 10:00:00 and 01:00:00
-        #  AN if time between 01:00:00 and 04:00:00
-        
-        # print(request.session['time_div'])
-        # print(time_div)
+    print(request.session['doc_id'])
+    print(request.session['date'])
+    print(request.session['time'])
+    print(request.session['doc_name'])
+    print(request.session['doc_email'])
+    print(request.session['spec'])
+    # print(Account.objects.filter(id=request.session['doc_id']))
 
-        # timeschedule=scheduling.SchedulingAlgorithm(d_email=doc_email, date=date, time=time_div)
-        time=request.session['time']
-        print("exq",time)
-        if time:
-            usr.is_diabetic = is_diabetic
-            usr.is_asthma = is_asthma
-            usr.is_hypertension = is_hypertension
-            usr.is_stroke = is_stroke
-            usr.alergetic_drugs = alergetic_drugs
-            usr.weight = weight
-            usr.height = height
-            usr.is_alcoholic = is_alcoholic
-            usr.symptoms = symptoms
-            usr.doc_email = doc_email
-            usr.date = date
-            usr.patient_email = patient_email
-            usr.time = time
-            usr.status=True
-            usr.save()
-            dc=Account.objects.get(email=doc_email)
-
-            current_site = get_current_site(request)
-            message = render_to_string('patient/confirmAppointmentEmail.html', {
+    usr=appointmentconfirmation()
+    usr.user_id=Account.objects.only('id').get(id=request.user.id)
+    usr.doc_email=Account.objects.only('id').get(email=request.session['doc_email'])
+    usr.appo_date=request.session['date']
+    usr.appo_time=request.session['time']
+    usr.status='accepted'
+    usr.payment='unpaid'
+    usr.save()
+    dc=Account.objects.get(email=request.session['doc_email'])
+    current_site = get_current_site(request)
+    message = render_to_string('patient/confirmAppointmentEmail.html', {
                 'user': usr.id,
                 'domain': current_site,
                 'doctor_name':dc.first_name+dc.last_name,
                 'doctor_spec':request.session['spec'],
-                'time':time,
-                'date':date,
+                'time':request.session['time'],
+                'date':request.session['date'],
                 'patient_name':request.user.first_name+request.user.last_name,
 
-            })
+    })
 
-            send_mail(
+    send_mail(
                 'Confirmation of the Appointment',
                 message,
                 'maindemo578@gmail.com',
-                [patient_email],
+                [request.user.email],
                 fail_silently=False,
-            )
+    )
             
 
             
-            client = Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
+    client = Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
 
-            message = client.messages.create(
+    message = client.messages.create(
                 messaging_service_sid='MG13fb9ab6a40aa9c83bfa1ccf0282b644',
-                body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
+                body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+request.session['date']+' at '+request.session['time'],
                 to='+918139835592'
-            )
-            message = client.messages.create(
-            from_=settings.TWILIO_WHATSAPP_NUMBER,
-            body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+date+' at '+time,
-            to='whatsapp:+918139835592'
-            )
+    )
+    message = client.messages.create(
+    from_=settings.TWILIO_WHATSAPP_NUMBER,
+    body='Your appointment is confirmed with '+dc.first_name+dc.last_name+' on '+request.session['date']+' at '+request.session['time'],
+    to='whatsapp:+918139835592'
+    )
 
-            print(message.sid)
-            return redirect('viewpatientappo')
-        else:
-            messages.info(request, 'Currently there is no doctor available for this date search another')
-            return redirect('checkavailability')
-            
-    return render(request, 'patient/appointment.html')
+    return redirect('viewpatientappo')
    
 
 
 
 @login_required(login_url='login')
 def viewappointments(request):
-    lst=patientAppointment.objects.filter(patient_email=request.user.email)
-    print(lst)
+    lst=appointmentconfirmation.objects.filter(user_id=request.user.id)
+    print(request.user.id)
     context={
         'lst':lst
     }
@@ -336,7 +296,6 @@ def availdoc(request,id):
     print(lst)
     request.session['doc_id']=id
     # print(lst.spec_name)
-    print('2')
     context={
         'd':lst
     }
@@ -375,8 +334,8 @@ def availability(request):
     return render(request, 'patient/doc_calender.html', context)
 
 def viewpatientappo(request):
-    lst=patientAppointment.objects.filter(patient_email=request.user.email).order_by('-date')
-    print(lst)
+    lst=appointmentconfirmation.objects.filter(user_id=request.user.id).order_by('-appo_date')
+
     context={
         'lst':lst,
         'tdy':datetime.date.today()
@@ -449,3 +408,65 @@ def rescheduleappointment(request,id,time):
     lst.time=time
     lst.save()
     return redirect('viewpatientappo')
+
+
+def patientDataView(request):
+    if request.method == 'GET':
+        print('0')
+        context={}
+        context['usr'] = patientDataForm()
+        return render(request, 'patient/patData.html', context)
+    else:
+        usr=patientDataForm(request.POST)
+        if usr.is_valid():
+            usr.is_diabetic=request.cleaned_data['is_diabetic']
+            usr.is_hypertension=request.cleaned_data['is_hypertension']
+            usr.is_asthma=request.cleaned_data['is_asthma']
+            usr.is_stroke=request.cleaned_data['is_stroke']
+            usr.alergetic_drugs=request.cleaned_data['alergetic_drugs']
+            usr.weight=request.cleaned_data['weight']
+            usr.height=request.cleaned_data['height']
+            usr.is_alcoholic=request.cleaned_data['is_alcoholic']
+            usr.blood_group=request.cleaned_data['blood_group']
+            usr.covid_vacciantion=request.cleaned_data['covid_vacciantion']
+            usr.user_id=10
+            usr.save()
+            return redirect('login')
+            
+        else:
+            print('3')
+            context={}
+            context['usr'] = patientDataForm()
+            return render(request, 'patient/patData.html', context)
+
+def patDataUpdateView(request):
+    usr=patientData.objects.get(user_id=request.user.id)
+    if request.method == 'GET':
+        context={}
+        context['usr'] = patientDataForm(instance=usr)
+        return render(request, 'patient/patDataUpdate.html', context)
+    else:
+        usr=patientDataForm(request.POST,instance=usr)
+        if usr.is_valid():
+            usr.is_diabetic=request.cleaned_data['is_diabetic']
+            usr.is_hypertension=request.cleaned_data['is_hypertension']
+            usr.is_asthma=request.cleaned_data['is_asthma']
+            usr.is_stroke=request.cleaned_data['is_stroke']
+            usr.alergetic_drugs=request.cleaned_data['alergetic_drugs']
+            usr.weight=request.cleaned_data['weight']
+            usr.height=request.cleaned_data['height']
+            usr.is_alcoholic=request.cleaned_data['is_alcoholic']
+            usr.blood_group=request.cleaned_data['blood_group']
+            usr.covid_vacciantion=request.cleaned_data['covid_vacciantion']
+            usr.user_id=10
+            usr.save()
+            return redirect('appointmentConfirmation')
+            
+        else:
+            context={}
+            context['usr'] = patientDataForm()
+            return render(request, 'patient/patDataUpdate.html', context)
+        
+
+def appointmentConfirmationView(request):
+    pass

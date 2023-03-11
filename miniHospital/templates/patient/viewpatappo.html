@@ -10,39 +10,52 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">User Email</th>
+                <th scope="col">User Name</th>
                 <th scope="col">Date</th>
-                <th scope="col">Alergetic drugs</th>
+                <th scope="col">Doctor Name</th>
+                <!-- <th scope="col">Speciality</th> -->
                 <th scope="col">Time</th>
-                <th scope="col">Symptoms</th>
+                <th scope="col">Payment</th>
                 <th scope="col">Status</th>
+
             </tr>
         </thead>
         <tbody>
             {% for d in lst %}
             <tr>
-                <td>{{d.patient_email}}</td>
-                <td>{{d.date}}</td>
-                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
-                        disabled>{{d.alergetic_drugs}}</textarea></td>
-                <td>{{d.time}}</td>
-                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
-                        disabled>{{d.symptoms}}</textarea></td>
-                <!-- <td>{{d.status}}</td> -->
+                <td>{{d.user_id.username}}</td>
+                <td>{{d.appo_date}}</td>
+                <td>{{d.doc_email.username}}</td>
+                <!-- <td>{{d.doc_email.spec.spec_name}}</td> -->
+                <td>{{d.appo_time}}</td>
 
-                {% if d.status %}
+
+                {% if d.payment == 'unpaid' %}
+                <td>
+                    <a name="" id="" class="btn btn-warning" href="#" role="button">{{d.payment}}</a>
+                    <a name="" id="" class="btn btn-info" href="{% url 'reschedule' d.id %}" role="button">Pay
+                        Online</a>
+                    {% else %}
+                    <a name="" id="" class="btn btn-success" href="#" role="button">{{d.payment}}</a>
+
+                    {% endif %}
+                </td>
+
+
+                {% if d.appo_status %}
                 <!-- if date is less than current date then done else cancel -->
                 {% if d.date <= tdy %}
                 <td> <a name="" id="" class="btn btn-success" href="#" role="button">Completed</a>
                 </td>
                 {% else %}
-                <td><a name="" id="" class="btn btn-warning" href="{% url 'cancelappointment' d.id %}"
+                <td><a name="" id="" class="btn btn-danger" href="{% url 'cancelappointment' d.id %}"
                         onclick="return confirm('Are you sure you want to cancel this appointment?');"
                         role="button">Cancel</a>
                     <a name="" id="" class="btn btn-warning" href="{% url 'reschedule' d.id %}"
                         role="button">Reshedule</a>
 
                 </td>
+
 
                 {% endif %}
                 {% else %}

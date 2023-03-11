@@ -11,8 +11,6 @@ urlpatterns = [
     path('doc_list/',views.doc_list, name='doc_list'),
     path('singleDoc/<int:id>', views.singleDoc, name='singleDoc'),
     path('availability/', views.availability, name='availability'),
-    # path('appointment/<int:id>/', views.appointment, name='appointment'),
-    # path('appointment/', views.appointment, name='appointment'),
     path('appointment/<str:time>/', views.appointment, name='appointment'),
     path('viewappointments/',views.viewappointments, name='viewappointments'),
     path('confirmappointment/', views.confirmappointment, name='confirmappointment'),
@@ -24,6 +22,9 @@ urlpatterns = [
     path('reschedule/<int:id>/', views.reschedule, name='reschedule'),
     path('rescheduleappointment/<str:time>/<int:id>', views.rescheduleappointment, name='rescheduleappointment'),
     path('rescheduletime/', views.rescheduletime, name='rescheduletime'),
+    path('patData/',views.patientDataView, name='patData'),
+    path('patDataUpdate/',views.patDataUpdateView, name='patDataUpdate'),
+    path('appointmentconfirmation/',views.appointmentConfirmationView, name='appointmentConfirmation')
     
 
 ]

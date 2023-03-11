@@ -1,0 +1,100 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+{% include 'include/navbar.html' %}
+
+<div class="row" style="margin-top:13%;display: grid;margin-top: 13%;margin-left: 25%;margin-bottom: 4%; padding: 5%;">
+
+
+    <div class="card" style="width: 70%;margin: 1%;padding: 5%;background-color: #8be5f3;">
+        <div class="text-center mt-3">
+            <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
+            <h5 class="mt-2 mb-0">Confirmation Card</h5><br>
+
+            <table class="table-doctor">
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>:</th>
+                    <td>{{request.session.doc_name}}</td>
+                </tr>
+                <tr>
+                    <th>Speciality</th>
+                    <th>:</th>
+                    <td>{{request.session.spec}}</td>
+                </tr>
+                <tr>
+                    <th>Designation</th>
+                    <th>:</th>
+                    <td>{{request.session.designation}}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <th>:</th>
+                    <td>{{request.session.date}}</td>
+                </tr>
+                <tr>
+                    <th>Time</th>
+                    <th>:</th>
+                    <td>{{request.session.time}}</td>
+                </tr>
+
+            </table>
+            <div class="" style="margin-top:20px;">
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <button class="appointment-btn-updated">
+                        <ul>
+                            <li class="dropdown"><a href="#"><span>Confirm</span> <i class="bi bi-chevron-down"></i></a>
+                                <ul>
+                                    <li><a class="#" href="#departments">Continue with online payment</a></li>
+                                    <li><a class="#" href="{% url 'confirmappointment' %}">Continue with offline
+                                            payment</a></li>
+                                    <li><a class="#" href="#doctors">Update Profile Details</a></li>
+                                    <li><a class="#" href="#doctors">View Profile Details</a></li>
+                                    <li><a class="#" href="#doctors">Cancel Appointment</a></li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </button>
+                </nav>
+
+                <!-- <a href="{% url 'viewpatientappo' %}" class="appointment-btn">Update current details</a><br><br>
+                <a href="{% url 'viewpatientappo' %}" class="appointment-btn">Cancel Appointment</a>
+                <a href="{% url 'viewpatientappo' %}" class="appointment-btn btn-danger">View Appointments</a> -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+
+
+{% include 'include/footer.html' %}
+{% endblock main %}

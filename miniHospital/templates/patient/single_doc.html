@@ -24,7 +24,7 @@
 
                 <div class="text-center mt-3">
                     <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
-                    <h5 class="mt-2 mb-0">Dr.{{ doc.email.first_name}} {{doc.email.last_name}}</h5><br>
+                    <h5 class="mt-2 mb-0">{{ doc.email.first_name}} {{doc.email.last_name}}</h5><br>
 
                     <table class="table-doctor">
                         <tr>
@@ -57,7 +57,7 @@
 
                     <div class="buttons" style="margin-top:20px;">
 
-                        <a href="{% url 'patientData' %}" class="appointment-btn">Take Appointment</a>
+                        <a href="{% url 'availdoc' doc.id %}" class="appointment-btn">Take Appointment</a>
 
                     </div>
                 </div>

@@ -3,59 +3,8 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 from accounts.models import Account
-
-# Create your models here.
-
-# class PatientData(models.Model):
-
-#     # drug choices
-#     drug=(
-#         ('Penicillin','Penicillin'),
-#         ('Amoxicillin','Amoxicillin'),
-#         ('Azithromycin','Azithromycin'),
-#         ('Ciprofloxacin','Ciprofloxacin'),
-#         ('Levofloxacin','Levofloxacin'),
-#         ('Metronidazole','Metronidazole'),
-#         ('Clindamycin','Clindamycin'),
-#         ('Erythromycin','Erythromycin'),
-#         ('Tetracycline','Tetracycline'),
-#         ('Doxycycline','Doxycycline'),
-#         ('Ceftriaxone','Ceftriaxone'),
-#         ('Cefuroxime','Cefuroxime'),
-#         ('Cefixime','Cefixime'),
-#         ('Cefpodoxime','Cefpodoxime'),
-#         ('Cefdinir','Cefdinir'),
-#         ('Cefaclor','Cefaclor')
-#     )
-#     id = models.AutoField(primary_key=True)
-#     email=models.ForeignKey(Account, on_delete=models.CASCADE)
-#     is_diabetic = models.BooleanField(default=False)
-#     is_asthma = models.BooleanField(default=False)
-#     is_hypertension = models.BooleanField(default=False)
-#     is_stroke= models.BooleanField(default=False)
-#     alergetic_drugs=RichTextField(max_length=50, blank=True)
-#     weight= models.FloatField(default=None, blank=True)
-#     height= models.FloatField(default=None, blank=True)
-#     is_alcoholic= models.BooleanField(default=False)
-#     symptoms=RichTextField()
-
-
-# class appointment(models.Model):
-#     id= models.AutoField(primary_key=True)
-#     p_email= models.EmailField(max_length=50)
-#     email=models.ForeignKey(Account, on_delete=models.CASCADE)
-#     date=models.DateField()
-#     time=models.TimeField()
-#     symptoms=RichTextField()
-#     status=models.BooleanField(default=False)
-
+from doctor.models import Doctor
 class patientAppointment(models.Model):
-    # timechoice = (
-    #     ('FN', 'FN'),
-    #     ('AN', 'AN'),
-    #     ('FD', 'FD'),
-    #     ('None', 'None'),
-    # )
     timeDiv= models.CharField(max_length=10, blank=True)
     id = models.AutoField(primary_key=True)
     doc_email=models.EmailField(max_length=100)
@@ -75,5 +24,56 @@ class patientAppointment(models.Model):
 
 
 class patientData(models.Model):
-    user_id=models.ForeignKey(Account, on_delete=models.CASCADE)
-    is_diabetic = models.BooleanField(default=False)
+    blood_group=(
+        ('A+','A+'),
+        ('A-','A-'),
+        ('B+','B+'),
+        ('B-','B-'),
+        ('AB+','AB+'),
+        ('AB-','AB-'),
+        ('O+','O+'),
+        ('O-','O-'),
+    )
+
+    bool_select=(
+        ('Yes','Yes'),
+        ('No','No'),
+    )
+    id = models.AutoField(primary_key=True)
+    user_id=models.ForeignKey(Account, on_delete=models.CASCADE,limit_choices_to={'is_patient':True})
+    is_diabetic = models.CharField(default='No',max_length=25,choices=bool_select)
+    is_asthma = models.CharField(default='No',max_length=25,choices=bool_select)
+    is_hypertension = models.CharField(default='No',max_length=25,choices=bool_select)
+    is_stroke= models.CharField(default='No',max_length=25,choices=bool_select)
+    alergetic_drugs=RichTextField(max_length=250, blank=True)
+    weight= models.FloatField(default=None, blank=True)
+    height= models.FloatField(default=None, blank=True)
+    is_alcoholic= models.CharField(default='No',max_length=25,choices=bool_select)
+    blood_group=models.CharField(max_length=10, blank=True, choices=blood_group)
+    covid_vacciantion=models.CharField(default='No',max_length=25,choices=bool_select)
+    
+class appointmentconfirmation(models.Model):
+    status=(
+        ('pending','pending'),
+        ('accepted','accepted'),
+        ('rejected','rejected'),
+        ('completed','completed'),
+        ('cancelled','cancelled'),
+        ('rescheduled','rescheduled'),
+        ('in_progress','in_progress'),
+    )
+
+    fee=(
+        ('paid','paid'),
+        ('unpaid','unpaid'),
+    )
+    user_id=models.ForeignKey(Account, on_delete=models.CASCADE,limit_choices_to={'is_patient':True},related_name='user_email')
+    doc_email=models.ForeignKey(Account, on_delete=models.CASCADE,related_name='doctor_email',limit_choices_to={'is_doctor':True})
+    appo_date=models.DateField(default=None)
+    appo_time=models.TimeField(default=None)
+    appo_status=models.CharField(max_length=20, choices=status, default='pending')
+    payment=models.CharField(max_length=20, choices=fee, default='unpaid')
+
+    def __str__(self):
+        return self.user_id.email
+

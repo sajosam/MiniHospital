@@ -19,28 +19,6 @@ from django.core.mail import EmailMessage
 from django.core.mail import send_mail
 
 
-# def login(request):
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         pswd = request.POST.get('password')
-#         user = authenticate(request, email=email, password=pswd)
-#         if user and user.is_active:
-#             auth.login(request, user)
-#             # save email in session
-#             request.session['email'] = email
-#             if user.is_admin:
-#                 return redirect('http://127.0.0.1:8000/admin/dashboard/')
-#             if user.is_doctor:
-#                 return redirect('doctorHome')
-#             elif user.is_lab:
-#                 return redirect('labhome')
-#             else:
-#                 return redirect('patientHome')
-#         else:
-#             messages.error(request, 'Invalid Credentials')
-#             return redirect('login')
-#     form=ContactForm()
-#     return render(request, 'accounts/login.html',{'form':form})
 
 
 def login(request):
@@ -134,7 +112,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         messages.success(request, 'Congratulations! Your account is activated.')
-        return redirect('login')
+        return redirect('patData')
     else:
         messages.error(request, 'Invalid activation link')
         return redirect('register')

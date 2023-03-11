@@ -3,10 +3,12 @@ from django.utils.html import format_html
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Lab
+from import_export.admin import ImportExportModelAdmin
+
 # Register your models here.
 
 
-class LabAdmin(admin.ModelAdmin):
+class LabAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     # disply profile image from another foregin table
     def pro(self, obj):
         # return obj.email.usr_img.url
@@ -30,7 +32,7 @@ class LabAdmin(admin.ModelAdmin):
     # readonly_fields = ('last_login', 'date_joined')
     # ordering = ('-date_joined',)
     filter_horizontal = ()
-    list_filter = ['email','year_of_service','qual_name','spec_name','is_active']
+    list_filter = ['year_of_service','qual_name','spec_name','is_active']
     fieldsets = ()
 
     

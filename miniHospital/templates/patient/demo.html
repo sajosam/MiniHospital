@@ -10,7 +10,7 @@
 <div class="row"
     style="margin-top:13%;display: flex;flex-direction: row;margin-top: 13%;margin-left: 10%;margin-bottom: 4%;">
     <div
-        style="border:1px solid #13b2cb; background-color:#13b2cb;color:#fff;width:90%; border-radius: 10px;padding: 10px;">
+        style="border:1px solid #8be5f3; background-color:#8be5f3;color:#fff;width:90%; border-radius: 10px;padding: 10px;">
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul style="margin-left: 40%;">
                 <li class="dropdown demo"><a href="#"><span>Sort on Specialization</span> <i
@@ -32,13 +32,12 @@
     {% for d in doc_list %}
 
 
-    <div class="card " style="width: 26%;margin: 1%;">
+    <div class="card " style="width: 26%;margin: 1%;background-color: #8be5f3;">
         <img class="card-img-top" src="{{d.email.usr_img.url}}" alt="Card image cap" style="height: 12rem; width:auto;">
         <div class="card-body">
             <div class="text-center mt-3">
                 <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
                 <h5 class="mt-2 mb-0">{{d.email.first_name}} {{d.email.last_name}}</h5>
-                <!-- <span>{{d.email.first_name}} {{d.email.last_name}}</span> -->
                 <span>{{d.spec_name}}</span>
 
 

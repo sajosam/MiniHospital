@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<section class="w3l-hotair-form">
+    <div class="container">
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <form action="{% url 'patData' %}" method="post" id="logform" name="logform">
+                        <h2>Basic Health Details</h2><br>
+                        {% include 'include/alerts.html' %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="">Are you Diabetic patient ?</label>
+                            {{usr.is_diabetic}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Asthma patient ?</label>
+                            {{usr.is_asthma}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Hypertensed ?</label>
+                            {{usr.is_hypertension}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Stroke?</label>
+                            {{usr.is_stroke}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify the weight</label>
+                            {{usr.weight}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify the height</label>
+                            {{usr.height}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Are you Alcoholic ?</label>
+                            {{usr.is_alcoholic}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify your blood group</label>
+                            {{usr.blood_group}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Did you take 2 COVID vaccine</label>
+                            {{usr.covid_vacciantion}}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Specify the alergetic drugs (if any)</label>
+                            {{usr.alergetic_drugs}}
+                        </div>
+
+                        <button class="btn" type="submit">Save profile</button>
+                    </form>
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/4.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock main %}

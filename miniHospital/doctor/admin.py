@@ -4,10 +4,11 @@ from django.utils.html import format_html
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Doctor, Designation, Specialization
+from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
 
-class DoctorAdmin(admin.ModelAdmin):
+class DoctorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     # disply profile image from another foregin table
     def pro(self, obj):
         # return obj.email.usr_img.url
@@ -31,14 +32,14 @@ class DoctorAdmin(admin.ModelAdmin):
     # readonly_fields = ('last_login', 'date_joined')
     # ordering = ('-date_joined',)
     # filter_horizontal = 'qual_name']
-    list_filter = ['email','year_of_service','qual_name','spec_name']
+    list_filter = ['year_of_service','qual_name','spec_name']
     fieldsets = ()
 
     
 admin.site.register(Doctor, DoctorAdmin)
 
 
-class DesignationAdmin(admin.ModelAdmin):
+class DesignationAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('des_name',)
     list_display_links = ('des_name',)
     readonly_fields = ()
@@ -49,7 +50,7 @@ class DesignationAdmin(admin.ModelAdmin):
 admin.site.register(Designation, DesignationAdmin)
 
 
-class SpecializationAdmin(admin.ModelAdmin):
+class SpecializationAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('spec_name',)
     list_display_links = ('spec_name',)
     readonly_fields = ()

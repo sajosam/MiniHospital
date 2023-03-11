@@ -1914,3 +1914,21 @@ section {
   background-color: #049a9f;
   color: white;
 }
+
+.appointment-btn-updated {
+  margin-left: 25px;
+  background: #13b2cb;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  /* font-weight: 500; */
+  display: inline-block;
+}
+
+.appointment-btn-updated:hover {
+  background: #f1f1f1;
+  color: #049a9f;
+}
