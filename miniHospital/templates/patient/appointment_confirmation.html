@@ -6,77 +6,143 @@
 {% block main %}
 
 {% include 'include/navbar.html' %}
+<div class="row" style="margin-top:13%;display: grid;margin-bottom: 4%;">
 
-<div class="row" style="margin-top:13%;display: grid;margin-top: 13%;margin-left: 25%;margin-bottom: 4%; padding: 5%;">
 
+    <section class="w3l-hotair-form">
+        <!-- <h1>Report Login Form</h1> -->
+        <div class="container">
+            <!-- /form -->
+            <div class="workinghny-form-grid">
+                <div class="main-hotair">
+                    <div class="content-wthree">
+                        <h2> <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}"
+                                    alt=""></span>Appointment Confirmation</h2>
+                        <div>
 
-    <div class="card" style="width: 70%;margin: 1%;padding: 5%;background-color: #8be5f3;">
-        <div class="text-center mt-3">
-            <span class="doc-verified"><img src="{% static 'img/icon/1.png' %}" alt=""></span>
-            <h5 class="mt-2 mb-0">Confirmation Card</h5><br>
+                            <form action="#" style="font-weight: bold;">
+                                <div class="form-group">
+                                    <label for="">Doctor Name</label>
+                                    <input type="text" value="{{request.session.doc_name}}" class="form-control"
+                                        placeholder="" id="inputbox">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Speciality</label>
+                                    <input type="text" value="{{request.session.spec}}" class="form-control"
+                                        placeholder="" id="inputbox">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Designation</label>
+                                    <input type="text" value="{{request.session.designation}}" class="form-control"
+                                        placeholder="" id="inputbox">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Date</label>
+                                    <input type="text" value="{{request.session.date}}" class="form-control"
+                                        placeholder="" id="inputbox">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Time</label>
+                                    <input type="text" value="{{request.session.time}}" class="form-control"
+                                        placeholder="" id="inputbox">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="">
+                            <nav id="navbar" class="navbar order-last order-lg-0">
+                                <button class="btn btn-primary">
+                                    <ul>
+                                        <li class="dropdown"><a href="#"><span>Confirm</span> <i
+                                                    class="bi bi-chevron-down"></i></a>
+                                            <ul>
 
-            <table class="table-doctor">
-                <tr>
-                    <th>Doctor Name</th>
-                    <th>:</th>
-                    <td>{{request.session.doc_name}}</td>
-                </tr>
-                <tr>
-                    <th>Speciality</th>
-                    <th>:</th>
-                    <td>{{request.session.spec}}</td>
-                </tr>
-                <tr>
-                    <th>Designation</th>
-                    <th>:</th>
-                    <td>{{request.session.designation}}</td>
-                </tr>
-                <tr>
-                    <th>Date</th>
-                    <th>:</th>
-                    <td>{{request.session.date}}</td>
-                </tr>
-                <tr>
-                    <th>Time</th>
-                    <th>:</th>
-                    <td>{{request.session.time}}</td>
-                </tr>
+                                                <li><a class="#" href="{% url 'confirmappointment' %}">Continue with
+                                                        offline
+                                                        payment</a></li>
+                                                <li><a class="#" href="{% url 'patalldetailsupdate' %}">Update Profile
+                                                        Details</a>
+                                                </li>
+                                                <li><a class="#" href="#doctors">View Profile Details</a></li>
+                                                <li><a class="#" href="#doctors">Cancel Appointment</a></li>
 
-            </table>
-            <div class="" style="margin-top:20px;">
-                <nav id="navbar" class="navbar order-last order-lg-0">
-                    <button class="appointment-btn-updated">
-                        <ul>
-                            <li class="dropdown"><a href="#"><span>Confirm</span> <i class="bi bi-chevron-down"></i></a>
-                                <ul>
-                                    <li><a class="#" href="#departments">Continue with online payment</a></li>
-                                    <li><a class="#" href="{% url 'confirmappointment' %}">Continue with offline
-                                            payment</a></li>
-                                    <li><a class="#" href="#doctors">Update Profile Details</a></li>
-                                    <li><a class="#" href="#doctors">View Profile Details</a></li>
-                                    <li><a class="#" href="#doctors">Cancel Appointment</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </button>
+                            </nav>
 
-                                </ul>
-                            </li>
+                        </div>
 
-                        </ul>
-                    </button>
-                </nav>
-
-                <!-- <a href="{% url 'viewpatientappo' %}" class="appointment-btn">Update current details</a><br><br>
-                <a href="{% url 'viewpatientappo' %}" class="appointment-btn">Cancel Appointment</a>
-                <a href="{% url 'viewpatientappo' %}" class="appointment-btn btn-danger">View Appointments</a> -->
-
+                    </div>
+                    <div class="w3l_form align-self">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Payment summary</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li id="inputbox" class="list-group-item">Consulting fee : 200/-</li>
+                                    <li id="inputbox" class="list-group-item">Tax : 8%</li>
+                                    <li id="inputbox" class="list-group-item">Grand total : 216/-</li>
+                                </ul><br>
+                                <button id="rzp-button1" class="btn btn-primary"><span class="doc-verified"><img
+                                            src="{% static 'img/icon/1.png' %}" alt=""></span>Pay with secure</button>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-
+</div>
+</section>
 
 
 </div>
 
-<script>
+
+
+<script type="text/javascript">
+    var options = {
+        "key": 'rzp_test_19au902WXB3fFT', // Enter the Key ID generated from the Dashboard
+        "amount": "{{amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "miniHospital",
+        "description": "Test Transaction",
+        "image": "{% static 'img/icon/1.png' %}",
+        "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "handler": function (response) {
+            console.log("success")
+            // var form = document.getElementById["myform"];s
+
+
+
+            var a = response.razorpay_payment_id;
+
+
+            window.location.href =
+                'http://127.0.0.1:8000/confirmappointment?signature=${response.razorpay_signature}&order_id=${response.razorpay_order_id}&cust_id=${response.customer}&payment_id=' +
+                a
+
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+
+
+
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
+        alert(response.error.description);
+    });
+    document.getElementById('rzp-button1').onclick = function (e) {
+        console.log("button click");
+        rzp1.open();
+        e.preventDefault();
+    }
+
+
+
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
     }

@@ -73,7 +73,23 @@ class appointmentconfirmation(models.Model):
     appo_time=models.TimeField(default=None)
     appo_status=models.CharField(max_length=20, choices=status, default='pending')
     payment=models.CharField(max_length=20, choices=fee, default='unpaid')
+    payment_id=models.ForeignKey('Payment', on_delete=models.CASCADE,blank=True,null=True)
 
     def __str__(self):
         return self.user_id.email
 
+
+class Payment(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    amount = models.FloatField(blank=True,null=True)
+    razorpay_order_id = models.CharField(max_length=100,blank=True,null=True)
+    razorpay_payment_id = models.CharField(max_length=100,blank=True,null=True)
+    razorpay_payment_status = models.CharField(max_length=100,blank=True,null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    paid = models.BooleanField(default=False)
+    appo_id=models.ForeignKey(appointmentconfirmation, on_delete=models.CASCADE,blank=True,null=True,related_name='appo_id')
+    signature = models.CharField(max_length=100,blank=True,null=True)
+
+    def __str__(self):
+        return self.user.email
+    

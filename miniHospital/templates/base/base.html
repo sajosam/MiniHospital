@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -36,6 +36,12 @@
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AVBSMqNtoZ1IUO6lrSe6-vm9AIV1ZKN8CgXu_nINRs80xELRs650mh3yR62groIUg-GCe59Od_EFOG6O&currency=USD">
+    </script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 
     <!-- =======================================================
   * Template Name: Medicio - v4.8.1
@@ -94,6 +100,8 @@
     <!-- Template Main JS File -->
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
+
+
 
 
 </body>

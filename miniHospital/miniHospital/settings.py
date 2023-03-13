@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'patient',
     'ckeditor',
     'captcha',
-    'import_export'
+    'import_export',
+    'paypal.standard.ipn',
     
     
 ]
@@ -69,6 +70,13 @@ RECAPTCHA_PUBLIC_KEY = '6LfBwbMiAAAAAAbXL0saBDXbcJcKmg673cqVGLiY'
 RECAPTCHA_PRIVATE_KEY = '6LfBwbMiAAAAANmqFckuf67fw1kEnOXo3puytod3'
 
 ROOT_URLCONF = 'miniHospital.urls'
+
+PAYPAL_TEST = True
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-orgin-allow-popups'
+
+RAZORPAY_API_KEY = 'rzp_test_19au902WXB3fFT'
+RAZORPAY_API_SECRET_KEY = 'oXzTgMla8l4NduIz8hIWkQLp'
 
 TEMPLATES = [
     {

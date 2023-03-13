@@ -211,7 +211,7 @@ button:hover {
   -o-background-size: cover;
   -ms-background-size: cover;
   padding: 40px;
-  
+
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   align-items: center;
@@ -501,4 +501,9 @@ p.copy-footer-29 a:hover {
   border-radius: 10px;
   margin: 15px;
   padding: 5px;
+}
+
+#inputbox {
+  font-weight: bold;
+  font-size: 15px;
 }

@@ -7,7 +7,6 @@ from .models import patientData
 class UserForm(forms.ModelForm):
     class Meta:
         model=Account
-        # exclude=['']
         fields=['first_name','last_name','state','district','contact','usr_img','dob','gender']
 
         widgets={
