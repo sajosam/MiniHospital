@@ -19,6 +19,9 @@ from django.conf.urls import (
 handler400, handler403, handler404, handler500
 )
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 
 urlpatterns = [
@@ -30,7 +33,7 @@ urlpatterns = [
     path('lab/', include('lab.urls')),
     path('leave/', include('leave.urls')),
     
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'patient.views.handler404'
 handler500 = 'patient.views.handler500'

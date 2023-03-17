@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<section class="w3l-hotair-form">
+    <!-- <h1>Report Login Form</h1> -->
+    <div class="container">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <h2>Add/View Report</h2>
+
+                    {% if data.report %}
+                    <!-- embedded pdf -->
+
+                    <embed src="{{data.report.url}}" type="application/pdf" width="100%" height="" />
+
+                    {% else %}
+                    <form action="#" method="post" id="logform" name="logform">
+                        {% include 'include/alerts.html' %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <!-- file input field -->
+                            <input type="file" class="form-control" placeholder="Choose the file" name="report"
+                                id="report">
+                        </div>
+
+                        <button class="btn" type="submit">Add Result</button>
+                    </form>
+
+                    {% endif %}
+
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/5.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock main %}

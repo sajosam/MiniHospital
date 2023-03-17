@@ -97,3 +97,13 @@ def labViewAppo(request):
     }
 
     return render(request, 'lab/viewappo.html', context)
+
+def addreport(request, id):
+    data=labReport.objects.get(id=id)
+    if request.method == 'GET':
+        report=request.POST.get('report')
+        data.report=report
+        data.status='Completed'
+        data.save()
+        return redirect('labViewAppo')
+    return render(request, 'lab/viewreport.html', context)

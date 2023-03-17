@@ -64,7 +64,7 @@ class labReport(models.Model):
     patient = models.ForeignKey(Account, on_delete=models.CASCADE,limit_choices_to={'is_patient': True})
     appo_id=models.ForeignKey(appointmentconfirmation, on_delete=models.CASCADE)
     prescription_id=models.ForeignKey(Prescription, on_delete=models.CASCADE)
-    report = CloudinaryField(blank=True, null=True)
+    report = models.FileField(upload_to='lab_report/', blank=True, null=True)
     date = models.DateField(default=datetime.date.today)
     lab_uidd=models.IntegerField(blank=True, null=True)
     status=models.CharField(max_length=100, choices=status_choice,default='Pending')

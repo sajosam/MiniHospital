@@ -14,7 +14,9 @@
 
                     {% if lab.status == 'Completed' %}
                     <!-- iframe report -->
-                    <iframe src="#" width="100%" height="500px"></iframe>
+                    <a name="" id="" class="btn btn-info" href="{{lab.report.url}}" download="{{report}}{{d.id}}"
+                        role="button">Download
+                        Report</a>
                     {% else %}
                     <!-- <h3>Report is not ready yet</h3> -->
                     <img src="{% static 'img/banner/load.gif' %}" alt="" class="img-fluid" width="100%">
