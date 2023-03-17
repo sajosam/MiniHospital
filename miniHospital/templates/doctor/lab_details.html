@@ -1,0 +1,65 @@
+{% extends 'doctor/doctorbase.html' %}
+{% load static %}
+
+
+{% block dr %}
+
+<section class="w3l-hotair-form">
+    <div class="container">
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <h2>Medical Reports</h2><br>
+                    {% include 'include/alerts.html' %}
+
+                    {% if lab.status == 'Completed' %}
+                    <!-- iframe report -->
+                    <iframe src="#" width="100%" height="500px"></iframe>
+                    {% else %}
+                    <!-- <h3>Report is not ready yet</h3> -->
+                    <img src="{% static 'img/banner/load.gif' %}" alt="" class="img-fluid" width="100%">
+
+                    {% endif %}
+
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <div class="form-group">
+                            <label for="">Patient Name</label>
+                            <input id="inputbox" type="text" name="" id=""
+                                value="{{appo.user_id.first_name}} {{appo.user_id.last_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Patient Email</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{appo.user_id.email}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Report Name</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{data.lab_report}}">
+                        </div>
+
+                        {% if data.status %}
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{lab.status}}">
+                        </div>
+                        {% else %}
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <input id="inputbox" type="text" name="" id="" value="Pending">
+                        </div>
+
+                        {% endif %}
+
+
+                        <img src="{% static 'img/banner/dem.gif' %}" alt="" class="img-fluid">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock dr %}

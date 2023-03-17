@@ -3,11 +3,12 @@ from operator import ge
 from pydoc import doc
 from django.shortcuts import render, redirect
 from accounts.models import Account
-from .models import Lab
+from .models import Lab, labReport
 from datetime import date
+from doctor.models import Doctor, Prescription
 from .forms import LabForm, UserForm
+from patient.models import appointmentconfirmation
 from django.contrib.auth.decorators import login_required
-from patient.models import patientAppointment
 
 # Create your views here.
 
@@ -78,8 +79,21 @@ def labUpdate(request):
 
 
 def labViewAppo(request):
-    lst=patientAppointment.objects.filter(status=True)
+    # extract appointment basewd on same department
+    lab=Lab.objects.get(email__id=request.user.id)
+    appo=Doctor.objects.filter(spec_name=lab.spec_name).values_list('email_id', flat=True)
+    lst=[x for x in appo]
+    data=appointmentconfirmation.objects.filter(doc_email__in=lst).values_list('id',flat=True)
+    print(data)
+    dat=Prescription.objects.filter(appoint_id__in=data).values_list('id',flat=True)
+    print(dat)
+    da=labReport.objects.filter(prescription_id__in=dat)
+    print(da)
+    
     context={
-        'lst':lst
+        'data':data,
+        'dat':dat,
+        'da':da,
     }
+
     return render(request, 'lab/viewappo.html', context)

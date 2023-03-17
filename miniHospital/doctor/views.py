@@ -1,13 +1,17 @@
 import email
 from operator import ge
 from pydoc import doc
-from django.shortcuts import render, redirect
+import random
+from django.shortcuts import render, redirect,HttpResponse
 from accounts.models import Account
-from .models import Doctor
+from .models import Doctor,Prescription
 from datetime import date
-from .forms import DoctorForm, UserForm
-from patient.models import patientAppointment
+from .forms import DoctorForm, UserForm, appointmentForm, prescriptionForm, prescriptionFormReadyonly
+# from patient.models import patientAppointment
 from django.contrib.auth.decorators import login_required
+from patient.models import appointmentconfirmation
+from lab.models import labReport
+
 
 # Create your views here.
 
@@ -87,10 +91,86 @@ def doctorUpdate(request):
 
 
 def doctorAppo(request):
-    lst=patientAppointment.objects.filter(doc_email=request.user.email, status=True)
-    print(request.user.email)
-    print("lst",lst)
+    data=appointmentconfirmation.objects.filter(doc_email=request.user.id,appo_status__in=('accepted','completed'))
     context={
-        'lst':lst
+        'data':data,
     }
-    return render(request, 'doctor/viewappo.html', context)
+    return render(request, 'doctor/viewappo.html',context)
+
+def viewpatient(request,id=None):
+    print("1")
+    request.session['appo_id']=id
+    if Prescription.objects.filter(appoint_id=id).exists():
+        print("2")
+        data=prescriptionFormReadyonly(instance=Prescription.objects.get(appoint_id=id))
+        appo=appointmentconfirmation.objects.get(id=id)
+        context={}
+        context['data']=data
+        context['appo']=appo
+        context['id']=id
+        if Prescription.objects.get(appoint_id=id).lab_report!=None:
+            lab=Prescription.objects.get(appoint_id=id).lab_report
+            context['lab']=lab
+        else:
+            context['lab']=None
+        print(context)
+        return render(request, 'doctor/moredetails.html',context)
+    else:
+        print("3")
+        if request.method == 'POST':
+            print("4")
+            data=prescriptionForm(request.POST)
+            print(data.errors)
+            if data.is_valid():
+                prescription=data.cleaned_data['prescription']
+                data.symptoms=data.cleaned_data['symptoms']
+                diagnosis=data.cleaned_data['diagnosis']
+                lab_report=data.cleaned_data['lab_report']
+
+                def getuniqueid():
+                    lab_uidd=random.randint(100000,999999)
+                    if lab_uidd in Prescription.objects.values_list('lab_uidd',flat=True):
+                        lab_uidd=getuniqueid()
+                    return lab_uidd
+
+                if lab_report!=None:
+                    lab_uidd=getuniqueid()
+                else:
+                    lab_uidd=None
+                appoint_id=appointmentconfirmation.objects.get(id=request.session.get('appo_id'))
+                d=Prescription.objects.create(prescription=prescription,symptoms=data.symptoms,diagnosis=diagnosis,lab_report=lab_report,appoint_id=appoint_id,lab_uidd=lab_uidd)
+                d.save()
+                appo=appointmentconfirmation.objects.get(id=id)
+                appo.appo_status="completed"
+                appo.save()
+                return redirect('doctorAppo')
+            else:
+                print("5")
+                context={}
+                context['data']=data
+                context['appo']=appointmentconfirmation.objects.get(id=id)
+                context['id']=id
+                return render(request, 'doctor/moredetails.html',context)
+        else:
+            print("6")
+            appo=appointmentconfirmation.objects.get(id=id)
+            context={}
+            context['data']=prescriptionForm()
+            context['appo']=appo
+            context['id']=id
+            context['lab']=False
+            print(context['lab'])
+            return render(request, 'doctor/moredetails.html',context)
+        
+
+
+def viewreport(request, id):
+    data=Prescription.objects.get(appoint_id=id)
+    appo=appointmentconfirmation.objects.get(id=id)
+    context={}
+    context['data']=data
+    context['appo']=appo
+    if labReport.objects.filter(prescription_id=data.id).exists():
+        lab=labReport.objects.get(prescription_id=data.id)
+        context['lab']=lab
+    return render(request, 'doctor/lab_details.html',context)

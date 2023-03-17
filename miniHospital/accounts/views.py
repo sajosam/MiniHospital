@@ -38,9 +38,13 @@ def login(request):
         
         if user:
             # auth.logout(request)
-            otp=random.randint(1000,9999)
+            otp=random.randint(100000,999999)
             profile=Otp.objects.create(user_id=id,otp=otp,phone=phone)
             messagehadler=MessageHandler(phone,otp).send_otp_via_message()
+            print(messagehadler)
+            print(profile)
+            print(profile.uid)
+            print(profile.id)
             red=redirect('otp',uid=profile.uid)
             red.set_cookie("can_otp_enter",True,max_age=600)
             return red

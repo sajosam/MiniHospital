@@ -2,7 +2,7 @@ import re
 from django.utils.html import format_html
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Lab
+from .models import Lab,labReport
 from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
@@ -38,6 +38,7 @@ class LabAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     
 admin.site.register(Lab, LabAdmin)
 
+admin.site.register(labReport)
 
 
 # upload csv to enter data in database

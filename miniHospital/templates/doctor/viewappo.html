@@ -3,39 +3,37 @@
 
 {% block dr %}
 
-<div id="table-container">
+
+
+<div id="customers">
     {% include 'include/alerts.html' %}
 
 
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">Patient Email</th>
                 <th scope="col">Date</th>
-                <th scope="col">Alergetic drugs</th>
+                <th scope="col">patient Name</th>
+                <th scope="col">patient email</th>
                 <th scope="col">Time</th>
-                <th scope="col">Symptoms</th>
+                <th scope="col">Payment</th>
                 <th scope="col">Status</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            {% for d in lst %}
+            {% for d in data %}
             <tr>
-                <td>{{d.patient_email}}</td>
-                <td>{{d.date}}</td>
-                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
-                        disabled>{{d.alergetic_drugs}}</textarea></td>
-                <td>{{d.time}}</td>
-                <td style="margin:10px;"><textarea name="demo" id="" cols="30" rows="5"
-                        disabled>{{d.symptoms}}</textarea></td>
-                <!-- <td>{{d.status}}</td> -->
-
-                {% if d.status %}
-                <td>Confirmed</td>
-                {% else %}
-                <td>Not Confirmed</td>
-                {% endif %}
-
+                <td>{{d.appo_date}}</td>
+                <td>{{d.user_id.first_name}}</td>
+                <td>{{d.user_id.email}}</td>
+                <td>{{d.appo_time}}</td>
+                <td>{{d.payment}}</td>
+                <td>{{d.appo_status}}</td>
+                <td>
+                    <a name="" id="" class="btn btn-info" href="{% url 'viewpatient' d.id %}" role="button">More
+                        Details</a>
+                </td>
 
             </tr>
 
@@ -46,5 +44,7 @@
 
 
 </div>
+
+
 
 {% endblock dr %}

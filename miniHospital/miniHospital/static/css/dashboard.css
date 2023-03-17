@@ -39,7 +39,7 @@ body {
 #doctor_main {
   transition: margin-left 0.5s;
   padding: 16px;
-  /* height: 100vh; */
+  height: 100vh;
   background: #3ee4ea;
   /* height: 100vw; */
 }

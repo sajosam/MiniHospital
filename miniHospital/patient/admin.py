@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import patientAppointment, patientData,appointmentconfirmation
+from .models import patientData,appointmentconfirmation
 from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 

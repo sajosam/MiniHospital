@@ -12,7 +12,7 @@ from accounts.models import Account
 from doctor.models import Specialization
 from .forms import UserForm, patientDataForm
 from django.contrib.auth.decorators import login_required
-from .models import patientAppointment, appointmentconfirmation, patientData
+from .models import appointmentconfirmation, patientData
 from django.contrib import messages, auth
 from doctor.models import Doctor
 from leave.models import leaveModel

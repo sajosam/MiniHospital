@@ -2,8 +2,11 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from datetime import date
 from accounts.models import Account
+from patient.models import appointmentconfirmation
 from django import forms
 from multiselectfield import MultiSelectField
+from ckeditor.fields import RichTextField
+
 # Create your models here.
 
 
@@ -84,55 +87,33 @@ class Designation(models.Model):
 
     def __str__(self):
         return self.des_name
+    
 
-# class Qualification(models.Model):
-#     qualification_names=(
-#         #doctors
-#         ('BDS','BDS'),  #Bachelor of Dental Surgery
-#         ('BHMS','BHMS'), #Bachelor of Homeopathy Medicine and Surgery
-#         ('BPT','BPT'), #Bachelor of physiotherapy
-#         ('B.Pharm','B.Pharm'), #bachelor of pharma
-#         ('BUMS','BUMS'),  #Bachelor of Unani Medicine and Surgery
-#         ('MD','MD'), #doctor of medicine
-#         ('BYNS','BYNS'), #Bachelor of Yoga and Naturopathy Sciences
-#         ('DS','DS'), #doctor of surgery
-#         ('DCM','DCM'), #doctor of clinical medicine
-#         ('DPM','DPM'), #doctor of public medicine
-#         ('D.Pharm','D.Pharm'), #doctor of pharma
-#         ('MCM','MCM'), #master of clinical medicine
-#         ('MMSc','MMSc'), #master of medical science
-#         ('MPH','MPH'), #master of public health
-#         ('MM','MM'), #master of medicine
-#         ('M.Pharm','M.Pharm'), #master of pharma
-#         ('M.B.B.S','M.B.B.S'), #master of botany and botanical science
-#         ('M.Phy','M.Phy'), #master of physiotherapy
-#         ('M.phil','M.phil'), #master of philosophy
-#         ('Msc','Msc'), #master of science
-#         ('MS','MS'),  #master of surgery
-#         ('DNB','DNB'), #Diplomate of National Board
-#         ('M.Ch','M.Ch'), #Master of Chirurgiae
-
-#         #For nurses
-#         ('PN','PN'), #1. Diploma in Practical Nursing
-#         ('ASN','ASN'), #2. Associate in Nursing
-#         ('BSN','BSN'), #3. Bachelor of Nursing
-#         ('MSN','MSN'), #4. Master of Nursing
-#         ('DSN','DSN'), #5. Doctor of Nursing
-#         ('B.Sc(N)','B.Sc(N)'), #8. Bachelor of Science in Nursing
-#         ('M.Sc(N)','M.Sc(N)'), #9. Master of Science in Nursing
-#         ('BDN','BDN'), #10. Bachelor of Dental Nursing
-#         ('CNA','CNA'), #11. Certificate in Nursing Administration
-
-#         # for laboratory
-#         ('DMLT','DMLT'), #Diploma in Medical Laboratory Technology
-#         ('ADMLT','ADMLT'), #Associate in Medical Laboratory Technology
-#         ('BMLT','BMLT'), #Bachelor of Medical Laboratory Technology
-#         ('MLT','MLT'), #Medical Laboratory Technology
-
-#     ),
-#     id = models.AutoField(primary_key=True)
-#     qual_name = models.CharField(max_length=100, choices=qualification_names)
-
+class Prescription(models.Model):
+    lab_type=(
+        ('None','None'),
+        ('Blood','Blood'),
+        ('Urine','Urine'),
+        ('Stool','Stool'),
+        ('Sputum','Sputum'),
+        ('X-Ray','X-Ray'),
+        ('CT-Scan','CT-Scan'),
+        ('MRI','MRI'),
+        ('ECG','ECG'),
+        ('Ultrasound','Ultrasound'),
+        ('Other','Other'),
+    )
+    lab_choice=(
+        ('Yes','Yes'),
+        ('No','No'),
+    )
+    id = models.AutoField(primary_key=True)
+    prescription = models.CharField(max_length=100, blank=True, null=True)
+    symptoms=models.CharField(max_length=100, blank=True, null=True)
+    diagnosis=models.CharField(max_length=100, blank=True, null=True)
+    appoint_id=models.OneToOneField(appointmentconfirmation, on_delete=models.CASCADE, blank=True, null=True)
+    lab_report=models.CharField(max_length=100, choices=lab_type,default='None')
+    lab_uidd=models.IntegerField(blank=True, null=True)
 
 
 
@@ -165,27 +146,10 @@ class Doctor(models.Model):
         ('M.Ch','M.Ch') #Master of Chirurgiae
     )
 
-     # #For nurses
-        # ('PN','PN'), #1. Diploma in Practical Nursing
-        # ('ASN','ASN'), #2. Associate in Nursing
-        # ('BSN','BSN'), #3. Bachelor of Nursing
-        # ('MSN','MSN'), #4. Master of Nursing
-        # ('DSN','DSN'), #5. Doctor of Nursing
-        # ('B.Sc(N)','B.Sc(N)'), #8. Bachelor of Science in Nursing
-        # ('M.Sc(N)','M.Sc(N)'), #9. Master of Science in Nursing
-        # ('BDN','BDN'), #10. Bachelor of Dental Nursing
-        # ('CNA','CNA'), #11. Certificate in Nursing Administration
-
-        # # for laboratory
-        # ('DMLT','DMLT'), #Diploma in Medical Laboratory Technology
-        # ('ADMLT','ADMLT'), #Associate in Medical Laboratory Technology
-        # ('BMLT','BMLT'), #Bachelor of Medical Laboratory Technology
-        # ('MLT','MLT'), #Medical Laboratory Technology
 
     id = models.AutoField(primary_key=True)
     email = models.ForeignKey(Account, on_delete=models.CASCADE)
     year_of_service = models.IntegerField(blank=False, null=False)
-    # qual_name = models.ForeignKey(Qualification, on_delete=models.CASCADE,related_name='q-realated')
     qual_name = MultiSelectField(choices=qualification_names, max_choices=5, max_length=100)
     spec_name = models.ForeignKey(Specialization, on_delete=models.CASCADE,related_name='spec_name_related')
     des_name = models.ForeignKey(Designation, on_delete=models.CASCADE,related_name='des_name_doctor')

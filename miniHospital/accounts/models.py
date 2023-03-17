@@ -155,4 +155,4 @@ class Otp(models.Model):
     last_login = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.id.username
+        return self.user_id.username

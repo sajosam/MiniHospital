@@ -101,7 +101,14 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
 
-
+    <script>
+        function restrictBackwardNavigation() {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.go(1);
+            };
+        }
+    </script>
 
 
 </body>

@@ -1,8 +1,9 @@
 from dataclasses import fields
 from pyexpat import model
 from django import forms
-from .models import Doctor
+from .models import Doctor,Prescription
 from accounts.models import Account
+from patient.models import appointmentconfirmation
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -32,5 +33,49 @@ class DoctorForm(forms.ModelForm):
             'license_no':forms.TextInput(attrs={'class':'form-control','placeholder':'License No'}),
             'des_name':forms.Select(attrs={'class':'form-control','placeholder':'Designation'}),
 
+        }
+
+class appointmentForm(forms.ModelForm):
+
+    class Meta:
+        model=appointmentconfirmation
+        fields=['appo_date','appo_time','appo_status','payment']
+
+        def __init__(self,*args,**kwrgs):
+            user=kwrgs.pop('user','')
+            super(appointmentForm,self).__init__(*args,**kwrgs)
+            self.fields['first_name']=forms.ModelChoiceField(queryset=Account.objects.filter(id=user),empty_label='Select First Name')
+            self.fields['email']=forms.ModelChoiceField(queryset=Account.objects.filter(id=user),empty_label='Select email')
+        
+        widgets={
+            'appo_date':forms.DateInput(attrs={'class':'form-control','placeholder':'Date of Birth'}),
+            'appo_time':forms.TimeInput(attrs={'class':'form-control','placeholder':'Time'}),
+            'appo_status':forms.Select(attrs={'class':'form-control','placeholder':'Status'}),
+            'payment':forms.Select(attrs={'class':'form-control','placeholder':'Payment'}),
+        }
+
+class prescriptionForm(forms.ModelForm):
+    class Meta:
+        model=Prescription
+        fields=['symptoms','diagnosis','prescription','lab_report']
+
+        widgets={
+            'prescription':forms.Textarea(attrs={'class':'form-control','placeholder':'Prescription','id':'inputbox'}),
+            'symptoms':forms.Textarea(attrs={'class':'form-control','placeholder':'Symptoms','id':'inputbox'}),
+            'diagnosis':forms.Textarea(attrs={'class':'form-control','placeholder':'Diagnosis','id':'inputbox'}),
+            'lab_report':forms.Select(attrs={'class':'form-control','placeholder':'Lab Report','id':'inputbox'}),
+            
+        }
+
+class prescriptionFormReadyonly(forms.ModelForm):
+    class Meta:
+        model=Prescription
+        fields=['symptoms','diagnosis','prescription','lab_report']
+
+        widgets={
+            'prescription':forms.Textarea(attrs={'class':'form-control','placeholder':'Prescription','id':'inputbox','readonly':'readonly'}),
+            'symptoms':forms.Textarea(attrs={'class':'form-control','placeholder':'Symptoms','id':'inputbox','readonly':'readonly'}),
+            'diagnosis':forms.Textarea(attrs={'class':'form-control','placeholder':'Diagnosis','id':'inputbox','readonly':'readonly'}),
+            'lab_report':forms.Select(attrs={'class':'form-control','placeholder':'Lab Report','id':'inputbox','readonly':'readonly'}),
         }
 

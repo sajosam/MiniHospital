@@ -3,25 +3,6 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 from accounts.models import Account
-from doctor.models import Doctor
-class patientAppointment(models.Model):
-    timeDiv= models.CharField(max_length=10, blank=True)
-    id = models.AutoField(primary_key=True)
-    doc_email=models.EmailField(max_length=100)
-    patient_email= models.EmailField(max_length=100)
-    is_diabetic = models.BooleanField(default=False)
-    is_asthma = models.BooleanField(default=False)
-    is_hypertension = models.BooleanField(default=False)
-    is_stroke= models.BooleanField(default=False)
-    alergetic_drugs=RichTextField(max_length=250, blank=True)
-    weight= models.FloatField(default=None, blank=True)
-    height= models.FloatField(default=None, blank=True)
-    is_alcoholic= models.BooleanField(default=False)
-    date=models.DateField()
-    time=models.TimeField()
-    symptoms=RichTextField()
-    status=models.BooleanField(default=False)
-
 
 class patientData(models.Model):
     blood_group=(
@@ -67,6 +48,7 @@ class appointmentconfirmation(models.Model):
         ('paid','paid'),
         ('unpaid','unpaid'),
     )
+    id=models.AutoField(primary_key=True)
     user_id=models.ForeignKey(Account, on_delete=models.CASCADE,limit_choices_to={'is_patient':True},related_name='user_email')
     doc_email=models.ForeignKey(Account, on_delete=models.CASCADE,related_name='doctor_email',limit_choices_to={'is_doctor':True})
     appo_date=models.DateField(default=None)
@@ -75,8 +57,11 @@ class appointmentconfirmation(models.Model):
     payment=models.CharField(max_length=20, choices=fee, default='unpaid')
     payment_id=models.ForeignKey('Payment', on_delete=models.CASCADE,blank=True,null=True)
 
+    # def __str__(self):
+    #     return self.user_id.email
+    # return id
     def __str__(self):
-        return self.user_id.email
+        return str(self.id)
 
 
 class Payment(models.Model):

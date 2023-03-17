@@ -1,0 +1,82 @@
+{% extends 'doctor/doctorbase.html' %}
+{% load static %}
+
+
+{% block dr %}
+
+<section class="w3l-hotair-form">
+    <div class="container">
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <h2>Diagnosis Ground</h2>
+                    <form action="{% url 'viewpatient' id %}" method="post" id="logform" name="logform">
+                        {% include 'include/alerts.html' %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{data.symptoms.label}}
+                            {{data.symptoms}}
+                        </div>
+                        <div class="form-group">
+                            {{data.diagnosis.label}}
+                            {{data.diagnosis}}
+                        </div>
+                        <div class="form-group">
+                            {{data.prescription.label}}
+                            {{data.prescription}}
+                        </div>
+
+                        <div class="form-group">
+                            {{data.lab_report.label}}
+                            {{data.lab_report}}
+                        </div>
+
+
+                        {% if lab %}
+                        <a name="" id="" class="appointment-btn" href="{% url 'viewreport' id %}" role="button">View
+                            Report</a>
+
+                        {% endif %}
+
+
+                        <button class="btn" type="submit">Continue</button>
+                    </form>
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <div class="form-group">
+                            <label for="">Patient Name</label>
+                            <input id="inputbox" type="text" name="" id=""
+                                value="{{appo.user_id.first_name}} {{appo.user_id.last_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Patient Email</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{appo.user_id.email}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Appointment Time</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{appo.appo_time}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Appointment Date</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{appo.appo_date}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Payment</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{appo.payment}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Appointment Status</label>
+                            <input id="inputbox" type="text" name="" id="" value="{{appo.appo_status}}">
+                        </div>
+                        <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock dr %}

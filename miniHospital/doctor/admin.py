@@ -3,7 +3,7 @@ import re
 from django.utils.html import format_html
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Doctor, Designation, Specialization
+from .models import Doctor, Designation, Specialization,Prescription
 from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
@@ -62,4 +62,5 @@ class SpecializationAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 admin.site.register(Specialization, SpecializationAdmin)
 
+admin.site.register(Prescription)
 
