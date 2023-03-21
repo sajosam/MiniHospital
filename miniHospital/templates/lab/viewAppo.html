@@ -38,11 +38,8 @@
                         role="button">Download
                         Report</a>
                     {% else %}
-                    <form action="{% url 'addreport' d.id %}">
-                        <!-- file field -->
-                        <input type="file" name="report" id="" class="form-control">
-                        <button type="submit" class="btn btn-primary">Add Report</button>
-                    </form>
+                    <a name="" id="" class="btn btn-info" href="{% url 'addreport' d.id %}" role="button">Add Report</a>
+
                     {% endif %}
 
                 </td>

@@ -549,9 +549,6 @@ def confirmappointment(request):
         payment_id = request.GET.get('payment_id', None)
         order_id = request.GET.get('order_id', None)
         signature = request.GET.get('signature', None)
-        print(payment_id)
-        print(order_id)
-        print(signature)
         payment=Payment.objects.get(razorpay_order_id=request.session['order_id'])
         payment.razorpay_payment_id=payment_id
         payment.paid=True

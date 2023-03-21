@@ -100,10 +100,16 @@ def labViewAppo(request):
 
 def addreport(request, id):
     data=labReport.objects.get(id=id)
-    if request.method == 'GET':
+    if request.method == 'POST':
         report=request.POST.get('report')
+        print(report)
         data.report=report
+        data.lab=Lab.objects.get(email__id=request.user.id)
         data.status='Completed'
         data.save()
         return redirect('labViewAppo')
+    else:
+        context={
+            'data':data,
+        }
     return render(request, 'lab/viewreport.html', context)

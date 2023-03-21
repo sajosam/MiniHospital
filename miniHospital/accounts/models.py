@@ -150,7 +150,7 @@ import uuid
 class Otp(models.Model):
     user_id=models.ForeignKey(Account,on_delete=models.CASCADE)
     otp=models.IntegerField(blank=True,null=True)
-    uid=models.CharField(default=f'{uuid.uuid4}',max_length=200)
+    uid=models.UUIDField(default=uuid.uuid4, editable=False,unique=True)
     phone=models.BigIntegerField(default=0)
     last_login = models.DateTimeField(auto_now_add=True)
 

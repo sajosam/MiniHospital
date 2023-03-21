@@ -19,7 +19,7 @@ from lab.models import labReport
 def doctorHome(request):
     if request.user.is_authenticated:
         if request.user.is_doctor:
-            email = request.session.get('email')
+            email = request.session['email']
             print(email)
             # access details of doctor in account table
             usr=Account.objects.get(email=email)
@@ -110,10 +110,9 @@ def viewpatient(request,id=None):
         context['id']=id
         if Prescription.objects.get(appoint_id=id).lab_report!=None:
             lab=Prescription.objects.get(appoint_id=id).lab_report
-            context['lab']=lab
-        else:
-            context['lab']=None
-        print(context)
+            if lab!=None:
+                context['lab']=lab
+        print(context['lab'])
         return render(request, 'doctor/moredetails.html',context)
     else:
         print("3")
@@ -132,14 +131,21 @@ def viewpatient(request,id=None):
                     if lab_uidd in Prescription.objects.values_list('lab_uidd',flat=True):
                         lab_uidd=getuniqueid()
                     return lab_uidd
+                appoint_id=appointmentconfirmation.objects.get(id=request.session.get('appo_id'))
+                print("appo",appoint_id)
+                print("appo1",appoint_id.user_id.id)
 
                 if lab_report!=None:
                     lab_uidd=getuniqueid()
+                    da=labReport.objects.create(lab_uidd=lab_uidd,appoint_id=appoint_id,patient_id=appoint_id.user_id.id)
                 else:
                     lab_uidd=None
                 appoint_id=appointmentconfirmation.objects.get(id=request.session.get('appo_id'))
                 d=Prescription.objects.create(prescription=prescription,symptoms=data.symptoms,diagnosis=diagnosis,lab_report=lab_report,appoint_id=appoint_id,lab_uidd=lab_uidd)
+                if da:
+                    da.prescription_id=Prescription.objects.only('id').get(appoint_id=appoint_id)
                 d.save()
+                da.save()
                 appo=appointmentconfirmation.objects.get(id=id)
                 appo.appo_status="completed"
                 appo.save()

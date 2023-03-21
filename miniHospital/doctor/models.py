@@ -113,7 +113,7 @@ class Prescription(models.Model):
     diagnosis=models.CharField(max_length=100, blank=True, null=True)
     appoint_id=models.OneToOneField(appointmentconfirmation, on_delete=models.CASCADE, blank=True, null=True)
     lab_report=models.CharField(max_length=100, choices=lab_type,default='None')
-    lab_uidd=models.IntegerField(blank=True, null=True)
+    lab_uidd=models.IntegerField(blank=True, null=True,unique=True)
 
 
 

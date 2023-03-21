@@ -60,14 +60,14 @@ class labReport(models.Model):
     )
     
     id = models.AutoField(primary_key=True)
-    lab = models.ForeignKey(Lab, on_delete=models.CASCADE)
+    lab = models.ForeignKey(Lab, on_delete=models.CASCADE,blank=True, null=True)
     patient = models.ForeignKey(Account, on_delete=models.CASCADE,limit_choices_to={'is_patient': True})
-    appo_id=models.ForeignKey(appointmentconfirmation, on_delete=models.CASCADE)
-    prescription_id=models.ForeignKey(Prescription, on_delete=models.CASCADE)
+    appoint_id=models.ForeignKey(appointmentconfirmation, on_delete=models.CASCADE)
+    prescription_id=models.ForeignKey(Prescription, on_delete=models.CASCADE,blank=True, null=True)
     report = models.FileField(upload_to='lab_report/', blank=True, null=True)
     date = models.DateField(default=datetime.date.today)
     lab_uidd=models.IntegerField(blank=True, null=True)
-    status=models.CharField(max_length=100, choices=status_choice,default='Pending')
+    status=models.CharField(max_length=100, choices=status_choice,default='In Progress')
 
     def __str__(self):
         return self.patient.first_name
