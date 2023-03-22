@@ -85,16 +85,30 @@
                                 <option value="Kasaragod">Kasaragod</option>
                             </select><span class="error-msg" id="log-dist"> </span></div>
                         <span id="error_district"></span>
+                        <!-- add terms and conditions -->
+
+                        <div id="g"><select name="terms" id="terms" class="text" onclick="termsValidate()">
+                                <option id="error_terms" value="" disable>I agree to the terms and conditions:</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+
+                            </select><span class="error-msg" id="log-terms"> </span></div>
+                        <span id="error_terms"></span>
+                        <p>View <u><a
+                                    href="https://www.freeprivacypolicy.com/live/6402b7c1-7ff0-4500-b989-3ed827b4a433">Terms
+                                    and Conditions</a></u></p>
+
+
                         <button class="btn" type="submit" name="signup" id="submit">Sign
                             Up</button>
                     </form>
 
                     <p class=" account">Already Registered <a href="{% url 'login' %}"><u>Login</u></a></p>
+
                 </div>
                 <div class="w3l_form align-self">
                     <div class="left_grid_info">
                         <img src="{% static 'img/banner/demo.png' %}" alt="" class="img-fluid">
-                        <!-- <img src="{% static 'img/demo1.png' %}" alt="" class="img-fluid"> -->
                         <img src="{% static 'img/banner/demo3.png' %}" alt="" class="img-fluid">
                         <img src="{% static 'img/banner/demo2.png' %}" alt="" class="img-fluid">
 
@@ -312,6 +326,19 @@
             return false;
         } else {
             clearBorder('log-gender');
+        }
+
+    }
+
+    function termsValidate() {
+        var gender = document.getElementById('terms').value;
+        if (gender == '') {
+            document.getElementById('log-terms').textContent = "Please select one of the following";
+            // document.getElementById('log-gender').style.border = "1px solid red";
+            document.getElementById("log-terms").style.color = "red";
+            return false;
+        } else {
+            clearBorder('log-terms');
         }
 
     }

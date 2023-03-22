@@ -234,3 +234,5 @@ def otpVerify(request,uid):
 
     return render(request,"accounts/otp.html",{'id':uid})
 
+def privacy(request):
+    return render(request,"accounts/privacy.html")
