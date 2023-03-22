@@ -14,8 +14,9 @@ from .forms import UserForm, patientDataForm
 from django.contrib.auth.decorators import login_required
 from .models import appointmentconfirmation, patientData
 from django.contrib import messages, auth
-from doctor.models import Doctor
+from doctor.models import Doctor,Prescription
 from leave.models import leaveModel
+from lab.models import labReport
 # from scheduling import SchedulingAlgorithm
 from . import scheduling
 from . import availabilitycheck
@@ -620,3 +621,14 @@ def confirmappointment(request):
     
 
     return redirect('viewpatientappo')
+
+
+def patReport(request):
+    lst=labReport.objects.filter(patient_id=request.user.id)
+    context={'lst':lst}
+    return render(request,'patient/viewPatReport.html',context)
+
+def Viewpresc(request):
+    lst=Prescription.objects.filter(appoint_id__user_id=request.user.id)
+    context={'lst':lst}
+    return render(request,'patient/viewPresc.html',context)

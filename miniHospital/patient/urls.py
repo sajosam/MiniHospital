@@ -21,6 +21,8 @@ urlpatterns = [
     path('rescheduleappointment/<str:time>/<int:id>', views.rescheduleappointment, name='rescheduleappointment'),
 
     path('payonline/<int:id>/', views.payonline, name='payonline'),
+    path('viewPatReport/', views.patReport,name='viewPatReport'),
+    path('viewPresc/', views.Viewpresc, name='viewPresc')
 
 
 

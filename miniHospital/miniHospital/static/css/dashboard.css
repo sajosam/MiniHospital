@@ -41,7 +41,7 @@ body {
   padding: 16px;
   height: 100vh;
   background: #3ee4ea;
-  /* height: 100vw; */
+  height: 100em;
 }
 
 @media screen and (max-height: 450px) {

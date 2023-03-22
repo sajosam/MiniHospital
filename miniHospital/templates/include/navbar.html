@@ -40,8 +40,8 @@
                         {% else %}
                         <li><a href="{% url 'patalldetailsupdate' %}">Update Profile</a></li>
                         <li><a href="{% url 'viewpatientappo' %}">View Appointment</a></li>
-                        <li><a href="#">View Lab Reports</a></li>
-                        <li><a href="#">View Prescription</a></li>
+                        <li><a href="{% url 'viewPatReport' %}">View Lab Reports</a></li>
+                        <li><a href="{% url 'viewPresc' %}">View Prescription</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                         <li><a href="{% url 'patientProfile' %}">Dashboard</a></li>
                         {% endif %}

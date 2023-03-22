@@ -1,0 +1,57 @@
+{% extends 'patient/patientbase.html' %}
+
+
+{% block pt %}
+
+
+
+<div id="customers">
+    {% include 'include/alerts.html' %}
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Doctor Name</th>
+                <th scope="col">Appoint Time</th>
+                <th scope="col">Appoint Date</th>
+                <th scope="col">Lab Type</th>
+                <th scope="col">Diagnosis</th>
+                <th scope="col">Symptom</th>
+                <th scope="col">Prescription</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in lst %}
+            <tr>
+                <!-- <td>{{d.user_id.username}}</td> -->
+                <td>{{d.appoint_id.doc_email.first_name}}</td>
+                <td>{{d.appoint_id.appo_time}}</td>
+                <td>{{d.appoint_id.appo_date}}</td>
+
+                {% if d.lab_report %}
+                <td>{{d.lab_report}}</td>
+                {% else %}
+                <td>Not Available</td>
+
+                {% endif %}
+
+                <td>{{d.diagnosis}}</td>
+                <td>{{d.symptoms}}</td>
+                <td>{{d.prescription}}</td>
+
+
+
+
+                {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock pt %}
