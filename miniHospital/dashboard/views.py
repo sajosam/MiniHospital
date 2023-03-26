@@ -30,10 +30,12 @@ class ChartData(APIView):
         df = pd.read_csv('dashboard/moddata.csv')
         s=Doctor.objects.get(email=request.user.id).spec_name
         spec=Specialization.objects.get(spec_name=s).spec_name
+        # part 1
         df1 = df.loc[df['specialty'] == spec].groupby('month')['month'].count()
 
+        # part2
         df_weekday = df.loc[df['day_type'] == 'Weekday'] # filter weekday data
-        months = df['month'].unique() # get unique months in the dataset
+        months = df['month'].unique()
         data = {}
         da={}
         for month in months:
@@ -41,8 +43,6 @@ class ChartData(APIView):
             day_count = month_data.groupby('day')['day'].count()
             day_count_dict = dict(zip(day_count.index, day_count.values))
             da[month] = day_count_dict
-        
-        # convert da to the desired format
         result = {}
         for month, data in da.items():
             for day, count in data.items():
@@ -50,13 +50,37 @@ class ChartData(APIView):
                     result[day] = {}
                 result[day][month] = count
         
-        print(result)
+
+
+
+        df_weekend = df.loc[df['day_type'] == 'Weekend'] 
+        week = {}
+        for month in months:
+            month_data = df_weekend.loc[(df_weekend['month'] == month) & (df_weekend['specialty'] == spec)]
+            print(month)
+            day_count = month_data.groupby('day')['day'].count()
+            day_count_dict = dict(zip(day_count.index, day_count.values))
+            week[month] = day_count_dict
+
+        weekend = {}
+        for month, data in week.items():
+            for day, count in data.items():
+                if day not in weekend:
+                    weekend[day] = {}
+                weekend[day][month] = count
+
+        
+        print(weekend)
+
+
         
         
         data={
             "labels":df1.index.tolist(),
             "chartdata":df1.values.tolist(),
             "month_key":result.keys(),
-            "week":result.values()
+            "week":result.values(),
+            "weekend":weekend.keys(),
+            "week_end":weekend.values(),
         }
         return Response(data)

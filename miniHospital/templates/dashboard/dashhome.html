@@ -52,7 +52,7 @@
             <canvas id="weekday"></canvas>
         </div>
         <div class="col-md-6">
-            <canvas id="Chart"></canvas>
+            <canvas id="weekend"></canvas>
         </div>
     </div>
 
@@ -69,7 +69,7 @@
                 drawBarGraph(data, 'myChartline', 'bar');
                 drawBarGraph(data, 'myline', 'line');
                 drawMultiLine(data, 'weekday');
-                drawBarGraph(data, 'Chart', 'bar');
+                drawWeekend(data, 'weekend');
 
                 console.log("drawing");
             },
@@ -178,6 +178,87 @@
                 const label = data.month_key[i];
 
                 const values = Object.values(data.week[i]);
+                const borderColor = barColors[i];
+                const backgroundColor = `rgba(${i * 20}, 100, 200, 0.0)`;
+
+                const dataset = {
+                    label: label,
+                    borderColor: borderColor,
+                    backgroundColor: backgroundColor,
+                    data: values
+                };
+
+                datasets.push(dataset);
+            }
+
+            var ctx = document.getElementById(id).getContext('2d');
+            new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: datasets
+                },
+                options: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            fontColor: 'black'
+                        }
+
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 12,
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Appointment Count',
+                                fontColor: 'black',
+                                fontSize: 12,
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: 'black',
+                                fontSize: 12,
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Months',
+                                fontColor: 'black',
+                                fontSize: 12,
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+
+        function drawWeekend(data, id) {
+            // alert(Object.keys(data.week[3]))
+            const xValues = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                'October', 'November', 'December'
+            ]
+            const datasets = [];
+            var barColors = [
+                "#b91d47",
+                "#00aba9",
+                "#2b5797",
+                "#f35399",
+                "#1e7145"
+            ];
+
+
+
+            for (let i = 0; i < Object.keys(data.weekend).length; i++) {
+                const week = data.week_end[i];
+                const label = data.weekend[i];
+
+                const values = Object.values(data.week_end[i]);
                 const borderColor = barColors[i];
                 const backgroundColor = `rgba(${i * 20}, 100, 200, 0.0)`;
 
