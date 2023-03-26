@@ -27,7 +27,7 @@ class Specialization(models.Model):
         ('Endocrinology','Endocrinology'),
         ('Gynaecology','Gynaecology'),
         ('Ophthalmology','Ophthalmology'),
-        ('Paediatrics','Paediatrics'),
+        ('Pediatrician','Pediatrician'),
         ('Otolaryngology','Otolaryngology'),
         ('Rheumatology','Rheumatology'),
         ('Dermatology','Dermatology'),

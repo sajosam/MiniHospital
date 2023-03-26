@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'captcha',
     'import_export',
     'paypal.standard.ipn',
+    'dashboard',
+    'rest_framework',
+    'crispy_forms'
     
     
 ]
@@ -109,7 +112,7 @@ WSGI_APPLICATION = 'miniHospital.wsgi.application'
 
 DATABASES = {
 
-    'default': {
+    'default': {    
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 

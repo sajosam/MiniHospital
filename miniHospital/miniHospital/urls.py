@@ -32,6 +32,7 @@ urlpatterns = [
     path('', include('patient.urls')),
     path('lab/', include('lab.urls')),
     path('leave/', include('leave.urls')),
+    path('dashboard/', include('dashboard.urls')),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

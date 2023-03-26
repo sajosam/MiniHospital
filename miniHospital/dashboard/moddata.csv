@@ -1,0 +1,1502 @@
+age,gender,month,time,day,day_type,specialty,disease
+45,Male,January,8:00,Monday,Weekday,Cardiology,Coronary artery disease
+60,Female,January,13:00,Monday,Weekday,Cardiology,Hypertension
+75,Male,January,10:00,Saturday,Weekend,Cardiology,Heart failure
+35,Female,January,16:00,Wednesday,Weekday,Cardiology,Arrhythmia
+65,Male,January,11:00,Sunday,Weekend,Cardiology,Pericarditis
+55,Female,January,15:00,Tuesday,Weekday,Cardiology,Heart attack
+40,Male,January,18:00,Thursday,Weekday,Cardiology,Pericarditis
+70,Female,January,14:00,Saturday,Weekend,Cardiology,Peripheral Artery Disease
+30,Male,January,12:00,Wednesday,Weekday,Cardiology,Angina Pectoris
+55,Female,January,9:00,Monday,Weekday,Cardiology,Pericarditis
+50,Male,January,7:00,Tuesday,Weekday,Cardiology,Hypertension
+45,Female,January,20:00,Thursday,Weekday,Cardiology,Pericarditis
+65,Male,January,16:00,Friday,Weekday,Cardiology,Pericarditis
+70,Female,January,11:00,Sunday,Weekend,Cardiology,Heart failure
+50,Male,January,15:00,Saturday,Weekend,Cardiology,Arrhythmia
+65,Female,January,8:00,Wednesday,Weekday,Cardiology,Coronary artery disease
+60,Male,January,13:00,Friday,Weekday,Cardiology,Hypertension
+45,Female,January,10:00,Sunday,Weekend,Cardiology,Angina Pectoris
+70,Male,January,14:00,Tuesday,Weekday,Cardiology,Peripheral Artery Disease
+55,Female,January,9:00,Wednesday,Weekday,Cardiology,Pericarditis
+58,Male,February,11:00,Monday,Weekday,Cardiology,Heart failure
+47,Female,February,15:00,Saturday,Weekend,Cardiology,Cardiac arrest
+62,Male,February,8:00,Thursday,Weekday,Cardiology,Hypertension
+52,Female,February,14:00,Friday,Weekday,Cardiology,Arrhythmia
+40,Male,February,10:00,Sunday,Weekend,Cardiology,Angina Pectoris
+75,Female,February,9:00,Wednesday,Weekday,Cardiology,Peripheral Artery Disease
+50,Male,February,9:00,Monday,Weekday,Cardiology,Arrhythmia
+65,Female,February,10:00,Tuesday,Weekday,Cardiology,Coronary artery disease
+60,Male,February,11:00,Wednesday,Weekday,Cardiology,Hypertension
+45,Female,February,12:00,Thursday,Weekday,Cardiology,Angina Pectoris
+70,Male,February,13:00,Friday,Weekday,Cardiology,Peripheral Artery Disease
+55,Female,February,14:00,Saturday,Weekend,Cardiology,Pericarditis
+58,Male,February,15:00,Sunday,Weekend,Cardiology,Pericarditis
+47,Female,February,9:00,Monday,Weekday,Cardiology,Angina
+54,Male,January,8:30,Monday,Weekday,Cardiology,Coronary artery disease
+68,Female,January,13:45,Monday,Weekday,Cardiology,Arrhythmia
+41,Male,February,10:20,Monday,Weekday,Cardiology,Heart failure
+57,Female,February,14:15,Monday,Weekday,Cardiology,Hypertension
+48,Male,March,9:00,Monday,Weekday,Cardiology,Aortic aneurysm
+64,Female,March,11:30,Monday,Weekday,Cardiology,Angina
+52,Male,April,7:45,Monday,Weekday,Cardiology,Pericarditis
+45,Female,April,16:00,Monday,Weekday,Cardiology,Pericarditis
+61,Male,May,10:10,Monday,Weekday,Cardiology,Heart attack
+58,Female,May,14:30,Monday,Weekday,Cardiology,Cardiac arrest
+47,Male,June,8:45,Monday,Weekday,Cardiology,Pericarditis
+53,Female,June,12:15,Monday,Weekday,Cardiology,Heart attack
+59,Male,July,9:30,Monday,Weekday,Cardiology,cardiomyopathy
+46,Female,July,13:00,Monday,Weekday,Cardiology,Heart attack
+42,Male,August,8:00,Monday,Weekday,Cardiology,Cardiac arrest
+56,Female,August,11:30,Monday,Weekday,Cardiology,Cardiac arrest
+62,Female,July,13:45,Monday,Weekday,Cardiology,Cardiac arrest
+57,Female,August,14:30,Monday,Weekday,Cardiology,Hypertension
+42,Male,September,8:15,Monday,Weekday,Cardiology,Angina
+61,Female,September,11:45,Monday,Weekday,Cardiology,Heart attack
+50,Male,October,9:45,Monday,Weekday,Cardiology,Angina
+46,Female,October,15:00,Monday,Weekday,Cardiology,Heart attack
+53,Male,November,7:30,Monday,Weekday,Cardiology,Heart attack
+63,Female,November,12:00,Monday,Weekday,Cardiology,Cardiac arrest
+55,Male,December,8:50,Monday,Weekday,Cardiology,Heart attack
+49,Female,December,14:15,Monday,Weekday,Cardiology,Cardiac arrest
+47,Male,January,8:00,Tuesday,Weekday,Cardiology,Angina
+58,Female,January,13:30,Tuesday,Weekday,Cardiology,Hypertension
+51,Male,February,9:30,Tuesday,Weekday,Cardiology,Pericarditis
+64,Female,February,14:00,Tuesday,Weekday,Cardiology,Angina
+47,Male,March,10:45,Tuesday,Weekday,Cardiology,Hypertension
+53,Female,March,11:30,Tuesday,Weekday,Cardiology,Cardiac arrest
+46,Male,April,8:15,Tuesday,Weekday,Cardiology,Heart attack
+59,Female,April,13:45,Tuesday,Weekday,Cardiology,Heart attack
+52,Male,May,9:30,Tuesday,Weekday,Cardiology,Pericarditis
+45,Female,May,14:00,Tuesday,Weekday,Cardiology,Angina
+56,Male,June,7:45,Tuesday,Weekday,Cardiology,Angina
+48,Female,June,12:30,Tuesday,Weekday,Cardiology,Heart attack
+41,Male,July,10:15,Tuesday,Weekday,Cardiology,Pericarditis
+52,Male,June,10:15,Wednesday,Weekday,Cardiology,Cardiac arrest
+56,Female,June,14:30,Wednesday,Weekday,Cardiology,Pericarditis
+54,Male,July,8:30,Wednesday,Weekday,Cardiology,Heart attack
+61,Female,July,11:00,Wednesday,Weekday,Cardiology,Heart attack
+50,Male,August,9:00,Wednesday,Weekday,Cardiology,Angina
+46,Female,August,15:15,Wednesday,Weekday,Cardiology,Heart attack
+53,Male,September,7:45,Wednesday,Weekday,Cardiology,Hypertension
+59,Female,September,12:30,Wednesday,Weekday,Cardiology,Angina
+48,Male,October,8:45,Wednesday,Weekday,Cardiology,Pericarditis
+64,Female,October,14:15,Wednesday,Weekday,Cardiology,Angina
+57,Male,November,9:00,Wednesday,Weekday,Cardiology,Pericarditis
+50,Female,November,15:00,Wednesday,Weekday,Cardiology,Hypertension
+49,Male,December,8:30,Thursday,Weekday,Cardiology,Angina
+44,Male,August,16:30,Sunday,Weekend,Cardiology,Pericarditis
+65,Female,September,9:15,Sunday,Weekend,Cardiology,Cardiac arrest
+39,Male,October,11:45,Sunday,Weekend,Cardiology,Pericarditis
+56,Female,November,13:30,Sunday,Weekend,Cardiology,Cardiac arrest
+43,Male,December,7:45,Sunday,Weekend,Cardiology,Cardiac arrest
+59,Female,January,10:15,Saturday,Weekend,Cardiology,Pericarditis
+48,Male,February,12:30,Saturday,Weekend,Cardiology,Aortic aneurysm
+62,Female,March,8:45,Saturday,Weekend,Cardiology,Heart attack
+45,Male,April,11:15,Saturday,Weekend,Cardiology,Hypertension
+60,Female,May,14:45,Saturday,Weekend,Cardiology,Angina
+54,Male,June,10:30,Saturday,Weekend,Cardiology,Heart attack
+58,Female,July,12:45,Saturday,Weekend,Cardiology,Heart attack
+41,Male,August,9:00,Saturday,Weekend,Cardiology,Pericarditis
+59,Female,September,14:00,Saturday,Weekend,Cardiology,cardiomyopathy
+45,Male,January,2:00,Tuesday,Weekday,Cardiology,coronary artery disease
+50,Female,January,10:00,Monday,Weekday,Cardiology,atrial fibrillation
+55,Male,February,14:00,Saturday,Weekend,Cardiology,Heart attack
+60,Female,February,9:00,Wednesday,Weekday,Cardiology,Hypertension
+65,Male,March,17:00,Friday,Weekday,Cardiology,Heart attack
+55,Female,April,8:00,Sunday,Weekend,Cardiology,heart failure
+70,Male,April,11:00,Tuesday,Weekday,Cardiology,coronary artery disease
+40,Female,May,13:00,Saturday,Weekend,Cardiology,Hypertension
+50,Male,May,18:00,Monday,Weekday,Cardiology,Heart attack
+55,Female,June,10:00,Thursday,Weekday,Cardiology,atrial fibrillation
+60,Male,June,19:00,Saturday,Weekend,Cardiology,coronary artery disease
+65,Female,July,20:00,Tuesday,Weekday,Cardiology,Heart attack
+45,Male,July,22:00,Sunday,Weekend,Cardiology,Hypertension
+51,Female,July,16:00,Wednesday,Weekday,Cardiology,atrial fibrillation
+62,Female,August,14:25,Monday,Weekday,Cardiology,coronary artery disease
+46,Male,September,10:40,Friday,Weekday,Cardiology,congestive heart failure
+59,Female,September,15:50,Friday,Weekday,Cardiology,Hypertension
+57,Male,October,12:30,Tuesday,Weekday,Cardiology,atrial fibrillation
+50,Female,October,17:15,Tuesday,Weekday,Cardiology,coronary artery disease
+63,Male,November,8:00,Wednesday,Weekday,Cardiology,congestive heart failure
+56,Female,November,13:20,Wednesday,Weekday,Cardiology,Hypertension
+60,Male,December,9:10,Monday,Weekday,Cardiology,atrial fibrillation
+49,Female,December,14:40,Monday,Weekday,Cardiology,coronary artery disease
+70,Female,January,10:00,Tuesday,Weekday,Cardiology,congestive heart failure
+53,Male,January,15:30,Tuesday,Weekday,Cardiology,Hypertension
+61,Female,February,12:45,Wednesday,Weekday,Cardiology,atrial fibrillation
+59,Male,February,17:10,Wednesday,Weekday,Cardiology,coronary artery disease
+72,Female,March,8:20,Monday,Weekday,Cardiology,congestive heart failure
+52,Male,March,13:00,Monday,Weekday,Cardiology,Hypertension
+48,Female,April,10:15,Thursday,Weekday,Cardiology,atrial fibrillation
+68,Male,April,15:20,Thursday,Weekday,Cardiology,coronary artery disease
+54,Female,May,12:55,Friday,Weekday,Cardiology,congestive heart failure
+47,Male,May,17:30,Friday,Weekday,Cardiology,Hypertension
+65,Female,June,9:40,Monday,Weekday,Cardiology,atrial fibrillation
+63,Female,June,9:45,Wednesday,Weekday,Cardiology,atrial fibrillation
+58,Male,June,14:55,Wednesday,Weekday,Cardiology,coronary artery disease
+69,Female,July,11:30,Thursday,Weekday,Cardiology,congestive heart failure
+47,Male,July,16:50,Thursday,Weekday,Cardiology,Hypertension
+55,Female,August,13:40,Friday,Weekday,Cardiology,atrial fibrillation
+54,Male,August,18:15,Friday,Weekday,Cardiology,coronary artery disease
+60,Female,September,9:20,Monday,Weekday,Cardiology,congestive heart failure
+51,Male,September,14:35,Monday,Weekday,Cardiology,Hypertension
+57,Female,October,11:15,Tuesday,Weekday,Cardiology,atrial fibrillation
+45,Male,January,0:00,Monday,Weekday,Cardiology,coronary artery disease
+45,Male,January,2:00,Monday,Weekday,Cardiology,myocardial infarction
+45,Male,January,8:00,Monday,Weekday,Cardiology,atrial fibrillation
+58,Male,February,10:00,Tuesday,Weekday,Cardiology,Hypertension
+58,Male,February,14:00,Tuesday,Weekday,Cardiology,Hypertension
+58,Male,February,20:00,Tuesday,Weekday,Cardiology,Heart attack
+71,Female,March,11:00,Wednesday,Weekday,Cardiology,Hypertension
+71,Female,March,15:00,Wednesday,Weekday,Cardiology,coronary artery disease
+71,Female,March,21:00,Wednesday,Weekday,Cardiology,heart failure
+63,Male,April,9:00,Thursday,Weekday,Cardiology,Hypertension
+58,Male,May,6:00,Wednesday,Weekday,Cardiology,Heart attack
+58,Male,May,10:00,Wednesday,Weekday,Cardiology,Heart attack
+58,Male,May,14:00,Wednesday,Weekday,Cardiology,Hypertension
+58,Male,May,18:00,Wednesday,Weekday,Cardiology,cardiomyopathy
+58,Male,May,22:00,Wednesday,Weekday,Cardiology,Hypertension
+67,Female,June,0:00,Saturday,Weekend,Cardiology,atrial fibrillation
+67,Female,June,2:00,Saturday,Weekend,Cardiology,Heart attack
+67,Female,June,8:00,Saturday,Weekend,Cardiology,Hypertension
+54,Female,January,9:00,Wednesday,Weekday,Cardiology,Heart attack
+54,Female,January,13:00,Wednesday,Weekday,Cardiology,Hypertension
+54,Female,January,15:00,Wednesday,Weekday,Cardiology,Hypertension
+54,Female,January,19:00,Wednesday,Weekday,Cardiology,Heart attack
+38,Male,January,8:00,Thursday,Weekday,Cardiology,coronary artery disease
+38,Male,January,12:00,Thursday,Weekday,Cardiology,Hypertension
+38,Male,January,16:00,Thursday,Weekday,Cardiology,heart failure
+38,Male,January,20:00,Thursday,Weekday,Cardiology,Hypertension
+61,Female,January,10:00,Friday,Weekday,Cardiology,Hypertension
+61,Female,January,14:00,Friday,Weekday,Cardiology,Heart attack
+61,Female,January,18:00,Friday,Weekday,Cardiology,cardiomyopathy
+61,Female,January,22:00,Friday,Weekday,Cardiology,Heart attack
+47,Male,January,11:00,Saturday,Weekend,Cardiology,Hypertension
+47,Male,January,15:00,Saturday,Weekend,Cardiology,myocardial infarction
+47,Male,January,19:00,Saturday,Weekend,Cardiology,Heart attack
+57,Female,June,7:00,Wednesday,Weekday,Cardiology,coronary artery disease
+57,Female,June,11:00,Wednesday,Weekday,Cardiology,myocardial infarction
+57,Female,June,14:00,Wednesday,Weekday,Cardiology,atrial fibrillation
+33,Male,July,9:00,Thursday,Weekday,Cardiology,Hypertension
+33,Male,July,12:00,Thursday,Weekday,Cardiology,heart failure
+33,Male,July,16:00,Thursday,Weekday,Cardiology,cardiomyopathy
+49,Female,August,6:00,Saturday,Weekend,Cardiology,coronary artery disease
+49,Female,August,9:00,Saturday,Weekend,Cardiology,myocardial infarction
+49,Female,August,12:00,Saturday,Weekend,Cardiology,atrial fibrillation
+41,Male,September,7:00,Monday,Weekday,Cardiology,Hypertension
+41,Male,September,10:00,Monday,Weekday,Cardiology,heart failure
+41,Male,September,14:00,Monday,Weekday,Cardiology,cardiomyopathy
+68,Female,October,8:00,Friday,Weekday,Cardiology,coronary artery disease
+68,Female,October,11:00,Friday,Weekday,Cardiology,myocardial infarction
+68,Female,October,16:00,Friday,Weekday,Cardiology,atrial fibrillation
+50,Male,September,12:00,Friday,Weekday,Cardiology,coronary artery disease
+50,Male,September,15:00,Friday,Weekday,Cardiology,myocardial infarction
+50,Male,September,20:00,Friday,Weekday,Cardiology,atrial fibrillation
+67,Female,October,5:00,Saturday,Weekend,Cardiology,Hypertension
+67,Female,October,10:00,Saturday,Weekend,Cardiology,heart failure
+67,Female,October,16:00,Saturday,Weekend,Cardiology,cardiomyopathy
+55,Male,November,9:00,Sunday,Weekend,Cardiology,coronary artery disease
+55,Male,November,13:00,Sunday,Weekend,Cardiology,myocardial infarction
+55,Male,November,18:00,Sunday,Weekend,Cardiology,atrial fibrillation
+60,Male,January,2:00,Monday,Weekday,Cardiology,Hypertension
+60,Male,January,8:00,Monday,Weekday,Cardiology,heart failure
+60,Male,January,13:00,Monday,Weekday,Cardiology,cardiomyopathy
+48,Female,February,15:00,Tuesday,Weekday,Cardiology,coronary artery disease
+48,Female,February,20:00,Tuesday,Weekday,Cardiology,myocardial infarction
+48,Female,February,22:00,Tuesday,Weekday,Cardiology,atrial fibrillation
+57,Male,March,5:00,Wednesday,Weekday,Cardiology,Hypertension
+57,Male,March,10:00,Wednesday,Weekday,Cardiology,heart failure
+57,Male,March,16:00,Wednesday,Weekday,Cardiology,cardiomyopathy
+72,Female,April,9:00,Thursday,Weekday,Cardiology,coronary artery disease
+72,Female,April,13:00,Thursday,Weekday,Cardiology,myocardial infarction
+72,Female,April,18:00,Thursday,Weekday,Cardiology,atrial fibrillation
+55,Female,May,2:00,Friday,Weekday,Cardiology,Hypertension
+55,Female,May,8:00,Friday,Weekday,Cardiology,heart failure
+55,Female,May,13:00,Friday,Weekday,Cardiology,cardiomyopathy
+67,Male,June,5:00,Saturday,Weekend,Cardiology,Hypertension
+67,Male,June,10:00,Saturday,Weekend,Cardiology,heart failure
+67,Male,June,16:00,Saturday,Weekend,Cardiology,cardiomyopathy
+50,Female,July,9:00,Sunday,Weekend,Cardiology,coronary artery disease
+50,Female,July,13:00,Sunday,Weekend,Cardiology,myocardial infarction
+50,Female,July,18:00,Sunday,Weekend,Cardiology,atrial fibrillation
+63,Male,August,2:00,Monday,Weekday,Cardiology,Hypertension
+63,Male,August,8:00,Monday,Weekday,Cardiology,heart failure
+63,Male,August,13:00,Monday,Weekday,Cardiology,cardiomyopathy
+55,Male,September,15:00,Tuesday,Weekday,Cardiology,coronary artery disease
+55,Male,September,20:00,Tuesday,Weekday,Cardiology,myocardial infarction
+55,Male,September,22:00,Tuesday,Weekday,Cardiology,atrial fibrillation
+58,Female,October,5:00,Wednesday,Weekday,Cardiology,Hypertension
+58,Female,October,10:00,Wednesday,Weekday,Cardiology,heart failure
+58,Female,October,16:00,Wednesday,Weekday,Cardiology,cardiomyopathy
+65,Male,June,5:00,Saturday,Weekend,Cardiology,Hypertension
+65,Male,June,10:00,Saturday,Weekend,Cardiology,heart failure
+65,Male,June,16:00,Saturday,Weekend,Cardiology,cardiomyopathy
+50,Female,July,9:00,Sunday,Weekend,Cardiology,coronary artery disease
+50,Female,July,13:00,Sunday,Weekend,Cardiology,myocardial infarction
+50,Female,July,18:00,Sunday,Weekend,Cardiology,atrial fibrillation
+47,Male,August,2:00,Monday,Weekday,Cardiology,Hypertension
+47,Male,August,8:00,Monday,Weekday,Cardiology,heart failure
+47,Male,August,13:00,Monday,Weekday,Cardiology,cardiomyopathy
+59,Female,September,15:00,Tuesday,Weekday,Cardiology,coronary artery disease
+59,Female,September,20:00,Tuesday,Weekday,Cardiology,myocardial infarction
+59,Female,September,22:00,Tuesday,Weekday,Cardiology,atrial fibrillation
+43,Male,October,5:00,Wednesday,Weekday,Cardiology,Hypertension
+43,Male,October,10:00,Wednesday,Weekday,Cardiology,heart failure
+43,Male,October,16:00,Wednesday,Weekday,Cardiology,cardiomyopathy
+55,Female,November,9:00,Thursday,Weekday,Cardiology,coronary artery disease
+55,Female,November,14:00,Thursday,Weekday,Cardiology,myocardial infarction
+55,Female,November,18:00,Thursday,Weekday,Cardiology,atrial fibrillation
+70,Male,December,8:00,Saturday,Weekend,Cardiology,Hypertension
+70,Male,December,12:00,Saturday,Weekend,Cardiology,heart failure
+45,Male,January,0:00,Monday,Weekday,Neurology,Epilepsy
+32,Female,January,2:00,Monday,Weekday,Neurology,Migraine
+55,Male,February,7:00,Tuesday,Weekday,Neurology,Stroke
+29,Female,February,10:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+48,Male,March,13:00,Thursday,Weekday,Neurology,Parkinson's disease
+35,Female,March,16:00,Friday,Weekday,Neurology,Alzheimer's disease
+42,Male,April,19:00,Saturday,Weekend,Neurology,Epilepsy
+27,Female,April,22:00,Saturday,Weekend,Neurology,Migraine
+49,Female,May,1:00,Sunday,Weekend,Neurology,Stroke
+61,Male,May,4:00,Sunday,Weekend,Neurology,Multiple sclerosis
+39,Female,June,7:00,Monday,Weekday,Neurology,Parkinson's disease
+46,Male,June,10:00,Tuesday,Weekday,Neurology,Alzheimer's disease
+23,Female,July,13:00,Wednesday,Weekday,Neurology,Epilepsy
+33,Female,August,19:00,Friday,Weekday,Neurology,Stroke
+57,Male,August,22:00,Friday,Weekday,Neurology,Multiple sclerosis
+40,Female,September,1:00,Saturday,Weekend,Neurology,Parkinson's disease
+29,Male,September,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+51,Female,October,7:00,Sunday,Weekend,Neurology,Epilepsy
+47,Male,October,10:00,Sunday,Weekend,Neurology,Migraine
+38,Female,November,13:00,Monday,Weekday,Neurology,Stroke
+33,Female,August,19:00,Friday,Weekday,Neurology,Stroke
+57,Male,August,22:00,Friday,Weekday,Neurology,Multiple sclerosis
+28,Female,September,1:00,Saturday,Weekend,Neurology,Parkinson's disease
+44,Male,September,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+30,Female,October,7:00,Sunday,Weekend,Neurology,Epilepsy
+51,Male,October,10:00,Monday,Weekday,Neurology,Migraine
+34,Female,November,13:00,Tuesday,Weekday,Neurology,Stroke
+53,Male,November,16:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+31,Female,December,19:00,Thursday,Weekday,Neurology,Parkinson's disease
+45,Male,December,22:00,Friday,Weekday,Neurology,Alzheimer's disease
+26,Female,January,1:00,Saturday,Weekend,Neurology,Epilepsy
+38,Female,August,19:00,Friday,Weekday,Neurology,Migraine
+56,Male,August,22:00,Friday,Weekday,Neurology,Stroke
+31,Female,September,1:00,Saturday,Weekend,Neurology,Multiple sclerosis
+44,Male,September,4:00,Saturday,Weekend,Neurology,Parkinson's disease
+29,Female,October,7:00,Sunday,Weekend,Neurology,Alzheimer's disease
+52,Male,October,10:00,Monday,Weekday,Neurology,Epilepsy
+26,Female,November,13:00,Tuesday,Weekday,Neurology,Migraine
+40,Male,November,16:00,Wednesday,Weekday,Neurology,Stroke
+33,Female,December,19:00,Thursday,Weekday,Neurology,Multiple sclerosis
+47,Male,December,22:00,Friday,Weekday,Neurology,Parkinson's disease
+41,Female,January,1:00,Saturday,Weekend,Neurology,Alzheimer's disease
+57,Male,January,4:00,Saturday,Weekend,Neurology,Epilepsy
+28,Female,February,7:00,Sunday,Weekend,Neurology,Migraine
+57,Female,October,13:00,Wednesday,Weekday,Neurology,Parkinson's disease
+43,Male,October,16:00,Thursday,Weekday,Neurology,Alzheimer's disease
+30,Female,November,19:00,Friday,Weekday,Neurology,Epilepsy
+47,Male,November,22:00,Saturday,Weekend,Neurology,Migraine
+28,Female,December,1:00,Sunday,Weekend,Neurology,Stroke
+59,Male,December,4:00,Sunday,Weekend,Neurology,Multiple sclerosis
+36,Female,January,7:00,Monday,Weekday,Neurology,Parkinson's disease
+51,Male,January,10:00,Tuesday,Weekday,Neurology,Alzheimer's disease
+26,Female,February,13:00,Wednesday,Weekday,Neurology,Epilepsy
+52,Male,February,16:00,Thursday,Weekday,Neurology,Migraine
+29,Female,March,19:00,Friday,Weekday,Neurology,Stroke
+44,Male,March,22:00,Saturday,Weekend,Neurology,Multiple sclerosis
+31,Female,April,1:00,Sunday,Weekend,Neurology,Parkinson's disease
+58,Male,April,4:00,Sunday,Weekend,Neurology,Alzheimer's disease
+32,Female,August,19:00,Friday,Weekday,Neurology,Migraine
+56,Male,August,22:00,Friday,Weekday,Neurology,Stroke
+30,Female,September,1:00,Saturday,Weekend,Neurology,Multiple sclerosis
+43,Male,September,4:00,Saturday,Weekend,Neurology,Parkinson's disease
+38,Female,October,7:00,Sunday,Weekend,Neurology,Alzheimer's disease
+52,Male,October,10:00,Monday,Weekday,Neurology,Epilepsy
+28,Female,November,13:00,Tuesday,Weekday,Neurology,Migraine
+47,Male,November,16:00,Wednesday,Weekday,Neurology,Stroke
+34,Female,December,19:00,Thursday,Weekday,Neurology,Multiple sclerosis
+44,Male,December,22:00,Thursday,Weekday,Neurology,Parkinson's disease
+31,Female,January,1:00,Friday,Weekday,Neurology,Alzheimer's disease
+54,Male,January,4:00,Friday,Weekday,Neurology,Epilepsy
+37,Female,February,7:00,Saturday,Weekend,Neurology,Migraine
+26,Female,September,19:00,Friday,Weekday,Neurology,Parkinson's disease
+54,Male,September,22:00,Friday,Weekday,Neurology,Alzheimer's disease
+31,Female,October,1:00,Saturday,Weekend,Neurology,Epilepsy
+57,Male,October,4:00,Saturday,Weekend,Neurology,Migraine
+33,Female,November,7:00,Sunday,Weekend,Neurology,Stroke
+40,Male,November,10:00,Sunday,Weekend,Neurology,Multiple sclerosis
+25,Female,December,13:00,Monday,Weekday,Neurology,Parkinson's disease
+41,Male,December,16:00,Tuesday,Weekday,Neurology,Alzheimer's disease
+29,Female,January,19:00,Wednesday,Weekday,Neurology,Epilepsy
+44,Male,January,22:00,Thursday,Weekday,Neurology,Migraine
+28,Female,February,1:00,Friday,Weekday,Neurology,Stroke
+52,Male,February,4:00,Saturday,Weekend,Neurology,Multiple sclerosis
+30,Female,March,7:00,Sunday,Weekend,Neurology,Parkinson's disease
+43,Male,March,10:00,Monday,Weekday,Neurology,Alzheimer's disease
+32,Female,October,4:00,Thursday,Weekday,Neurology,Multiple sclerosis
+49,Male,October,7:00,Friday,Weekday,Neurology,Parkinson's disease
+27,Female,November,10:00,Saturday,Weekend,Neurology,Alzheimer's disease
+35,Male,November,13:00,Sunday,Weekend,Neurology,Epilepsy
+44,Female,December,16:00,Monday,Weekday,Neurology,Migraine
+58,Male,December,19:00,Tuesday,Weekday,Neurology,Stroke
+33,Female,January,22:00,Friday,Weekday,Neurology,Parkinson's disease
+47,Male,January,1:00,Saturday,Weekend,Neurology,Alzheimer's disease
+29,Female,February,4:00,Sunday,Weekend,Neurology,Epilepsy
+51,Male,February,7:00,Monday,Weekday,Neurology,Migraine
+26,Female,March,10:00,Tuesday,Weekday,Neurology,Stroke
+44,Male,March,13:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+56,Female,November,12:00,Saturday,Weekend,Neurology,Parkinson's disease
+43,Male,November,15:00,Sunday,Weekend,Neurology,Alzheimer's disease
+29,Female,December,18:00,Monday,Weekday,Neurology,Epilepsy
+45,Male,December,21:00,Tuesday,Weekday,Neurology,Migraine
+54,Female,January,0:00,Wednesday,Weekday,Neurology,Stroke
+31,Male,January,2:00,Thursday,Weekday,Neurology,Multiple sclerosis
+48,Female,February,7:00,Friday,Weekday,Neurology,Parkinson's disease
+36,Male,February,10:00,Saturday,Weekend,Neurology,Alzheimer's disease
+52,Female,March,13:00,Sunday,Weekend,Neurology,Epilepsy
+41,Male,March,16:00,Monday,Weekday,Neurology,Migraine
+28,Female,April,19:00,Tuesday,Weekday,Neurology,Stroke
+49,Male,April,22:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+33,Female,May,1:00,Thursday,Weekday,Neurology,Parkinson's disease
+47,Male,May,4:00,Friday,Weekday,Neurology,Alzheimer's disease
+31,Female,October,7:00,Friday,Weekday,Neurology,Parkinson's disease
+56,Male,October,10:00,Saturday,Weekend,Neurology,Alzheimer's disease
+24,Female,November,13:00,Sunday,Weekend,Neurology,Epilepsy
+55,Male,November,16:00,Monday,Weekday,Neurology,Migraine
+29,Female,December,19:00,Wednesday,Weekday,Neurology,Stroke
+48,Male,December,22:00,Thursday,Weekday,Neurology,Multiple sclerosis
+35,Female,January,1:00,Saturday,Weekend,Neurology,Parkinson's disease
+42,Male,January,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+27,Female,February,7:00,Sunday,Weekend,Neurology,Epilepsy
+49,Female,February,10:00,Monday,Weekday,Neurology,Migraine
+61,Male,March,13:00,Tuesday,Weekday,Neurology,Stroke
+28,Male,November,7:00,Monday,Weekday,Neurology,Migraine
+60,Female,November,10:00,Tuesday,Weekday,Neurology,Stroke
+43,Male,December,13:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+36,Female,December,16:00,Thursday,Weekday,Neurology,Parkinson's disease
+54,Male,January,19:00,Friday,Weekday,Neurology,Alzheimer's disease
+31,Female,January,22:00,Friday,Weekday,Neurology,Epilepsy
+47,Male,February,1:00,Saturday,Weekend,Neurology,Migraine
+54,Male,August,19:00,Friday,Weekday,Neurology,Stroke
+29,Female,August,22:00,Friday,Weekday,Neurology,Multiple sclerosis
+41,Male,September,1:00,Saturday,Weekend,Neurology,Parkinson's disease
+37,Female,September,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+28,Male,October,7:00,Sunday,Weekend,Neurology,Epilepsy
+47,Female,October,10:00,Monday,Weekday,Neurology,Migraine
+52,Male,November,13:00,Tuesday,Weekday,Neurology,Stroke
+30,Female,November,16:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+45,Male,December,19:00,Thursday,Weekday,Neurology,Parkinson's disease
+33,Female,December,22:00,Friday,Weekday,Neurology,Alzheimer's disease
+39,Male,January,1:00,Saturday,Weekend,Neurology,Epilepsy
+27,Female,January,4:00,Saturday,Weekend,Neurology,Migraine
+57,Male,February,7:00,Sunday,Weekend,Neurology,Stroke
+36,Female,February,10:00,Monday,Weekday,Neurology,Multiple sclerosis
+27,Female,November,18:00,Saturday,Weekend,Neurology,Parkinson's disease
+59,Male,November,21:00,Saturday,Weekend,Neurology,Alzheimer's disease
+31,Female,December,0:00,Sunday,Weekend,Neurology,Epilepsy
+52,Male,December,3:00,Sunday,Weekend,Neurology,Migraine
+40,Female,January,6:00,Monday,Weekday,Neurology,Stroke
+56,Male,January,9:00,Tuesday,Weekday,Neurology,Multiple sclerosis
+33,Female,February,12:00,Wednesday,Weekday,Neurology,Parkinson's disease
+47,Male,February,15:00,Thursday,Weekday,Neurology,Alzheimer's disease
+28,Female,March,18:00,Friday,Weekday,Neurology,Epilepsy
+44,Male,March,21:00,Friday,Weekday,Neurology,Migraine
+54,Female,April,0:00,Saturday,Weekend,Neurology,Stroke
+37,Male,April,3:00,Saturday,Weekend,Neurology,Multiple sclerosis
+25,Female,May,6:00,Sunday,Weekend,Neurology,Parkinson's disease
+49,Male,May,9:00,Sunday,Weekend,Neurology,Alzheimer's disease
+31,Female,August,19:00,Friday,Weekday,Neurology,Stroke
+58,Male,August,22:00,Friday,Weekday,Neurology,Multiple sclerosis
+26,Female,September,1:00,Saturday,Weekend,Neurology,Parkinson's disease
+44,Male,September,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+33,Female,October,7:00,Sunday,Weekend,Neurology,Epilepsy
+51,Male,October,10:00,Monday,Weekday,Neurology,Migraine
+28,Female,November,13:00,Tuesday,Weekday,Neurology,Stroke
+45,Male,November,16:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+30,Female,December,19:00,Thursday,Weekday,Neurology,Parkinson's disease
+53,Male,December,22:00,Friday,Weekday,Neurology,Alzheimer's disease
+31,Female,January,1:00,Saturday,Weekend,Neurology,Epilepsy
+49,Male,January,4:00,Saturday,Weekend,Neurology,Migraine
+34,Female,February,7:00,Sunday,Weekend,Neurology,Stroke
+31,Female,August,19:00,Friday,Weekday,Neurology,Parkinson's disease
+57,Male,August,22:00,Friday,Weekday,Neurology,Alzheimer's disease
+41,Female,September,1:00,Saturday,Weekend,Neurology,Epilepsy
+47,Male,September,4:00,Saturday,Weekend,Neurology,Migraine
+29,Female,October,7:00,Sunday,Weekend,Neurology,Stroke
+60,Male,October,10:00,Monday,Weekday,Neurology,Multiple sclerosis
+37,Female,November,13:00,Tuesday,Weekday,Neurology,Parkinson's disease
+44,Male,November,16:00,Wednesday,Weekday,Neurology,Alzheimer's disease
+25,Female,December,19:00,Thursday,Weekday,Neurology,Epilepsy
+53,Male,December,22:00,Thursday,Weekday,Neurology,Migraine
+33,Female,January,1:00,Friday,Weekday,Neurology,Stroke
+49,Male,January,4:00,Saturday,Weekend,Neurology,Multiple sclerosis
+28,Female,February,7:00,Sunday,Weekend,Neurology,Parkinson's disease
+33,Female,August,19:00,Friday,Weekday,Neurology,Migraine
+59,Male,August,22:00,Friday,Weekday,Neurology,Stroke
+40,Female,September,1:00,Saturday,Weekend,Neurology,Parkinson's disease
+47,Male,September,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+25,Female,October,7:00,Sunday,Weekend,Neurology,Epilepsy
+51,Male,October,10:00,Monday,Weekday,Neurology,Migraine
+34,Female,November,13:00,Tuesday,Weekday,Neurology,Stroke
+52,Male,November,16:00,Wednesday,Weekday,Neurology,Multiple sclerosis
+31,Female,December,19:00,Thursday,Weekday,Neurology,Parkinson's disease
+43,Male,December,22:00,Thursday,Weekday,Neurology,Alzheimer's disease
+38,Female,January,1:00,Friday,Weekday,Neurology,Epilepsy
+44,Male,January,4:00,Friday,Weekday,Neurology,Migraine
+30,Female,February,7:00,Saturday,Weekend,Neurology,Stroke
+28,Female,November,4:00,Thursday,Weekday,Neurology,Parkinson's disease
+41,Male,November,7:00,Friday,Weekday,Neurology,Alzheimer's disease
+34,Female,December,10:00,Saturday,Weekend,Neurology,Epilepsy
+47,Male,December,13:00,Saturday,Weekend,Neurology,Migraine
+30,Female,January,16:00,Sunday,Weekend,Neurology,Stroke
+63,Male,January,19:00,Sunday,Weekend,Neurology,Multiple sclerosis
+25,Female,February,22:00,Monday,Weekday,Neurology,Parkinson's disease
+52,Male,February,1:00,Tuesday,Weekday,Neurology,Alzheimer's disease
+37,Female,March,4:00,Wednesday,Weekday,Neurology,Epilepsy
+44,Male,March,7:00,Thursday,Weekday,Neurology,Migraine
+31,Female,April,10:00,Friday,Weekday,Neurology,Stroke
+54,Male,April,13:00,Friday,Weekday,Neurology,Multiple sclerosis
+26,Female,May,16:00,Saturday,Weekend,Neurology,Parkinson's disease
+38,Male,May,19:00,Saturday,Weekend,Neurology,Alzheimer's disease
+28,Female,October,13:00,Thursday,Weekday,Neurology,Parkinson's disease
+41,Male,October,16:00,Friday,Weekday,Neurology,Alzheimer's disease
+34,Female,November,19:00,Saturday,Weekend,Neurology,Epilepsy
+49,Male,November,22:00,Saturday,Weekend,Neurology,Migraine
+62,Female,December,1:00,Sunday,Weekend,Neurology,Stroke
+44,Male,December,4:00,Sunday,Weekend,Neurology,Multiple sclerosis
+27,Female,January,7:00,Monday,Weekday,Neurology,Parkinson's disease
+48,Male,January,10:00,Tuesday,Weekday,Neurology,Alzheimer's disease
+33,Female,February,13:00,Wednesday,Weekday,Neurology,Epilepsy
+50,Male,February,16:00,Thursday,Weekday,Neurology,Migraine
+29,Female,March,19:00,Saturday,Weekend,Neurology,Stroke
+56,Male,March,22:00,Saturday,Weekend,Neurology,Multiple sclerosis
+35,Female,April,1:00,Sunday,Weekend,Neurology,Parkinson's disease
+47,Male,April,4:00,Sunday,Weekend,Neurology,Alzheimer's disease
+62,Female,November,10:00,Tuesday,Weekday,Neurology,Parkinson's disease
+38,Male,November,14:00,Tuesday,Weekday,Neurology,Migraine
+31,Female,December,18:00,Wednesday,Weekday,Neurology,Epilepsy
+55,Male,December,21:00,Thursday,Weekday,Neurology,Stroke
+47,Female,January,1:00,Friday,Weekday,Neurology,Multiple sclerosis
+29,Male,January,4:00,Saturday,Weekend,Neurology,Alzheimer's disease
+44,Female,February,7:00,Sunday,Weekend,Neurology,Parkinson's disease
+26,Male,February,11:00,Monday,Weekday,Neurology,Migraine
+50,Female,March,14:00,Tuesday,Weekday,Neurology,Epilepsy
+33,Male,March,18:00,Wednesday,Weekday,Neurology,Stroke
+57,Female,April,22:00,Friday,Weekday,Neurology,Parkinson's disease
+39,Male,April,2:00,Saturday,Weekend,Neurology,Migraine
+31,Female,November,14:00,Saturday,Weekend,Neurology,Parkinson's disease
+27,Male,November,17:00,Saturday,Weekend,Neurology,Alzheimer's disease
+44,Female,December,20:00,Sunday,Weekend,Neurology,Epilepsy
+52,Male,December,23:00,Sunday,Weekend,Neurology,Migraine
+38,Female,January,2:00,Monday,Weekday,Neurology,Stroke
+57,Male,January,5:00,Monday,Weekday,Neurology,Multiple sclerosis
+28,Female,February,8:00,Tuesday,Weekday,Neurology,Parkinson's disease
+37,Male,February,11:00,Wednesday,Weekday,Neurology,Alzheimer's disease
+26,Female,March,14:00,Thursday,Weekday,Neurology,Epilepsy
+44,Male,March,17:00,Friday,Weekday,Neurology,Migraine
+58,Female,April,20:00,Saturday,Weekend,Neurology,Stroke
+39,Male,April,23:00,Saturday,Weekend,Neurology,Multiple sclerosis
+33,Female,May,2:00,Sunday,Weekend,Neurology,Parkinson's disease
+35,Male,January,0:00,Monday,Weekday,Orthopedics,Osteoporosis
+45,Female,January,1:00,Monday,Weekday,Orthopedics,Arthritis
+50,Male,January,2:00,Monday,Weekday,Orthopedics,Rheumatoid arthritis
+60,Female,January,3:00,Monday,Weekday,Orthopedics,Osteoarthritis
+70,Male,January,4:00,Monday,Weekday,Orthopedics,Osteoporosis
+30,Male,January,5:00,Monday,Weekday,Orthopedics,Arthritis
+40,Female,January,6:00,Monday,Weekday,Orthopedics,Rheumatoid arthritis
+55,Male,January,7:00,Monday,Weekday,Orthopedics,Osteoarthritis
+65,Female,January,8:00,Monday,Weekday,Orthopedics,Osteoporosis
+75,Male,January,9:00,Monday,Weekday,Orthopedics,Arthritis
+25,Male,January,10:00,Monday,Weekday,Orthopedics,Rheumatoid arthritis
+35,Female,January,11:00,Monday,Weekday,Orthopedics,Osteoarthritis
+45,Male,January,12:00,Monday,Weekday,Orthopedics,Osteoporosis
+45,Female,January,10:00,Monday,Weekday,Orthopedics,fracture
+32,Male,January,3:30,Saturday,Weekend,Orthopedics,arthritis
+57,Male,February,9:15,Tuesday,Weekday,Orthopedics,osteoporosis
+24,Female,February,2:45,Thursday,Weekday,Orthopedics,scoliosis
+68,Male,March,11:30,Sunday,Weekend,Orthopedics,herniated disc
+49,Female,March,8:00,Friday,Weekday,Orthopedics,tendonitis
+56,Male,April,4:15,Wednesday,Weekday,Orthopedics,fracture
+43,Male,May,9:30,Monday,Weekday,Orthopedics,osteoporosis
+37,Female,May,2:00,Saturday,Weekend,Orthopedics,fracture
+51,Male,June,10:45,Wednesday,Weekday,Orthopedics,arthritis
+26,Female,June,4:30,Friday,Weekday,Orthopedics,scoliosis
+64,Male,July,8:15,Sunday,Weekend,Orthopedics,herniated disc
+39,Female,July,1:45,Tuesday,Weekday,Orthopedics,tendonitis
+52,Male,August,3:30,Thursday,Weekday,Orthopedics,fracture
+29,Female,August,10:00,Saturday,Weekend,Orthopedics,arthritis
+61,Male,September,11:15,Monday,Weekday,Orthopedics,osteoporosis
+46,Female,September,2:30,Wednesday,Weekday,Orthopedics,scoliosis
+72,Male,October,9:45,Friday,Weekday,Orthopedics,herniated disc
+31,Female,October,4:00,Sunday,Weekend,Orthopedics,tendonitis
+55,Male,November,11:30,Tuesday,Weekday,Orthopedics,fracture
+41,Female,November,2:15,Thursday,Weekday,Orthopedics,arthritis
+67,Male,December,8:30,Saturday,Weekend,Orthopedics,osteoporosis
+28,Female,December,3:45,Monday,Weekday,Orthopedics,scoliosis
+50,Male,December,10:30,Wednesday,Weekday,Orthopedics,herniated disc
+41,Male,September,9:30,Monday,Weekday,Orthopedics,fracture
+29,Female,October,2:00,Sunday,Weekend,Orthopedics,osteoporosis
+50,Male,October,8:45,Tuesday,Weekday,Orthopedics,arthritis
+35,Female,November,11:15,Saturday,Weekend,Orthopedics,tendonitis
+58,Male,November,3:30,Thursday,Weekday,Orthopedics,herniated disc
+44,Female,December,10:00,Friday,Weekday,Orthopedics,scoliosis
+60,Male,December,2:45,Wednesday,Weekday,Orthopedics,fracture
+27,Female,July,11:30,Sunday,Weekend,Orthopedics,arthritis
+52,Male,July,8:00,Friday,Weekday,Orthopedics,osteoporosis
+31,Male,August,4:15,Thursday,Weekday,Orthopedics,herniated disc
+47,Female,August,9:15,Saturday,Weekend,Orthopedics,fracture
+38,Male,April,3:00,Monday,Weekday,Orthopedics,scoliosis
+43,Female,May,10:30,Sunday,Weekend,Orthopedics,tendonitis
+29,Female,July,2:30,Sunday,Weekend,Orthopedics,torn ligament
+62,Male,July,8:45,Thursday,Weekday,Orthopedics,fracture
+38,Female,August,11:15,Saturday,Weekend,Orthopedics,arthritis
+47,Male,August,3:00,Monday,Weekday,Orthopedics,scoliosis
+51,Female,September,9:30,Friday,Weekday,Orthopedics,herniated disc
+36,Male,September,5:45,Sunday,Weekend,Orthopedics,tendonitis
+71,Male,October,2:00,Wednesday,Weekday,Orthopedics,osteoporosis
+42,Female,October,8:15,Saturday,Weekend,Orthopedics,fracture
+55,Male,November,12:00,Thursday,Weekday,Orthopedics,torn ligament
+31,Female,November,6:30,Sunday,Weekend,Orthopedics,arthritis
+48,Female,December,10:45,Monday,Weekday,Orthopedics,scoliosis
+58,Male,December,4:30,Saturday,Weekend,Orthopedics,herniated disc
+51,Male,November,2:30,Saturday,Weekend,Orthopedics,arthritis
+38,Female,December,9:45,Wednesday,Weekday,Orthopedics,scoliosis
+57,Male,December,3:15,Friday,Weekday,Orthopedics,osteoporosis
+29,Female,December,11:30,Saturday,Weekend,Orthopedics,tendonitis
+42,Male,June,10:15,Thursday,Weekday,Orthopedics,herniated disc
+63,Female,June,2:30,Friday,Weekday,Orthopedics,arthritis
+55,Male,July,4:45,Sunday,Weekend,Orthopedics,fracture
+46,Female,July,10:00,Thursday,Weekday,Orthopedics,scoliosis
+71,Male,August,8:30,Saturday,Weekend,Orthopedics,osteoporosis
+36,Female,August,3:45,Monday,Weekday,Orthopedics,tendonitis
+48,Male,August,12:15,Wednesday,Weekday,Orthopedics,herniated disc
+61,Female,October,11:30,Sunday,Weekend,Orthopedics,arthritis
+52,Male,November,9:45,Friday,Weekday,Orthopedics,fracture
+33,Female,November,2:15,Monday,Weekday,Orthopedics,scoliosis
+61,Male,December,4:30,Saturday,Weekend,Orthopedics,osteoporosis
+47,Female,December,10:15,Tuesday,Weekday,Orthopedics,tendonitis
+29,Male,May,1:00,Monday,Weekday,Orthopedics,fracture
+62,Female,May,11:45,Sunday,Weekend,Orthopedics,arthritis
+47,Male,June,9:30,Thursday,Weekday,Orthopedics,osteoporosis
+39,Female,June,3:15,Saturday,Weekend,Orthopedics,scoliosis
+55,Male,July,8:45,Wednesday,Weekday,Orthopedics,herniated disc
+28,Female,July,5:00,Monday,Weekday,Orthopedics,tendonitis
+53,Male,August,2:30,Friday,Weekday,Orthopedics,fracture
+67,Female,August,10:00,Sunday,Weekend,Orthopedics,arthritis
+42,Male,September,12:15,Saturday,Weekend,Orthopedics,osteoporosis
+26,Female,September,11:30,Tuesday,Weekday,Orthopedics,scoliosis
+49,Male,October,9:45,Friday,Weekday,Orthopedics,herniated disc
+38,Female,October,4:00,Saturday,Weekend,Orthopedics,tendonitis
+59,Male,November,11:00,Sunday,Weekend,Orthopedics,fracture
+63,Female,November,2:15,Monday,Weekday,Orthopedics,arthritis
+43,Male,December,8:30,Thursday,Weekday,Orthopedics,osteoporosis
+31,Female,December,1:45,Saturday,Weekend,Orthopedics,scoliosis
+29,Female,May,1:30,Saturday,Weekend,Orthopedics,arthritis
+41,Male,May,11:00,Monday,Weekday,Orthopedics,fracture
+36,Female,June,2:00,Wednesday,Weekday,Orthopedics,osteoporosis
+61,Male,June,10:45,Sunday,Weekend,Orthopedics,scoliosis
+48,Female,July,4:30,Thursday,Weekday,Orthopedics,herniated disc
+53,Female,July,9:00,Friday,Weekday,Orthopedics,tendonitis
+28,Male,August,3:45,Monday,Weekday,Orthopedics,fracture
+37,Female,August,1:15,Saturday,Weekend,Orthopedics,arthritis
+49,Male,September,10:30,Tuesday,Weekday,Orthopedics,osteoporosis
+22,non-binary,September,4:00,Thursday,Weekday,Orthopedics,scoliosis
+70,Female,October,11:45,Sunday,Weekend,Orthopedics,herniated disc
+44,Male,October,2:30,Friday,Weekday,Orthopedics,tendonitis
+31,Female,November,9:45,Wednesday,Weekday,Orthopedics,fracture
+50,Female,November,3:15,Saturday,Weekend,Orthopedics,arthritis
+64,Female,December,10:15,Tuesday,Weekday,Orthopedics,osteoporosis
+54,Male,August,11:00,Wednesday,Weekday,Orthopedics,arthritis
+37,Female,August,4:30,Friday,Weekday,Orthopedics,torn ligament
+62,Male,September,2:00,Sunday,Weekend,Orthopedics,osteoporosis
+29,Female,September,9:30,Tuesday,Weekday,Orthopedics,scoliosis
+46,Male,October,5:15,Saturday,Weekend,Orthopedics,herniated disc
+53,Female,October,10:30,Monday,Weekday,Orthopedics,tendonitis
+41,Male,November,8:45,Thursday,Weekday,Orthopedics,fracture
+28,Female,November,2:00,Sunday,Weekend,Orthopedics,arthritis
+67,Male,December,4:30,Wednesday,Weekday,Orthopedics,osteoporosis
+47,Female,December,11:15,Saturday,Weekend,Orthopedics,scoliosis
+35,Male,January,1:30,Monday,Weekday,Orthopedics,herniated disc
+42,Female,January,9:00,Sunday,Weekend,Orthopedics,tendonitis
+58,Male,February,3:45,Tuesday,Weekday,Orthopedics,fracture
+30,Female,February,10:15,Thursday,Weekday,Orthopedics,arthritis
+61,Male,March,5:30,Saturday,Weekend,Orthopedics,osteoporosis
+48,Female,March,12:30,Friday,Weekday,Orthopedics,scoliosis
+43,Male,October,2:30,Friday,Weekday,Orthopedics,osteoarthritis
+30,Female,November,9:00,Sunday,Weekend,Orthopedics,fracture
+55,Male,November,11:45,Wednesday,Weekday,Orthopedics,herniated disc
+37,Female,December,4:30,Monday,Weekday,Orthopedics,tendonitis
+62,Male,December,10:15,Saturday,Weekend,Orthopedics,arthritis
+29,Female,January,3:00,Sunday,Weekend,Orthopedics,tendonitis
+48,Male,February,11:30,Friday,Weekday,Orthopedics,fracture
+33,Female,March,5:45,Tuesday,Weekday,Orthopedics,osteoporosis
+72,Male,April,1:30,Sunday,Weekend,Orthopedics,herniated disc
+51,Female,May,8:00,Wednesday,Weekday,Orthopedics,arthritis
+44,Male,June,3:15,Saturday,Weekend,Orthopedics,fracture
+28,Female,July,12:45,Thursday,Weekday,Orthopedics,tendonitis
+60,Male,August,9:30,Monday,Weekday,Orthopedics,tendonitis
+35,Female,September,4:00,Sunday,Weekend,Orthopedics,fracture
+53,Male,October,10:30,Wednesday,Weekday,Orthopedics,osteoarthritis
+31,Female,November,3:45,Friday,Weekday,Orthopedics,tendonitis
+33,Male,September,1:45,Monday,Weekday,Orthopedics,fracture
+27,Female,September,9:30,Saturday,Weekend,Orthopedics,arthritis
+60,Male,October,11:15,Tuesday,Weekday,Orthopedics,osteoporosis
+23,Female,October,4:45,Thursday,Weekday,Orthopedics,scoliosis
+40,Male,November,2:30,Sunday,Weekend,Orthopedics,herniated disc
+51,Female,November,7:00,Friday,Weekday,Orthopedics,tendonitis
+52,Female,December,3:45,Wednesday,Weekday,Orthopedics,fracture
+29,Male,December,9:15,Saturday,Weekend,Orthopedics,arthritis
+43,Male,January,10:30,Monday,Weekday,Orthopedics,osteoporosis
+26,Female,February,4:00,Thursday,Weekday,Orthopedics,scoliosis
+55,Male,March,1:00,Saturday,Weekend,Orthopedics,herniated disc
+39,Female,April,9:45,Tuesday,Weekday,Orthopedics,tendonitis
+28,Male,May,11:00,Sunday,Weekend,Orthopedics,fracture
+54,Female,June,3:30,Friday,Weekday,Orthopedics,arthritis
+65,Male,July,9:00,Monday,Weekday,Orthopedics,osteoporosis
+32,Female,August,2:15,Wednesday,Weekday,Orthopedics,scoliosis
+58,Male,May,1:30,Sunday,Weekend,Orthopedics,osteoporosis
+42,Female,May,10:15,Thursday,Weekday,Orthopedics,tendonitis
+29,Male,June,2:45,Saturday,Weekend,Orthopedics,fracture
+35,Female,June,9:30,Wednesday,Weekday,Orthopedics,arthritis
+62,Male,July,11:00,Tuesday,Weekday,Orthopedics,scoliosis
+48,Female,July,3:00,Sunday,Weekend,Orthopedics,herniated disc
+27,Male,August,8:30,Friday,Weekday,Orthopedics,fracture
+39,Female,August,4:15,Monday,Weekday,Orthopedics,osteoporosis
+56,Male,September,10:45,Saturday,Weekend,Orthopedics,tendonitis
+68,Male,September,2:30,Wednesday,Weekday,Orthopedics,arthritis
+52,Female,October,11:30,Friday,Weekday,Orthopedics,fracture
+25,Male,October,3:15,Sunday,Weekend,Orthopedics,scoliosis
+46,Female,November,9:00,Tuesday,Weekday,Orthopedics,osteoporosis
+38,Male,November,1:30,Sunday,Weekend,Orthopedics,fracture
+50,Female,November,9:45,Tuesday,Weekday,Orthopedics,arthritis
+22,Male,December,4:00,Thursday,Weekday,Orthopedics,osteoporosis
+33,Female,December,10:15,Saturday,Weekend,Orthopedics,scoliosis
+67,Female,January,11:00,Friday,Weekday,Orthopedics,herniated disc
+46,Male,January,3:30,Monday,Weekday,Orthopedics,tendonitis
+59,Female,February,4:45,Sunday,Weekend,Orthopedics,fracture
+41,Male,February,10:30,Wednesday,Weekday,Orthopedics,arthritis
+28,Female,March,2:15,Friday,Weekday,Orthopedics,osteoporosis
+54,Male,March,1:00,Saturday,Weekend,Orthopedics,scoliosis
+47,Female,April,10:45,Monday,Weekday,Orthopedics,herniated disc
+61,Male,April,5:00,Thursday,Weekday,Orthopedics,tendonitis
+36,Female,May,3:30,Sunday,Weekend,Orthopedics,fracture
+29,Male,May,11:30,Tuesday,Weekday,Orthopedics,arthritis
+64,Female,June,12:15,Friday,Weekday,Orthopedics,osteoporosis
+40,Male,June,4:45,Sunday,Weekend,Orthopedics,scoliosis
+28,Male,September,2:30,Monday,Weekday,Orthopedics,fracture
+61,Female,September,9:00,Sunday,Weekend,Orthopedics,arthritis
+49,Male,October,1:45,Saturday,Weekend,Orthopedics,osteoporosis
+43,Female,October,11:00,Wednesday,Weekday,Orthopedics,scoliosis
+37,Female,November,3:30,Friday,Weekday,Orthopedics,herniated disc
+58,Male,November,8:00,Monday,Weekday,Orthopedics,tendonitis
+41,Female,December,4:15,Thursday,Weekday,Orthopedics,fracture
+71,Male,December,10:30,Sunday,Weekend,Orthopedics,arthritis
+29,Female,January,2:30,Tuesday,Weekday,Orthopedics,osteoporosis
+54,Male,February,1:45,Thursday,Weekday,Orthopedics,scoliosis
+36,Female,February,3:30,Sunday,Weekend,Orthopedics,herniated disc
+33,Male,September,11:00,Tuesday,Weekday,Orthopedics,fracture
+62,Female,September,2:30,Saturday,Weekend,Orthopedics,arthritis
+49,Male,October,9:45,Thursday,Weekday,Orthopedics,osteoporosis
+21,Female,October,5:15,Sunday,Weekend,Orthopedics,scoliosis
+27,Male,November,12:30,Wednesday,Weekday,Orthopedics,herniated disc
+43,Female,November,7:00,Friday,Weekday,Orthopedics,tendonitis
+51,Male,December,3:45,Saturday,Weekend,Orthopedics,fracture
+39,Female,December,9:15,Tuesday,Weekday,Orthopedics,arthritis
+31,Male,January,4:30,Monday,Weekday,Orthopedics,osteoporosis
+54,Female,January,10:15,Saturday,Weekend,Orthopedics,scoliosis
+47,Male,February,2:30,Sunday,Weekend,Orthopedics,herniated disc
+38,Female,February,8:00,Wednesday,Weekday,Orthopedics,tendonitis
+64,Male,March,1:45,Friday,Weekday,Orthopedics,fracture
+29,Female,March,11:30,Tuesday,Weekday,Orthopedics,arthritis
+56,Male,April,4:15,Saturday,Weekend,Orthopedics,osteoporosis
+48,Female,April,9:30,Thursday,Weekday,Orthopedics,scoliosis
+42,Male,October,1:30,Sunday,Weekend,Orthopedics,arthritis
+28,Female,October,11:00,Thursday,Weekday,Orthopedics,scoliosis
+61,Male,November,4:45,Saturday,Weekend,Orthopedics,osteoporosis
+33,Female,November,9:30,Tuesday,Weekday,Orthopedics,herniated disc
+49,Male,December,2:15,Monday,Weekday,Orthopedics,tendonitis
+55,Female,December,8:30,Friday,Weekday,Orthopedics,fracture
+46,Male,January,3:00,Sunday,Weekend,Orthopedics,arthritis
+29,Female,January,10:45,Thursday,Weekday,Orthopedics,scoliosis
+37,Male,September,1:30,Saturday,Weekend,Orthopedics,fracture
+42,Female,October,4:45,Friday,Weekday,Orthopedics,arthritis
+51,Female,November,9:00,Wednesday,Weekday,Orthopedics,osteoporosis
+25,Male,December,11:15,Monday,Weekday,Orthopedics,scoliosis
+73,Male,December,2:30,Sunday,Weekend,Orthopedics,herniated disc
+58,Male,December,10:45,Thursday,Weekday,Orthopedics,tendonitis
+46,Female,May,3:00,Saturday,Weekend,Orthopedics,fracture
+33,Male,July,2:15,Monday,Weekday,Orthopedics,arthritis
+50,Female,August,10:00,Friday,Weekday,Orthopedics,osteoporosis
+29,Female,August,4:30,Sunday,Weekend,Orthopedics,scoliosis
+44,Male,June,9:45,Thursday,Weekday,Orthopedics,herniated disc
+52,Female,May,8:15,Tuesday,Weekday,Orthopedics,tendonitis
+39,Male,November,5:30,Sunday,Weekend,Orthopedics,fracture
+28,Female,October,9:00,Saturday,Weekend,Orthopedics,fracture
+39,Male,October,11:30,Monday,Weekday,Orthopedics,arthritis
+61,Female,November,3:15,Sunday,Weekend,Orthopedics,osteoporosis
+47,Male,November,10:45,Wednesday,Weekday,Orthopedics,scoliosis
+53,Female,December,2:30,Friday,Weekday,Orthopedics,herniated disc
+71,Male,December,9:45,Thursday,Weekday,Orthopedics,tendonitis
+42,Female,January,11:15,Tuesday,Weekday,Orthopedics,fracture
+36,Male,February,4:00,Saturday,Weekend,Orthopedics,arthritis
+55,Female,March,9:30,Sunday,Weekend,Orthopedics,osteoporosis
+44,Male,April,2:00,Thursday,Weekday,Orthopedics,scoliosis
+31,Female,May,11:00,Friday,Weekday,Orthopedics,herniated disc
+65,Male,June,3:45,Monday,Weekday,Orthopedics,tendonitis
+51,Female,July,10:30,Wednesday,Weekday,Orthopedics,fracture
+37,Male,August,1:45,Saturday,Weekend,Orthopedics,arthritis
+62,Female,September,9:15,Sunday,Weekend,Orthopedics,osteoporosis
+46,Male,October,2:30,Thursday,Weekday,Orthopedics,scoliosis
+29,Female,November,10:00,Tuesday,Weekday,Orthopedics,herniated disc
+39,Male,December,8:30,Friday,Weekday,Orthopedics,tendonitis
+55,Female,January,1:15,Sunday,Weekend,Orthopedics,fracture
+42,Male,February,4:00,Saturday,Weekend,Orthopedics,arthritis
+61,Female,March,9:30,Sunday,Weekend,Orthopedics,osteoporosis
+47,Male,April,2:00,Thursday,Weekday,Orthopedics,scoliosis
+31,Female,May,11:00,Friday,Weekday,Orthopedics,herniated disc
+65,Male,June,3:45,Monday,Weekday,Orthopedics,tendonitis
+51,Female,July,10:30,Wednesday,Weekday,Orthopedics,fracture
+37,Male,August,1:45,Saturday,Weekend,Orthopedics,arthritis
+62,Female,September,9:15,Sunday,Weekend,Orthopedics,osteoporosis
+46,Male,October,2:30,Thursday,Weekday,Orthopedics,scoliosis
+29,Female,November,10:00,Tuesday,Weekday,Orthopedics,herniated disc
+39,Male,December,8:30,Friday,Weekday,Orthopedics,tendonitis
+55,Female,January,1:15,Sunday,Weekend,Orthopedics,fracture
+42,Male,February,4:00,Saturday,Weekend,Orthopedics,arthritis
+61,Female,March,9:30,Sunday,Weekend,Orthopedics,osteoporosis
+47,Male,April,2:00,Thursday,Weekday,Orthopedics,scoliosis
+31,Female,May,11:00,Friday,Weekday,Orthopedics,herniated disc
+65,Male,June,3:45,Monday,Weekday,Orthopedics,tendonitis
+51,Female,July,10:30,Wednesday,Weekday,Orthopedics,fracture
+37,Male,August,1:45,Saturday,Weekend,Orthopedics,arthritis
+62,Female,September,9:15,Sunday,Weekend,Orthopedics,osteoporosis
+46,Male,October,2:30,Thursday,Weekday,Orthopedics,scoliosis
+29,Female,November,10:00,Tuesday,Weekday,Orthopedics,herniated disc
+39,Male,December,8:30,Friday,Weekday,Orthopedics,tendonitis
+55,Female,January,1:15,Sunday,Weekend,Orthopedics,fracture
+42,Male,February,4:00,Saturday,Weekend,Orthopedics,arthritis
+61,Female,March,9:30,Sunday,Weekend,Orthopedics,osteoporosis
+47,Male,April,2:00,Thursday,Weekday,Orthopedics,scoliosis
+31,Female,May,11:00,Friday,Weekday,Orthopedics,herniated disc
+65,Male,June,3:45,Monday,Weekday,Orthopedics,tendonitis
+51,Female,July,10:30,Wednesday,Weekday,Orthopedics,fracture
+37,Male,August,1:45,Saturday,Weekend,Orthopedics,arthritis
+62,Female,September,9:15,Sunday,Weekend,Orthopedics,osteoporosis
+46,Male,October,2:30,Thursday,Weekday,Orthopedics,scoliosis
+29,Female,November,10:00,Tuesday,Weekday,Orthopedics,herniated disc
+39,Male,December,8:30,Friday,Weekday,Orthopedics,tendonitis
+55,Female,January,1:15,Sunday,Weekend,Orthopedics,fracture
+42,Male,February,4:00,Saturday,Weekend,Orthopedics,arthritis
+61,Female,March,9:30,Sunday,Weekend,Orthopedics,osteoporosis
+47,Male,April,2:00,Thursday,Weekday,Orthopedics,scoliosis
+31,Female,May,11:00,Friday,Weekday,Orthopedics,herniated disc
+65,Male,June,3:45,Monday,Weekday,Orthopedics,tendonitis
+51,Female,July,10:30,Wednesday,Weekday,Orthopedics,fracture
+37,Male,August,1:45,Saturday,Weekend,Orthopedics,arthritis
+62,Female,September,9:15,Sunday,Weekend,Orthopedics,osteoporosis
+46,Male,October,2:30,Thursday,Weekday,Orthopedics,scoliosis
+29,Female,November,10:00,Tuesday,Weekday,Orthopedics,herniated disc
+39,Male,December,8:30,Friday,Weekday,Orthopedics,tendonitis
+55,Female,January,1:15,Sunday,Weekend,Orthopedics,fracture
+42,Male,January,0:00,Monday,Weekday,Gastroenterology,irritable bowel syndrome
+35,Female,January,1:00,Monday,Weekday,Gastroenterology,gastroenteritis
+50,Male,January,2:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+28,Female,January,3:00,Monday,Weekday,Gastroenterology,gastritis
+45,Male,January,4:00,Monday,Weekday,Gastroenterology,gallstones
+31,Female,January,5:00,Monday,Weekday,Gastroenterology,pancreatitis
+60,Male,January,6:00,Monday,Weekday,Gastroenterology,hemorrhoids
+29,Female,January,7:00,Monday,Weekday,Gastroenterology,celiac disease
+47,Male,January,8:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+33,Female,January,9:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+42,Male,January,10:00,Monday,Weekday,Gastroenterology,irritable bowel syndrome
+35,Female,January,11:00,Monday,Weekday,Gastroenterology,gastroenteritis
+50,Male,January,12:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+28,Female,January,13:00,Monday,Weekday,Gastroenterology,gastritis
+45,Male,January,14:00,Monday,Weekday,Gastroenterology,gallstones
+31,Female,January,5:00,Tuesday,Weekday,Gastroenterology,pancreatitis
+60,Male,January,6:00,Tuesday,Weekday,Gastroenterology,hemorrhoids
+29,Female,January,7:00,Tuesday,Weekday,Gastroenterology,celiac disease
+47,Male,January,8:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+33,Female,January,9:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+42,Male,January,10:00,Tuesday,Weekday,Gastroenterology,irritable bowel syndrome
+35,Female,January,11:00,Tuesday,Weekday,Gastroenterology,gastroenteritis
+50,Male,January,12:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+28,Female,January,13:00,Tuesday,Weekday,Gastroenterology,gastritis
+45,Male,January,14:00,Tuesday,Weekday,Gastroenterology,gallstones
+31,Female,January,15:00,Tuesday,Weekday,Gastroenterology,pancreatitis
+60,Male,January,16:00,Tuesday,Weekday,Gastroenterology,hemorrhoids
+29,Female,January,17:00,Tuesday,Weekday,Gastroenterology,celiac disease
+47,Male,January,18:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+33,Female,January,19:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+39,Male,February,0:00,Tuesday,Weekday,Gastroenterology,hepatitis
+28,Female,February,1:00,Tuesday,Weekday,Gastroenterology,acid reflux
+56,Male,February,2:00,Tuesday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,February,3:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,February,4:00,Tuesday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,February,5:00,Tuesday,Weekday,Gastroenterology,hepatitis
+43,Male,February,6:00,Tuesday,Weekday,Gastroenterology,gallstones
+29,Female,February,7:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,February,8:00,Tuesday,Weekday,Gastroenterology,celiac disease
+31,Female,February,9:00,Tuesday,Weekday,Gastroenterology,acid reflux
+39,Male,February,10:00,Tuesday,Weekday,Gastroenterology,hepatitis
+28,Female,February,11:00,Tuesday,Weekday,Gastroenterology,acid reflux
+56,Male,February,12:00,Tuesday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,February,13:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,February,14:00,Tuesday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,February,15:00,Tuesday,Weekday,Gastroenterology,hepatitis
+43,Male,February,16:00,Tuesday,Weekday,Gastroenterology,gallstones
+29,Female,February,17:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,February,18:00,Tuesday,Weekday,Gastroenterology,celiac disease
+31,Female,February,19:00,Tuesday,Weekday,Gastroenterology,acid reflux
+39,Male,February,20:00,Tuesday,Weekday,Gastroenterology,hepatitis
+28,Female,February,21:00,Tuesday,Weekday,Gastroenterology,acid reflux
+56,Male,February,22:00,Tuesday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,February,23:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,March,0:00,Wednesday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,March,1:00,Wednesday,Weekday,Gastroenterology,hepatitis
+43,Male,March,2:00,Wednesday,Weekday,Gastroenterology,gallstones
+29,Female,March,3:00,Wednesday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,March,4:00,Wednesday,Weekday,Gastroenterology,celiac disease
+31,Female,March,5:00,Wednesday,Weekday,Gastroenterology,acid reflux
+39,Male,March,6:00,Wednesday,Weekday,Gastroenterology,hepatitis
+28,Female,March,7:00,Wednesday,Weekday,Gastroenterology,acid reflux
+56,Male,March,8:00,Wednesday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,March,9:00,Wednesday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,March,10:00,Wednesday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,March,11:00,Wednesday,Weekday,Gastroenterology,hepatitis
+43,Male,March,12:00,Wednesday,Weekday,Gastroenterology,gallstones
+29,Female,March,13:00,Wednesday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,March,14:00,Wednesday,Weekday,Gastroenterology,celiac disease
+31,Female,March,15:00,Wednesday,Weekday,Gastroenterology,acid reflux
+39,Male,March,16:00,Wednesday,Weekday,Gastroenterology,hepatitis
+28,Female,March,17:00,Wednesday,Weekday,Gastroenterology,acid reflux
+56,Male,March,18:00,Wednesday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,March,19:00,Wednesday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,March,20:00,Wednesday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,March,21:00,Wednesday,Weekday,Gastroenterology,hepatitis
+43,Male,March,22:00,Wednesday,Weekday,Gastroenterology,gallstones
+29,Female,March,23:00,Wednesday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,March,0:00,Thursday,Weekday,Gastroenterology,celiac disease
+31,Female,March,1:00,Thursday,Weekday,Gastroenterology,acid reflux
+39,Male,March,2:00,Thursday,Weekday,Gastroenterology,hepatitis
+28,Female,March,3:00,Thursday,Weekday,Gastroenterology,acid reflux
+56,Male,March,4:00,Thursday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,March,5:00,Thursday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,March,6:00,Thursday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,March,7:00,Thursday,Weekday,Gastroenterology,hepatitis
+43,Male,March,8:00,Thursday,Weekday,Gastroenterology,gallstones
+29,Female,March,9:00,Thursday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,March,10:00,Thursday,Weekday,Gastroenterology,celiac disease
+31,Female,March,11:00,Thursday,Weekday,Gastroenterology,acid reflux
+39,Male,March,12:00,Thursday,Weekday,Gastroenterology,hepatitis
+28,Female,March,13:00,Thursday,Weekday,Gastroenterology,acid reflux
+56,Male,March,14:00,Thursday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,March,15:00,Thursday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,March,16:00,Thursday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,March,17:00,Thursday,Weekday,Gastroenterology,hepatitis
+43,Male,March,18:00,Thursday,Weekday,Gastroenterology,gallstones
+29,Female,March,19:00,Thursday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,March,20:00,Thursday,Weekday,Gastroenterology,celiac disease
+31,Female,March,21:00,Thursday,Weekday,Gastroenterology,acid reflux
+32,Female,April,5:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+48,Male,April,6:00,Sunday,Weekend,Gastroenterology,irritable bowel syndrome
+36,Female,April,7:00,Sunday,Weekend,Gastroenterology,hepatitis
+43,Male,April,8:00,Sunday,Weekend,Gastroenterology,gallstones
+29,Female,April,9:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+52,Male,April,10:00,Sunday,Weekend,Gastroenterology,celiac disease
+31,Female,April,11:00,Sunday,Weekend,Gastroenterology,acid reflux
+39,Male,April,12:00,Sunday,Weekend,Gastroenterology,hepatitis
+28,Female,April,13:00,Sunday,Weekend,Gastroenterology,acid reflux
+56,Male,April,14:00,Sunday,Weekend,Gastroenterology,pancreatic cancer
+32,Female,April,15:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+48,Male,April,16:00,Sunday,Weekend,Gastroenterology,irritable bowel syndrome
+36,Female,April,17:00,Sunday,Weekend,Gastroenterology,hepatitis
+43,Male,April,18:00,Sunday,Weekend,Gastroenterology,gallstones
+29,Female,April,19:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+48,Male,March,18:00,Thursday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,March,19:00,Thursday,Weekday,Gastroenterology,hepatitis
+43,Male,March,20:00,Thursday,Weekday,Gastroenterology,gallstones
+29,Female,March,21:00,Thursday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,March,22:00,Thursday,Weekday,Gastroenterology,celiac disease
+31,Female,March,23:00,Thursday,Weekday,Gastroenterology,acid reflux
+39,Male,April,0:00,Friday,Weekday,Gastroenterology,hepatitis
+28,Female,April,1:00,Friday,Weekday,Gastroenterology,acid reflux
+56,Male,April,2:00,Friday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,April,3:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,April,4:00,Friday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,April,5:00,Friday,Weekday,Gastroenterology,hepatitis
+43,Male,April,6:00,Friday,Weekday,Gastroenterology,gallstones
+29,Female,April,7:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,April,8:00,Friday,Weekday,Gastroenterology,celiac disease
+48,Male,April,1:00,Sunday,Weekend,Gastroenterology,irritable bowel syndrome
+36,Female,April,2:00,Sunday,Weekend,Gastroenterology,hepatitis
+43,Male,April,3:00,Sunday,Weekend,Gastroenterology,gallstones
+29,Female,April,4:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+52,Male,April,5:00,Sunday,Weekend,Gastroenterology,celiac disease
+31,Female,April,6:00,Sunday,Weekend,Gastroenterology,acid reflux
+39,Male,April,7:00,Sunday,Weekend,Gastroenterology,hepatitis
+28,Female,April,8:00,Sunday,Weekend,Gastroenterology,acid reflux
+56,Male,April,9:00,Sunday,Weekend,Gastroenterology,pancreatic cancer
+32,Female,April,10:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+48,Male,April,11:00,Sunday,Weekend,Gastroenterology,irritable bowel syndrome
+36,Female,April,12:00,Sunday,Weekend,Gastroenterology,hepatitis
+43,Male,April,13:00,Sunday,Weekend,Gastroenterology,gallstones
+29,Female,April,14:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+52,Male,April,15:00,Sunday,Weekend,Gastroenterology,celiac disease
+29,Female,September,7:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,September,8:00,Monday,Weekday,Gastroenterology,celiac disease
+31,Female,September,9:00,Monday,Weekday,Gastroenterology,acid reflux
+39,Male,September,10:00,Monday,Weekday,Gastroenterology,hepatitis
+28,Female,September,11:00,Monday,Weekday,Gastroenterology,acid reflux
+56,Male,September,12:00,Monday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,September,13:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,September,14:00,Monday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,September,15:00,Monday,Weekday,Gastroenterology,hepatitis
+43,Male,September,16:00,Monday,Weekday,Gastroenterology,gallstones
+29,Female,September,17:00,Monday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,September,18:00,Monday,Weekday,Gastroenterology,celiac disease
+31,Female,September,19:00,Monday,Weekday,Gastroenterology,acid reflux
+39,Male,September,20:00,Monday,Weekday,Gastroenterology,hepatitis
+28,Female,September,21:00,Monday,Weekday,Gastroenterology,acid reflux
+32,Female,June,5:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,June,6:00,Tuesday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,June,7:00,Tuesday,Weekday,Gastroenterology,hepatitis
+43,Male,June,8:00,Tuesday,Weekday,Gastroenterology,gallstones
+29,Female,June,9:00,Tuesday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,June,10:00,Tuesday,Weekday,Gastroenterology,celiac disease
+31,Female,June,11:00,Tuesday,Weekday,Gastroenterology,acid reflux
+32,Female,September,5:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,September,6:00,Friday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,September,7:00,Friday,Weekday,Gastroenterology,hepatitis
+43,Male,September,8:00,Friday,Weekday,Gastroenterology,gallstones
+29,Female,September,9:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+52,Male,September,10:00,Friday,Weekday,Gastroenterology,celiac disease
+31,Female,September,11:00,Friday,Weekday,Gastroenterology,acid reflux
+39,Male,September,12:00,Friday,Weekday,Gastroenterology,hepatitis
+28,Female,September,13:00,Friday,Weekday,Gastroenterology,acid reflux
+56,Male,September,14:00,Friday,Weekday,Gastroenterology,pancreatic cancer
+32,Female,September,15:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+48,Male,September,16:00,Friday,Weekday,Gastroenterology,irritable bowel syndrome
+36,Female,September,17:00,Friday,Weekday,Gastroenterology,hepatitis
+43,Male,September,18:00,Friday,Weekday,Gastroenterology,gallstones
+29,Female,September,19:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+32,Female,September,5:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+48,Male,September,6:00,Sunday,Weekend,Gastroenterology,irritable bowel syndrome
+36,Female,September,7:00,Sunday,Weekend,Gastroenterology,hepatitis
+43,Male,September,8:00,Sunday,Weekend,Gastroenterology,gallstones
+29,Female,September,9:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+52,Male,September,10:00,Sunday,Weekend,Gastroenterology,celiac disease
+31,Female,September,11:00,Sunday,Weekend,Gastroenterology,acid reflux
+39,Male,September,12:00,Sunday,Weekend,Gastroenterology,hepatitis
+28,Female,September,13:00,Sunday,Weekend,Gastroenterology,acid reflux
+56,Male,September,14:00,Sunday,Weekend,Gastroenterology,pancreatic cancer
+32,Female,September,15:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+48,Male,September,16:00,Sunday,Weekend,Gastroenterology,irritable bowel syndrome
+36,Female,September,17:00,Sunday,Weekend,Gastroenterology,hepatitis
+43,Male,September,18:00,Sunday,Weekend,Gastroenterology,gallstones
+29,Female,September,19:00,Sunday,Weekend,Gastroenterology,ulcerative colitis
+24,Male,September,22:00,Friday,Weekday,Gastroenterology,irritable bowel syndrome
+35,Female,September,23:00,Friday,Weekday,Gastroenterology,ulcerative colitis
+50,Male,September,0:00,Saturday,Weekend,Gastroenterology,gallstones
+28,Female,January,0:00,Monday,Weekday,gynecologist,Pelvic Inflammatory Disease
+35,Female,January,3:00,Monday,Weekday,gynecologist,Endometrial Cancer
+20,Female,January,6:00,Monday,Weekday,gynecologist,Bacterial Vaginosis
+32,Female,January,9:00,Monday,Weekday,gynecologist,vulvodynia
+27,Female,January,12:00,Monday,Weekday,gynecologist,Polyps
+31,Female,January,15:00,Monday,Weekday,gynecologist,yeast infection
+29,Female,February,15:00,Wednesday,Weekday,gynecologist,fibroids
+31,Female,February,18:00,Wednesday,Weekday,gynecologist,Polyps
+27,Female,February,21:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+23,Female,March,0:00,Friday,Weekday,gynecologist,ovarian cancer
+25,Female,March,3:00,Friday,Weekday,gynecologist,Dysmenorrhea
+36,Female,March,6:00,Friday,Weekday,gynecologist,yeast infection
+28,Female,March,9:00,Friday,Weekday,gynecologist,yeast infection
+32,Female,April,12:00,Saturday,Weekend,gynecologist,Polyps
+26,Female,April,15:00,Saturday,Weekend,gynecologist,ovarian cancer
+30,Female,April,18:00,Saturday,Weekend,gynecologist,Premenstrual Syndrome
+27,Female,May,21:00,Sunday,Weekend,gynecologist,Endometrial Cancer
+29,Female,May,0:00,Monday,Weekday,gynecologist,ovarian cancer
+33,Female,May,3:00,Monday,Weekday,gynecologist,Endometrial Cancer
+25,Female,May,6:00,Monday,Weekday,gynecologist,Cervical Dysplasia
+25,Female,May,3:00,Monday,Weekday,gynecologist,Polyps
+32,Female,May,6:00,Monday,Weekday,gynecologist,Endometrial Cancer
+28,Female,May,9:00,Monday,Weekday,gynecologist,yeast infection
+30,Female,May,12:00,Monday,Weekday,gynecologist,ovarian cancer
+27,Female,May,15:00,Monday,Weekday,gynecologist,Cervical Dysplasia
+29,Female,May,18:00,Monday,Weekday,gynecologist,Endometrial Cancer
+33,Female,May,21:00,Monday,Weekday,gynecologist,fibroids
+24,Female,May,23:00,Monday,Weekday,gynecologist,ovarian cysts
+26,Female,June,0:00,Tuesday,Weekday,gynecologist,Menorrhagia
+31,Female,June,3:00,Tuesday,Weekday,gynecologist,Polyps
+27,Female,June,6:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+30,Female,June,9:00,Tuesday,Weekday,gynecologist,Bacterial Vaginosis
+34,Female,June,12:00,Tuesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+25,Female,June,15:00,Tuesday,Weekday,gynecologist,cervical cancer
+29,Female,June,18:00,Tuesday,Weekday,gynecologist,ovarian cancer
+33,Female,June,21:00,Tuesday,Weekday,gynecologist,yeast infection
+24,Female,February,16:00,Tuesday,Weekday,gynecologist,fibroids
+31,Female,February,19:00,Tuesday,Weekday,gynecologist,ovarian cysts
+27,Female,February,22:00,Tuesday,Weekday,gynecologist,ovarian cancer
+33,Female,February,1:00,Wednesday,Weekday,gynecologist,Polyps
+25,Female,February,4:00,Wednesday,Weekday,gynecologist,vulvodynia
+29,Female,February,7:00,Wednesday,Weekday,gynecologist,Chlamydia
+23,Female,February,10:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+36,Female,February,13:00,Wednesday,Weekday,gynecologist,Polyps
+26,Female,February,16:00,Wednesday,Weekday,gynecologist,ovarian cysts
+34,Female,February,19:00,Wednesday,Weekday,gynecologist,Bacterial Vaginosis
+30,Female,February,22:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+28,Female,February,1:00,Thursday,Weekday,gynecologist,vulvodynia
+35,Female,February,4:00,Thursday,Weekday,gynecologist,cervical cancer
+31,Female,February,7:00,Thursday,Weekday,gynecologist,ovarian cancer
+27,Female,February,10:00,Thursday,Weekday,gynecologist,fibroids
+33,Female,February,13:00,Thursday,Weekday,gynecologist,Polyps
+32,Female,June,6:00,Monday,Weekday,gynecologist,Endometrial Cancer
+23,Female,June,9:00,Monday,Weekday,gynecologist,ovarian cancer
+27,Female,June,12:00,Monday,Weekday,gynecologist,Polyps
+38,Female,June,15:00,Monday,Weekday,gynecologist,vulvodynia
+29,Female,June,18:00,Monday,Weekday,gynecologist,Cervical Dysplasia
+31,Female,June,21:00,Monday,Weekday,gynecologist,fibroids
+24,Female,June,23:00,Monday,Weekday,gynecologist,Endometrial Cancer
+35,Female,July,0:00,Tuesday,Weekday,gynecologist,ovarian cysts
+28,Female,July,3:00,Tuesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+21,Female,July,6:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+30,Female,July,9:00,Tuesday,Weekday,gynecologist,Bacterial Vaginosis
+33,Female,July,12:00,Tuesday,Weekday,gynecologist,cervical cancer
+36,Female,July,15:00,Tuesday,Weekday,gynecologist,Menorrhagia
+26,Female,July,18:00,Tuesday,Weekday,gynecologist,ovarian cancer
+29,Female,July,21:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+32,Female,July,23:00,Tuesday,Weekday,gynecologist,Polyps
+27,Female,May,12:00,Tuesday,Weekday,gynecologist,Polyps
+32,Female,May,15:00,Tuesday,Weekday,gynecologist,fibroids
+29,Female,May,18:00,Tuesday,Weekday,gynecologist,yeast infection
+25,Female,May,21:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+24,Female,May,0:00,Wednesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+28,Female,May,3:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+22,Female,May,6:00,Wednesday,Weekday,gynecologist,Bacterial Vaginosis
+23,Female,May,9:00,Wednesday,Weekday,gynecologist,ovarian cysts
+25,Female,May,12:00,Wednesday,Weekday,gynecologist,Menorrhagia
+27,Female,May,15:00,Wednesday,Weekday,gynecologist,cervical cancer
+26,Female,May,18:00,Wednesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+30,Female,May,21:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+34,Female,May,0:00,Thursday,Weekday,gynecologist,Bacterial Vaginosis
+29,Female,May,3:00,Thursday,Weekday,gynecologist,ovarian cysts
+33,Female,May,6:00,Thursday,Weekday,gynecologist,Menorrhagia
+27,Female,May,9:00,Thursday,Weekday,gynecologist,cervical cancer
+32,Female,May,16:00,Monday,Weekday,gynecologist,fibroids
+27,Female,May,19:00,Monday,Weekday,gynecologist,Endometrial Cancer
+25,Female,May,22:00,Monday,Weekday,gynecologist,vulvodynia
+29,Female,May,1:00,Tuesday,Weekday,gynecologist,vulvodynia
+31,Female,May,4:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+38,Female,May,7:00,Tuesday,Weekday,gynecologist,Polyps
+26,Female,May,10:00,Tuesday,Weekday,gynecologist,Urinary Tract Infection
+33,Female,May,13:00,Tuesday,Weekday,gynecologist,Premenstrual Syndrome
+30,Female,May,16:00,Tuesday,Weekday,gynecologist,ovarian cysts
+28,Female,May,19:00,Tuesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+24,Female,May,22:00,Tuesday,Weekday,gynecologist,Bacterial Vaginosis
+31,Female,May,1:00,Wednesday,Weekday,gynecologist,fibroids
+35,Female,May,4:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+29,Female,May,7:00,Wednesday,Weekday,gynecologist,vulvodynia
+32,Female,March,13:00,Thursday,Weekday,gynecologist,ovarian cancer
+27,Female,March,16:00,Thursday,Weekday,gynecologist,Dysmenorrhea
+23,Female,March,19:00,Thursday,Weekday,gynecologist,yeast infection
+29,Female,March,22:00,Thursday,Weekday,gynecologist,Polyps
+27,Female,March,8:00,Saturday,Weekend,gynecologist,Endometrial Cancer
+32,Female,March,11:00,Saturday,Weekend,gynecologist,fibroids
+25,Female,March,14:00,Saturday,Weekend,gynecologist,Chlamydia
+29,Female,March,17:00,Saturday,Weekend,gynecologist,vulvodynia
+33,Female,March,20:00,Saturday,Weekend,gynecologist,Polyps
+31,Female,March,22:00,Saturday,Weekend,gynecologist,yeast infection
+24,Female,March,2:00,Sunday,Weekend,gynecologist,fibroids
+26,Female,March,5:00,Sunday,Weekend,gynecologist,ovarian cancer
+35,Female,March,8:00,Sunday,Weekend,gynecologist,Polyps
+29,Female,March,8:00,Tuesday,Weekday,gynecologist,Polyps
+32,Female,March,11:00,Tuesday,Weekday,gynecologist,fibroids
+25,Female,March,14:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+38,Female,March,17:00,Tuesday,Weekday,gynecologist,ovarian cancer
+27,Female,March,20:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+24,Female,March,23:00,Tuesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+31,Female,April,2:00,Wednesday,Weekday,gynecologist,Bacterial Vaginosis
+33,Female,April,5:00,Wednesday,Weekday,gynecologist,Urinary Tract Infection
+37,Female,April,8:00,Wednesday,Weekday,gynecologist,Polyps
+26,Female,April,11:00,Wednesday,Weekday,gynecologist,fibroids
+30,Female,April,14:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+35,Female,April,17:00,Wednesday,Weekday,gynecologist,ovarian cancer
+28,Female,April,20:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+24,Female,May,8:00,Tuesday,Weekday,gynecologist,yeast infection
+32,Female,May,11:00,Tuesday,Weekday,gynecologist,Polyps
+29,Female,May,14:00,Tuesday,Weekday,gynecologist,ovarian cancer
+25,Female,May,17:00,Tuesday,Weekday,gynecologist,Endometrial Cancer
+27,Female,May,20:00,Tuesday,Weekday,gynecologist,Premenstrual Syndrome
+31,Female,May,22:00,Tuesday,Weekday,gynecologist,fibroids
+28,Female,May,1:00,Wednesday,Weekday,gynecologist,ovarian cysts
+35,Female,May,4:00,Wednesday,Weekday,gynecologist,Pelvic Inflammatory Disease
+22,Female,May,7:00,Wednesday,Weekday,gynecologist,Bacterial Vaginosis
+30,Female,May,10:00,Wednesday,Weekday,gynecologist,Endometrial Cancer
+26,Female,May,13:00,Wednesday,Weekday,gynecologist,Polyps
+29,Female,May,16:00,Wednesday,Weekday,gynecologist,Cervical Dysplasia
+24,Female,May,19:00,Wednesday,Weekday,gynecologist,yeast infection
+27,Female,May,21:00,Wednesday,Weekday,gynecologist,Menorrhagia
+32,Female,May,0:00,Thursday,Weekday,gynecologist,cervical cancer
+28,Female,May,3:00,Thursday,Weekday,gynecologist,yeast infection
+31,Female,July,20:00,Saturday,Weekend,gynecologist,Endometrial Cancer
+37,Female,July,22:00,Saturday,Weekend,gynecologist,Polyps
+29,Female,July,23:00,Saturday,Weekend,gynecologist,Urinary Tract Infection
+25,Female,August,2:00,Sunday,Weekend,gynecologist,Polyps
+33,Female,August,5:00,Sunday,Weekend,gynecologist,ovarian cysts
+27,Female,August,8:00,Sunday,Weekend,gynecologist,ovarian cysts
+24,Female,August,11:00,Sunday,Weekend,gynecologist,yeast infection
+26,Female,August,14:00,Sunday,Weekend,gynecologist,Premenstrual Syndrome
+32,Female,August,17:00,Sunday,Weekend,gynecologist,Cervical Dysplasia
+29,Female,August,20:00,Sunday,Weekend,gynecologist,fibroids
+34,Female,August,23:00,Sunday,Weekend,gynecologist,Endometrial Cancer
+38,Female,September,1:00,Monday,Weekday,gynecologist,Polyps
+23,Female,September,4:00,Monday,Weekday,gynecologist,ovarian cancer
+27,Female,September,7:00,Monday,Weekday,gynecologist,vulvodynia
+31,Female,September,10:00,Monday,Weekday,gynecologist,cervical cancer
+29,Female,June,17:00,Friday,Weekday,gynecologist,Polyps
+32,Female,June,20:00,Friday,Weekday,gynecologist,yeast infection
+27,Female,June,23:00,Friday,Weekday,gynecologist,Endometrial Cancer
+38,Female,June,10:00,Saturday,Weekend,gynecologist,ovarian cancer
+24,Female,June,14:00,Saturday,Weekend,gynecologist,Cervical Dysplasia
+31,Female,June,18:00,Saturday,Weekend,gynecologist,fibroids
+26,Female,June,22:00,Saturday,Weekend,gynecologist,ovarian cysts
+33,Female,June,9:00,Sunday,Weekend,gynecologist,Endometrial Cancer
+30,Female,June,13:00,Sunday,Weekend,gynecologist,Menorrhagia
+28,Female,June,16:00,Sunday,Weekend,gynecologist,Bacterial Vaginosis
+35,Female,June,19:00,Sunday,Weekend,gynecologist,Pelvic Inflammatory Disease
+32,Female,January,0:00,Monday,Weekday,gynecologist,Bacterial Vaginosis
+28,Female,January,1:00,Monday,Weekday,gynecologist,yeast infection
+35,Female,January,2:00,Monday,Weekday,gynecologist,Endometrial Cancer
+40,Female,January,3:00,Monday,Weekday,gynecologist,fibroids
+27,Female,January,4:00,Monday,Weekday,gynecologist,Chlamydia
+31,Female,January,5:00,Monday,Weekday,gynecologist,yeast infection
+34,Female,January,6:00,Monday,Weekday,gynecologist,ovarian cysts
+26,Female,January,7:00,Monday,Weekday,gynecologist,ovarian cysts
+33,Female,January,8:00,Monday,Weekday,gynecologist,fibroids
+29,Female,January,9:00,Monday,Weekday,gynecologist,Endometrial Cancer
+30,Female,January,10:00,Monday,Weekday,gynecologist,vulvodynia
+31,Female,January,8:00,Saturday,Weekend,gynecologist,yeast infection
+27,Female,February,16:00,Friday,Weekday,gynecologist,endometriosis
+24,Female,March,12:00,Wednesday,Weekday,gynecologist,bacterial vaginosis
+38,Female,April,14:00,Saturday,Weekend,gynecologist,cervical cancer
+29,Female,May,19:00,Thursday,Weekday,gynecologist,ovarian cysts
+34,Female,June,10:00,Saturday,Weekend,gynecologist,Polyps
+22,Female,July,15:00,Friday,Weekday,gynecologist,vulvodynia
+33,Female,August,13:00,Monday,Weekday,gynecologist,fibroids
+27,Female,September,17:00,Sunday,Weekend,gynecologist,fibroids
+36,Female,October,9:00,Wednesday,Weekday,gynecologist,yeast infection
+30,Female,November,11:00,Tuesday,Weekday,gynecologist,fibroids
+25,Female,December,14:00,Saturday,Weekend,gynecologist,yeast infection
+34,Female,June,17:00,Tuesday,Weekday,gynecologist,yeast infection
+27,Female,July,9:30,Wednesday,Weekday,gynecologist,ovarian cysts
+31,Female,August,13:15,Thursday,Weekday,gynecologist,endometriosis
+29,Female,September,19:45,Friday,Weekday,gynecologist,urinary tract infection
+25,Female,October,8:00,Saturday,Weekend,gynecologist,fibroids
+33,Female,November,14:30,Sunday,Weekend,gynecologist,Polyps
+26,Female,December,10:45,Monday,Weekday,gynecologist,cervical cancer
+30,Female,January,16:20,Tuesday,Weekday,gynecologist,ovarian cancer
+28,Female,February,11:00,Wednesday,Weekday,gynecologist,bacterial vaginosis
+35,Female,March,19:15,Thursday,Weekday,gynecologist,yeast infection
+28,Female,January,17:00,Monday,Weekday,gynecologist,Bacterial Vaginosis
+34,Female,January,18:30,Tuesday,Weekday,gynecologist,Endometrial Cancer
+21,Female,January,8:45,Wednesday,Weekday,gynecologist,cervical cancer
+42,Female,January,12:15,Thursday,Weekday,gynecologist,fibroids
+37,Female,January,9:30,Friday,Weekday,gynecologist,ovarian cysts
+25,Female,January,14:00,Saturday,Weekend,gynecologist,yeast infection
+31,Female,January,10:45,Sunday,Weekend,gynecologist,cervical cancer
+27,Female,February,13:30,Monday,Weekday,gynecologist,ovarian cancer
+38,Female,June,1:00,Monday,Weekday,gynecologist,yeast infection
+25,Female,June,4:00,Tuesday,Weekday,gynecologist,ovarian cysts
+42,Female,June,7:00,Wednesday,Weekday,gynecologist,endometriosis
+30,Female,June,10:00,Thursday,Weekday,gynecologist,vulvodynia
+29,Female,June,13:00,Friday,Weekday,gynecologist,fibroids
+36,Female,June,16:00,Saturday,Weekend,gynecologist,yeast infection
+27,Female,June,19:00,Sunday,Weekend,gynecologist,bacterial vaginosis
+34,Female,July,1:00,Monday,Weekday,gynecologist,ovarian cancer
+23,Female,July,4:00,Tuesday,Weekday,gynecologist,Polyps
+39,Female,July,7:00,Wednesday,Weekday,gynecologist,endometrial hyperplasia
+35,Female,June,15:00,Friday,Weekday,gynecologist,endometriosis
+28,Female,July,11:00,Saturday,Weekend,gynecologist,bacterial vaginosis
+45,Female,August,16:30,Sunday,Weekend,gynecologist,cervical cancer
+37,Female,December,9:00,Monday,Weekday,gynecologist,endometrial hyperplasia
+27,Female,September,12:00,Tuesday,Weekday,gynecologist,ovarian cysts
+31,Female,February,14:30,Thursday,Weekday,gynecologist,uterine fibroids
+43,Female,March,10:00,Saturday,Weekend,gynecologist,ovarian cancer
+29,Female,May,8:00,Sunday,Weekend,gynecologist,Polyps
+29,Female,March,12:00,Sunday,Weekend,gynecologist,yeast infection
+35,Female,April,8:00,Thursday,Weekday,gynecologist,endometriosis
+27,Female,June,4:00,Saturday,Weekend,gynecologist,bacterial vaginosis
+31,Female,October,10:00,Tuesday,Weekday,gynecologist,cervical cancer
+24,Female,August,6:00,Monday,Weekday,gynecologist,Polyps
+28,Female,December,9:00,Wednesday,Weekday,gynecologist,uterine fibroids
+32,Female,May,2:00,Saturday,Weekend,gynecologist,ovarian cysts
+26,Female,September,7:00,Monday,Weekday,gynecologist,fibroids
+27,Female,May,16:00,Thursday,Weekday,gynecologist,yeast infection
+34,Female,June,8:30,Saturday,Weekend,gynecologist,ovarian cysts
+42,Female,July,14:45,Monday,Weekday,gynecologist,endometriosis
+30,Female,August,10:15,Sunday,Weekend,gynecologist,yeast infection
+28,Female,September,11:30,Tuesday,Weekday,gynecologist,fibroids
+35,Female,October,9:00,Saturday,Weekend,gynecologist,fibroids
+31,Female,November,17:30,Thursday,Weekday,gynecologist,vulvodynia
+29,Female,December,13:45,Sunday,Weekend,gynecologist,vulvodynia
+33,Female,January,8:00,Friday,Weekday,gynecologist,bacterial vaginosis
+26,Female,February,15:30,Saturday,Weekend,gynecologist,urinary tract infection
+39,Female,March,12:00,Monday,Weekday,gynecologist,ovarian cancer
+36,Female,April,9:45,Wednesday,Weekday,gynecologist,cervical cancer
+32,Female,February,9:00,Monday,Weekday,gynecologist,endometriosis
+27,Female,March,14:00,Wednesday,Weekday,gynecologist,bacterial vaginosis
+41,Female,May,16:00,Saturday,Weekend,gynecologist,urinary tract infection
+29,Female,July,11:30,Thursday,Weekday,gynecologist,Polyps
+34,Female,December,18:30,Saturday,Weekend,gynecologist,cervical cancer
+39,Female,September,10:00,Monday,Weekday,gynecologist,uterine fibroids
+26,Female,April,13:00,Tuesday,Weekday,gynecologist,ovarian cysts
+30,Female,November,8:30,Sunday,Weekend,gynecologist,yeast infection
+37,Female,August,15:30,Saturday,Weekend,gynecologist,yeast infection
+28,Female,October,12:30,Friday,Weekday,gynecologist,fibroids
+5,Male,January,0:00,Monday,Weekday,Pediatrician,Asthma
+8,Female,January,1:00,Monday,Weekday,Pediatrician,tonsillitis
+3,Male,January,2:00,Monday,Weekday,Pediatrician,Asthma
+7,Male,January,3:00,Monday,Weekday,Pediatrician,Asthma
+2,Female,January,4:00,Monday,Weekday,Pediatrician,tonsillitis
+10,Female,January,5:00,Monday,Weekday,Pediatrician,tonsillitis
+1,Male,January,6:00,Monday,Weekday,Pediatrician,tonsillitis
+9,Male,January,7:00,Monday,Weekday,Pediatrician,tonsillitis
+11,Female,January,8:00,Monday,Weekday,Pediatrician,tonsillitis
+16,Male,January,9:00,Monday,Weekday,Pediatrician,Migraine
+4,Female,January,10:00,Monday,Weekday,Pediatrician,tonsillitis
+6,Female,January,11:00,Monday,Weekday,Pediatrician,Pneumonia
+12,Male,January,12:00,Monday,Weekday,Pediatrician,Asthma
+13,Male,January,13:00,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+2,Male,February,14:20,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+5,Female,February,10:45,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+7,Male,March,12:15,Sunday,Weekend,Pediatrician,Ear infection
+10,Female,March,8:30,Tuesday,Weekday,Pediatrician,Allergies
+6,Male,April,16:00,Thursday,Weekday,Pediatrician,Stomach flu
+1,Female,April,11:50,Friday,Weekday,Pediatrician,Roseola
+4,Male,May,9:30,Saturday,Weekend,Pediatrician,Chickenpox
+6,Female,May,11:20,Sunday,Weekend,Pediatrician,Conjunctivitis
+6,Male,January,15:45,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+9,Female,February,11:20,Saturday,Weekend,Pediatrician,Common cold
+1,Male,February,20:00,Sunday,Weekend,Pediatrician,Ear infection
+5,Female,March,7:15,Thursday,Weekday,Pediatrician,Pneumonia
+11,Male,March,12:30,Wednesday,Weekday,Pediatrician,Asthma
+4,Female,April,18:50,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+12,Female,February,11:15,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+6,Male,February,14:20,Tuesday,Weekday,Pediatrician,Ear infection
+3,Female,February,16:10,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+9,Male,February,9:40,Wednesday,Weekday,Pediatrician,Influenza
+4,Female,February,18:00,Wednesday,Weekday,Pediatrician,Sunburn
+10,Male,February,13:30,Thursday,Weekday,Pediatrician,Asthma
+7,Female,February,16:45,Thursday,Weekday,Pediatrician,Stomach flu
+2,Male,February,19:20,Thursday,Weekday,Pediatrician,Croup
+5,Female,February,8:00,Friday,Weekday,Pediatrician,Sunburn
+11,Male,February,10:50,Friday,Weekday,Pediatrician,Migraine
+1,Female,February,15:00,Friday,Weekday,Pediatrician,Urinary tract infection
+2,Male,August,14:45,Friday,Weekday,Pediatrician,Ear infection
+6,Female,August,18:30,Friday,Weekday,Pediatrician,Asthma
+9,Male,August,9:15,Saturday,Weekend,Pediatrician,Sunburn
+5,Female,August,11:00,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+11,Male,August,17:00,Saturday,Weekend,Pediatrician,tonsillitis
+4,Female,August,12:30,Sunday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+7,Male,August,22:00,Sunday,Weekend,Pediatrician,Conjunctivitis
+2,Female,September,10:30,Monday,Weekday,Pediatrician,Urinary tract infection
+4,Male,February,14:15,Monday,Weekday,Pediatrician,Ear infection
+7,Female,February,10:00,Tuesday,Weekday,Pediatrician,Asthma
+6,Male,February,17:45,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+3,Female,February,13:30,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+11,Male,March,11:20,Tuesday,Weekday,Pediatrician,Conjunctivitis
+5,Female,March,8:45,Thursday,Weekday,Pediatrician,Gastroenteritis
+2,Male,March,20:00,Saturday,Weekend,Pediatrician,Roseola
+9,Female,April,16:30,Friday,Weekday,Pediatrician,Chickenpox
+1,Male,April,11:00,Saturday,Weekend,Pediatrician,Pneumonia
+2,Male,February,16:45,Friday,Weekday,Pediatrician,Ear infection
+9,Female,February,14:15,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+4,Male,February,11:00,Sunday,Weekend,Pediatrician,Asthma
+5,Female,March,9:30,Monday,Weekday,Pediatrician,Conjunctivitis
+10,Male,March,14:00,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+1,Female,April,8:30,Saturday,Weekend,Pediatrician,Chickenpox
+6,Male,January,15:45,Wednesday,Weekday,Pediatrician,Ear infection
+1,Female,January,17:30,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+2,Male,January,12:00,Thursday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+5,Female,January,9:15,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+4,Male,January,14:00,Saturday,Weekend,Pediatrician,Croup
+3,Female,January,10:30,Sunday,Weekend,Pediatrician,Stomach flu
+7,Male,February,13:45,Monday,Weekday,Pediatrician,Asthma
+9,Female,February,16:30,Monday,Weekday,Pediatrician,Asthma
+2,Male,February,11:00,Tuesday,Weekday,Pediatrician,Pneumonia
+10,Female,February,9:15,Wednesday,Weekday,Pediatrician,Influenza
+6,Male,February,17:00,Thursday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+1,Female,February,10:45,Friday,Weekday,Pediatrician,Roseola
+5,Male,February,14:30,Saturday,Weekend,Pediatrician,Pneumonia
+3,Female,February,16:15,Sunday,Weekend,Pediatrician,Sunburn
+8,Male,March,11:30,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+10,Male,February,15:45,Monday,Weekday,Pediatrician,Asthma
+6,Female,February,13:20,Wednesday,Weekday,Pediatrician,Ear infection
+4,Male,February,9:15,Thursday,Weekday,Pediatrician,Common cold
+2,Female,February,11:30,Friday,Weekday,Pediatrician,Croup
+8,Male,March,16:00,Saturday,Weekend,Pediatrician,Conjunctivitis
+12,Female,March,10:15,Sunday,Weekend,Pediatrician,Appendicitis
+7,Male,March,14:30,Monday,Weekday,Pediatrician,Pneumonia
+3,Female,April,8:45,Wednesday,Weekday,Pediatrician,Chickenpox
+5,Male,April,11:10,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+6,Female,April,9:30,Saturday,Weekend,Pediatrician,Urinary tract infection
+14,Male,May,17:30,Sunday,Weekend,Pediatrician,Pneumonia
+9,Female,May,10:20,Monday,Weekday,Pediatrician,Gastroenteritis
+2,Male,May,8:00,Wednesday,Weekday,Pediatrician,Roseola
+7,Female,June,14:15,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+5,Male,February,14:20,Monday,Weekday,Pediatrician,Ear infection
+7,Female,February,8:45,Tuesday,Weekday,Pediatrician,Asthma
+2,Male,February,16:30,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+1,Female,February,9:10,Wednesday,Weekday,Pediatrician,Roseola
+6,Male,February,10:45,Thursday,Weekday,Pediatrician,Conjunctivitis
+10,Female,February,11:30,Thursday,Weekday,Pediatrician,Stomach flu
+7,Male,April,14:00,Wednesday,Weekday,Pediatrician,Allergies
+2,Female,April,10:30,Friday,Weekday,Pediatrician,Ear infection
+1,Male,May,16:30,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+12,Female,May,13:15,Monday,Weekday,Pediatrician,Asthma
+5,Male,June,9:00,Thursday,Weekday,Pediatrician,Pneumonia
+4,Female,June,11:45,Sunday,Weekend,Pediatrician,Roseola
+8,Male,July,15:30,Tuesday,Weekday,Pediatrician,Conjunctivitis
+10,Female,July,12:00,Friday,Weekday,Pediatrician,tonsillitis
+6,Female,August,8:45,Saturday,Weekend,Pediatrician,Chickenpox
+3,Male,August,11:15,Wednesday,Weekday,Pediatrician,Croup
+6,Male,May,11:45,Friday,Weekday,Pediatrician,Chickenpox
+9,Female,May,17:30,Friday,Weekday,Pediatrician,Asthma
+5,Male,June,9:15,Saturday,Weekend,Pediatrician,Ear infection
+4,Female,June,12:20,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+1,Male,July,14:30,Monday,Weekday,Pediatrician,Roseola
+12,Male,May,17:45,Wednesday,Weekday,Pediatrician,Ear infection
+2,Female,May,11:20,Saturday,Weekend,Pediatrician,Chickenpox
+5,Male,July,14:15,Monday,Weekday,Pediatrician,Asthma
+11,Male,June,15:45,Wednesday,Weekday,Pediatrician,Allergies
+5,Female,June,11:30,Thursday,Weekday,Pediatrician,Asthma
+1,Male,June,19:15,Friday,Weekday,Pediatrician,Ear infection
+4,Female,June,8:00,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+1,Male,March,14:20,Friday,Weekday,Pediatrician,Ear infection
+5,Female,March,8:45,Saturday,Weekend,Pediatrician,Common cold
+6,Male,March,10:15,Sunday,Weekend,Pediatrician,Asthma
+3,Female,April,2:30,Wednesday,Weekday,Pediatrician,Gastroenteritis
+2,Male,April,16:50,Thursday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+9,Female,April,11:30,Sunday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+14,Male,May,19:20,Friday,Weekday,Pediatrician,Conjunctivitis
+8,Female,May,12:40,Saturday,Weekend,Pediatrician,Urinary tract infection
+11,Male,May,8:10,Sunday,Weekend,Pediatrician,Pneumonia
+4,Female,June,15:30,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+2,Male,June,10:50,Thursday,Weekday,Pediatrician,Roseola
+3,Female,June,11:20,Sunday,Weekend,Pediatrician,Croup
+6,Male,July,16:15,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+10,Female,July,14:00,Saturday,Weekend,Pediatrician,Migraine
+1,Male,July,9:30,Sunday,Weekend,Pediatrician,Asthma
+4,Male,February,2:15,Sunday,Weekend,Pediatrician,Ear infection
+12,Female,February,10:45,Monday,Weekday,Pediatrician,Asthma
+7,Male,March,14:20,Saturday,Weekend,Pediatrician,Chickenpox
+2,Female,March,9:10,Thursday,Weekday,Pediatrician,Gastroenteritis
+1,Male,April,3:40,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+6,Female,April,16:50,Sunday,Weekend,Pediatrician,Urinary tract infection
+8,Male,May,8:15,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+3,Female,May,19:30,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+5,Male,June,11:00,Tuesday,Weekday,Pediatrician,Conjunctivitis
+2,Female,June,13:20,Sunday,Weekend,Pediatrician,Roseola
+6,Male,July,4:30,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+11,Female,July,15:15,Saturday,Weekend,Pediatrician,Asthma
+4,Male,August,7:00,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+8,Female,August,12:10,Saturday,Weekend,Pediatrician,Asthma
+7,Male,July,14:45,Tuesday,Weekday,Pediatrician,Asthma
+4,Female,July,17:30,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+5,Male,July,11:00,Wednesday,Weekday,Pediatrician,Allergies
+9,Female,July,9:15,Thursday,Weekday,Pediatrician,tonsillitis
+2,Male,July,12:30,Friday,Weekday,Pediatrician,Roseola
+6,Female,July,15:45,Friday,Weekday,Pediatrician,Croup
+12,Male,July,10:00,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+2,Male,July,14:45,Saturday,Weekend,Pediatrician,Food poisoning
+9,Female,August,10:15,Wednesday,Weekday,Pediatrician,Ear infection
+7,Male,September,20:00,Sunday,Weekend,Pediatrician,Asthma
+4,Female,November,11:30,Friday,Weekday,Pediatrician,Croup
+1,Male,April,8:00,Thursday,Weekday,Pediatrician,Roseola
+5,Female,June,16:20,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+8,Male,January,3:30,Sunday,Weekend,Pediatrician,Pneumonia
+3,Female,October,13:45,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+10,Male,May,12:00,Saturday,Weekend,Pediatrician,Sunburn
+6,Female,July,19:30,Tuesday,Weekday,Pediatrician,Gastroenteritis
+2,Male,August,22:15,Sunday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+4,Female,November,16:30,Wednesday,Weekday,Pediatrician,Croup
+1,Male,April,14:00,Friday,Weekday,Pediatrician,Asthma
+9,Female,June,11:00,Saturday,Weekend,Pediatrician,Sunburn
+5,Male,January,6:45,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+10,Male,August,15:45,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+5,Female,August,20:20,Saturday,Weekend,Pediatrician,Urinary tract infection
+11,Male,September,13:10,Wednesday,Weekday,Pediatrician,Conjunctivitis
+2,Female,September,11:30,Sunday,Weekend,Pediatrician,Roseola
+9,Male,October,16:00,Friday,Weekday,Pediatrician,Asthma
+6,Female,October,8:15,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+6,Male,July,15:45,Sunday,Weekend,Pediatrician,Sunburn
+4,Female,August,7:15,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+14,Male,August,19:30,Friday,Weekday,Pediatrician,Asthma
+11,Female,September,16:00,Saturday,Weekend,Pediatrician,Food poisoning
+8,Male,October,10:45,Wednesday,Weekday,Pediatrician,Conjunctivitis
+5,Female,October,13:30,Sunday,Weekend,Pediatrician,Croup
+10,Male,November,8:15,Tuesday,Weekday,Pediatrician,Ear infection
+11,Male,March,16:45,Friday,Weekday,Pediatrician,Asthma
+4,Female,March,8:15,Saturday,Weekend,Pediatrician,Ear infection
+10,Male,March,11:30,Sunday,Weekend,Pediatrician,Allergies
+6,Female,April,9:00,Wednesday,Weekday,Pediatrician,Pneumonia
+2,Male,April,17:00,Saturday,Weekend,Pediatrician,Pneumonia
+7,Female,April,13:30,Friday,Weekday,Pediatrician,Conjunctivitis
+9,Male,May,10:45,Thursday,Weekday,Pediatrician,Chickenpox
+1,Female,May,15:00,Sunday,Weekend,Pediatrician,Food poisoning
+5,Male,June,11:15,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+3,Female,June,14:30,Saturday,Weekend,Pediatrician,Sunburn
+12,Male,June,9:00,Monday,Weekday,Pediatrician,Migraine
+8,Female,July,18:00,Friday,Weekday,Pediatrician,Urinary tract infection
+3,Male,July,10:30,Sunday,Weekend,Pediatrician,Roseola
+6,Female,July,8:45,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+5,Male,August,14:15,Wednesday,Weekday,Pediatrician,Pneumonia
+6,Male,April,3:45,Monday,Weekday,Pediatrician,Asthma
+1,Female,April,10:15,Monday,Weekday,Pediatrician,Roseola
+9,Male,April,16:30,Monday,Weekday,Pediatrician,Ear infection
+5,Female,April,22:00,Monday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+2,Male,May,9:00,Tuesday,Weekday,Pediatrician,Chickenpox
+7,Female,May,14:45,Tuesday,Weekday,Pediatrician,Asthma
+11,Male,May,19:30,Tuesday,Weekday,Pediatrician,Sunburn
+4,Female,June,7:15,Wednesday,Weekday,Pediatrician,Roseola
+12,Male,June,13:00,Wednesday,Weekday,Pediatrician,Asthma
+2,Male,June,15:00,Saturday,Weekend,Pediatrician,Asthma
+10,Female,July,12:45,Wednesday,Weekday,Pediatrician,Ear infection
+4,Male,August,8:20,Thursday,Weekday,Pediatrician,Chickenpox
+6,Female,April,18:10,Monday,Weekday,Pediatrician,Pneumonia
+12,Male,December,10:30,Sunday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+1,Female,May,14:15,Saturday,Weekend,Pediatrician,Common cold
+9,Male,January,17:20,Monday,Weekday,Pediatrician,tonsillitis
+2,Male,May,10:15,Wednesday,Weekday,Pediatrician,Chickenpox
+12,Female,May,14:00,Wednesday,Weekday,Pediatrician,Asthma
+6,Male,May,18:30,Wednesday,Weekday,Pediatrician,Ear infection
+5,Female,May,9:45,Thursday,Weekday,Pediatrician,Influenza
+1,Male,May,17:00,Thursday,Weekday,Pediatrician,Roseola
+7,Female,May,11:30,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+4,Male,May,13:15,Friday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+3,Female,May,16:45,Friday,Weekday,Pediatrician,Conjunctivitis
+6,Male,May,9:00,Saturday,Weekend,Pediatrician,Stomach flu
+10,Female,May,14:30,Saturday,Weekend,Pediatrician,Appendicitis
+9,Male,May,11:45,Sunday,Weekend,Pediatrician,Migraine
+2,Female,June,14:45,Thursday,Weekday,Pediatrician,Ear infection
+11,Male,June,17:30,Thursday,Weekday,Pediatrician,Asthma
+6,Female,June,20:15,Thursday,Weekday,Pediatrician,Stomach flu
+8,Male,June,9:00,Friday,Weekday,Pediatrician,Conjunctivitis
+10,Female,June,12:30,Friday,Weekday,Pediatrician,tonsillitis
+5,Male,June,16:00,Friday,Weekday,Pediatrician,Chickenpox
+12,Male,April,14:45,Saturday,Weekend,Pediatrician,Asthma
+5,Female,April,10:15,Sunday,Weekend,Pediatrician,Ear infection
+16,Male,May,18:00,Wednesday,Weekday,Pediatrician,Appendicitis
+2,Female,May,11:30,Friday,Weekday,Pediatrician,Pneumonia
+9,Male,June,13:15,Thursday,Weekday,Pediatrician,Conjunctivitis
+1,Female,June,2:45,Saturday,Weekend,Pediatrician,Food poisoning
+11,Male,July,17:30,Monday,Weekday,Pediatrician,Allergies
+6,Female,July,9:00,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+15,Male,August,20:00,Wednesday,Weekday,Pediatrician,Sunburn
+6,Male,December,15:45,Sunday,Weekend,Pediatrician,Asthma
+2,Female,May,10:20,Thursday,Weekday,Pediatrician,Ear infection
+1,Male,November,3:15,Sunday,Weekend,Pediatrician,"Hand, foot and mouth disease"
+4,Female,July,18:30,Wednesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+16,Male,September,21:50,Tuesday,Weekday,Pediatrician,"Hand, foot and mouth disease"
+9,Female,October,11:15,Saturday,Weekend,Pediatrician,"Hand, foot and mouth disease"
