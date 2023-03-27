@@ -41,6 +41,15 @@ class GenderView(View):
             'spec':s
         }
         return render(request, 'dashboard/dashgender.html',context)
+    
+class AgeView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/agedash.html',context)
 
 class ChartData(APIView):
     def get(self, request, format=None):
@@ -114,12 +123,36 @@ class GenderData(APIView):
             month_data = df_gender.loc[df_gender['month'] == month]
             male_count = month_data[month_data['gender'] == 'Male']['gender'].count()
             female_count = month_data[month_data['gender'] == 'Female']['gender'].count()
-            data[month] = {'Male': male_count, 'Female': female_count}
+            # data[month] = {'Male': male_count, 'Female': female_count}
+        
+        data = {}
+        for gender in ['Male', 'Female']:
+            data[gender] = {month: df_gender.loc[(df_gender['month'] == month) & (df_gender['gender'] == gender)]['gender'].count()
+                            for month in months}
+
         data={
             "month_key":data.keys(),
-            "values":data.values(),
+            "week":data.values(),
         }
-        print(data)
         return Response(data)
 
 
+import numpy as np
+class AgeData(APIView):
+    def get(self,request):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+        spec=Specialization.objects.get(spec_name=s).spec_name
+        df = pd.read_csv('dashboard/moddata.csv')
+        bins = [0, 18, 25, 35, 45, 55, 65, np.inf]
+        labels = ['0-18', '18-25', '25-35', '35-45', '45-55', '55-65', '65+']
+        df_age_male = df.loc[(df['specialty'] == spec) & (df['gender'] == 'Male')]
+        df_age_female = df.loc[(df['specialty']==spec) & (df['gender'] == 'Female')]
+        male = pd.cut(df_age_male['age'], bins=bins, labels=labels).value_counts().to_dict()
+        female=pd.cut(df_age_female['age'], bins=bins, labels=labels).value_counts().to_dict()
+        
+        data={
+            'male':male,
+            'female':female,
+        }
+
+        return Response(data)

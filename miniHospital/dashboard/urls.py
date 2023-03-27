@@ -11,4 +11,6 @@ urlpatterns = [
     path('api/weekday', views.WeekdayData.as_view()),
     path('gender',views.GenderView.as_view(),name='gender'),
     path('api/gender', views.GenderData.as_view()),
+    path('api/age', views.AgeData.as_view()),
+    path('age', views.AgeView.as_view(),name='age'),
 ]

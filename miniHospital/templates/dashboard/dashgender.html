@@ -12,9 +12,9 @@
     <div class="col-md-6">
         <canvas id="groupedchart"></canvas>
     </div>
-    <!-- <div class="col-md-6">
-        <canvas id="weekend"></canvas>
-    </div> -->
+    <div class="col-md-6">
+        <canvas id="groupedline"></canvas>
+    </div>
 </div>
 <hr />
 
@@ -22,13 +22,14 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <script>
-    var endpoint = 'http://127.0.0.1:8000/dashboard/api/weekday';
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/gender';
 
     $.ajax({
         method: "GET",
         url: endpoint,
         success: function (data) {
-            groupedchart('groupedchart');
+            groupedchart(data, 'groupedchart', 'bar');
+            groupedchart(data, 'groupedline', 'line');
             console.log("drawing");
         },
         error: function (error_data) {
@@ -39,38 +40,70 @@
 
 
 
-    function groupedchart(id) {
+    function groupedchart(data, id, typ) {
         var ctx = document.getElementById(id).getContext("2d");
 
-        var data = {
-            labels: ["Chocolate", "Vanilla", "Strawberry"],
-            datasets: [{
-                    label: "Blue",
-                    backgroundColor: "blue",
-                    data: [3, 7, 4]
-                },
-                {
-                    label: "Red",
-                    backgroundColor: "red",
-                    data: [4, 3, 5]
-                },
-                {
-                    label: "Green",
-                    backgroundColor: "green",
-                    data: [7, 2, 6]
-                }
-            ]
-        };
+        if (typ == 'bar') {
+            var data = {
+                labels: Object.keys(data.week[0]),
+                datasets: [{
+                        label: "Male",
+                        backgroundColor: "#b91d47",
+                        data: Object.values(data.week[0])
+                    },
+                    {
+                        label: "Female",
+                        backgroundColor: "#2b57e7",
+                        data: Object.values(data.week[1])
+                    }
+                ]
+            };
+        } else {
+            var data = {
+                labels: Object.keys(data.week[0]),
+                datasets: [{
+                        label: "Male",
+                        borderColor: "#b91d47",
+                        data: Object.values(data.week[0])
+                    },
+                    {
+                        label: "Female",
+                        borderColor: "#2b57e7",
+                        data: Object.values(data.week[1])
+                    }
+                ]
+            };
+        }
 
         var myBarChart = new Chart(ctx, {
-            type: 'bar',
+            type: typ,
             data: data,
             options: {
                 barValueSpacing: 20,
                 scales: {
                     yAxes: [{
                         ticks: {
-                            min: 0,
+                            fontColor: 'black',
+                            fontSize: 12,
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Appointment Count',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Months',
+                            fontColor: 'black',
+                            fontSize: 12,
                         }
                     }]
                 }

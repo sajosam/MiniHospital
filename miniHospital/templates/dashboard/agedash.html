@@ -1,0 +1,81 @@
+{% extends 'dashboard/dashbase.html' %}
+
+
+{% block dash %}
+
+
+<center class="row">
+    <h1 style="color: #05081d;">{{spec}} Department Vizualization playground</h1>
+</center>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <center>
+            <h3 style="margin: 30px;">Age Distribution (Male)</h3>
+        </center>
+        <canvas id="piemale"></canvas>
+    </div>
+    <div class="col-md-6">
+        <center>
+            <h3 style="margin: 30px;">Age Distribution (Female)</h3>
+        </center>
+        <canvas id="piefemale"></canvas>
+    </div>
+</div>
+<hr />
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/age';
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+            pieChart("piemale", data.male)
+            pieChart("piefemale", data.female)
+
+            console.log("drawing");
+        },
+        error: function (error_data) {
+            console.log(error_data);
+        }
+    })
+
+    function pieChart(id, data) {
+        var xValues = Object.keys(data);
+        var yValues = Object.values(data);
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145",
+            "#ff0097",
+            "#7e3878",
+        ];
+
+        new Chart(id, {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                // title: {
+                //     display: true,
+                //     text: "Age Distribution (Male)"
+                // }
+            }
+        });
+    }
+</script>
+</body>
+
+
+{% endblock dash %}
