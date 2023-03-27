@@ -1,0 +1,84 @@
+{% extends 'dashboard/dashbase.html' %}
+
+
+{% block dash %}
+
+
+<center class="row">
+    <h1 style="color: #05081d;">{{spec}} Department Vizualization playground</h1>
+</center>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <canvas id="groupedchart"></canvas>
+    </div>
+    <!-- <div class="col-md-6">
+        <canvas id="weekend"></canvas>
+    </div> -->
+</div>
+<hr />
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/weekday';
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+            groupedchart('groupedchart');
+            console.log("drawing");
+        },
+        error: function (error_data) {
+            console.log(error_data);
+        }
+    })
+
+
+
+
+    function groupedchart(id) {
+        var ctx = document.getElementById(id).getContext("2d");
+
+        var data = {
+            labels: ["Chocolate", "Vanilla", "Strawberry"],
+            datasets: [{
+                    label: "Blue",
+                    backgroundColor: "blue",
+                    data: [3, 7, 4]
+                },
+                {
+                    label: "Red",
+                    backgroundColor: "red",
+                    data: [4, 3, 5]
+                },
+                {
+                    label: "Green",
+                    backgroundColor: "green",
+                    data: [7, 2, 6]
+                }
+            ]
+        };
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+            }
+        });
+    }
+</script>
+</body>
+
+
+{% endblock dash %}

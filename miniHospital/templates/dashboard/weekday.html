@@ -8,38 +8,29 @@
     <h1 style="color: #05081d;">{{spec}} Department Vizualization playground</h1>
 </center>
 <hr />
+
 <div class="row">
     <div class="col-md-6">
-        <center>
-            <h2>Monthly Appointment Barchart</h2>
-        </center>
-        <canvas id="myChartline"></canvas>
+        <canvas id="weekday"></canvas>
     </div>
     <div class="col-md-6">
-        <center>
-            <h2>Monthly Appointment Linechart</h2>
-        </center>
-        <canvas id="myline"></canvas>
+        <canvas id="weekend"></canvas>
     </div>
 </div>
 <hr />
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <script>
-    var endpoint = 'http://127.0.0.1:8000/dashboard/api';
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/weekday';
 
     $.ajax({
         method: "GET",
         url: endpoint,
         success: function (data) {
-            drawBarGraph(data, 'myChartline', 'bar');
-            drawBarGraph(data, 'myline', 'line');
             drawMultiLine(data, 'weekday');
             drawWeekend(data, 'weekend');
-
             console.log("drawing");
         },
         error: function (error_data) {
@@ -47,84 +38,7 @@
         }
     })
 
-    function drawBarGraph(data, id, typ) {
-        var labels = data.labels;
-        var chartdata = data.chartdata;
-        var ctx = document.getElementById(id).getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: typ,
-            data: {
-                labels: labels,
-                datasets: [{
-                    data: chartdata,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(255, 206, 8, 0.6)',
-                        'rgba(75, 12, 19, 0.6)',
-                        'rgba(153, 102, 255, 0.6)',
-                        'rgba(25, 159, 64, 0.6)',
-                        'rgba(55, 19, 64, 0.6)',
-                        'rgba(13, 11, 67, 0.6)',
-                        'rgba(255, 1, 64, 0.6)',
-                        'rgba(54, 12, 235, 0.6)',
-                        'rgba(250, 90, 60, 0.6)',
-                        'rgba(5, 59, 14, 0.6)'
 
-
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 8, 1)',
-                        'rgba(75, 12, 19, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(25, 159, 64, 1)',
-                        'rgba(55, 19, 64, 1)',
-                        'rgba(13, 11, 67, 1)',
-                        'rgba(255, 1, 64, 1)',
-                        'rgba(54, 12, 235, 1)',
-                        'rgba(250, 90, 60, 1)',
-                        'rgba(5, 59, 14, 1)'
-
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                legend: {
-                    display: false,
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            fontColor: 'black',
-                            fontSize: 12,
-                            beginAtZero: true
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Appointment Count',
-                            fontColor: 'black',
-                            fontSize: 12,
-                        }
-                    }],
-                    xAxes: [{
-                        ticks: {
-                            fontColor: 'black',
-                            fontSize: 12,
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Months',
-                            fontColor: 'black',
-                            fontSize: 12,
-                        }
-                    }]
-                }
-            }
-        });
-    }
 
     function drawMultiLine(data, id) {
         // alert(Object.keys(data.week[3]))
@@ -139,8 +53,6 @@
             "#f35399",
             "#1e7145"
         ];
-
-
 
         for (let i = 0; i < Object.keys(data.month_key).length; i++) {
             const week = data.week[i];

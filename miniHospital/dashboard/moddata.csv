@@ -601,7 +601,7 @@ age,gender,month,time,day,day_type,specialty,disease
 28,Male,August,3:45,Monday,Weekday,Orthopedics,fracture
 37,Female,August,1:15,Saturday,Weekend,Orthopedics,arthritis
 49,Male,September,10:30,Tuesday,Weekday,Orthopedics,osteoporosis
-22,non-binary,September,4:00,Thursday,Weekday,Orthopedics,scoliosis
+22,Male,September,4:00,Thursday,Weekday,Orthopedics,scoliosis
 70,Female,October,11:45,Sunday,Weekend,Orthopedics,herniated disc
 44,Male,October,2:30,Friday,Weekday,Orthopedics,tendonitis
 31,Female,November,9:45,Wednesday,Weekday,Orthopedics,fracture

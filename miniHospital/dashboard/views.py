@@ -24,6 +24,23 @@ class HomeView(View):
         }
         return render(request, 'dashboard/dashhome.html',context)
 
+class WeekdayView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/weekday.html',context)
+
+class GenderView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/dashgender.html',context)
 
 class ChartData(APIView):
     def get(self, request, format=None):
@@ -33,7 +50,19 @@ class ChartData(APIView):
         # part 1
         df1 = df.loc[df['specialty'] == spec].groupby('month')['month'].count()
 
-        # part2
+        data={
+            "labels":df1.index.tolist(),
+            "chartdata":df1.values.tolist(),
+
+        }
+        return Response(data)
+
+
+class WeekdayData(APIView):
+    def get(self, request, format=None):
+        df = pd.read_csv('dashboard/moddata.csv')
+        s=Doctor.objects.get(email=request.user.id).spec_name
+        spec=Specialization.objects.get(spec_name=s).spec_name
         df_weekday = df.loc[df['day_type'] == 'Weekday'] # filter weekday data
         months = df['month'].unique()
         data = {}
@@ -49,10 +78,6 @@ class ChartData(APIView):
                 if day not in result:
                     result[day] = {}
                 result[day][month] = count
-        
-
-
-
         df_weekend = df.loc[df['day_type'] == 'Weekend'] 
         week = {}
         for month in months:
@@ -61,26 +86,40 @@ class ChartData(APIView):
             day_count = month_data.groupby('day')['day'].count()
             day_count_dict = dict(zip(day_count.index, day_count.values))
             week[month] = day_count_dict
-
         weekend = {}
         for month, data in week.items():
             for day, count in data.items():
                 if day not in weekend:
                     weekend[day] = {}
                 weekend[day][month] = count
-
-        
-        print(weekend)
-
-
-        
-        
         data={
-            "labels":df1.index.tolist(),
-            "chartdata":df1.values.tolist(),
             "month_key":result.keys(),
             "week":result.values(),
             "weekend":weekend.keys(),
             "week_end":weekend.values(),
         }
         return Response(data)
+    
+
+class GenderData(APIView):
+    def get(self, request):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+        spec=Specialization.objects.get(spec_name=s).spec_name
+        df = pd.read_csv('dashboard/moddata.csv')
+        df_gender = df.loc[df['specialty'] == spec] # filter weekday data
+        months = df['month'].unique()
+        data = {}
+        da={}
+        for month in months:
+            month_data = df_gender.loc[df_gender['month'] == month]
+            male_count = month_data[month_data['gender'] == 'Male']['gender'].count()
+            female_count = month_data[month_data['gender'] == 'Female']['gender'].count()
+            data[month] = {'Male': male_count, 'Female': female_count}
+        data={
+            "month_key":data.keys(),
+            "values":data.values(),
+        }
+        print(data)
+        return Response(data)
+
+
