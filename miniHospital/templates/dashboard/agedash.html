@@ -58,7 +58,7 @@
         ];
 
         new Chart(id, {
-            type: "pie",
+            type: "doughnut",
             data: {
                 labels: xValues,
                 datasets: [{
@@ -67,10 +67,10 @@
                 }]
             },
             options: {
-                // title: {
-                //     display: true,
-                //     text: "Age Distribution (Male)"
-                // }
+                legend: {
+                    display: true
+                },
+
             }
         });
     }

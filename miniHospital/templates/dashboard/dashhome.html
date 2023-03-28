@@ -154,7 +154,9 @@
                 label: label,
                 borderColor: borderColor,
                 backgroundColor: backgroundColor,
-                data: values
+                data: values,
+                // stepped: true,
+
             };
 
             datasets.push(dataset);
@@ -235,7 +237,10 @@
                 label: label,
                 borderColor: borderColor,
                 backgroundColor: backgroundColor,
-                data: values
+                data: values,
+                pointStyle: 'circle',
+                pointRadius: 10,
+                pointHoverRadius: 15
             };
 
             datasets.push(dataset);
