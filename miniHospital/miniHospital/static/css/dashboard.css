@@ -39,9 +39,9 @@ body {
 #doctor_main {
   transition: margin-left 0.5s;
   padding: 16px;
-  height: 100vh;
+  height: 100%;
   background: #3ee4ea;
-  height: 100em;
+  /* height: 100%; */
 }
 
 @media screen and (max-height: 450px) {

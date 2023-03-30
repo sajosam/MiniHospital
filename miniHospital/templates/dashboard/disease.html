@@ -13,7 +13,7 @@
         <canvas id="groupedchart"></canvas>
     </div>
 </div>
-<hr />
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -40,18 +40,26 @@
     function groupedchart(data, id) {
         var ctx = document.getElementById(id).getContext("2d");
         var datasets = []; // Define the datasets array here
-        // alert(data.month.length);
 
+        // Iterate over the diseases in the data
         for (var i = 0; i < data.disease.length; i++) {
-            // alert(Object.keys(data.result[i]));
+            // Extract the counts for the disease
+            var counts = [];
+            for (var j = 0; j < data.month.length; j++) {
+                var count = data.result[i][data.month[j]];
+                counts.push(count);
+            }
+
+            // Add the dataset to the array
             datasets.push({
-                label: data.month[i],
+                label: data.disease[i],
                 backgroundColor: getRandomColor(),
-                data: Object.values(data.result[i])
+                data: counts
             });
         }
+
         var chartData = {
-            labels: Object.keys(data.result[0]),
+            labels: data.month,
             datasets: datasets
         };
 
@@ -69,7 +77,7 @@
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Appointment Count',
+                            labelString: 'Count',
                             fontColor: 'black',
                             fontSize: 12,
                         }
@@ -81,7 +89,7 @@
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Months',
+                            labelString: 'Month',
                             fontColor: 'black',
                             fontSize: 12,
                         }
@@ -90,6 +98,7 @@
             }
         });
     }
+
 
     function getRandomColor() {
         var letters = '0123456789ABCDEF';

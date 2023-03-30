@@ -61,9 +61,16 @@ class DiseaseView(View):
 class RiskAnalysisView(View):
     def get(self, request, *args, **kwargs):
         s=Doctor.objects.get(email=request.user.id).spec_name
+        df = pd.read_csv('dashboard/moddata.csv')
+        df_spec=df[df['specialty'] == str(s)]
+        # get disease unique count
+        disease_count = df_spec['disease'].unique()
+        print(disease_count)
 
         context={
-            'spec':s
+            'spec':s,
+            'disease_count':disease_count
+
         }
         return render(request, 'dashboard/riskdash.html',context)
 
@@ -168,37 +175,77 @@ class AgeData(APIView):
         return Response(data)
 
 class DiseaseData(APIView):
-    def get(self,request):
-        s=Doctor.objects.get(email=request.user.id).spec_name
-        spec=Specialization.objects.get(spec_name=s).spec_name
+    def get(self, request):
+        s = Doctor.objects.get(email=request.user.id).spec_name
+        spec = Specialization.objects.get(spec_name=s).spec_name
         df = pd.read_csv('dashboard/moddata.csv')
         cardiology_df = df[df['specialty'] == spec]
         grouped = cardiology_df.groupby(['month', 'disease'])['disease'].count()
+        print("groped", grouped)
+
+        # Initialize result dictionary with all diseases
+        diseases = cardiology_df['disease'].unique()
+        months = cardiology_df['month'].unique()
         result = {}
-        diseases=cardiology_df['disease'].unique()
+        for month in months:
+            result[month] = {}
+            for disease in diseases:
+                result[month][disease] = 0
+
+        # Update result dictionary with counts for each disease and month
         for month, disease in grouped.index:
             count = grouped.loc[(month, disease)]
-            if month not in result:
-                result[month] = {}
             result[month][disease] = count
-        
-        diseases = list(result[next(iter(result))].keys())
+
+        # Initialize new_result dictionary with all diseases
         new_result = {}
         for disease in diseases:
             new_result[disease] = {}
-            for month in result:
-                new_result[disease][month] = result[month][disease] if disease in result[month] else 0
-        
+            for month in months:
+                new_result[disease][month] = result[month][disease]
 
+        print(new_result)
 
-        data={
-            'disease':diseases,
-            'month':new_result.keys(),
-            'result':new_result.values(),
+        data = {
+            'disease': list(diseases),
+            'month': list(months),
+            'result': list(new_result.values()),
         }
 
         return Response(data)
+
     
+
 class RiskAnalysisData(APIView):
     def get(self, request):
-        pass
+        
+        s = Doctor.objects.get(email=request.user.id).spec_name
+        spec = Specialization.objects.get(spec_name=s).spec_name
+        df = pd.read_csv('dashboard/moddata.csv')
+        cardiology_df = df[df['specialty'] == spec]
+
+        diseases = cardiology_df ['disease'].unique()
+        # months = cardiology_df ['month'].unique()
+        risk={}
+        data = {}
+        for disease in diseases:
+            # create a age bins
+            bins = [0, 18, 25, 35, 45, 55, 65, np.inf]
+            labels = ['0-18', '18-25', '25-35', '35-45', '45-55', '55-65', '65+']
+            # create a new column for age group
+            cardiology_df['age_group'] = pd.cut(cardiology_df['age'], bins=bins, labels=labels) 
+            # risk % of ith disease based on count in each age bins
+            risk = cardiology_df[cardiology_df['disease'] == disease].groupby('age_group')['age_group'].count() / cardiology_df[cardiology_df['disease'] == disease].shape[0] * 100
+            # store the risk % in a dictionary
+            risk = dict(zip(risk.index, risk.values))
+            # store the dictionary in a list
+            data[disease] = risk
+        
+        print(data)
+        return Response(data)
+
+  
+
+
+                
+
