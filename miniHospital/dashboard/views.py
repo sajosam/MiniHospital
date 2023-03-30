@@ -17,8 +17,6 @@ from doctor.models import Doctor,Specialization
 class HomeView(View):
     def get(self, request, *args, **kwargs):
         s=Doctor.objects.get(email=request.user.id).spec_name
-        # df = pd.read_csv('dashboard/moddata.csv')
-
         context={
             'spec':s
         }
@@ -50,6 +48,25 @@ class AgeView(View):
             'spec':s
         }
         return render(request, 'dashboard/agedash.html',context)
+
+class DiseaseView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/disease.html',context)
+
+class RiskAnalysisView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/riskdash.html',context)
+
 
 class ChartData(APIView):
     def get(self, request, format=None):
@@ -117,14 +134,7 @@ class GenderData(APIView):
         df = pd.read_csv('dashboard/moddata.csv')
         df_gender = df.loc[df['specialty'] == spec] # filter weekday data
         months = df['month'].unique()
-        data = {}
-        da={}
-        for month in months:
-            month_data = df_gender.loc[df_gender['month'] == month]
-            male_count = month_data[month_data['gender'] == 'Male']['gender'].count()
-            female_count = month_data[month_data['gender'] == 'Female']['gender'].count()
-            # data[month] = {'Male': male_count, 'Female': female_count}
-        
+
         data = {}
         for gender in ['Male', 'Female']:
             data[gender] = {month: df_gender.loc[(df_gender['month'] == month) & (df_gender['gender'] == gender)]['gender'].count()
@@ -149,10 +159,46 @@ class AgeData(APIView):
         df_age_female = df.loc[(df['specialty']==spec) & (df['gender'] == 'Female')]
         male = pd.cut(df_age_male['age'], bins=bins, labels=labels).value_counts().to_dict()
         female=pd.cut(df_age_female['age'], bins=bins, labels=labels).value_counts().to_dict()
-        
+
         data={
             'male':male,
             'female':female,
         }
 
         return Response(data)
+
+class DiseaseData(APIView):
+    def get(self,request):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+        spec=Specialization.objects.get(spec_name=s).spec_name
+        df = pd.read_csv('dashboard/moddata.csv')
+        cardiology_df = df[df['specialty'] == spec]
+        grouped = cardiology_df.groupby(['month', 'disease'])['disease'].count()
+        result = {}
+        diseases=cardiology_df['disease'].unique()
+        for month, disease in grouped.index:
+            count = grouped.loc[(month, disease)]
+            if month not in result:
+                result[month] = {}
+            result[month][disease] = count
+        
+        diseases = list(result[next(iter(result))].keys())
+        new_result = {}
+        for disease in diseases:
+            new_result[disease] = {}
+            for month in result:
+                new_result[disease][month] = result[month][disease] if disease in result[month] else 0
+        
+
+
+        data={
+            'disease':diseases,
+            'month':new_result.keys(),
+            'result':new_result.values(),
+        }
+
+        return Response(data)
+    
+class RiskAnalysisData(APIView):
+    def get(self, request):
+        pass

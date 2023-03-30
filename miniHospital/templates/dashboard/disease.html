@@ -1,0 +1,106 @@
+{% extends 'dashboard/dashbase.html' %}
+
+
+{% block dash %}
+
+
+<center class="row">
+    <h1 style="color: #05081d;">{{spec}} Department Vizualization playground</h1>
+</center>
+<hr />
+<div class="row">
+    <div>
+        <canvas id="groupedchart"></canvas>
+    </div>
+</div>
+<hr />
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/disease';
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+            groupedchart(data, 'groupedchart');
+            // groupedchart(data, 'groupedline', 'line');
+            console.log("drawing");
+        },
+        error: function (error_data) {
+            console.log(error_data);
+        }
+    })
+
+
+
+
+    function groupedchart(data, id) {
+        var ctx = document.getElementById(id).getContext("2d");
+        var datasets = []; // Define the datasets array here
+        // alert(data.month.length);
+
+        for (var i = 0; i < data.disease.length; i++) {
+            // alert(Object.keys(data.result[i]));
+            datasets.push({
+                label: data.month[i],
+                backgroundColor: getRandomColor(),
+                data: Object.values(data.result[i])
+            });
+        }
+        var chartData = {
+            labels: Object.keys(data.result[0]),
+            datasets: datasets
+        };
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Appointment Count',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Months',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+</body>
+
+
+{% endblock dash %}
