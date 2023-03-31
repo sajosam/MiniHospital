@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import leaveModel,datanalysis
 from import_export.admin import ImportExportModelAdmin
-
+from .models import demo
 
 # Register your models here.
 
@@ -29,3 +29,39 @@ admin.site.register(datanalysis, admindataanalysis)
 
 
 admin.site.register(leaveModel, adminLeaveModel)
+
+
+################################################################
+################################################################
+################################################################
+################################################################
+################################################################
+################################################################
+################################################################
+# admin panel validation field validation
+
+from django import forms
+from django.contrib import admin
+from .models import demo
+
+class MyModelAdminForm(forms.ModelForm):
+    class Meta:
+        # models 
+        model = demo
+        fields = '__all__'
+
+    def clean_name(self):
+        cleaned_data = super().clean() #permanent
+        name = cleaned_data.get('name')#field data
+        if name == 'foo': #condition
+            raise forms.ValidationError('name cannot be foo')
+        # name is not number
+        if name.isnumeric():
+            raise forms.ValidationError('name is not number')
+        
+        return cleaned_data
+
+class MyModelAdmin(admin.ModelAdmin):
+    form = MyModelAdminForm
+
+admin.site.register(demo, MyModelAdmin)

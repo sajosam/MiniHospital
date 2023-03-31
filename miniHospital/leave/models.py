@@ -34,3 +34,11 @@ class datanalysis(models.Model):
     day_type= models.CharField(max_length=20)
     specialty= models.CharField(max_length=20)
     disease= models.CharField(max_length=100)
+
+
+class demo(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+
+    def __str__(self):
+        return self.name
