@@ -100,9 +100,19 @@ class PredictionData(APIView):
         forecast_dict_2023 = dict(zip(forecast_counts['month'].iloc[:12], forecast_counts['forecast'].iloc[:12].astype(int)))
         forecast_dict_2024=dict(zip(forecast_counts['month'].iloc[12:], forecast_counts['forecast'].iloc[12:].astype(int)))
 
+        df1 = df.loc[df['specialty'] == spec].groupby('month')['month'].count()
+
+        # create a dictionary to map month names to month numbers
+        month_dict = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+                      'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+
+        # sort the labels by month number
+        sorted_labels = sorted(df1.index.tolist(), key=lambda x: month_dict[x])
+
         data={
             "chart2023":forecast_dict_2023,
             "chart2024":forecast_dict_2024,
+            "chartdata": df1.reindex(sorted_labels).values.tolist(),
 
 
         }
@@ -133,12 +143,20 @@ class ChartData(APIView):
         # part 1
         df1 = df.loc[df['specialty'] == spec].groupby('month')['month'].count()
 
-        data={
-            "labels":df1.index.tolist(),
-            "chartdata":df1.values.tolist(),
+        # create a dictionary to map month names to month numbers
+        month_dict = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+                      'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
 
+        # sort the labels by month number
+        sorted_labels = sorted(df1.index.tolist(), key=lambda x: month_dict[x])
+
+        data={
+            "labels": sorted_labels,
+            "chartdata": df1.reindex(sorted_labels).values.tolist(),
         }
+        print(data)
         return Response(data)
+
 
 
 class WeekdayData(APIView):
