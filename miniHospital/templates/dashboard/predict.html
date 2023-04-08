@@ -45,20 +45,25 @@
             'October', 'November', 'December'
         ];
 
+        var datasets2022 = {
+            label: '2022',
+            borderColor: '#b91d47',
+            borderWidth: 2,
+            data: Object.values(data.chartdata),
+            borderDash: []
+        };
+
         if (id == '2023') {
             var datasets = {
                 labels: Object.keys(data.chart2023),
                 datasets: [{
                         label: "2023",
                         borderColor: "#2b5797",
-                        data: Object.values(data.chart2023)
+                        borderWidth: 1,
+                        data: Object.values(data.chart2023),
+                        borderDash: [5, 5]
                     },
-                    {
-                        label: '2022',
-                        borderColor: '#f4d03f',
-                        data: Object.values(data.chartdata)
-                    }
-
+                    datasets2022
                 ]
             };
         } else {
@@ -67,14 +72,11 @@
                 datasets: [{
                         label: "2024",
                         borderColor: "#2b5797",
-                        data: Object.values(data.chart2024)
+                        borderWidth: 1,
+                        data: Object.values(data.chart2024),
+                        borderDash: [5, 5]
                     },
-                    {
-                        label: '2022',
-                        borderColor: '#b91d47',
-                        data: Object.values(data.chartdata)
-                    }
-
+                    datasets2022
                 ]
             };
         }
