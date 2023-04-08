@@ -17,4 +17,6 @@ urlpatterns = [
     path('api/disease', views.DiseaseData.as_view()),
     path('riskanalysis', views.RiskAnalysisView.as_view(),name='riskanalysis'),
     path('api/riskanalysis', views.RiskAnalysisData.as_view()),
+    path('prediction', views.PredictionView.as_view(),name='prediction'),
+    path('api/prediction', views.PredictionData.as_view()),
 ]

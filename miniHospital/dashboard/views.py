@@ -58,6 +58,56 @@ class DiseaseView(View):
         }
         return render(request, 'dashboard/disease.html',context)
 
+class PredictionView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/predict.html',context)
+    
+    
+import pandas as pd
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+class PredictionData(APIView):
+    def get(self, request, format=None):
+        df=pd.read_csv('dashboard/moddata.csv')
+        s=Doctor.objects.get(email=request.user.id).spec_name
+        spec=Specialization.objects.get(spec_name=s).spec_name
+
+        df_spec=df[df['specialty'] == spec]
+        # convert the date column to a pandas datetime object
+        df_spec['date'] = pd.to_datetime(df_spec['date'])
+
+        # group the data by month and sum the values in each group
+        count_by_month = df_spec.groupby(pd.Grouper(key='date', freq='M')).size()
+
+        # fit a SARIMAX model to the data
+        model = SARIMAX(count_by_month, order=(1, 1, 1), seasonal_order=(1, 0, 0, 12))
+        results = model.fit()
+
+        # make predictions for the next 2 years
+        forecast = results.forecast(steps=24)
+
+        # convert the forecasted series to a DataFrame, reset the index to a column
+        forecast_df = forecast.to_frame(name='forecast').reset_index()
+
+        # extract the month and its corresponding appointment count
+        forecast_df['month'] = forecast_df['index'].dt.strftime('%B')
+        forecast_counts = forecast_df[['month', 'forecast']]
+        forecast_dict_2023 = dict(zip(forecast_counts['month'].iloc[:12], forecast_counts['forecast'].iloc[:12].astype(int)))
+        forecast_dict_2024=dict(zip(forecast_counts['month'].iloc[12:], forecast_counts['forecast'].iloc[12:].astype(int)))
+
+        data={
+            "chart2023":forecast_dict_2023,
+            "chart2024":forecast_dict_2024,
+
+
+        }
+        return Response(data)
+
 class RiskAnalysisView(View):
     def get(self, request, *args, **kwargs):
         s=Doctor.objects.get(email=request.user.id).spec_name
