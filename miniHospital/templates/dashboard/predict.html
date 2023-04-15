@@ -1,0 +1,129 @@
+{% extends 'dashboard/dashbase.html' %}
+
+
+{% block dash %}
+
+
+<center class="row">
+    <h1 style="color: #05081d;">{{spec}} Department Vizualization playground</h1>
+</center>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <canvas id="2023"></canvas>
+    </div>
+    <div class="col-md-6">
+        <canvas id="2024"></canvas>
+    </div>
+</div>
+<hr />
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+    var endpoint = 'http://127.0.0.1:8000/dashboard/api/prediction';
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+            drawWeekend(data, '2023');
+            drawWeekend(data, '2024');
+            // console.log("drawing");
+        },
+        error: function (error_data) {
+            console.log(error_data);
+        }
+    })
+
+
+
+    function drawWeekend(data, id) {
+        const xValues = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+            'October', 'November', 'December'
+        ];
+
+        var datasets2022 = {
+            label: '2022',
+            borderColor: '#b91d47',
+            borderWidth: 2,
+            data: Object.values(data.month),
+            borderDash: []
+        };
+
+        if (id == '2023') {
+            var datasets = {
+                labels: Object.keys(data.count2023),
+                datasets: [{
+                        label: "2023",
+                        borderColor: "#2b5797",
+                        borderWidth: 1,
+                        data: Object.values(data.count2023),
+                        borderDash: [5, 5]
+                    },
+                    datasets2022
+                ]
+            };
+        } else {
+            var datasets = {
+                labels: Object.keys(data.count2024),
+                datasets: [{
+                        label: "2024",
+                        borderColor: "#2b5797",
+                        borderWidth: 1,
+                        data: Object.values(data.count2024),
+                        borderDash: [5, 5]
+                    },
+                    datasets2022
+                ]
+            };
+        }
+
+        var ctx = document.getElementById(id).getContext('2d');
+        new Chart(ctx, {
+            type: "line",
+            data: datasets,
+            options: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: 'black'
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                            beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Appointment Count',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'black',
+                            fontSize: 12,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Months',
+                            fontColor: 'black',
+                            fontSize: 12,
+                        }
+                    }]
+                }
+            }
+        });
+    }
+</script>
+</body>
+
+
+{% endblock dash %}

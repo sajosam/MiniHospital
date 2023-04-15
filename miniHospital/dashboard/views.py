@@ -58,12 +58,74 @@ class DiseaseView(View):
         }
         return render(request, 'dashboard/disease.html',context)
 
+class PredictionView(View):
+    def get(self, request, *args, **kwargs):
+        s=Doctor.objects.get(email=request.user.id).spec_name
+
+        context={
+            'spec':s
+        }
+        return render(request, 'dashboard/predict.html',context)
+    
+    
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+
+class PredictionData(APIView):
+    def get(self, request, format=None):
+        # Load and preprocess the data
+        df = pd.read_csv('dashboard/moddata.csv')
+        s = Doctor.objects.get(email=request.user.id).spec_name
+        spec = Specialization.objects.get(spec_name=s).spec_name
+        df = df[df['specialty'] == spec]
+        df['date'] = pd.to_datetime(df['date'])
+        df['year'] = df['date'].dt.year
+        df['month'] = df['date'].dt.month
+
+        df_2022 = df[df['year'] == 2022]
+
+        # group the data by month and sum the values in each group
+        count_by_month = df_2022.groupby(pd.Grouper(key='date', freq='M')).size()
+        # transform count_by_month into dictionary and key is month and value is count
+        count_by_month = count_by_month.to_dict()
+    
+        print("2022",count_by_month)
+
+        df = df[(df['year'] >= 2020) & (df['year'] <= 2022)]
+        grouped = df.groupby(['year', 'month'])['id'].count().reset_index()
+
+        # Train a machine learning model
+        X_train = grouped[['year', 'month']]
+        y_train = grouped['id']
+        model = RandomForestRegressor(n_estimators=100)
+        model.fit(X_train, y_train)
+
+        # Make predictions
+        X_test = pd.DataFrame({'year': [2023]*12 + [2024]*12, 'month': list(range(1,13))*2})
+        y_pred = model.predict(X_test)
+
+        # Prepare the response data
+        df = grouped.groupby('month').sum().reset_index()
+        df['month'] = pd.to_datetime(df['month'], format='%m').dt.month_name()
+        df = df.sort_values('month')
+        sorted_labels = df['month']
+        data = {
+            "count2023": list(y_pred[:12]),
+            "count2024": list(y_pred[12:]),
+            "month": sorted_labels.tolist(),
+            "count2022": list(count_by_month.values())
+        }
+
+        print(data)
+        return Response(data)
+
+
 class RiskAnalysisView(View):
     def get(self, request, *args, **kwargs):
         s=Doctor.objects.get(email=request.user.id).spec_name
         df = pd.read_csv('dashboard/moddata.csv')
-        df_spec=df[df['specialty'] == str(s)]
-        # get disease unique count
+        df_spec = df[(df['specialty'] == str(s)) & (df['year'] == 2022)]
+
         disease_count = df_spec['disease'].unique()
         print(disease_count)
 
@@ -81,14 +143,22 @@ class ChartData(APIView):
         s=Doctor.objects.get(email=request.user.id).spec_name
         spec=Specialization.objects.get(spec_name=s).spec_name
         # part 1
-        df1 = df.loc[df['specialty'] == spec].groupby('month')['month'].count()
+        df1 = df.loc[(df['specialty'] == spec) & (df['year']==2022)].groupby('month')['month'].count()
+
+        # create a dictionary to map month names to month numbers
+        month_dict = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+                      'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+
+        # sort the labels by month number
+        sorted_labels = sorted(df1.index.tolist(), key=lambda x: month_dict[x])
 
         data={
-            "labels":df1.index.tolist(),
-            "chartdata":df1.values.tolist(),
-
+            "labels": sorted_labels,
+            "chartdata": df1.reindex(sorted_labels).values.tolist(),
         }
+        print(data)
         return Response(data)
+
 
 
 class WeekdayData(APIView):
@@ -96,7 +166,7 @@ class WeekdayData(APIView):
         df = pd.read_csv('dashboard/moddata.csv')
         s=Doctor.objects.get(email=request.user.id).spec_name
         spec=Specialization.objects.get(spec_name=s).spec_name
-        df_weekday = df.loc[df['day_type'] == 'Weekday'] # filter weekday data
+        df_weekday = df.loc[(df['day_type'] == 'Weekday') & (df['year']==2022)] # filter weekday data
         months = df['month'].unique()
         data = {}
         da={}
@@ -139,7 +209,7 @@ class GenderData(APIView):
         s=Doctor.objects.get(email=request.user.id).spec_name
         spec=Specialization.objects.get(spec_name=s).spec_name
         df = pd.read_csv('dashboard/moddata.csv')
-        df_gender = df.loc[df['specialty'] == spec] # filter weekday data
+        df_gender = df.loc[(df['specialty'] == spec) & (df['year']==2022)] # filter weekday data
         months = df['month'].unique()
 
         data = {}
@@ -162,8 +232,8 @@ class AgeData(APIView):
         df = pd.read_csv('dashboard/moddata.csv')
         bins = [0, 18, 25, 35, 45, 55, 65, np.inf]
         labels = ['0-18', '18-25', '25-35', '35-45', '45-55', '55-65', '65+']
-        df_age_male = df.loc[(df['specialty'] == spec) & (df['gender'] == 'Male')]
-        df_age_female = df.loc[(df['specialty']==spec) & (df['gender'] == 'Female')]
+        df_age_male = df.loc[(df['specialty'] == spec) & (df['gender'] == 'Male') & (df['year']==2022)]
+        df_age_female = df.loc[(df['specialty']==spec) & (df['gender'] == 'Female') & (df['year']==2022)]
         male = pd.cut(df_age_male['age'], bins=bins, labels=labels).value_counts().to_dict()
         female=pd.cut(df_age_female['age'], bins=bins, labels=labels).value_counts().to_dict()
 
@@ -179,7 +249,7 @@ class DiseaseData(APIView):
         s = Doctor.objects.get(email=request.user.id).spec_name
         spec = Specialization.objects.get(spec_name=s).spec_name
         df = pd.read_csv('dashboard/moddata.csv')
-        cardiology_df = df[df['specialty'] == spec]
+        cardiology_df = df[(df['specialty'] == spec) & (df['year'] == 2022)]
         grouped = cardiology_df.groupby(['month', 'disease'])['disease'].count()
         print("groped", grouped)
 
@@ -222,7 +292,7 @@ class RiskAnalysisData(APIView):
         s = Doctor.objects.get(email=request.user.id).spec_name
         spec = Specialization.objects.get(spec_name=s).spec_name
         df = pd.read_csv('dashboard/moddata.csv')
-        cardiology_df = df[df['specialty'] == spec]
+        cardiology_df = df[(df['specialty'] == spec) & (df['year'] == 2022)]
 
         diseases = cardiology_df ['disease'].unique()
         # months = cardiology_df ['month'].unique()
