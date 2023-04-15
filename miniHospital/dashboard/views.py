@@ -84,11 +84,9 @@ class PredictionData(APIView):
 
         df_2022 = df[df['year'] == 2022]
 
-        # group the data by month and sum the values in each group
         count_by_month = df_2022.groupby(pd.Grouper(key='date', freq='M')).size()
-        # transform count_by_month into dictionary and key is month and value is count
         count_by_month = count_by_month.to_dict()
-    
+
         print("2022",count_by_month)
 
         df = df[(df['year'] >= 2020) & (df['year'] <= 2022)]

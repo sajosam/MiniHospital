@@ -19,4 +19,9 @@ urlpatterns = [
     path('api/riskanalysis', views.RiskAnalysisData.as_view()),
     path('prediction', views.PredictionView.as_view(),name='prediction'),
     path('api/prediction', views.PredictionData.as_view()),
+
+    path('api/age', views.AgeData.as_view()),
+    path('age', views.AgeView.as_view(),name='age'),
+    path('disease', views.DiseaseView.as_view(),name='disease'),
+    path('api/disease', views.DiseaseData.as_view()),
 ]
