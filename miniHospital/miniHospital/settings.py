@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import cloudinary.api
+import cloudinary.uploader
+import cloudinary
 from pathlib import Path
 import os
 from decouple import config
@@ -25,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -52,8 +55,8 @@ INSTALLED_APPS = [
     'dashboard',
     'rest_framework',
     'crispy_forms'
-    
-    
+
+
 ]
 
 MIDDLEWARE = [
@@ -76,7 +79,7 @@ ROOT_URLCONF = 'miniHospital.urls'
 
 PAYPAL_TEST = True
 
-SECURE_CROSS_ORIGIN_OPENER_POLICY='same-orgin-allow-popups'
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-orgin-allow-popups'
 
 RAZORPAY_API_KEY = 'rzp_test_19au902WXB3fFT'
 RAZORPAY_API_SECRET_KEY = 'oXzTgMla8l4NduIz8hIWkQLp'
@@ -112,7 +115,7 @@ WSGI_APPLICATION = 'miniHospital.wsgi.application'
 
 DATABASES = {
 
-    'default': {    
+    'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
@@ -190,14 +193,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'miniHospital/static/'),]
 
 
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
-cloudinary.config( 
-  cloud_name = "mini-hospital", 
-  api_key = "187234116793571", 
-  api_secret = "g6WHXy2HuZImrg7e3Nz2fpZfqFY" 
+cloudinary.config(
+    cloud_name="mini-hospital",
+    api_key="187234116793571",
+    api_secret="g6WHXy2HuZImrg7e3Nz2fpZfqFY"
 )
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')
@@ -205,13 +204,12 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
-SERVER_EMAIL =  config('SERVER_EMAIL')
+SERVER_EMAIL = config('SERVER_EMAIL')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 # MAILGUN_ACCESS_KEY = config('MAILGUN_ACCESS_KEY')
 
-ACCOUNT_SID=config('ACCOUNT_SID')
-AUTH_TOKEN=config('AUTH_TOKEN')
-MESSAGING_SERVICE_SID=config('MESSAGING_SERVICE_SID')
-TWILIO_WHATSAPP_NUMBER=config('TWILIO_WHATSAPP_NUMBER')
-
+ACCOUNT_SID = config('ACCOUNT_SID')
+AUTH_TOKEN = config('AUTH_TOKEN')
+MESSAGING_SERVICE_SID = config('MESSAGING_SERVICE_SID')
+TWILIO_WHATSAPP_NUMBER = config('TWILIO_WHATSAPP_NUMBER')

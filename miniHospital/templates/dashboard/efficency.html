@@ -1,0 +1,140 @@
+{% extends 'dashboard/dashbase.html' %}
+
+{% load static %}
+
+{% block dash %}
+
+
+<section class="w3l-hotair-form">
+    <!-- <h1>Report Login Form</h1> -->
+    <div class="container">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+
+                    {% if ensemble_pred %}
+                    <h2>Efficiency Result</h2><br>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Condition</th>
+                            <td>{{condition}}</td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>{{type}}</td>
+                        </tr>
+                        <tr>
+                            <th>Form</th>
+                            <td>{{form}}</td>
+                        </tr>
+                        <tr>
+                            <th>Indication</th>
+                            <td>{{indication}}</td>
+                        </tr>
+                        <tr>
+                            <th>Drug</th>
+                            <td>{{drug}}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{price}}</td>
+                        </tr>
+                        <tr>
+                            <th>Ease of Use</th>
+                            <td>{{easeofuse}}</td>
+                        </tr>
+                        <tr>
+                            <th>Effectiveness (Result)</th>
+                            <td>{{ensemble_pred}}</td>
+                        </tr>
+                        <tr>
+                            <th>Overall Satisfaction</th>
+                            <td>{{satisfaction}}</td>
+                        </tr>
+                        <tr>
+                            <th>Reviews</th>
+                            <td>{{reviews}}</td>
+                    </table>
+                    <button class="btn"><a href="{% url 'effectiveness' %}">Make Another Prediction</a></button>
+
+                    {% else %}
+
+                    <h2>Efficiency Checker</h2>
+                    <form action="{% url 'effectiveness' %}" method="post" id="logform" name="logform">
+                        {% include 'include/alerts.html' %}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <select class="form-control" id="condition" name="condition">
+                                <option value="0">Select Condition</option>
+                                {% for c in condition %}
+                                <option value="{{c}}">{{c}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="type" name="type">
+                                <option value="0">Select Type</option>
+                                {% for c in type %}
+                                <option value="{{c}}">{{c}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="form" name="form">
+                                <option value="0">Select Form</option>
+                                {% for c in form %}
+                                <option value="{{c}}">{{c}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="indication" name="indication">
+                                <option value="0">Select Indication</option>
+                                {% for c in indication %}
+                                <option value="{{c}}">{{c}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="drug" name="drug">
+                                <option value="0">Select Drug</option>
+                                {% for c in drug %}
+                                <option value="{{c}}">{{c}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="price" id="price" placeholder="Price">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="easeofuse" id="easeofuse" placeholder="EaseOfUse">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="reviews" id="reviews" placeholder="Reviews">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="satisfaction" id="satisfaction" placeholder="Satisfaction">
+                        </div>
+
+                        <button class="btn" type="submit">Check</button>
+                    </form>
+
+                    {% endif %}
+
+
+
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="{% static 'img/banner/d1.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock dash %}
