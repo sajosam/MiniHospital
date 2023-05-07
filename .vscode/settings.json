@@ -2,5 +2,7 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "appService.defaultWebAppToDeploy": "/subscriptions/a636e857-7d36-4bae-bc32-df6dae91e4fb/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/vmedicare",
+  "appService.deploySubpath": "."
 }
