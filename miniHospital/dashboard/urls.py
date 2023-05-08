@@ -4,7 +4,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    
+
     path('', views.HomeView.as_view(), name='visualdash'),
     path('api', views.ChartData.as_view()),
     path('weekday', views.WeekdayView.as_view(), name='weekday'),
@@ -19,7 +19,7 @@ urlpatterns = [
     path('api/riskanalysis', views.RiskAnalysisData.as_view()),
     path('prediction', views.PredictionView.as_view(), name='prediction'),
     path('api/prediction', views.PredictionData.as_view()),
-    path('effectiveness', views.effectiveness, name="effectiveness")
-    path('prediction', views.PredictionView.as_view(),name='prediction'),
+    path('effectiveness', views.effectiveness, name="effectiveness"),
+    path('prediction', views.PredictionView.as_view(), name='prediction'),
     path('api/prediction', views.PredictionData.as_view()),
 ]
