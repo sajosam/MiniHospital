@@ -143,9 +143,9 @@ DATABASES = {
 
         'USER': 'sajosam@vmedicare',
 
-        'PASSWORD': 'Admin@000',
+        'PASSWORD': '',
 
-        'HOST': 'vmedicare.postgres.database.azure.com',
+        'HOST': '',
 
         'PORT': '5432',
 
