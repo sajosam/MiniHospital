@@ -113,26 +113,6 @@ WSGI_APPLICATION = 'miniHospital.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-#         'NAME': 'projectHospital',
-
-#         'USER': 'postgres',
-
-#         'PASSWORD': 'root',
-
-#         'HOST': 'localhost',
-
-#         'PORT': '5433',
-
-#     }
-
-# }
-
 DATABASES = {
 
     'default': {
@@ -141,28 +121,48 @@ DATABASES = {
 
         'NAME': 'projectHospital',
 
-        'USER': '',
+        'USER': 'postgres',
 
-        'PASSWORD': '',
+        'PASSWORD': 'root',
 
-        'HOST': '',
+        'HOST': 'localhost',
 
-        'PORT': '5432',
-
-        'OPTIONS': {
-            "sslmode": "require",
-        },
+        'PORT': '5433',
 
     }
 
 }
 
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'projectHospital',
+
+#         'USER': '',
+
+#         'PASSWORD': '',
+
+#         'HOST': '',
+
+#         'PORT': '5432',
+
+#         'OPTIONS': {
+#             "sslmode": "require",
+#         },
+
+#     }
+
+# }
+
 
 AUTH_USER_MODEL = 'accounts.Account'
 
 
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -214,11 +214,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # ]
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'miniHospital/static/'),]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'miniHospital/static/'),]
 
-STATIC_ROOT = BASE_DIR/'staticfiles'
+# STATIC_ROOT = BASE_DIR/'staticfiles'
 
 
 cloudinary.config(
