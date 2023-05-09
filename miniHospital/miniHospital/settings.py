@@ -141,11 +141,11 @@ DATABASES = {
 
         'NAME': 'projectHospital',
 
-        'USER': 'sajosam@vmedicare',
+        'USER': '',
 
-        'PASSWORD': 'Admin@000',
+        'PASSWORD': '',
 
-        'HOST': 'vmedicare.postgres.database.azure.com',
+        'HOST': '',
 
         'PORT': '5432',
 
