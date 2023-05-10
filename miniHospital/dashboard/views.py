@@ -1,4 +1,3 @@
-from statsmodels.tsa.statespace.sarimax import SARIMAX
 import pickle
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -6,15 +5,12 @@ from django.shortcuts import render
 
 # Create your views here.
 
-
 from django.shortcuts import render
 from django.views.generic import View
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import pandas as pd
-import calendar
-import matplotlib.pyplot as plt
 from doctor.models import Doctor, Specialization
 
 

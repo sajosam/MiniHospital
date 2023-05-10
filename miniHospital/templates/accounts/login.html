@@ -27,16 +27,14 @@
 							placeholder="User Password" onkeyup="passwordValidate()">
 						<span class="error-msg" id="log-passwd"> </span><br>
 
-						<!-- <div class="form-group">
-							<div class="grecaptche">{{ form.captcha }}</div>
-						</div> -->
+						
 
-						<div class="g-recaptcha" data-sitekey="6LfBwbMiAAAAAAbXL0saBDXbcJcKmg673cqVGLiY"></div>
-						<div id="g-recaptcha-error"></div>
+						<!-- <div class="g-recaptcha" data-sitekey="6LfBwbMiAAAAAAbXL0saBDXbcJcKmg673cqVGLiY"></div>
+						<div id="g-recaptcha-error"></div> -->
 
 
 
-						<button class="btn" type="submit">Log In</button>
+						<button id="btn" class="btn" type="submit">Log In</button>
 					</form>
 
 					<p class="account">Don't have an account? <a href="{% url 'signup' %}"><u>Register</u></a></p>

@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['vmedicare.azurewebsites.net', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -61,7 +61,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -113,26 +113,6 @@ WSGI_APPLICATION = 'miniHospital.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'projectHospital',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'root',
-
-        'HOST': 'localhost',
-
-        'PORT': '5433',
-
-    }
-
-}
-
 # DATABASES = {
 
 #     'default': {
@@ -141,21 +121,41 @@ DATABASES = {
 
 #         'NAME': 'projectHospital',
 
-#         'USER': '',
+#         'USER': 'postgres',
 
-#         'PASSWORD': '',
+#         'PASSWORD': 'root',
 
-#         'HOST': '',
+#         'HOST': 'localhost',
 
-#         'PORT': '5432',
-
-#         'OPTIONS': {
-#             "sslmode": "require",
-#         },
+#         'PORT': '5433',
 
 #     }
 
 # }
+
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'projectHospital',
+
+        'USER': 'sajosam@vmedicare',
+
+        'PASSWORD': 'Admin@000',
+
+        'HOST': 'vmedicare.postgres.database.azure.com',
+
+        'PORT': '5432',
+
+        'OPTIONS': {
+            "sslmode": "require",
+        },
+
+    }
+
+}
 
 
 AUTH_USER_MODEL = 'accounts.Account'
