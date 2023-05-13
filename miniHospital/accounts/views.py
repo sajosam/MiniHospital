@@ -25,11 +25,12 @@ def login(request):
         pswd = request.POST.get('password')
         request.session['email'] = email
         request.session['password'] = pswd
+        request.session['demo'] = "demo"
+        request.session.set_expiry(3600)
         print(request.session['email'], request.session['password'])
         user = authenticate(request, email=email, password=pswd)
-        auth.login(request, user)
-        # user=Account.objects.filter(email=email,password=pswd)
         if user and user.is_active:
+            auth.login(request, user)
             if user.is_admin:
                 return redirect('http://127.0.0.1:8000/admin/dashboard/')
             if user.is_doctor:
@@ -44,25 +45,13 @@ def login(request):
             # id = Account.objects.only('id').get(email=email)
 
         # if user:
-            # auth.logout(request)
-            # otp=random.randint(100000,999999)
-            # profile=Otp.objects.create(user_id=id,otp=otp,phone=phone)
-            # messagehadler=MessageHandler(phone,otp).send_otp_via_message()
-            # print(messagehadler)
-            # print(profile)
-            # print(profile.uid)
-            # print(profile.id)
-            # red=redirect('otp',uid=profile.uid)
-            # red.set_cookie("can_otp_enter",True,max_age=600)
-            # return red
-            # if user.is_admin:
-            #     return redirect('http://127.0.0.1:8000/admin/dashboard/')
-            # if user.is_doctor:
-            #     return redirect('doctorHome')
-            # elif user.is_lab:
-            #     return redirect('labhome')
-            # else:
-            #     return redirect('patientHome')
+        #     auth.logout(request)
+        #     otp = random.randint(100000, 999999)
+        #     profile = Otp.objects.create(user_id=id, otp=otp, phone=phone)
+        #     messagehadler = MessageHandler(phone, otp).send_otp_via_message()
+        #     red = redirect('otp', uid=profile.uid)
+        #     red.set_cookie("can_otp_enter", True, max_age=600)
+        #     return red
 
         else:
             messages.error(request, 'Invalid Credentials')
@@ -230,20 +219,23 @@ def otpVerify(request, uid):
         o = int(request.POST['otp'])
         if request.COOKIES.get('can_otp_enter') != None:
             if (profile.otp == o):
-                email = request.session['email']
-                password = request.session['password']
-
-                user = auth.authenticate(email=email, password=password)
-                auth.login(request, user)
-#             # save email in session
-                if user.is_admin:
-                    return redirect('http://127.0.0.1:8000/admin/dashboard/')
-                if user.is_doctor:
-                    return redirect('doctorHome')
-                elif user.is_lab:
-                    return redirect('labhome')
+                print(request.session.get('demo'))
+                if request.session.has_key('email') and request.session.has_key('password'):
+                    email = request.session['email']
+                    password = request.session['password']
+                    user = auth.authenticate(email=email, password=password)
+                    auth.login(request, user)
+                    if user.is_admin:
+                        return redirect('http://127.0.0.1:8000/admin/dashboard/')
+                    if user.is_doctor:
+                        return redirect('doctorHome')
+                    elif user.is_lab:
+                        return redirect('labhome')
+                    else:
+                        return redirect('patientHome')
                 else:
-                    return redirect('patientHome')
+                    messages.error(request, "session is not stored")
+                    return redirect('login')
 
             messages.error(request, "Invalid OTP")
             return redirect("otp", uid=uid)

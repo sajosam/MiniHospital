@@ -113,26 +113,6 @@ WSGI_APPLICATION = 'miniHospital.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-#         'NAME': 'projectHospital',
-
-#         'USER': 'postgres',
-
-#         'PASSWORD': 'root',
-
-#         'HOST': 'localhost',
-
-#         'PORT': '5433',
-
-#     }
-
-# }
-
 DATABASES = {
 
     'default': {
@@ -141,21 +121,43 @@ DATABASES = {
 
         'NAME': 'projectHospital',
 
-        'USER': 'sajosam@vmedicare',
+        'USER': 'postgres',
 
-        'PASSWORD': 'Admin@000',
+        'PASSWORD': 'root',
 
-        'HOST': 'vmedicare.postgres.database.azure.com',
+        'HOST': 'localhost',
 
-        'PORT': '5432',
-
-        'OPTIONS': {
-            "sslmode": "require",
-        },
+        'PORT': '5433',
 
     }
 
 }
+
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'projectHospital',
+
+#         'USER': 'sajosam@vmedicare',
+
+#         'PASSWORD': 'Admin@000',
+
+#         'HOST': 'vmedicare.postgres.database.azure.com',
+
+#         'PORT': '5432',
+
+#         'OPTIONS': {
+#             "sslmode": "require",
+#         },
+
+#     }
+
+# }
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 
 AUTH_USER_MODEL = 'accounts.Account'
