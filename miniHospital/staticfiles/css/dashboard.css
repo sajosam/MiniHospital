@@ -1,0 +1,88 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #049a9f;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #0d0222;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#doctor_main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+  /* height: 100vh; */
+  background: #3ee4ea;
+  height: 100em;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.dr-pro {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  margin: 2%;
+}
+
+.card-header h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 9px;
+}
+
+.dr-inner {
+  background-color: #f1f1f1;
+  color: #0d0222;
+  padding: 10px;
+}
+
+.dr-inner-margin {
+  margin: 20px;
+}
+
+.dr-img {
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+  margin-bottom: 30px;
+}
+
+.img-update {
+  height: 100px;
+}

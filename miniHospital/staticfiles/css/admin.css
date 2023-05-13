@@ -1,0 +1,23 @@
+#header {
+  background-color: #fff !important;
+  color: #0d0222 !important;
+  box-shadow: 0 0 4px 0 #0d0222;
+  border-radius: 0 0 40px 40px;
+}
+
+#content-related {
+  box-shadow: 0 0 4px 0 #0d0222;
+}
+
+#changelist {
+  background-color: #3fbbc0;
+}
+
+#changelist-filter h2 {
+  background-color: #0d0222;
+  color: #fff;
+}
+
+#changelist-filter ul:last-child {
+  background-color: #0d0222;
+}
