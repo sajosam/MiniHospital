@@ -1,23 +1,23 @@
-# Use the official Python base image with version 3.9
-FROM python:3.10.0a6-alpine3.13
+# Use the official Python base image with Alpine
+FROM python:3.10.10-alpine
 
 # Set the working directory inside the container
 WORKDIR /miniHospital
+
+# Install system dependencies
+RUN apk update && apk add --no-cache gcc musl-dev postgresql-dev
 
 # Copy the requirements.txt file to the container
 COPY requirements.txt .
 
 # Install the Python dependencies
-RUN pip3 install -r requirements.txt
-
-# Copy the entire project directory into the container
+RUN pip install --no-cache-dir -r requirements.txt
+`1
+# Copy the entire project directory to the container
 COPY . .
 
-# Expose the port on which your Django app will run (change it to the appropriate port)
-EXPOSE 8000
+# Set the environment variable for Python
+ENV PYTHONPATH=/miniHospital
 
-# Set the environment variables for Django
-ENV DJANGO_SETTINGS_MODULE=minihospital.settings
-
-# Run the Django development server when the container starts
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Set the startup command to run the Django application
+CMD ["python", "miniHospital/manage.py", "runserver", "0.0.0.0:8000"]
