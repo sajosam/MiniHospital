@@ -5,15 +5,12 @@ from django.shortcuts import render
 
 # Create your views here.
 
-
 from django.shortcuts import render
 from django.views.generic import View
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import pandas as pd
-import calendar
-import matplotlib.pyplot as plt
 from doctor.models import Doctor, Specialization
 
 
@@ -125,6 +122,68 @@ class PredictionData(APIView):
         return Response(data)
 
 
+class PredictionView(View):
+    def get(self, request, *args, **kwargs):
+        s = Doctor.objects.get(email=request.user.id).spec_name
+
+        context = {
+            'spec': s
+        }
+        return render(request, 'dashboard/predict.html', context)
+
+
+class PredictionData(APIView):
+    def get(self, request, format=None):
+        df = pd.read_csv('dashboard/moddata.csv')
+        s = Doctor.objects.get(email=request.user.id).spec_name
+        spec = Specialization.objects.get(spec_name=s).spec_name
+
+        df_spec = df[df['specialty'] == spec]
+        # convert the date column to a pandas datetime object
+        df_spec['date'] = pd.to_datetime(df_spec['date'])
+
+        # group the data by month and sum the values in each group
+        count_by_month = df_spec.groupby(
+            pd.Grouper(key='date', freq='M')).size()
+
+        # fit a SARIMAX model to the data
+        model = SARIMAX(count_by_month, order=(1, 1, 1),
+                        seasonal_order=(1, 0, 0, 12))
+        results = model.fit()
+
+        # make predictions for the next 2 years
+        forecast = results.forecast(steps=24)
+
+        # convert the forecasted series to a DataFrame, reset the index to a column
+        forecast_df = forecast.to_frame(name='forecast').reset_index()
+
+        # extract the month and its corresponding appointment count
+        forecast_df['month'] = forecast_df['index'].dt.strftime('%B')
+        forecast_counts = forecast_df[['month', 'forecast']]
+        forecast_dict_2023 = dict(zip(
+            forecast_counts['month'].iloc[:12], forecast_counts['forecast'].iloc[:12].astype(int)))
+        forecast_dict_2024 = dict(zip(
+            forecast_counts['month'].iloc[12:], forecast_counts['forecast'].iloc[12:].astype(int)))
+
+        df1 = df.loc[df['specialty'] == spec].groupby('month')['month'].count()
+
+        # create a dictionary to map month names to month numbers
+        month_dict = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+                      'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+
+        # sort the labels by month number
+        sorted_labels = sorted(df1.index.tolist(), key=lambda x: month_dict[x])
+
+        data = {
+            "chart2023": forecast_dict_2023,
+            "chart2024": forecast_dict_2024,
+            "chartdata": df1.reindex(sorted_labels).values.tolist(),
+
+
+        }
+        return Response(data)
+
+
 class RiskAnalysisView(View):
     def get(self, request, *args, **kwargs):
         s = Doctor.objects.get(email=request.user.id).spec_name
@@ -151,6 +210,14 @@ class ChartData(APIView):
         df1 = df.loc[(df['specialty'] == spec) & (
             df['year'] == 2022)].groupby('month')['month'].count()
 
+        # create a dictionary to map month names to month numbers
+        month_dict = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+                      'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+
+        # sort the labels by month number
+        sorted_labels = sorted(df1.index.tolist(), key=lambda x: month_dict[x])
+
+        data = {}
         # create a dictionary to map month names to month numbers
         month_dict = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
                       'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}

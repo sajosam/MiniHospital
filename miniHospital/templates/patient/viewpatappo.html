@@ -1,101 +1,109 @@
-{% extends 'patient/patientbase.html' %}
-
-
-{% block pt %}
-
-
+{% extends 'patient/patientbase.html' %} {% block pt %}
 
 <div id="customers">
-    {% include 'include/alerts.html' %}
+  {% include 'include/alerts.html' %}
 
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <!-- <th scope="col">User Name</th> -->
+        <th scope="col">Date</th>
+        <th scope="col">Doctor Name</th>
+        <!-- <th scope="col">Speciality</th> -->
+        <th scope="col">Time</th>
+        <th scope="col">Payment</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in lst %}
+      <tr>
+        <!-- <td>{{d.user_id.username}}</td> -->
+        <td>{{d.appo_date}}</td>
+        <td>{{d.doc_email.username}}</td>
+        <!-- <td>{{d.doc_email.spec.spec_name}}</td> -->
+        <td>{{d.appo_time}}</td>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <!-- <th scope="col">User Name</th> -->
-                <th scope="col">Date</th>
-                <th scope="col">Doctor Name</th>
-                <!-- <th scope="col">Speciality</th> -->
-                <th scope="col">Time</th>
-                <th scope="col">Payment</th>
-                <th scope="col">Status</th>
+        <td>
+          {% if d.appo_status == 'accepted' %} {% if d.payment == 'unpaid' %}
+          <a name="" id="" class="btn btn-warning" href="#" role="button"
+            >{{d.payment}}</a
+          >
+          <a
+            name=""
+            id=""
+            class="btn btn-info"
+            href="{% url 'payonline' d.id %}"
+            role="button"
+            >Pay Online</a
+          >
+          {% else %}
+          <a name="" id="" class="btn btn-success" href="#" role="button"
+            >{{d.payment}}</a
+          >
 
-            </tr>
-        </thead>
-        <tbody>
-            {% for d in lst %}
-            <tr>
-                <!-- <td>{{d.user_id.username}}</td> -->
-                <td>{{d.appo_date}}</td>
-                <td>{{d.doc_email.username}}</td>
-                <!-- <td>{{d.doc_email.spec.spec_name}}</td> -->
-                <td>{{d.appo_time}}</td>
+          {% endif %} {% elif d.appo_status == 'complete' %}
+          <a name="" id="" class="btn btn-success" href="#" role="button"
+            >{{d.payment}}</a
+          >
 
+          {% else %}
+          <a name="" id="" class="btn btn-danger" href="#" role="button"
+            >{{d.payment}}</a
+          >
 
-                <td>
+          {% endif %}
+        </td>
+        {% if d.appo_status == 'cancelled' %}
+        <td>
+          <a name="" id="" class="btn btn-danger" href="#" role="button"
+            >Cancelled</a
+          >
+        </td>
+        {% elif d.appo_status == "pending" %}
+        <td>
+          <a name="" id="" class="btn btn-warning" href="#" role="button"
+            >Pending</a
+          >
+        </td>
+        {% elif d.appo_status == "completed" %}
+        <td>
+          <a name="" id="" class="btn btn-success" href="#" role="button"
+            >Completed</a
+          >
+        </td>
+        {% else %} {% if d.appo_date <= tdy %}
+        <td>
+          <a name="" id="" class="btn btn-success" href="#" role="button"
+            >Completed</a
+          >
+        </td>
+        {% else %}
+        <td>
+          <a
+            name=""
+            id=""
+            class="btn btn-danger"
+            href="{% url 'cancelappointment' d.id %}"
+            onclick="return confirm('Are you sure you want to cancel this appointment?');"
+            role="button"
+            >Cancel</a
+          >
+          <a
+            name=""
+            id=""
+            class="btn btn-warning"
+            href="{% url 'reschedule' d.id %}"
+            role="button"
+            >Reschedule</a
+          >
+        </td>
+        {% endif %} {% endif %}
+      </tr>
 
-                    {% if d.appo_status == 'accepted' %}
-
-                    {% if d.payment == 'unpaid' %}
-                    <a name="" id="" class="btn btn-warning" href="#" role="button">{{d.payment}}</a>
-                    <a name="" id="" class="btn btn-info" href="{% url 'payonline' d.id %}" role="button">Pay
-                        Online</a>
-                    {% else %}
-                    <a name="" id="" class="btn btn-success" href="#" role="button">{{d.payment}}</a>
-
-                    {% endif %}
-                    {% elif d.appo_status == 'complete' %}
-                    <a name="" id="" class="btn btn-success" href="#" role="button">{{d.payment}}</a>
-
-                    {% else %}
-                    <a name="" id="" class="btn btn-danger" href="#" role="button">{{d.payment}}</a>
-
-                    {% endif %}
-
-                </td>
-
-
-
-
-                {% if d.appo_status == 'cancelled' %}
-                <td> <a name="" id="" class="btn btn-danger" href="#" role="button">Cancelled</a>
-                </td>
-
-                {% elif d.appo_status == "pending" %}
-
-                <td> <a name="" id="" class="btn btn-warning" href="#" role="button">Pending</a>
-                </td>
-
-                {% elif d.appo_status == "completed" %}
-
-                <td> <a name="" id="" class="btn btn-success" href="#" role="button">Completed</a>
-                </td>
-                {% else %}
-
-                {% if d.date <= tdy %}
-                <td> <a name="" id="" class="btn btn-success" href="#" role="button">Completed</a>
-                </td>
-                {% else %}
-                <td><a name="" id="" class="btn btn-danger" href="{% url 'cancelappointment' d.id %}"
-                        onclick="return confirm('Are you sure you want to cancel this appointment?');"
-                        role="button">Cancel</a>
-                    <a name="" id="" class="btn btn-warning" href="{% url 'reschedule' d.id %}"
-                        role="button">Reshedule</a>
-
-                </td>
-
-                {% endif %}
-                {% endif %}
-
-
-            </tr>
-
-            {% endfor %}
-
-        </tbody>
-    </table>
-
-
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
 {% endblock pt %}

@@ -50,17 +50,21 @@
             borderColor: '#b91d47',
             borderWidth: 2,
             data: Object.values(data.count2022),
+            data: Object.values(data.chartdata),
             borderDash: []
         };
 
         if (id == '2023') {
             var datasets = {
                 labels: Object.keys(data.count2023),
+                labels: Object.keys(data.chart2023),
                 datasets: [{
                         label: "2023",
                         borderColor: "#2b5797",
                         borderWidth: 1,
+
                         data: Object.values(data.count2023),
+                        data: Object.values(data.chart2023),
                         borderDash: [5, 5]
                     },
                     datasets2022
@@ -69,11 +73,13 @@
         } else {
             var datasets = {
                 labels: Object.keys(data.count2024),
+                labels: Object.keys(data.chart2024),
                 datasets: [{
                         label: "2024",
                         borderColor: "#2b5797",
                         borderWidth: 1,
                         data: Object.values(data.count2024),
+                        data: Object.values(data.chart2024),
                         borderDash: [5, 5]
                     },
                     datasets2022

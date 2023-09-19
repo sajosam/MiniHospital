@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['vmedicare.azurewebsites.net', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -61,7 +61,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -113,26 +113,6 @@ WSGI_APPLICATION = 'miniHospital.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-#         'NAME': 'projectHospital',
-
-#         'USER': 'postgres',
-
-#         'PASSWORD': 'root',
-
-#         'HOST': 'localhost',
-
-#         'PORT': '5433',
-
-#     }
-
-# }
-
 DATABASES = {
 
     'default': {
@@ -141,28 +121,50 @@ DATABASES = {
 
         'NAME': 'projectHospital',
 
-        'USER': 'sajosam@vmedicare',
+        'USER': 'postgres',
 
-        'PASSWORD': '',
+        'PASSWORD': 'root',
 
-        'HOST': '',
+        'HOST': 'localhost',
 
-        'PORT': '5432',
-
-        'OPTIONS': {
-            "sslmode": "require",
-        },
+        'PORT': '5433',
 
     }
 
 }
 
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'projectHospital',
+
+#         'USER': 'sajosam@vmedicare',
+
+#         'PASSWORD': 'Admin@000',
+
+#         'HOST': 'vmedicare.postgres.database.azure.com',
+
+#         'PORT': '5432',
+
+#         'OPTIONS': {
+#             "sslmode": "require",
+#         },
+
+#     }
+
+# }
+
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 
 AUTH_USER_MODEL = 'accounts.Account'
 
 
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -213,12 +215,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #     BASE_DIR / "static",
 # ]
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'miniHospital/static/'),]
 
-STATIC_ROOT = BASE_DIR/'staticfiles'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'miniHospital/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# STATIC_ROOT = BASE_DIR/'staticfiles'
 
 
 cloudinary.config(
